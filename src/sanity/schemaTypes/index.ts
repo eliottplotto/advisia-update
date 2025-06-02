@@ -1,6 +1,6 @@
 import blockContent from "./blockContent";
 import projet from "./projet";
 import service from "./service";
-import siteSettings from "./siteSettings";
+import settings from "./settings"
 
-export const schemaTypes = [siteSettings, service, projet, blockContent];
+export const schemaTypes = [settings, service, projet, blockContent];

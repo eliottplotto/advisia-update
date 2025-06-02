@@ -23,8 +23,18 @@ export default defineType({
     }),
     defineField({
       name: 'coverImage',
-      title: 'Image principale',
+      title: 'Image de couverture',
       type: 'image',
+    }),
+    defineField({
+      name: 'alt',
+      type: 'string',
+      title: 'Texte Alternatif',
+      validation: rule => rule.custom((value, context) => {
+        const parent = context?.parent as {asset?: {_ref?: string}}
+
+        return !value && parent?.asset?._ref ? 'Alt text is required when an image is present' : true
+      }),
     }),
     defineField({
       name: 'excerpt',

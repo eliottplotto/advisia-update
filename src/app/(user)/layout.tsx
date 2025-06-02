@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./../globals.css";
+import { ReactLenis } from "lenis/react";
 
 import Navbar from "@/components/navbar";
 
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`antialiased`}>
+        <ReactLenis root />
         <header>
           <Navbar />
         </header>
