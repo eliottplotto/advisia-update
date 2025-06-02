@@ -122,7 +122,7 @@ export default function Agency() {
             >
               5
             </p>
-            <p className="text-muted-foreground">Domaines d'expertises</p>
+            <p className="text-muted-foreground">Domaines d&apos;expertises</p>
           </div>
         </div>
       </div>
