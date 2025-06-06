@@ -27,9 +27,12 @@ export default async function LastProjectScreen() {
         </Button>
       </div>
 
-      <ul className="flex justify-between gap-2 ">
+      <ul className="flex flex-col md:flex-row justify-between gap-2">
         {projects.map((project) => (
-          <li key={project._id} className="group w-full">
+          <li
+            key={project._id}
+            className="group w-full bg-secondary max-xl:last-of-type:hidden"
+          >
             <Link
               href={`/projets/${project?.slug?.current}`}
               className="flex w-full"
@@ -43,12 +46,12 @@ export default async function LastProjectScreen() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-400"
                 ></Image>
               </div>
-              <div className="relative w-[75%] p-3 flex flex-col justify-between gap-2 grow overflow-hidden">
+              <div className="relative w-[75%] p-3 flex flex-col justify-between items-end gap-2 grow overflow-hidden">
                 <div className="absolute z-0 left-0 top-full group-hover:top-0 bg-blue-600 w-full h-full transition-top ease-(--my-ease) duration-400"></div>
                 <RiFolderFill className="relative z-1 group-hover:hidden" />
                 <RiFolderOpenFill className="hidden group-hover:block relative z-1" />
                 <div className="w-full relative z-1">
-                  <h3 className="text-3xl">{project.title}</h3>
+                  <h3 className="text-xl">{project.title}</h3>
                   <p className="text-muted-foreground group-hover:text-foreground">
                     IA & Automatisation, Site Web
                   </p>

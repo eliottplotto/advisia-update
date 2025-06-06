@@ -11,8 +11,8 @@ export default async function FeaturedProjectScreen() {
   const setting = await client.fetch(FEATURED_PROJECT_QUERY, {}, options);
 
   return (
-    <section className="container bg-primary pt-8">
-      <div className="flex flex-col justify-center items-center relative h-screen">
+    <section className="bg-primary">
+      <div className="flex flex-col justify-center items-center relative md:h-screen">
         <Image
           src={setting.featuredProject.coverImage.asset.url}
           alt={"placeholder"}
@@ -24,7 +24,7 @@ export default async function FeaturedProjectScreen() {
         <div className="absolute inset-0 w-full h-full bg-linear-[10deg,black,transparent_70%,transparent_100%] opacity-60"></div>
 
         <div className="relative z-1 flex justify-center">
-          <div>
+          <div className="container py-16">
             <div className="bg-background p-4 flex items-start gap-2 md:gap-3">
               <div className="w-2 h-2 md:w-4 md:h-4 bg-black"></div>
               <h3 className="text-2xl md:text-4xl lg:text-5xl">
@@ -32,7 +32,7 @@ export default async function FeaturedProjectScreen() {
               </h3>
             </div>
             <div className="aspect-video border-x-16 border-white"></div>
-            <div className="p-4 bg-background flex justify-between items-center gap-4">
+            <div className="p-4 bg-background flex flex-col justify-start items-end md:flex-row md:justify-between md:items-center gap-4">
               <p className="text-lg md:text-2xl lg:text-3xl max-w-2xl">
                 {setting.featuredProject.excerpt}
               </p>

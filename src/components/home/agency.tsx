@@ -18,49 +18,9 @@ export default function Agency() {
     () => {
       if (!containerRef.current) return;
 
-      // Animation pour le premier compteur (0 → 10)
+      // Animation pour le premier compteur
       gsap.fromTo(
         counter1Ref.current,
-        {
-          textContent: "0",
-        },
-        {
-          textContent: "6",
-          duration: 1.5,
-          ease: "power2.out",
-          snap: { textContent: 1 }, // Force les nombres entiers
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-
-      // Animation pour le deuxième compteur (0 → 15)
-      gsap.fromTo(
-        counter2Ref.current,
-        {
-          textContent: "0",
-        },
-        {
-          textContent: "98",
-          duration: 1.75,
-          ease: "power2.out",
-          snap: { textContent: 1 },
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-
-      // Animation pour le troisième compteur (0 → 20)
-      gsap.fromTo(
-        counter3Ref.current,
         {
           textContent: "0",
         },
@@ -77,13 +37,53 @@ export default function Agency() {
           },
         }
       );
+
+      // Animation pour le deuxième compteur
+      gsap.fromTo(
+        counter2Ref.current,
+        {
+          textContent: "0",
+        },
+        {
+          textContent: "6",
+          duration: 1.5,
+          ease: "power2.out",
+          snap: { textContent: 1 },
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      // Animation pour le troisième compteur
+      gsap.fromTo(
+        counter3Ref.current,
+        {
+          textContent: "0",
+        },
+        {
+          textContent: "98",
+          duration: 1.75,
+          ease: "power2.out",
+          snap: { textContent: 1 },
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
     },
     { scope: containerRef }
   );
 
   return (
-    <section className="dark bg-background text-foreground container py-16 md:h-[80dvh] grid grid-cols-12 gap-2">
-      <div className="col-span-6">
+    <section className="dark bg-background text-foreground container py-8 md:py-16 md:h-[80dvh] md:grid md:grid-cols-12 md:gap-2 flex flex-col gap-16">
+      <div className="col-span-4">
         <Image
           src="/equipe-advisia.jpg"
           alt="Image"
@@ -92,37 +92,40 @@ export default function Agency() {
           className="aspect-square object-cover"
         />
       </div>
-      <div className="col-span-6 flex flex-col justify-between h-full gap-32">
-        <h2 className="text-2xl md:text-4xl lg:text-5xl">
+      <div className="col-span-7 col-start-6 col-end-13 flex flex-col justify-between h-full gap-8 md:gap-32">
+        <h2 className="text-2xl md:text-4xl lg:text-5xl indent-16 md:indent-32">
           <span className="text-[#FF5A02]">Advisia</span> est une agence de
           croissance digitale qui allie IA, automatisations et optimisation web
           pour transformer vos objectifs en résultats mesurables.
         </h2>
-        <div ref={containerRef} className="pt-8 grid grid-cols-3 gap-2">
+        <div
+          ref={containerRef}
+          className="pt-8 grid grid-cols-2 md:grid-cols-3 gap-4"
+        >
           <div>
             <p
               ref={counter1Ref}
-              className="block text-4xl md:text-6xl lg:text-9xl mb-2"
+              className="block text-5xl md:text-6xl lg:text-7xl 2xl:text-9xl mb-2"
+            >
+              5
+            </p>
+            <p className="text-muted-foreground">Domaines d&apos;expertises</p>
+          </div>
+          <div>
+            <p
+              ref={counter2Ref}
+              className="block text-5xl md:text-6xl lg:text-7xl 2xl:text-9xl mb-2"
             >
               0
             </p>
             <p className="text-muted-foreground">Entreprises accompagnées</p>
           </div>
           <div>
-            <p className="block text-4xl md:text-6xl lg:text-9xl mb-2">
-              <span ref={counter2Ref}>98</span>
+            <p className="block text-5xl md:text-6xl lg:text-7xl 2xl:text-9xl mb-2">
+              <span ref={counter3Ref}>98</span>
               <span>%</span>
             </p>
             <p className="text-muted-foreground">Renouvellent leur confiance</p>
-          </div>
-          <div>
-            <p
-              ref={counter3Ref}
-              className="block text-4xl md:text-6xl lg:text-9xl mb-2"
-            >
-              5
-            </p>
-            <p className="text-muted-foreground">Domaines d&apos;expertises</p>
           </div>
         </div>
       </div>

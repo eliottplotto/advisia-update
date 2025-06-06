@@ -4,7 +4,7 @@ import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 
 const options = { next: { revalidate: 60 } };
 
-type Post = {
+type Projet = {
   _id: string;
   title: string;
   slug: { current: string };
@@ -16,25 +16,29 @@ type Post = {
 };
 
 export default async function Projets() {
-  const posts: Post[] = await client.fetch(PROJECTS_QUERY, {}, options);
+  const projets: Projet[] = await client.fetch(PROJECTS_QUERY, {}, options);
 
   return (
-    <main className="container mx-auto grid grid-cols-1 gap-6 p-12">
-      <h1 className="text-4xl font-bold">Post index</h1>
-      <ul className="grid grid-cols-1 divide-y divide-blue-100">
-        {posts.map((post) => (
-          <li key={post._id}>
-            <Link
-              className="block p-4 hover:text-blue-500"
-              href={`/posts/${post?.slug?.current}`}
-            >
-              {post?.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <hr />
-      <Link href="/">&larr; Return home</Link>
+    <main className="main-wrapper">
+      <section className="min-h-[50dvh] flex flex-col justify-end p-8">
+        <h1 className="text-4xl md:text-6xl lg:text-8xl max-w-6xl">
+          Nous avons transformé leurs objectifs en résultats.
+        </h1>
+      </section>
+      <section className="bg-blue-600 container h-screen flex items-center">
+        <ul className="grid grid-cols-1 divide-y divide-blue-100">
+          {projets.map((projet) => (
+            <li key={projet._id}>
+              <Link
+                className="block p-4 hover:text-blue-500"
+                href={`/projets/${projet?.slug?.current}`}
+              >
+                {projet?.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </main>
   );
 }

@@ -124,5 +124,13 @@
 }
 
 .container {
-  @apply px-4 md:px-6 lg:px-8 max-w-full;
+  @apply px-4 md:px-6 lg:px-8 max-w-full md:max-w-full lg:md:max-w-full xl:md:max-w-full;
+}
+
+.container-md {
+  @apply px-4 md:px-6 lg:px-8 max-w-full md:max-w-full lg:md:max-w-[1350px] xl:md:max-w-[1350px] mx-auto;
+}
+
+.main-wrapper {
+  @apply pt-16;
 }
