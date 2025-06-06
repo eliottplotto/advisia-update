@@ -1,4 +1,3 @@
-import LogosSlider from "@/components/logos-slider";
 import { Button } from "@/components/ui/button";
 
 export default function AutomatisationsIA() {

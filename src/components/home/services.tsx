@@ -41,7 +41,7 @@ export default function Services() {
               <div className="w-6 h-6 shrink-0 bg-[#F280CA] flex items-center justify-center">
                 <RiCheckFill size={16} />
               </div>
-              Solutions d'analyse
+              Solutions d&apos;analyse
             </li>
           </ul>
           <Button asChild>
@@ -80,7 +80,7 @@ export default function Services() {
               <div className="w-6 h-6 shrink-0 bg-[#F280CA] flex items-center justify-center">
                 <RiCheckFill size={16} />
               </div>
-              Solutions d'analyse
+              Solutions d&apos;analyse
             </li>
           </ul>
           <Button asChild>
@@ -119,7 +119,7 @@ export default function Services() {
               <div className="w-6 h-6 shrink-0 bg-[#F280CA] flex items-center justify-center">
                 <RiCheckFill size={16} />
               </div>
-              Solutions d'analyse
+              Solutions d&apos;analyse
             </li>
           </ul>
           <Button asChild>
@@ -158,7 +158,7 @@ export default function Services() {
               <div className="w-6 h-6 shrink-0 bg-[#F280CA] flex items-center justify-center">
                 <RiCheckFill size={16} />
               </div>
-              Solutions d'analyse
+              Solutions d&apos;analyse
             </li>
           </ul>
           <Button asChild>
@@ -197,7 +197,7 @@ export default function Services() {
               <div className="w-6 h-6 shrink-0 bg-[#F280CA] flex items-center justify-center">
                 <RiCheckFill size={16} />
               </div>
-              Solutions d'analyse
+              Solutions d&apos;analyse
             </li>
           </ul>
           <Button asChild>
