@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "../ui/button";
+import LogosSlider from "../logos-slider";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -33,11 +34,14 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative">
-      <div className="container h-screen flex flex-col justify-center items-center gap-6">
+      <div className="main-wrapper container h-screen flex flex-col justify-center items-center gap-6">
         <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl max-w-6xl mx-auto text-center py-8">
           Gagnez du temps, structurez vos actions, développez votre impact.
         </h1>
         <Button size="lg">Estimer mon projet</Button>
+        <div className="container-md">
+          <LogosSlider />
+        </div>
       </div>
 
       <div className="mask-wrapper absolute bottom-0 flex items-end h-full w-full">

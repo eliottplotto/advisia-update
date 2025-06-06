@@ -93,10 +93,13 @@ export default function Agency() {
         />
       </div>
       <div className="col-span-7 col-start-6 col-end-13 flex flex-col justify-between h-full gap-8 md:gap-32">
-        <h2 className="text-2xl md:text-4xl lg:text-5xl indent-16 md:indent-32">
+        <h2 className="text-2xl md:text-4xl indent-16 md:indent-32">
           <span className="text-[#FF5A02]">Advisia</span> est une agence de
-          croissance digitale qui allie IA, automatisations et optimisation web
-          pour transformer vos objectifs en résultats mesurables.
+          croissance digitale qui allie solutions web, intelligence artificielle
+          et communication pour transformer vos objectifs en résultats
+          mesurables. Nous veillons à maîtriser chaque phase, du concept à
+          l&rsquo;après-lancement, en mettant en place les moyens nécessaires
+          pour vous aider à atteindre vos objectifs.
         </h2>
         <div
           ref={containerRef}

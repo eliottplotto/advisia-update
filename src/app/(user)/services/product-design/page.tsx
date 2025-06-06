@@ -1,12 +1,25 @@
+import { Button } from "@/components/ui/button";
+
 export default function ProductDesign() {
   return (
     <main className="main-wrapper">
-      <section className="min-h-[50dvh] flex flex-col justify-end p-8">
-        <h1 className="text-4xl md:text-6xl lg:text-8xl max-w-6xl">
-          Product Design
-        </h1>
+      <section className="bg-background">
+        <div className="container-md pt-32 pb-16">
+          <div className="max-w-lg md:max-w-2xl">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6">
+              Product Design
+            </h1>
+            <p className="text-md md:text-xl lg:text-2xl">
+              Nous créons des automatisations et des agents IA sur-mesure qui
+              travaillent pour vous, 24/7.
+            </p>
+            <div className="mt-8">
+              <Button size="lg">Estimer mon projet</Button>
+            </div>
+          </div>
+        </div>
       </section>
-      <section className="bg-blue-600 container h-screen flex items-center"></section>
+      <section className="container bg-black h-screen flex items-center"></section>
     </main>
   );
 }

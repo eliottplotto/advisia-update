@@ -11,15 +11,12 @@ export default function AutomatisationsIA() {
               Solutions IA et Automatisations
             </h1>
             <p className="text-md md:text-xl lg:text-2xl">
-              Nous créons des automatisationset des agents IA sur-mesure qui
+              Nous créons des automatisations set des agents IA sur-mesure qui
               travaillent pour vous, 24/7.
             </p>
             <div className="mt-8">
               <Button size="lg">Estimer mon projet</Button>
             </div>
-          </div>
-          <div className="mt-8">
-            <LogosSlider />
           </div>
         </div>
       </section>
