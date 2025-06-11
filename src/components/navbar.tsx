@@ -70,7 +70,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 z-40 w-full bg-background">
-        <div className="p-4 md:px-6 lg:px-8 flex h-16 items-center justify-between">
+        <div className="container-md flex h-16 items-center justify-between">
           {/* Left */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
@@ -87,18 +87,18 @@ export default function Navbar() {
           {/* Center Navigation */}
           <div className="hidden md:block">
             <div className="flex justify-center items-center">
-              <Button variant="secondary" onClick={toggleServicesMenu}>
-                Services{" "}
+              <Button variant="ghost" onClick={toggleServicesMenu}>
+                Expertises
                 <RiArrowDownSFill
                   className={`transition-transform duration-300 ${
-                    isMenuOpen ? "-rotate-180" : ""
+                    isMenuOpen ? "rotate-180" : ""
                   }`}
                 />
               </Button>
-              <Button asChild variant="secondary" onClick={closeServicesMenu}>
+              <Button asChild variant="ghost" onClick={closeServicesMenu}>
                 <Link href="/projets">Projets</Link>
               </Button>
-              <Button asChild variant="secondary" onClick={closeServicesMenu}>
+              <Button asChild variant="ghost" onClick={closeServicesMenu}>
                 <Link href="/agence">Agence</Link>
               </Button>
             </div>
@@ -113,11 +113,8 @@ export default function Navbar() {
         </div>
 
         {/* Services Menu */}
-        <div
-          ref={servicesMenuRef}
-          className="w-full container overflow-hidden h-0"
-        >
-          <ul className="max-w-7xl mx-auto grid grid-cols-5 gap-1 py-4">
+        <div ref={servicesMenuRef} className="w-full overflow-hidden h-0">
+          <ul className="container-md mx-auto grid grid-cols-5 gap-1 py-4">
             {servicesLinks.map((link, index) => (
               <li key={index}>
                 <Link
@@ -142,13 +139,6 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
-        <Image
-          src="/border.svg"
-          alt="border"
-          width={1920}
-          height={2}
-          className="w-full"
-        />
       </nav>
       {isMenuOpen && (
         <div

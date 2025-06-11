@@ -17,14 +17,14 @@ export default defineConfig({
   basePath: "/studio",
   projectId,
   dataset,
+  title: 'Advisia',
+  subtitle: 'Administration Advisia',
   // Add and edit the content schema in the './sanity/schemaTypes' folder
   schema: {
     types: schemaTypes,
   },
   plugins: [
     structureTool({ structure }),
-    // Vision is for querying with GROQ from inside the Studio
-    // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
   ],
 });

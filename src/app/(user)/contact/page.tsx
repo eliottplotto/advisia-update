@@ -14,8 +14,8 @@ const profils = [
 export default function Contact() {
   return (
     <div className="main-wrapper flex flex-col items-strech xl:h-screen">
-      <main className="lg:grow lg:grid lg:grid-cols-2">
-        <div className="container pt-16">
+      <main className="container-md lg:grow lg:grid lg:grid-cols-2">
+        <div className="pt-16 pr-16">
           <div className="flex items-center">
             {profils.map((profil, index) => (
               <Image
@@ -28,7 +28,7 @@ export default function Contact() {
               />
             ))}
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl max-w-2xl mb-8 pt-4">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl max-w-2xl mb-8 pt-4">
             Réservez votre appel et lancez votre projet.
           </h1>
           <div className="flex items-center gap-3 mb-8">

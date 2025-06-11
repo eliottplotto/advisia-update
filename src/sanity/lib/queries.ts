@@ -7,8 +7,23 @@ export const PROJECTS_QUERY =
 
 export const PROJECT_QUERY =
   defineQuery(`*[_type == "projet" && slug.current == $slug][0]{
-  title, coverImage
-}`);
+    _id,
+    slug,
+    client,
+    coverImage {
+      ...,
+      asset->,
+      alt
+    },
+    headline,
+    date,
+    review,
+    service[]->{
+      _id,
+      title, 
+    }
+  }
+`);
 
 export const FEATURED_PROJECT_QUERY =
   defineQuery(`
@@ -31,7 +46,7 @@ export const FEATURED_PROJECT_QUERY =
 
 export const LASTS_PROJECTS_QUERY =
   defineQuery(`
-    *[_type == "projet" && defined(slug.current)] | order(publishedAt desc)[0..2]{
+    *[_type == "projet" && defined(slug.current)] | order(publishedAt desc)[0..1]{
       _id,
       title,
       slug,

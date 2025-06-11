@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SanityLive } from "@/sanity/lib/live";
 
 export const metadata: Metadata = {
   title: "Admin | Advisia",
@@ -12,7 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className="antialiased lg:text-lg min-h-screen">{children}</body>
+      <body className="antialiased font-medium lg:text-lg min-h-screen">
+        {children}
+        <SanityLive />
+      </body>
     </html>
   );
 }

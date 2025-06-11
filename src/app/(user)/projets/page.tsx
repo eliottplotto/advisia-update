@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { PROJECTS_QUERY } from "@/sanity/lib/queries";
+import Footer from "@/components/footer";
 
 const options = { next: { revalidate: 60 } };
 
@@ -39,6 +40,7 @@ export default async function Projets() {
           ))}
         </ul>
       </section>
+      <Footer />
     </main>
   );
 }

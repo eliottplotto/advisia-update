@@ -128,7 +128,7 @@
 }
 
 .container-md {
-  @apply px-4 md:px-6 lg:px-8 max-w-full md:max-w-full lg:md:max-w-[1350px] xl:md:max-w-[1350px] mx-auto;
+  @apply px-4 md:px-6 lg:px-8 max-w-full md:max-w-full lg:md:max-w-[1600px] xl:md:max-w-[1600px] mx-auto;
 }
 
 .main-wrapper {
