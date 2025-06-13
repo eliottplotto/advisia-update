@@ -78,6 +78,19 @@ export default async function ProjectDetailPage({
               <h1 className="mb-5 md:mb-6 text-4xl md:text-6xl">
                 {project.headline}
               </h1>
+              {project.services && (
+                <ul className="flex gap-3 wrap">
+                  {project.services.map((service) => (
+                    <li
+                      key={service._id}
+                      className="group font-mono uppercase text-sm flex items-center no-wrap gap-3"
+                    >
+                      {service.title}
+                      <div className="inline-block group-last:hidden w-2 h-2 bg-foreground rounded-full"></div>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             <div className="grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-8 self-start">
               <dl>

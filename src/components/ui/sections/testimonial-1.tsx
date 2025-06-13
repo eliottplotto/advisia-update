@@ -24,32 +24,42 @@ export default function Testimonial1({
 
   return (
     <section
-      className={`text-foreground py-16 md:py-24 lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : "bg-background"}`}
+      className={`text-foreground py-16 md:py-24 lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : "bg-orange-600"}`}
     >
       <div className="container-md">
-        {testimonial.logo && (
-          <Image
-            src={urlFor(testimonial.logo).width(100).height(100).url()}
-            alt={`Logo de ${testimonial.entreprise}`}
-            width={100}
-            height={100}
-            className="rounded-full object-cover"
-          />
-        )}
-        <blockquote>{testimonial.citation}</blockquote>
-        {testimonial.photo && (
-          <Image
-            src={urlFor(testimonial.photo).width(100).height(100).url()}
-            alt={`Photo de ${testimonial.prenom} ${testimonial.nom}`}
-            width={100}
-            height={100}
-            className="rounded-full object-cover"
-          />
-        )}
-        <p>
-          {testimonial.prenom} {testimonial.nom} &#183; {testimonial.poste}{" "}
-          &#183; {testimonial.entreprise}
-        </p>
+        <div className="grid grid-col-1 md:grid-cols-4">
+          <div className="col-span-1">
+            {testimonial.photo && (
+              <Image
+                src={urlFor(testimonial.photo).width(500).height(500).url()}
+                alt={`Photo de ${testimonial.prenom} ${testimonial.nom}`}
+                width={500}
+                height={500}
+                className="w-full lg:h-full object-cover"
+              />
+            )}
+          </div>
+          <div className="col-span-3 flex flex-col justify-between md:gap-32 p-4 md:p-6 lg:p-8 bg-background">
+            <div>
+              <blockquote className="text-2xl md:text-4xl lg:text-5xl mb-4 md:mb-8">
+                &ldquo;{testimonial.citation}&rdquo;
+              </blockquote>
+              <p className="text-lg md:text-2xl lg:text-3xl">
+                {testimonial.prenom} {testimonial.nom} &#183;{" "}
+                {testimonial.poste} &#183; {testimonial.entreprise}
+              </p>
+            </div>
+            {testimonial.logo && (
+              <Image
+                src={urlFor(testimonial.logo).width(100).height(100).url()}
+                alt={`Logo de ${testimonial.entreprise}`}
+                width={100}
+                height={100}
+                className="w-auto max-w-[128px]"
+              />
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
