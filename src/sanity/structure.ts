@@ -7,7 +7,7 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Admin')
     .items([
-      S.documentTypeListItem('projet').title('Projets').icon(RiFolderFill),
+      S.documentTypeListItem('project').title('Projets').icon(RiFolderFill),
       S.documentTypeListItem('service').title('Services').icon(RiListUnordered),
       S.documentTypeListItem('temoignage').title('Témoignages').icon(RiChatSmile2Fill),
       S.divider(),

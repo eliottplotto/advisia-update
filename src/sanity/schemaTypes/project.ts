@@ -1,7 +1,7 @@
 import {defineType, defineField} from 'sanity'
 
 export default defineType({
-  name: 'projet',
+  name: 'project',
   title: 'Projet',
   type: 'document',
   fields: [
@@ -29,23 +29,39 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Texte Alternatif',
+        }
+      ],
       validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'alt',
-      type: 'string',
-      title: 'Texte Alternatif',
-      validation: rule => rule.custom((value, context) => {
-        const parent = context?.parent as {asset?: {_ref?: string}}
-
-        return !value && parent?.asset?._ref ? 'Alt texte est requis si une image est définie' : true
-      }),
     }),
     defineField({
       name: 'headline',
       title: 'Headline',
       type: 'string',
+      description: "Titre de l'étude de cas",
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'contexte',
+      title: 'Le contexte',
+      description: "Détaillez le contexte du projet, les enjeux, les objectifs, le client...",
+      type: 'text',
+    }),
+    defineField({
+      name: 'impact',
+      title: 'Notre impact',
+      description: "Détaillez notre impact sur le projet : ce que nous avons réalisé et comment nous l'avons réalisé.",
+      type: 'text',
+    }),
+    defineField({
+      name: 'resultats',
+      title: 'Les résultats',
+      description: "Démontrez notre réussite sur le projet avec des KPIs si possible.",
+      type: 'text',
     }),
     defineField({
       name: 'content',

@@ -1,37 +1,56 @@
+import type { Temoignage } from "@/types/sanity";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/client";
+
 type ImageProps = {
   src: string;
   alt?: string;
 };
 
-type Props = {
-  dark: boolean;
+interface TestimonialProps {
+  dark?: boolean;
   bg?: string;
-  heading: string;
-  description: string;
-  image?: ImageProps;
-};
+  testimonial: Temoignage;
+}
 
-export type Testimonial1Props = React.ComponentPropsWithoutRef<"section"> &
-  Partial<Props>;
-
-export const Testimonial1 = (props: Testimonial1Props) => {
-  const { dark, bg, heading, description, image } = {
-    ...Testimonial1Defaults,
-    ...props,
-  };
+export default function Testimonial1({
+  dark,
+  bg,
+  testimonial,
+}: TestimonialProps) {
+  if (!testimonial) {
+    return null;
+  }
 
   return (
     <section
-      className={`bg-background text-foreground py-16 md:py-24 lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
+      className={`text-foreground py-16 md:py-24 lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : "bg-background"}`}
     >
-      <div className="container-md"></div>
+      <div className="container-md">
+        {testimonial.logo && (
+          <Image
+            src={urlFor(testimonial.logo).width(100).height(100).url()}
+            alt={`Logo de ${testimonial.entreprise}`}
+            width={100}
+            height={100}
+            className="rounded-full object-cover"
+          />
+        )}
+        <blockquote>{testimonial.citation}</blockquote>
+        {testimonial.photo && (
+          <Image
+            src={urlFor(testimonial.photo).width(100).height(100).url()}
+            alt={`Photo de ${testimonial.prenom} ${testimonial.nom}`}
+            width={100}
+            height={100}
+            className="rounded-full object-cover"
+          />
+        )}
+        <p>
+          {testimonial.prenom} {testimonial.nom} &#183; {testimonial.poste}{" "}
+          &#183; {testimonial.entreprise}
+        </p>
+      </div>
     </section>
   );
-};
-
-export const Testimonial1Defaults: Props = {
-  dark: false,
-  heading: "Medium length hero heading goes here",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-};
+}
