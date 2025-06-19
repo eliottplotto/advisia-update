@@ -1,5 +1,6 @@
 import { VariantProps } from "class-variance-authority";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { RevealText } from "@/components/RevealText";
 
 type ImageProps = {
   src: string;
@@ -27,27 +28,46 @@ type Props = {
   image: ImageProps;
   buttons?: ButtonItem[];
   legend?: LegendProps;
+  number?: number;
 };
 
-export type Header1Props = React.ComponentPropsWithoutRef<"section"> &
+export type Header2Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
-export const Header1 = (props: Header1Props) => {
-  const { dark, bg, layout, heading, description, buttons, image, legend } = {
-    ...Header1Defaults,
+export const Header2 = (props: Header2Props) => {
+  const {
+    dark,
+    bg,
+    layout,
+    heading,
+    description,
+    buttons,
+    image,
+    legend,
+    number,
+  } = {
+    ...Header2Defaults,
     ...props,
   };
 
   return (
     <section
-      className={`bg-background text-foreground py-16 md:py-24 lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
+      className={`group bg-background text-foreground pb-16 md:pb-24 lg:pb-32 md:not-first:border-t ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
     >
       <div className="main-layout">
-        <div className="col-start-2 grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 lg:grid-cols-2 lg:items-center">
-          <div className={`${layout === "imgLeft" ? "order-1" : ""}`}>
-            <h2 className="mb-5 text-4xl md:text-6xl lg:text-7xl md:mb-6">
+        {number && (
+          <p className="hidden lg:block group-nth-[3n+1]:bg-[#F2BD1D] group-nth-[3n+2]:bg-[#F280CA] group-nth-[3n+3]:bg-[#FF5A02] text-4xl md:text-6xl lg:text-8xl w-fit h-fit pl-2 pr-8">
+            {number}:
+          </p>
+        )}
+
+        <div className="lg:col-start-2 grid grid-cols-1 lg:grid-cols-2">
+          <div
+            className={`${layout === "imgLeft" ? "order-1" : "order-1 md:order-0"} global-padding`}
+          >
+            <RevealText as="h2" className="mb-5 text-4xl md:text-6xl md:mb-6">
               {heading}
-            </h2>
+            </RevealText>
             <p className="md:text-md">{description}</p>
             <div className="mt-6 flex flex-wrap gap-1 md:mt-8">
               {buttons?.map((button, index) => {
@@ -69,10 +89,12 @@ export const Header1 = (props: Header1Props) => {
               })}
             </div>
           </div>
-          <div className={`${layout === "imgLeft" ? "order-0" : ""} relative`}>
+          <div
+            className={`${layout === "imgLeft" ? "order-0" : "order-0 md:order-1"} relative`}
+          >
             <img
               src={image.src}
-              className="w-full object-cover"
+              className="w-full aspect-square object-cover"
               alt={image.alt}
             />
             {legend && (
@@ -93,7 +115,7 @@ export const Header1 = (props: Header1Props) => {
   );
 };
 
-export const Header1Defaults: Props = {
+export const Header2Defaults: Props = {
   dark: false,
   layout: "imgRight",
   heading: "Medium length hero heading goes here",

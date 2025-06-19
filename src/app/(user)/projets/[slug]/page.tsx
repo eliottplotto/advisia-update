@@ -2,14 +2,18 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 // Data
 import { getProjectBySlug, getAllProjectSlugs } from "@/sanity/lib/queries";
 import type { Project } from "@/types/sanity";
 import { urlFor } from "@/sanity/lib/client";
 // Components
 import Footer from "@/components/footer";
-import { Header1 } from "@/components/ui/sections/header-1";
+import { Header2 } from "@/components/ui/sections/header-2";
 import Testimonial1 from "@/components/ui/sections/testimonial-1";
+import { Button } from "@/components/ui/button";
+import { RiArrowLeftLine } from "@remixicon/react";
+import { RevealText } from "@/components/RevealText";
 
 export async function generateMetadata({
   params,
@@ -54,25 +58,72 @@ export default async function ProjectDetailPage({
 
   return (
     <main className="main-wrapper">
-      <section className="bg-secondary">
-        {project.coverImage && (
-          <Image
-            src={
-              urlFor(project.coverImage).width(1200).url() ||
-              "https://placehold.co/1280x720/png"
-            }
-            alt={
-              project.coverImage.alt ||
-              `Image de couverture pour ${project.headline}`
-            }
-            className="w-full object-cover object-center max-h-[50dvh]"
-            priority // Charge l'image en priorité pour le LCP
-            sizes="(max-width: 768px) 100vw, 1200px"
-            width={1280}
-            height={720}
-          />
-        )}
-        <div className="container-md py-16 md:py-24">
+      {project.coverImage && (
+        <Image
+          src={
+            urlFor(project.coverImage).width(1920).url() ||
+            "https://placehold.co/1280x720/png"
+          }
+          alt={
+            project.coverImage.alt ||
+            `Image de couverture pour ${project.headline}`
+          }
+          className="w-full object-cover object-center max-h-[60dvh]"
+          priority // Charge l'image en priorité pour le LCP
+          sizes="(max-width: 768px) 100vw, 1920px"
+          width={1920}
+          height={1080}
+          quality={60}
+        />
+      )}
+
+      {/* Test */}
+      <div className="main-layout min-h-[50dvh] dark text-foreground bg-background">
+        <div className="global-padding">
+          <Button variant="secondary" className="mb-8" asChild>
+            <Link href="/projets">
+              <RiArrowLeftLine />
+              Tous les projets
+            </Link>
+          </Button>
+        </div>
+        <div className="border-x">
+          <div className="global-padding h-full flex flex-col justify-between">
+            <div>
+              <p className="text-xl mb-8">{project.client}</p>
+              <RevealText as="h1" className="mb-8 text-4xl md:text-6xl">
+                {project.headline}
+              </RevealText>
+            </div>
+
+            {project.services && (
+              <ul className="w-fit">
+                {project.services.map((service) => (
+                  <li key={service._id} className="border-t last:border-b">
+                    {service.title}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          {/*
+            {project.logo && (
+              <div className="w-fit p-8 mt-8 ml-auto mr-0 bg-background">
+                <Image
+                  src={urlFor(project.logo).width(80).url()}
+                  alt={`Logo ${project.client}`}
+                  priority // Charge l'image en priorité pour le LCP
+                  sizes="(max-width: 768px) 100vw, 80px"
+                  width={80}
+                  height={80}
+                />
+              </div>
+            )}*/}
+        </div>
+      </div>
+      {/* Fin */}
+
+      {/* <div className="container-md py-16 md:py-24">
           <div className="grid grid-col-1 lg:grid-cols-[3fr_2fr] gap-x-[5%]">
             <div>
               <h1 className="mb-5 md:mb-6 text-4xl md:text-6xl">
@@ -103,32 +154,37 @@ export default async function ProjectDetailPage({
               </dl>
             </div>
           </div>
-        </div>
+        </div>*/}
+      <div>
         {project.contexte && (
-          <Header1
+          <Header2
             heading="Le contexte"
             layout="imgLeft"
             description={project.contexte}
-            image={{ src: "https://placehold.co/600x400", alt: "placeholder" }}
+            image={{ src: "/placeholder.jpg", alt: "placeholder" }}
+            number={1}
           />
         )}
         {project.impact && (
-          <Header1
+          <Header2
             heading="Notre impact"
             description={project.impact}
-            image={{ src: "https://placehold.co/600x400", alt: "placeholder" }}
+            image={{ src: "/placeholder.jpg", alt: "placeholder" }}
+            number={2}
           />
         )}
         {project.resultats && (
-          <Header1
+          <Header2
             heading="Les résultats"
             layout="imgLeft"
             description={project.resultats}
-            image={{ src: "https://placehold.co/600x400", alt: "placeholder" }}
+            image={{ src: "/placeholder.jpg", alt: "placeholder" }}
+            number={3}
           />
         )}
-        {project.review && <Testimonial1 testimonial={project.review} />}
-      </section>
+      </div>
+
+      {project.review && <Testimonial1 testimonial={project.review} />}
       <Footer />
     </main>
   );

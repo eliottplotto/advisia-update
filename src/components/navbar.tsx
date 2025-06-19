@@ -69,25 +69,25 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 z-40 w-full bg-background">
-        <div className="container-md flex h-16 items-center justify-between">
+      <nav className="fixed top-0 z-40 w-full">
+        <div className="main-layout">
           {/* Left */}
-          <div className="flex items-center">
+          <div className="global-padding flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/advisia-logo.png"
+                src="/advisia-logo-white-h32.svg"
                 alt="Logo"
-                width={157}
-                height={40}
+                width={130}
+                height={32}
                 className="h-8 w-auto"
               />
             </Link>
           </div>
 
           {/* Center Navigation */}
-          <div className="hidden md:block">
-            <div className="flex justify-center items-center">
-              <Button variant="ghost" onClick={toggleServicesMenu}>
+          <div className="hidden md:flex md:justify-center md:items-center">
+            <div className="flex justify-center items-center gap-1">
+              <Button variant="secondary" onClick={toggleServicesMenu}>
                 Expertises
                 <RiArrowDownSFill
                   className={`transition-transform duration-300 ${
@@ -95,17 +95,17 @@ export default function Navbar() {
                   }`}
                 />
               </Button>
-              <Button asChild variant="ghost" onClick={closeServicesMenu}>
+              <Button asChild variant="secondary" onClick={closeServicesMenu}>
                 <Link href="/projets">Projets</Link>
               </Button>
-              <Button asChild variant="ghost" onClick={closeServicesMenu}>
+              <Button asChild variant="secondary" onClick={closeServicesMenu}>
                 <Link href="/agence">Agence</Link>
               </Button>
             </div>
           </div>
 
           {/* Right */}
-          <div className="hidden md:flex">
+          <div className="hidden global-padding md:flex md:justify-end md:items-center">
             <Button onClick={closeServicesMenu} asChild>
               <Link href="/contact">Estimer mon projet</Link>
             </Button>
@@ -142,7 +142,7 @@ export default function Navbar() {
       </nav>
       {isMenuOpen && (
         <div
-          className="fixed z-39 top-0 left-0 w-full h-full bg-primary/80 backdrop-blur supports-[backdrop-filter]:bg-primary/80"
+          className="fixed z-39 top-0 left-0 w-full h-full bg-primary/50 backdrop-blur supports-[backdrop-filter]:bg-primary/50"
           onClick={() => {
             tl.current?.reverse();
             setIsMenuOpen(false);

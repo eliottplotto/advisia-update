@@ -2,7 +2,8 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "../ui/button";
+import { BulletHeadline } from "../ui/bullet-headline";
+import { RevealText } from "../RevealText";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -19,7 +20,7 @@ export default function Hero() {
       height: "50%",
       stagger: 0.1,
     });
-    gsap.to("h1", {
+    gsap.to("#hero", {
       scrollTrigger: {
         trigger: "#hero",
         start: "top top",
@@ -27,27 +28,27 @@ export default function Hero() {
         scrub: true,
         // markers: true,
       },
-      opacity: 0,
+      opacity: 1,
     });
   });
 
   return (
-    <section id="hero" className="relative bg-secondary">
-      <div className="main-wrapper container-md h-screen flex flex-col justify-center items-center text-center">
-        <div className="w-px bg-[#FF98F1] h-full grow"></div>
-        <div className="flex flex-col justify-center items-center">
-          <p className="p-2 bg-[#FF98F1] w-fit font-mono font-semibold uppercase text-sm mb-4">
-            Agence de croissance digitale
-          </p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl max-w-6xl mb-12">
-            Gagnez du temps, structurez vos actions, développez votre impact.
-          </h1>
-          <Button size="lg">Estimer mon projet</Button>
-        </div>
-        <div className="w-px bg-blue-600 h-full grow"></div>
+    <section id="hero" className="dark text-foreground relative bg-[#FF2803]">
+      <div className="global-padding h-screen flex flex-col justify-end">
+        <RevealText
+          as="h1"
+          className="text-4xl md:text-6xl lg:text-7xl mb-10 uppercase"
+        >
+          Gagnez du temps,
+          <br />
+          structurez vos actions,
+          <br />
+          développez votre impact.
+        </RevealText>
+        <BulletHeadline as="p">Agence de croissance digitale</BulletHeadline>
       </div>
 
-      <div className="mask-wrapper absolute bottom-0 flex items-end h-full w-full">
+      <div className="hidden mask-wrapper absolute bottom-0 flex items-end h-full w-full">
         <div className="mask-col bg-primary h-0 w-full"></div>
         <div className="mask-col bg-primary h-0 w-full"></div>
         <div className="mask-col bg-primary h-0 w-full"></div>

@@ -17,6 +17,12 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
         },
         alt
       },
+      logo {
+        asset->{
+          _id,
+          url
+        }
+      },
       headline,
       contexte,
       impact,

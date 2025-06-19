@@ -122,6 +122,18 @@ export type Project = {
     alt?: string;
     _type: "image";
   };
+  logo?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   headline?: string;
   contexte?: string;
   impact?: string;
