@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { BulletHeadline } from "../ui/bullet-headline";
 import { RevealText } from "../RevealText";
+import { RiArrowRightUpFill } from "@remixicon/react";
 
 export default function Services() {
   const services = [
@@ -9,7 +9,31 @@ export default function Services() {
       title: "IA & Automatisation",
       description:
         "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
-      link: "/",
+      link: "/automatisations-ia",
+    },
+    {
+      title: "Site Web",
+      description:
+        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
+      link: "/site-web",
+    },
+    {
+      title: "Product Design",
+      description:
+        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
+      link: "/product-design",
+    },
+    {
+      title: "Marketing Digital",
+      description:
+        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
+      link: "/marketing-digital",
+    },
+    {
+      title: "Identité de marque",
+      description:
+        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
+      link: "/identite-de-marque",
     },
   ];
 
@@ -22,7 +46,7 @@ export default function Services() {
         <div className="global-padding lg:border-x">
           <RevealText
             as="h2"
-            className="text-4xl md:text-6xl xl:text-7xl max-w-4xl mt-64"
+            className="text-4xl md:text-6xl xl:text-7xl max-w-4xl mt-16 md:mt-32 lg:mt-64"
           >
             Développer <span className="underline">tout le potentiel</span> de
             votre activité.
@@ -31,20 +55,39 @@ export default function Services() {
       </div>
       <div className="main-layout">
         <div></div>
-        <ul className="lg:border-x">
-          <Link href="/">
-            <li>
-              <div>
-                <p>01</p>
-                <div className="grow"></div>
-              </div>
-              <div>
-                <div>
-                  <h3>IA & Automatisation</h3>
+        <ul className="lg:border-x border-t pb-16 lg:pb-32">
+          {services.map((service, index) => (
+            <li key={index} className="border-b">
+              <Link
+                href={service.link}
+                className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))]"
+              >
+                <div className="flex global-padding">
+                  <p className="font-mono text-sm text-muted-foreground">
+                    0{index + 1}
+                  </p>
+                  <div className="grow flex items-center justify-center">
+                    <img
+                      src="/sample.svg"
+                      alt="service"
+                      className="w-32 h-32"
+                    />
+                  </div>
                 </div>
-              </div>
+                <div className="global-padding flex flex-col items-end gap-4">
+                  <div className="bg-primary h-8 w-8 flex items-center justify-center">
+                    <RiArrowRightUpFill className="text-background" />
+                  </div>
+                  <div className="w-full">
+                    <h3 className="text-xl lg:text-2xl">{service.title}</h3>
+                    <p className="text-muted-foreground mt-2">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              </Link>
             </li>
-          </Link>
+          ))}
         </ul>
         <div></div>
       </div>
