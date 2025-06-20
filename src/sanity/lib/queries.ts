@@ -1,5 +1,5 @@
-import { client } from './client';
-import { Project } from '../../types/sanity';
+import { client } from "./client";
+import { Project } from "../../types/sanity";
 import { defineQuery } from "next-sanity";
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
@@ -80,18 +80,20 @@ export async function getAllProjectSlugs(): Promise<string[]> {
     const slugs = await client.fetch<string[]>(query);
     return slugs;
   } catch (error) {
-    console.error('Erreur lors de la récupération de tous les slugs de projet:', error);
+    console.error(
+      "Erreur lors de la récupération de tous les slugs de projet:",
+      error
+    );
     return [];
   }
 }
 
 export const PROJECTS_QUERY =
   defineQuery(`*[_type == "project" && defined(slug.current)][0...12]{
-  _id, title, slug
+  _id, title, slug, headline,
 }`);
 
-export const FEATURED_PROJECT_QUERY =
-  defineQuery(`
+export const FEATURED_PROJECT_QUERY = defineQuery(`
     *[_type == "settings"][0]{
       featuredProject->{
         _id,
@@ -113,8 +115,7 @@ export const FEATURED_PROJECT_QUERY =
     }
 `);
 
-export const LASTS_PROJECTS_QUERY =
-  defineQuery(`
+export const LASTS_PROJECTS_QUERY = defineQuery(`
     *[_type == "project" && defined(slug.current)] | order(publishedAt desc)[0..1]{
       _id,
       title,

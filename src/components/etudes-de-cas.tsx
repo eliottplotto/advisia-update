@@ -7,6 +7,8 @@ const options = { next: { revalidate: 60 } };
 
 import { BulletHeadline } from "./ui/bullet-headline";
 import { RevealText } from "./RevealText";
+import { Button } from "./ui/button";
+import { RiArrowRightFill } from "@remixicon/react";
 
 export default async function EtudesDeCas() {
   const setting = await client.fetch(FEATURED_PROJECT_QUERY, {}, options);
@@ -33,7 +35,7 @@ export default async function EtudesDeCas() {
                 {setting.featuredProject.headline}
               </RevealText>
             </div>
-            <div>
+            <div className="w-[50%] lg:w-full">
               <Image
                 src={setting.featuredProject.coverImage.asset.url}
                 alt={"placeholder"}
@@ -43,6 +45,30 @@ export default async function EtudesDeCas() {
                 draggable="false"
               />
             </div>
+          </div>
+          <div className="border-t py-16 flex items-center justify-between">
+            <Image
+              src="/placeholder.jpg"
+              alt="placeholder"
+              className="aspect-square w-32 object-cover"
+              width={300}
+              height={300}
+              draggable="false"
+            />
+            <Button variant="secondary" asChild>
+              <Link href="/projets">
+                Explorer les projets
+                <RiArrowRightFill />
+              </Link>
+            </Button>
+            <Image
+              src="/placeholder.jpg"
+              alt="placeholder"
+              className="aspect-square w-32 object-cover"
+              width={300}
+              height={300}
+              draggable="false"
+            />
           </div>
         </div>
         <div></div>
