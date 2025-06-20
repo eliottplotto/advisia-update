@@ -42,6 +42,17 @@ export default defineType({
       name: 'logo',
       title: 'Logo',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Texte Alternatif',
+        }
+      ],
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'headline',

@@ -33,7 +33,11 @@ export default function Hero() {
   });
 
   return (
-    <section id="hero" className="dark text-foreground relative bg-[#FF2803]">
+    <section
+      id="hero"
+      data-theme="dark"
+      className="dark text-foreground relative bg-[#FF2803]"
+    >
       <div className="global-padding h-screen flex flex-col justify-end">
         <RevealText
           as="h1"

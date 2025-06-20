@@ -102,8 +102,12 @@ export const FEATURED_PROJECT_QUERY =
           ...,
           asset->
         },
+        logo{
+          ...,
+          asset->
+        },
         alt,
-        excerpt,
+        headline,
         publishedAt
       }
     }

@@ -9,36 +9,36 @@ export default function Services() {
       title: "IA & Automatisation",
       description:
         "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
-      link: "/automatisations-ia",
+      link: "/services/automatisations-ia",
     },
     {
       title: "Site Web",
       description:
         "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
-      link: "/site-web",
+      link: "/services/site-web",
     },
     {
       title: "Product Design",
       description:
         "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
-      link: "/product-design",
+      link: "/services/product-design",
     },
     {
       title: "Marketing Digital",
       description:
         "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
-      link: "/marketing-digital",
+      link: "/services/marketing-digital",
     },
     {
       title: "Identité de marque",
       description:
         "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
-      link: "/identite-de-marque",
+      link: "/services/identite-de-marque",
     },
   ];
 
   return (
-    <section>
+    <section data-theme="light">
       <div className="main-layout">
         <div className="global-padding">
           <BulletHeadline as="p">Services</BulletHeadline>

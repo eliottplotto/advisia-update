@@ -86,13 +86,13 @@ export default function Agency() {
   );
 
   return (
-    <section className="dark bg-background text-foreground">
+    <section data-theme="dark" className="dark bg-background text-foreground">
       <div className="main-layout">
         <div className="global-padding">
           <BulletHeadline as="h2">L'agence</BulletHeadline>
         </div>
         <div className="lg:border-x">
-          <div className="global-padding md:max-w-[50%] ml-auto mr-0 lg:mt-64">
+          <div className="global-padding md:max-w-[50%] ml-auto mr-0 mt-32 lg:mt-64">
             <RevealText as="h3" className="text-xl md:text-2xl">
               Advisia est une agence de croissance digitale qui allie solutions
               web, intelligence artificielle et communication pour transformer

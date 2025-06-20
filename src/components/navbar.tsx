@@ -4,11 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { RiArrowDownSFill } from "@remixicon/react";
-import { useRef, useState } from "react";
+// GSAP
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(useGSAP);
+import { Logo } from "./Logo";
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const servicesLinks = [
   { path: "/services/automatisations-ia", label: "Automatisations IA" },
@@ -22,6 +24,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const servicesMenuRef = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
+  const logoRef = useRef<SVGSVGElement | null>(null);
 
   useGSAP(() => {
     if (servicesMenuRef.current) {
@@ -45,6 +48,43 @@ export default function Navbar() {
           "-=0.3"
         );
     }
+  }, []);
+
+  //Transition Couleur Logo
+  useGSAP(() => {
+    const sections = document.querySelectorAll("section[data-theme]");
+
+    sections.forEach((section) => {
+      const theme = section.getAttribute("data-theme");
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 5%",
+        end: "bottom 5%",
+        onEnter: () => {
+          if (theme === "light") {
+            logoRef.current?.classList.remove("text-white");
+            logoRef.current?.classList.add("text-black");
+          } else {
+            logoRef.current?.classList.remove("text-black");
+            logoRef.current?.classList.add("text-white");
+          }
+        },
+        onEnterBack: () => {
+          if (theme === "light") {
+            logoRef.current?.classList.remove("text-white");
+            logoRef.current?.classList.add("text-black");
+          } else {
+            logoRef.current?.classList.remove("text-black");
+            logoRef.current?.classList.add("text-white");
+          }
+        },
+      });
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
 
   const toggleServicesMenu = () => {
@@ -74,13 +114,7 @@ export default function Navbar() {
           {/* Left */}
           <div className="global-padding flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <Image
-                src="/advisia-logo-white-h32.svg"
-                alt="Logo"
-                width={130}
-                height={32}
-                className="h-8 w-auto"
-              />
+              <Logo ref={logoRef} className="text-white" />
             </Link>
           </div>
 

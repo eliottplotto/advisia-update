@@ -60,7 +60,6 @@ export default function Contact() {
               Recevez une estimation gratuite de votre projet
             </li>
           </ul>
-          <h2></h2>
 
           <LogosSlider />
         </div>
