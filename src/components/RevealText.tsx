@@ -1,4 +1,3 @@
-// app/components/RevealText.tsx
 "use client";
 
 import { useRef } from "react";
@@ -25,11 +24,9 @@ export const RevealText = <T extends ElementType = "h2">({
   const textRef = useRef<HTMLElement | null>(null);
 
   useGSAP(() => {
-    if (!textRef.current || !children) {
-      return;
-    }
+    if (!textRef.current || !children) return;
 
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       const split = new SplitText(textRef.current!, {
         type: "lines",
         linesClass: "line-reveal",
@@ -42,7 +39,6 @@ export const RevealText = <T extends ElementType = "h2">({
       gsap.to(split.lines, {
         yPercent: 0,
         duration: 1,
-        delay: 0.1,
         ease: "power3.out",
         stagger: 0.1,
         scrollTrigger: {
@@ -52,13 +48,11 @@ export const RevealText = <T extends ElementType = "h2">({
         },
       });
 
-      return () => {
-        if (split) {
-          split.revert();
-        }
-        ctx.revert();
-      };
+      // Ne rien retourner ici !
     }, textRef);
+
+    // ⛑ Nettoyage en dehors du gsap.context
+    return () => ctx.revert();
   }, [children]);
 
   return (

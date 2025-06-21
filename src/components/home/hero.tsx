@@ -36,12 +36,14 @@ export default function Hero() {
     <section
       id="hero"
       data-theme="dark"
-      className="dark text-foreground relative bg-[#FF2803]"
+      className="dark text-foreground relative bg-[#FF2803] bg-ascii-2"
     >
       <div className="global-padding h-screen flex flex-col justify-end">
+        <BulletHeadline as="p">Agence de croissance digitale</BulletHeadline>
+
         <RevealText
           as="h1"
-          className="text-4xl md:text-6xl lg:text-7xl mb-10 uppercase"
+          className="text-4xl md:text-6xl lg:text-7xl mt-10 uppercase"
         >
           Gagnez du temps,
           <br />
@@ -49,7 +51,6 @@ export default function Hero() {
           <br />
           développez votre impact.
         </RevealText>
-        <BulletHeadline as="p">Agence de croissance digitale</BulletHeadline>
       </div>
 
       <div className="hidden mask-wrapper absolute bottom-0 flex items-end h-full w-full">

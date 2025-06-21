@@ -25,7 +25,7 @@ export default function Testimonial1({
 
   return (
     <section
-      className={`text-foreground py-0 md:py-24 lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : "bg-orange-600"}`}
+      className={`text-foreground py-0 md:py-24 lg:py-32 bg-ascii-2 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : "bg-secondary"}`}
     >
       <div className="main-layout">
         <div className="lg:col-start-2 grid grid-col-1 md:grid-cols-4 p-4 md:p-6 lg:p-0">

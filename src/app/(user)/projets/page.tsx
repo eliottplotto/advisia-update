@@ -41,7 +41,7 @@ export default async function Projets() {
         </div>
       </section>
       <div className="h-1 bg-primary"></div>
-      <section className="main-layout">
+      <section className="main-layout" data-theme="light">
         <div></div>
         <ul className="global-padding lg:border-x grid grid-cols-1 divide-y divide-blue-100">
           {projets.map((projet) => (

@@ -21,6 +21,16 @@ export default async function EtudesDeCas() {
         </div>
         <div className="lg:border-x">
           <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div>
+              <Image
+                src={setting.featuredProject.coverImage.asset.url}
+                alt={"placeholder"}
+                className="aspect-square object-cover h-full"
+                width={1920}
+                height={1080}
+                draggable="false"
+              />
+            </div>
             <div className="global-padding flex flex-col justify-between gap-8">
               <div className="flex gap-8 justify-between">
                 {setting.featuredProject.client}
@@ -31,22 +41,21 @@ export default async function EtudesDeCas() {
                   draggable="false"
                 />
               </div>
-              <RevealText as="h3" className="text-4xl max-w-3xl">
-                {setting.featuredProject.headline}
-              </RevealText>
-            </div>
-            <div className="w-[50%] lg:w-full">
-              <Image
-                src={setting.featuredProject.coverImage.asset.url}
-                alt={"placeholder"}
-                className="aspect-square object-cover"
-                width={1920}
-                height={1080}
-                draggable="false"
-              />
+              <div className="flex flex-col gap-6 items-end md:items-start">
+                <RevealText as="h3" className="text-4xl max-w-3xl w-full">
+                  {setting.featuredProject.headline}
+                </RevealText>
+                <Button className="max-w-fit" asChild>
+                  <Link
+                    href={`/projets/${setting.featuredProject.slug.current}`}
+                  >
+                    Lire (3 min)
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
-          <div className="border-t py-16 flex items-center justify-between">
+          <div className="bg-secondary bg-ascii border-t py-8 md:py-16 flex items-center justify-center sm:justify-between gap-4 overflow-hidden">
             <Image
               src="/placeholder.jpg"
               alt="placeholder"

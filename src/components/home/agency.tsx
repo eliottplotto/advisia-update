@@ -10,6 +10,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { BulletHeadline } from "../ui/bullet-headline";
 import { RevealText } from "../RevealText";
+import { Ri24HoursFill } from "@remixicon/react";
 gsap.registerPlugin(useGSAP, ScrollTrigger, TextPlugin);
 
 export default function Agency() {
@@ -104,9 +105,9 @@ export default function Agency() {
           </div>
           <div
             ref={containerRef}
-            className="grid grid-cols-2 xl:grid-cols-4 border-t "
+            className="grid grid-cols-2 xl:grid-cols-4 border-t"
           >
-            <div className="bg-secondary p-4 md:p-6 flex flex-col justify-between">
+            <div className="p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto">
               <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
                 +<span ref={counter1Ref}>10</span>
               </p>
@@ -117,7 +118,7 @@ export default function Agency() {
                 accompagnées
               </p>
             </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between">
+            <div className="p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto border-l">
               <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
                 <span ref={counter2Ref}>100</span>
                 <span>%</span>
@@ -128,7 +129,7 @@ export default function Agency() {
                 satisfaites
               </p>
             </div>
-            <div className="bg-background xl:bg-secondary p-4 md:p-6 flex flex-col justify-between">
+            <div className=" p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto xl:border-l border-t xl:border-t-0">
               <p
                 ref={counter3Ref}
                 className="block text-5xl md:text-6xl 2xl:text-7xl mb-2"
@@ -147,7 +148,7 @@ export default function Agency() {
               width="300"
               height="400"
               alt="Equipe Advisia"
-              className="aspect-3/4 object-cover w-full"
+              className="object-cover w-full aspect-square xl:aspect-3/4"
             />
           </div>
         </div>

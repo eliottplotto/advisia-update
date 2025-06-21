@@ -168,3 +168,14 @@
   overflow: hidden;
   position: relative;
 }
+
+.bg-ascii {
+  background-image: url("../../public/ascii.svg");
+  background-size: cover;
+}
+
+.bg-ascii-2 {
+  background-image: url("../../public/ascii-2.svg");
+  background-size: cover;
+  background-position: center;
+}

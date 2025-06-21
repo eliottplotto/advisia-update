@@ -3,9 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { RiArrowDownSFill } from "@remixicon/react";
+import { RiArrowDownSFill, RiArrowRightUpFill } from "@remixicon/react";
 // GSAP
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -141,7 +141,10 @@ export default function Navbar() {
           {/* Right */}
           <div className="hidden global-padding md:flex md:justify-end md:items-center">
             <Button onClick={closeServicesMenu} asChild>
-              <Link href="/contact">Estimer mon projet</Link>
+              <Link href="/contact">
+                Estimer mon projet
+                <RiArrowRightUpFill />
+              </Link>
             </Button>
           </div>
         </div>

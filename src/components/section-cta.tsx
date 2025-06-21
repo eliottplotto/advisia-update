@@ -28,7 +28,7 @@ export default function SectionCTA() {
   return (
     <section
       data-theme="dark"
-      className="dark bg-[#FF2803] text-foreground h-screen"
+      className="dark bg-[#FF2803] text-foreground h-screen bg-ascii-2"
     >
       <div className="global-padding flex flex-col items-center justify-center gap-8 h-full text-center">
         <div className="flex flex-col items-center gap-4">
@@ -53,7 +53,7 @@ export default function SectionCTA() {
             <span className="underline">gratuit</span>
           </RevealText>
         </div>
-        <Button size="lg" asChild>
+        <Button size="huge" asChild>
           <Link href="/contact">Je réserve</Link>
         </Button>
         <p className="font-mono uppercase text-sm">

@@ -5,7 +5,10 @@ import { BulletHeadline } from "./ui/bullet-headline";
 
 export default function SectionCTASmall() {
   return (
-    <section data-theme="dark" className="dark bg-[#FF2803] text-foreground">
+    <section
+      data-theme="dark"
+      className="dark bg-[#FF2803] text-foreground bg-ascii"
+    >
       <div className="main-layout">
         <div></div>
         <div className="global-padding mt-8 mb-16 lg:border-l lg:border-foreground">

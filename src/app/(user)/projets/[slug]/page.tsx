@@ -14,6 +14,7 @@ import Testimonial1 from "@/components/ui/sections/testimonial-1";
 import { Button } from "@/components/ui/button";
 import { RiArrowLeftLine } from "@remixicon/react";
 import { RevealText } from "@/components/RevealText";
+import SectionCTASmall from "@/components/section-cta-small";
 
 export async function generateMetadata({
   params,
@@ -57,25 +58,28 @@ export default async function ProjectDetailPage({
   }
 
   return (
-    <main className="main-wrapper">
-      {project.coverImage && (
-        <Image
-          src={
-            urlFor(project.coverImage).width(1920).url() ||
-            "https://placehold.co/1280x720/png"
-          }
-          alt={
-            project.coverImage.alt ||
-            `Image de couverture pour ${project.headline}`
-          }
-          className="w-full object-cover object-center max-h-[60dvh]"
-          priority // Charge l'image en priorité pour le LCP
-          sizes="(max-width: 768px) 100vw, 1920px"
-          width={1920}
-          height={1080}
-          quality={60}
-        />
-      )}
+    <main>
+      <div className="relative">
+        {project.coverImage && (
+          <Image
+            src={
+              urlFor(project.coverImage).width(1920).url() ||
+              "https://placehold.co/1280x720/png"
+            }
+            alt={
+              project.coverImage.alt ||
+              `Image de couverture pour ${project.headline}`
+            }
+            className="w-full object-cover object-center max-h-[60dvh]"
+            priority // Charge l'image en priorité pour le LCP
+            sizes="(max-width: 768px) 100vw, 1920px"
+            width={1920}
+            height={1080}
+            quality={60}
+          />
+        )}
+        <div className="absolute top-0 inset-x-0 h-[50%] bg-linear-to-b from-black/75 to-black/0"></div>
+      </div>
 
       {/* Test */}
       <div className="main-layout min-h-[50dvh] dark text-foreground bg-background">
@@ -185,6 +189,7 @@ export default async function ProjectDetailPage({
       </div>
 
       {project.review && <Testimonial1 testimonial={project.review} />}
+      <SectionCTASmall />
       <Footer />
     </main>
   );

@@ -18,7 +18,7 @@ import { Header1 } from "@/components/ui/sections/header-1";
 export default function AutomatisationsIA() {
   return (
     <>
-      <main className="main-wrapper">
+      <main>
         <Header1
           bg="secondary"
           heading="Solutions IA et Automatisations"
