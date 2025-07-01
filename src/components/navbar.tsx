@@ -1,15 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { RiArrowDownSFill, RiArrowRightUpFill } from "@remixicon/react";
+import {
+  RiArrowDownSFill,
+  RiArrowRightUpFill,
+  RiMenuLine,
+  RiCloseLine,
+  RiCloseFill,
+  RiMenuFill,
+} from "@remixicon/react";
+
 // GSAP
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Logo } from "./Logo";
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const servicesLinks = [
@@ -20,15 +28,32 @@ const servicesLinks = [
   { path: "/services/identite-de-marque", label: "Identité de marque" },
 ];
 
+const mainNavLinks = [
+  { path: "/projets", label: "Projets" },
+  { path: "/agence", label: "Agence" },
+  { path: "/contact", label: "Contact" },
+];
+
+const mobileMainNavLinks = [
+  { path: "/projets", label: "Projets" },
+  { path: "/agence", label: "Agence" },
+];
+
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const servicesMenuRef = useRef<HTMLDivElement>(null);
-  const tl = useRef<gsap.core.Timeline | null>(null);
-  const logoRef = useRef<SVGSVGElement | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  const servicesTl = useRef<gsap.core.Timeline | null>(null);
+  const mobileTl = useRef<gsap.core.Timeline | null>(null);
 
   useGSAP(() => {
+    // Services menu timeline
     if (servicesMenuRef.current) {
-      tl.current = gsap
+      servicesTl.current = gsap
         .timeline({ paused: true })
         .to(servicesMenuRef.current, {
           height: "auto",
@@ -37,154 +62,269 @@ export default function Navbar() {
         })
         .fromTo(
           servicesMenuRef.current.querySelectorAll("li"),
-          { opacity: 0, y: 10 },
+          { opacity: 0, x: 32 },
           {
             opacity: 1,
-            y: 0,
+            x: 0,
             duration: 0.2,
-            stagger: 0.05,
+            stagger: 0.04,
             ease: "power5.out",
           },
           "-=0.3"
         );
     }
-  }, []);
 
-  //Transition Couleur Logo
-  useGSAP(() => {
-    const sections = document.querySelectorAll("section[data-theme]");
+    // Mobile menu timeline
+    if (mobileMenuRef.current) {
+      mobileTl.current = gsap
+        .timeline({ paused: true })
+        .to(mobileMenuRef.current, {
+          height: "auto",
+          duration: 0.4,
+          ease: "power3.out",
+        })
+        .fromTo(
+          mobileMenuRef.current.querySelectorAll(".mobile-nav-item"),
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.2,
+            stagger: 0.04,
+            ease: "power3.out",
+          },
+          "-=0.2"
+        );
+    }
 
-    sections.forEach((section) => {
-      const theme = section.getAttribute("data-theme");
-
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top 5%",
-        end: "bottom 5%",
-        onEnter: () => {
-          if (theme === "light") {
-            logoRef.current?.classList.remove("text-white");
-            logoRef.current?.classList.add("text-black");
-          } else {
-            logoRef.current?.classList.remove("text-black");
-            logoRef.current?.classList.add("text-white");
-          }
-        },
-        onEnterBack: () => {
-          if (theme === "light") {
-            logoRef.current?.classList.remove("text-white");
-            logoRef.current?.classList.add("text-black");
-          } else {
-            logoRef.current?.classList.remove("text-black");
-            logoRef.current?.classList.add("text-white");
-          }
-        },
-      });
+    // ScrollTrigger pour changer l'apparence de la navbar
+    ScrollTrigger.create({
+      trigger: "body",
+      start: "top -50px",
+      end: "bottom bottom",
+      onUpdate: (self) => {
+        if (self.direction === 1 && self.progress > 0) {
+          setIsScrolled(true);
+        } else if (self.direction === -1 && self.progress === 0) {
+          setIsScrolled(false);
+        }
+      },
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
   const toggleServicesMenu = () => {
-    if (tl.current) {
-      if (isMenuOpen) {
-        tl.current.reverse();
+    if (servicesTl.current) {
+      if (isServicesMenuOpen) {
+        servicesTl.current.reverse();
       } else {
-        tl.current.play();
+        servicesTl.current.play();
       }
-      setIsMenuOpen(!isMenuOpen);
+      setIsServicesMenuOpen(!isServicesMenuOpen);
     }
   };
 
   const closeServicesMenu = () => {
-    if (tl.current) {
-      if (isMenuOpen) {
-        tl.current.reverse();
-        setIsMenuOpen(false);
-      }
+    if (servicesTl.current && isServicesMenuOpen) {
+      servicesTl.current.reverse();
+      setIsServicesMenuOpen(false);
     }
   };
 
+  const toggleMobileMenu = () => {
+    if (mobileTl.current) {
+      if (isMobileMenuOpen) {
+        mobileTl.current.reverse();
+      } else {
+        mobileTl.current.play();
+      }
+      setIsMobileMenuOpen(!isMobileMenuOpen);
+    }
+  };
+
+  const closeMobileMenu = () => {
+    if (mobileTl.current && isMobileMenuOpen) {
+      mobileTl.current.reverse();
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const isAnyMenuOpen = isServicesMenuOpen || isMobileMenuOpen;
+
   return (
     <>
-      <nav className="fixed top-0 z-40 w-full">
-        <div className="main-layout">
+      <nav
+        className={`fixed top-0 z-40 w-full transition-colors duration-300 ${
+          isScrolled || isAnyMenuOpen ? "bg-background" : "bg-transparent"
+        }`}
+      >
+        <div></div>
+        <div
+          className={`grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] transition-height duration-300 h-20 border-b ${
+            isScrolled ? "lg:h-16 border-b-0" : "lg:h-24"
+          } ${isAnyMenuOpen ? "border-border" : "border-transparent"}`}
+        >
           {/* Left */}
-          <div className="global-padding flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Logo ref={logoRef} className="text-white" />
+          <div className="global-padding-x flex items-center">
+            <Link
+              href="/"
+              className="flex items-center space-x-2"
+              onClick={() => {
+                closeServicesMenu();
+                closeMobileMenu();
+              }}
+            >
+              <Logo />
             </Link>
           </div>
 
-          {/* Center Navigation */}
-          <div className="hidden md:flex md:justify-center md:items-center">
+          {/* Center Navigation - Desktop */}
+          <div className="hidden lg:flex lg:justify-center lg:items-center">
             <div className="flex justify-center items-center gap-1">
-              <Button variant="secondary" onClick={toggleServicesMenu}>
+              <Button variant="ghost" onClick={toggleServicesMenu}>
                 Expertises
                 <RiArrowDownSFill
-                  className={`transition-transform duration-300 ${
-                    isMenuOpen ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-300 ${isServicesMenuOpen ? "rotate-180" : ""}`}
                 />
               </Button>
-              <Button asChild variant="secondary" onClick={closeServicesMenu}>
+              <Button asChild variant="ghost" onClick={closeServicesMenu}>
                 <Link href="/projets">Projets</Link>
               </Button>
-              <Button asChild variant="secondary" onClick={closeServicesMenu}>
+              <Button asChild variant="ghost" onClick={closeServicesMenu}>
                 <Link href="/agence">Agence</Link>
               </Button>
             </div>
           </div>
 
           {/* Right */}
-          <div className="hidden global-padding md:flex md:justify-end md:items-center">
-            <Button onClick={closeServicesMenu} asChild>
+          <div className="global-padding-x flex justify-end items-center">
+            <Button
+              onClick={closeServicesMenu}
+              asChild
+              className="hidden lg:flex"
+            >
               <Link href="/contact">
-                Estimer mon projet
+                Demander une estimation
                 <RiArrowRightUpFill />
               </Link>
             </Button>
+
+            {/* Mobile Menu Button */}
+
+            <Button
+              onClick={toggleMobileMenu}
+              className="lg:hidden w-12 h-12"
+              variant="ghost"
+            >
+              {isMobileMenuOpen ? <RiCloseFill /> : <RiMenuFill />}
+            </Button>
           </div>
         </div>
+        <div></div>
 
-        {/* Services Menu */}
-        <div ref={servicesMenuRef} className="w-full overflow-hidden h-0">
-          <ul className="container-md mx-auto grid grid-cols-5 gap-1 py-4">
+        {/* Services Menu - Desktop */}
+        <div
+          ref={servicesMenuRef}
+          className="hidden lg:block main-layout w-full overflow-hidden h-0"
+        >
+          <div></div>
+          <ul className="global-padding">
             {servicesLinks.map((link, index) => (
               <li key={index}>
                 <Link
                   href={link.path}
                   onClick={() => {
-                    tl.current?.reverse();
-                    setIsMenuOpen(false);
+                    servicesTl.current?.reverse();
+                    setIsServicesMenuOpen(false);
                   }}
+                  className="relative block py-2 group"
                 >
-                  <div className="group flex flex-col justify-between bg-secondary min-h-32 p-2 hover:bg-neutral-200">
-                    <Image
-                      src="/sample.svg"
-                      alt="image"
-                      width={40}
-                      height={40}
-                      className="group-hover:rotate-360 transition-transform ease-in-out duration-400"
-                    />
-                    <p className="text-xl">{link.label}</p>
-                  </div>
+                  <p className="text-3xl relative w-max">
+                    {link.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-current transition-all duration-300 ease-out group-hover:w-full"></span>
+                  </p>
                 </Link>
               </li>
             ))}
           </ul>
+          <div></div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          ref={mobileMenuRef}
+          className="lg:hidden w-full overflow-hidden h-0"
+        >
+          <div className="global-padding">
+            <div>
+              {/* Services Links */}
+              <div className="space-y-2">
+                {servicesLinks.map((link, index) => (
+                  <Link
+                    key={`service-${index}`}
+                    href={link.path}
+                    onClick={closeMobileMenu}
+                    className="block text-2xl"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Main Nav Links */}
+              <div className="pt-4 mt-4 border-t space-y-2">
+                {mobileMainNavLinks.map((link, index) => (
+                  <Link
+                    key={`main-${index}`}
+                    href={link.path}
+                    onClick={closeMobileMenu}
+                    className="block text-2xl"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile CTA */}
+              <div className="mobile-nav-item pt-8 flex flex-col gap-y-2">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full"
+                  variant="secondary"
+                >
+                  <Link href="/prendre-rendez-vous" onClick={closeMobileMenu}>
+                    Réserver un appel
+                  </Link>
+                </Button>
+                <Button asChild size="lg" className="w-full">
+                  <Link href="/contact" onClick={closeMobileMenu}>
+                    Demander une estimation
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
-      {isMenuOpen && (
+
+      {/* Backdrop */}
+      {isAnyMenuOpen && (
         <div
           className="fixed z-39 top-0 left-0 w-full h-full bg-primary/50 backdrop-blur supports-[backdrop-filter]:bg-primary/50"
           onClick={() => {
-            tl.current?.reverse();
-            setIsMenuOpen(false);
+            if (isServicesMenuOpen) {
+              servicesTl.current?.reverse();
+              setIsServicesMenuOpen(false);
+            }
+            if (isMobileMenuOpen) {
+              closeMobileMenu();
+            }
           }}
-        ></div>
+        />
       )}
     </>
   );

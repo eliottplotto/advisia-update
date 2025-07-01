@@ -10,26 +10,72 @@ import {
   RiMegaphoneFill,
   RiTeamFill,
   RiShoppingCartFill,
+  RiArrowRightFill,
+  RiCheckFill,
 } from "@remixicon/react";
 import Solutions from "@/components/services/automatisations-ia/solutions";
 import { Layout70 } from "@/components/ui/sections/layout-70";
 import { Header1 } from "@/components/ui/sections/header-1";
+import SectionCTA from "@/components/section-cta";
+import { RevealText } from "@/components/RevealText";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { BulletHeadline } from "@/components/ui/bullet-headline";
+import LogosSlider from "@/components/logos-slider";
+import ContactForm from "@/components/contact-form";
+import FAQ from "@/components/services/automatisations-ia/faq";
+import SectionCTAForm from "@/components/section-cta-form";
 
 export default function AutomatisationsIA() {
   return (
     <>
       <main>
-        <Header1
-          bg="secondary"
-          heading="Solutions IA et Automatisations"
-          description="Nous créons des automatisations des agents IA sur-mesure qui travaillent pour vous, 24/7."
-          buttons={[{ title: "Contacter un expert IA" }]}
-          image={{ src: "https://placehold.co/600x400", alt: "placeholder" }}
-        />
-        <Layout70
-          dark={true}
+        <section className="bg-[#DFF24B] bg-ascii-3">
+          <div className="main-layout min-h-[80dvh]">
+            <div></div>
+            <div className="h-full flex justify-center items-center">
+              <div className="global-padding flex flex-col justify-end items-center gap-6 text-center">
+                <div>
+                  <BulletHeadline as="p" className="justify-center">
+                    Automatisations & IA
+                  </BulletHeadline>
+                  <RevealText
+                    as="h1"
+                    className="text-4xl md:text-6xl xl:text-7xl mt-10 uppercase max-w-4xl"
+                  >
+                    Transformez votre entreprise avec l'IA
+                  </RevealText>
+                </div>
+
+                <p className="max-w-xl ">
+                  Nous créons des automatisations et des agents IA sur-mesure
+                  qui travaillent pour vous, 24/7.
+                </p>
+                <Button size="lg" asChild className="w-max mb-8">
+                  <Link href="/contact">
+                    Contacter un expert IA <RiArrowRightFill />
+                  </Link>
+                </Button>
+                <div className="flex gap-4 lg:gap-8 wrap">
+                  <div className="w-max">
+                    <p className="text-2xl">40%</p>
+                    <p className="text-sm ">Gain de productivité moyen</p>
+                  </div>
+                  <div className="w-max border-l border-white/50 pl-4 lg:pl-8">
+                    <p className="text-2xl">100%</p>
+                    <p className="text-sm ">Clients satisfaits</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </section>
+        <Solutions />
+        {/* <Layout70
+          dark={false}
           heading="Pourquoi intégrer l'IA à mon organisation ?"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
+          description="L'intelligence artificielle n'est plus un luxe, c'est une nécessité pour rester compétitif dans l'économie moderne."
           list={[
             {
               icon: <RiHeartFill />,
@@ -44,11 +90,12 @@ export default function AutomatisationsIA() {
               text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
             },
           ]}
-        />
-        <Solutions />
+        /> */}
+        <div className="h-1 bg-primary"></div>
+
         <Layout302
           heading="Devenez le leader de votre secteur"
-          subheading="Nos agents intelligents s'adaptent à vos enjeux métiers pour optimiser vos opérations, personnaliser l'expérience client et libérer du temps à forte valeur ajoutée."
+          subheading="Nos agents intelligents s'adaptent à vos enjeux métiers pour optimiser vos opérations, personnaliser l'expérience client et libérer du temps."
           sections={[
             {
               icon: <RiCustomerService2Fill size={32} />,
@@ -75,18 +122,6 @@ export default function AutomatisationsIA() {
                 "Assistants virtuels pour la gestion de compte, simulation de crédit, détection de fraude, automatisation des tâches administratives.",
             },
             {
-              icon: <RiGraduationCapFill size={32} />,
-              heading: "Éducation / Formation",
-              description:
-                "Tuteurs virtuels, correction automatique, génération de quiz, parcours personnalisés.",
-            },
-            {
-              icon: <RiHeartFill size={32} />,
-              heading: "Santé / Médical",
-              description:
-                "Agents de triage de symptômes, rappels de rendez-vous, support administratif, transcription médicale automatisée.",
-            },
-            {
               icon: <RiMegaphoneFill size={32} />,
               heading: "Communication",
               description:
@@ -102,13 +137,17 @@ export default function AutomatisationsIA() {
         />
         <Header1
           heading="Architecte IA & prompt engineers expert"
-          bg="secondary"
+          dark={true}
           layout="imgLeft"
           description="Avec des expériences concrètes d'e-merchandising, d'e-commerce et la maîtrise d'agents IA et de workflows intelligents, Eliott crée des systèmes qui fluidifient les opérations et génèrent de vrais gains en termes de couts, de performance et de temps."
-          buttons={[{ title: "Démarrer la discussion" }]}
+          buttons={[{ title: "Planifier un appel" }]}
           image={{ src: "/eliott-plotto.jpeg", alt: "Eliott Plotto" }}
           legend={{ title: "Eliott Plotto", subtitle: "Architecte IA" }}
         />
+
+        <FAQ />
+
+        <SectionCTAForm />
       </main>
       <Footer />
     </>

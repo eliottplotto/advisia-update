@@ -5,7 +5,6 @@ import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 import { RevealText } from "@/components/RevealText";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
-import SectionCTA from "@/components/section-cta";
 
 const options = { next: { revalidate: 60 } };
 
@@ -57,7 +56,7 @@ export default async function Projets() {
         </ul>
         <div></div>
       </section>
-      <SectionCTA />
+      <SectionCTASmall />
       <Footer />
     </>
   );

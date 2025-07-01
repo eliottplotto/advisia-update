@@ -7,6 +7,7 @@ import {
   RiLinkedinFill,
   RiSparklingFill,
 } from "@remixicon/react";
+import { Badge } from "./ui/badge";
 
 export default function Footer() {
   return (
@@ -14,11 +15,11 @@ export default function Footer() {
       <section data-theme="dark" className="dark text-foreground bg-background">
         <div className="grid grid-col-1 lg:grid-cols-2 lg:gap-y-32">
           <div className="global-padding">
+            <Badge className="mb-4">Coming Soon</Badge>
             <h2 className="text-4xl">Newsletter</h2>
             <p className="text-muted-foreground mb-4">
               Des informations et des mises à jour qui vous intéressent.
             </p>
-            <Button disabled>Coming soon</Button>
           </div>
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-x-4 gap-y-8 global-padding border-t border-px lg:border-0">
             <div>
@@ -38,12 +39,17 @@ export default function Footer() {
                 </li>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/">À propos</Link>
+                    <Link href="/agence">À propos</Link>
                   </Button>
                 </li>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/">Contact</Link>
+                    <Link href="/prendre-rendez-vous">Réserver un appel</Link>
+                  </Button>
+                </li>
+                <li>
+                  <Button variant="link" asChild>
+                    <Link href="/contact">Contact</Link>
                   </Button>
                 </li>
               </ul>
@@ -55,7 +61,7 @@ export default function Footer() {
               <ul>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/">
+                    <Link href="/services/automatisations-ia">
                       IA et Automatisation
                       <RiSparklingFill className="text-blue-600" />
                     </Link>
@@ -63,22 +69,26 @@ export default function Footer() {
                 </li>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/">Site Web</Link>
+                    <Link href="/services/site-web">Site Web</Link>
                   </Button>
                 </li>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/">Product Design</Link>
+                    <Link href="/services/product-design">Product Design</Link>
                   </Button>
                 </li>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/">Digital Marketing</Link>
+                    <Link href="/services/digital-marketing">
+                      Digital Marketing
+                    </Link>
                   </Button>
                 </li>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/">Identité de marque</Link>
+                    <Link href="/services/identite-de-marque">
+                      Identité de marque
+                    </Link>
                   </Button>
                 </li>
               </ul>
@@ -90,12 +100,14 @@ export default function Footer() {
               <ul>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/">Mentions légales</Link>
+                    <Link href="/mentions-legales">Mentions légales</Link>
                   </Button>
                 </li>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/">Politique de confidentialité</Link>
+                    <Link href="/politique-de-confidentialite">
+                      Politique de confidentialité
+                    </Link>
                   </Button>
                 </li>
                 <li>

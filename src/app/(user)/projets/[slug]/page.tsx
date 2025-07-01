@@ -59,40 +59,16 @@ export default async function ProjectDetailPage({
 
   return (
     <main>
-      <div className="relative">
-        {project.coverImage && (
-          <Image
-            src={
-              urlFor(project.coverImage).width(1920).url() ||
-              "https://placehold.co/1280x720/png"
-            }
-            alt={
-              project.coverImage.alt ||
-              `Image de couverture pour ${project.headline}`
-            }
-            className="w-full object-cover object-center max-h-[60dvh]"
-            priority // Charge l'image en priorité pour le LCP
-            sizes="(max-width: 768px) 100vw, 1920px"
-            width={1920}
-            height={1080}
-            quality={60}
-          />
-        )}
-        <div className="absolute top-0 inset-x-0 h-[50%] bg-linear-to-b from-black/75 to-black/0"></div>
-      </div>
-
-      {/* Test */}
-      <div className="main-layout min-h-[50dvh] dark text-foreground bg-background">
-        <div className="global-padding">
-          <Button variant="secondary" className="mb-8" asChild>
-            <Link href="/projets">
-              <RiArrowLeftLine />
-              Tous les projets
-            </Link>
-          </Button>
-        </div>
-        <div className="border-x">
-          <div className="global-padding h-full flex flex-col justify-between">
+      <div className="main-layout dark text-foreground bg-background">
+        <div></div>
+        <div className="lg:border-x">
+          <div className="global-padding flex flex-col justify-between mt-20">
+            <Button variant="link" className="mb-32 lg:mb-64 w-fit" asChild>
+              <Link href="/projets">
+                <RiArrowLeftLine />
+                Tous les projets
+              </Link>
+            </Button>
             <div>
               <p className="text-xl mb-8">{project.client}</p>
               <RevealText as="h1" className="mb-8 text-4xl md:text-6xl">
@@ -101,7 +77,7 @@ export default async function ProjectDetailPage({
             </div>
 
             {project.services && (
-              <ul className="w-fit">
+              <ul className="w-fit mt-16">
                 {project.services.map((service) => (
                   <li key={service._id} className="border-t last:border-b">
                     {service.title}
@@ -125,7 +101,26 @@ export default async function ProjectDetailPage({
             )}*/}
         </div>
       </div>
-      {/* Fin */}
+      <div>
+        {project.coverImage && (
+          <Image
+            src={
+              urlFor(project.coverImage).width(1920).url() ||
+              "https://placehold.co/1280x720/png"
+            }
+            alt={
+              project.coverImage.alt ||
+              `Image de couverture pour ${project.headline}`
+            }
+            className="w-full"
+            priority // Charge l'image en priorité pour le LCP
+            sizes="(max-width: 768px) 100vw, 1920px"
+            width={1920}
+            height={1080}
+            quality={60}
+          />
+        )}
+      </div>
 
       {/* <div className="container-md py-16 md:py-24">
           <div className="grid grid-col-1 lg:grid-cols-[3fr_2fr] gap-x-[5%]">

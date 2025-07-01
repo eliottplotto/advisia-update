@@ -9,7 +9,7 @@ import {
 
 export default function PourquoiAdvisia() {
   return (
-    <section data-theme="light">
+    <section className="bg-secondary">
       <div className="main-layout">
         <div></div>
         <div className="lg:border-x xl:pb-32">
@@ -25,8 +25,8 @@ export default function PourquoiAdvisia() {
             </RevealText>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 xl:grid-flow-col xl:border-b">
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 border-t">
+          <div className="grid grid-cols-1 xl:grid-cols-3 xl:grid-rows-2 xl:grid-flow-col">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   01
@@ -34,7 +34,7 @@ export default function PourquoiAdvisia() {
                 <RiShieldStarFill />
               </div>
               <div>
-                <h3>Expertises</h3>
+                <h3 className="text-2xl">Expertises</h3>
                 <p className="mt-3 text-muted-foreground">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse ac nisi in nisl feugiat ultricies.
@@ -49,7 +49,7 @@ export default function PourquoiAdvisia() {
                 <RiBardFill />
               </div>
               <div>
-                <h3>Innovation</h3>
+                <h3 className="text-2xl">Innovation</h3>
                 <p className="mt-3 text-muted-foreground">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse ac nisi in nisl feugiat ultricies.
@@ -63,7 +63,7 @@ export default function PourquoiAdvisia() {
               alt="Equipe Advisia"
               className="object-cover w-full xl:row-span-2 h-full"
             />
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 border-t">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   03
@@ -71,7 +71,7 @@ export default function PourquoiAdvisia() {
                 <RiFocus2Fill />
               </div>
               <div>
-                <h3>Résultats</h3>
+                <h3 className="text-2xl">Résultats</h3>
                 <p className="mt-3 text-muted-foreground">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse ac nisi in nisl feugiat ultricies.
@@ -86,7 +86,7 @@ export default function PourquoiAdvisia() {
                 <RiShakeHandsFill />
               </div>
               <div>
-                <h3>Collaboration</h3>
+                <h3 className="text-2xl">Collaboration</h3>
                 <p className="mt-3 text-muted-foreground">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse ac nisi in nisl feugiat ultricies.

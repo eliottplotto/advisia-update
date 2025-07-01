@@ -5,7 +5,7 @@ import Hero from "@/components/home/hero";
 import Services from "@/components/home/services";
 import LogosConfiance from "@/components/logos-confiance";
 import PourquoiAdvisia from "@/components/pourquoi-advisia";
-import SectionCTA from "@/components/section-cta";
+import SectionCTAForm from "@/components/section-cta-form";
 import SectionCTASmall from "@/components/section-cta-small";
 
 export default function Home() {
@@ -17,9 +17,8 @@ export default function Home() {
       <Services />
       <SectionCTASmall />
       <EtudesDeCas />
-      <div className="w-full h-1 bg-foreground"></div>
       <PourquoiAdvisia />
-      <SectionCTA />
+      <SectionCTAForm />
       <Footer />
     </main>
   );

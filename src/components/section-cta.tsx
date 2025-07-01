@@ -28,7 +28,7 @@ export default function SectionCTA() {
   return (
     <section
       data-theme="dark"
-      className="dark bg-[#FF2803] text-foreground h-screen bg-ascii-2"
+      className="dark bg-[#DFF24B] text-foreground h-screen bg-ascii-2"
     >
       <div className="global-padding flex flex-col items-center justify-center gap-8 h-full text-center">
         <div className="flex flex-col items-center gap-4">

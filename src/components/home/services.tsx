@@ -38,7 +38,7 @@ export default function Services() {
   ];
 
   return (
-    <section data-theme="light">
+    <section>
       <div className="main-layout">
         <div className="global-padding">
           <BulletHeadline as="p">Services</BulletHeadline>
@@ -61,7 +61,7 @@ export default function Services() {
               key={index}
               className="group text-foreground relative border-b overflow-hidden bg-background"
             >
-              <div className="absolute z-0 left-0 top-full group-hover:top-0 bg-neutral-100 w-full h-full transition-top ease-(--my-ease) duration-400"></div>
+              <div className="absolute z-0 left-0 top-full group-hover:top-0 bg-neutral-50 w-full h-full transition-top ease-(--my-ease) duration-400"></div>
               <div className="hidden sm:block absolute z-1 left-0 top-0 bg-blue-600 w-2 group-hover:w-24 h-full transition-width ease-(--my-ease) duration-400"></div>
 
               <Link
@@ -86,7 +86,7 @@ export default function Services() {
                   </div>
                   <div className="w-full">
                     <h3 className="text-xl lg:text-3xl">{service.title}</h3>
-                    <p className="text-muted-foreground mt-2">
+                    <p className="text-muted-foreground group-hover:text-foreground mt-2">
                       {service.description}
                     </p>
                   </div>

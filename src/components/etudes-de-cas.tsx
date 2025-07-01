@@ -8,17 +8,27 @@ const options = { next: { revalidate: 60 } };
 import { BulletHeadline } from "./ui/bullet-headline";
 import { RevealText } from "./RevealText";
 import { Button } from "./ui/button";
-import { RiArrowRightFill } from "@remixicon/react";
 
 export default async function EtudesDeCas() {
   const setting = await client.fetch(FEATURED_PROJECT_QUERY, {}, options);
 
   return (
-    <section data-theme="light">
+    <section className="dark bg-background text-foreground">
       <div className="main-layout">
         <div className="global-padding">
-          <BulletHeadline>Études de cas</BulletHeadline>
+          <BulletHeadline as="p">Études de cas</BulletHeadline>
         </div>
+        <div className="global-padding lg:border-x">
+          <RevealText
+            as="h2"
+            className="text-4xl md:text-6xl xl:text-7xl mt-16 md:mt-32 lg:mt-64 text-right"
+          >
+            Nos projets à <span className="underline">succès</span>.
+          </RevealText>
+        </div>
+      </div>
+      <div className="main-layout">
+        <div></div>
         <div className="lg:border-x">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div>
@@ -31,7 +41,7 @@ export default async function EtudesDeCas() {
                 draggable="false"
               />
             </div>
-            <div className="global-padding flex flex-col justify-between gap-8">
+            <div className="global-padding flex flex-col justify-between gap-8 lg:border-t">
               <div className="flex gap-8 justify-between">
                 {setting.featuredProject.client}
                 <img
@@ -55,7 +65,7 @@ export default async function EtudesDeCas() {
               </div>
             </div>
           </div>
-          <div className="bg-secondary bg-ascii border-t py-8 md:py-16 flex items-center justify-center sm:justify-between gap-4 overflow-hidden">
+          {/* <div className="bg-ascii border-t py-8 md:py-16 flex items-center justify-center sm:justify-between gap-4 overflow-hidden">
             <Image
               src="/placeholder.jpg"
               alt="placeholder"
@@ -78,7 +88,7 @@ export default async function EtudesDeCas() {
               height={300}
               draggable="false"
             />
-          </div>
+          </div> */}
         </div>
         <div></div>
       </div>

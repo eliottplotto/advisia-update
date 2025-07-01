@@ -45,9 +45,7 @@ export const Header1 = (props: Header1Props) => {
       <div className="main-layout">
         <div className="col-start-2 grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 lg:grid-cols-2 lg:items-center">
           <div className={`${layout === "imgLeft" ? "order-1" : ""}`}>
-            <h2 className="mb-5 text-4xl md:text-6xl lg:text-7xl md:mb-6">
-              {heading}
-            </h2>
+            <h2 className="mb-5 text-4xl md:text-6xl md:mb-6">{heading}</h2>
             <p className="md:text-md">{description}</p>
             <div className="mt-6 flex flex-wrap gap-1 md:mt-8">
               {buttons?.map((button, index) => {
@@ -55,14 +53,14 @@ export const Header1 = (props: Header1Props) => {
 
                 if (asChild && children) {
                   return (
-                    <Button key={index} asChild {...rest}>
+                    <Button key={index} asChild {...rest} size={"lg"}>
                       {children}
                     </Button>
                   );
                 }
 
                 return (
-                  <Button key={index} {...rest}>
+                  <Button key={index} {...rest} size={"lg"}>
                     {title}
                   </Button>
                 );

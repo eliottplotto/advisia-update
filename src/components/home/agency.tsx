@@ -93,11 +93,20 @@ export default function Agency() {
           <BulletHeadline as="h2">L'agence</BulletHeadline>
         </div>
         <div className="lg:border-x">
-          <div className="global-padding md:max-w-[50%] ml-auto mr-0 mt-32 lg:mt-64">
-            <RevealText as="h3" className="text-xl md:text-2xl">
-              Advisia est une agence de croissance digitale qui allie solutions
-              web, intelligence artificielle et communication pour transformer
-              vos objectifs en résultats mesurables.
+          <div className="global-padding 2xl:w-[50%]">
+            <RevealText as="h3" className="text-xl md:text-4xl mt-32 lg:mt-64">
+              Advisia est une agence de croissance spécialisée en web, marketing
+              digital et intelligence artificielle.
+            </RevealText>
+          </div>
+          <div className="global-padding xl:max-w-[50%] ml-auto mr-0">
+            <RevealText
+              as="p"
+              className="text-xl md:text-2xl text-muted-foreground"
+            >
+              Nous concevons des sites performants, des stratégies d'acquisition
+              rentables, et des systèmes intelligents qui automatisent vos
+              tâches les plus chronophages.
             </RevealText>
             <Button variant="secondary" asChild className="mt-8">
               <Link href="/agence">À propos</Link>
