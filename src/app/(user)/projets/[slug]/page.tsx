@@ -16,11 +16,15 @@ import { RiArrowLeftLine } from "@remixicon/react";
 import { RevealText } from "@/components/RevealText";
 import SectionCTASmall from "@/components/section-cta-small";
 
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const project = await getProjectBySlug(params.slug);
 
   if (!project) {
@@ -46,11 +50,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProjectDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function ProjectDetailPage({ params }: PageProps) {
   const project: Project | null = await getProjectBySlug(params.slug);
 
   if (!project) {
