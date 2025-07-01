@@ -130,7 +130,7 @@ export default function ContactForm() {
         email: "",
         message: "",
       });
-    } catch (error) {
+    } catch {
       setSubmitError(
         "Une erreur est survenue lors de l&apos;envoi. Veuillez réessayer."
       );
