@@ -1,7 +1,44 @@
 import { client } from "./client";
-import { Project } from "../../types/sanity";
+import type { Project } from "../../types/sanity";
 import { defineQuery } from "next-sanity";
 
+// Types pour les données déréférencées
+export type Service = {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+  icon?: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+  };
+};
+
+export type Review = {
+  _id: string;
+  entreprise: string;
+  nom: string;
+  prenom: string;
+  poste: string;
+  citation: string;
+  photo?: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+  };
+  logo?: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+  };
+};
+
+// Requête principale du projet (sans déréférencement)
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   const query = defineQuery(`
     *[_type == "project" && slug.current == $slug][0] {
@@ -28,37 +65,8 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
       impact,
       resultats,
       date,
-      review-> {
-        _id,
-        entreprise,
-        nom,
-        prenom,
-        poste,
-        citation,
-        photo {
-          asset->{
-            _id,
-            url
-          }
-        },
-        logo {
-          asset->{
-            _id,
-            url
-          }
-        }
-      },
-      services[]-> {
-        _id,
-        title,
-        slug,
-        icon {
-          asset->{
-            _id,
-            url
-          }
-        }
-      }
+      review,
+      services
     }
   `);
 
@@ -67,6 +75,77 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     return project;
   } catch (error) {
     console.error(`Erreur lors de la récupération du projet ${slug}:`, error);
+    return null;
+  }
+}
+
+// Requête pour récupérer les services par leurs références
+export async function getServicesByIds(
+  serviceRefs: Array<{ _ref: string }>
+): Promise<Service[]> {
+  if (!serviceRefs || serviceRefs.length === 0) return [];
+
+  const serviceIds = serviceRefs.map((ref) => ref._ref);
+
+  const query = defineQuery(`
+    *[_type == "service" && _id in $serviceIds] {
+      _id,
+      title,
+      slug,
+      icon {
+        asset->{
+          _id,
+          url
+        }
+      }
+    }
+  `);
+
+  try {
+    const services = await client.fetch<Service[]>(query, { serviceIds });
+    return services;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des services:", error);
+    return [];
+  }
+}
+
+// Requête pour récupérer un témoignage par sa référence
+export async function getReviewById(reviewRef: {
+  _ref: string;
+}): Promise<Review | null> {
+  if (!reviewRef?._ref) return null;
+
+  const query = defineQuery(`
+    *[_type == "temoignage" && _id == $reviewId][0] {
+      _id,
+      entreprise,
+      nom,
+      prenom,
+      poste,
+      citation,
+      photo {
+        asset->{
+          _id,
+          url
+        }
+      },
+      logo {
+        asset->{
+          _id,
+          url
+        }
+      }
+    }
+  `);
+
+  try {
+    const review = await client.fetch<Review>(query, {
+      reviewId: reviewRef._ref,
+    });
+    return review;
+  } catch (error) {
+    console.error("Erreur lors de la récupération du témoignage:", error);
     return null;
   }
 }

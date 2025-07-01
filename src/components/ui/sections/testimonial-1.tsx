@@ -1,4 +1,4 @@
-import type { Temoignage } from "@/types/sanity";
+import type { Review } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { RevealText } from "@/components/RevealText";
@@ -6,7 +6,7 @@ import { RevealText } from "@/components/RevealText";
 interface TestimonialProps {
   dark?: boolean;
   bg?: string;
-  testimonial: Temoignage;
+  testimonial: Review;
 }
 
 export default function Testimonial1({
@@ -27,7 +27,10 @@ export default function Testimonial1({
           <div className="col-span-1">
             {testimonial.photo && (
               <Image
-                src={urlFor(testimonial.photo).width(500).height(500).url()}
+                src={
+                  urlFor(testimonial.photo).width(500).height(500).url() ||
+                  "/placeholder.svg"
+                }
                 alt={`Photo de ${testimonial.prenom} ${testimonial.nom}`}
                 width={500}
                 height={500}
@@ -50,7 +53,10 @@ export default function Testimonial1({
             </div>
             {testimonial.logo && (
               <Image
-                src={urlFor(testimonial.logo).width(100).height(100).url()}
+                src={
+                  urlFor(testimonial.logo).width(100).height(100).url() ||
+                  "/placeholder.svg"
+                }
                 alt={`Logo de ${testimonial.entreprise}`}
                 width={100}
                 height={100}

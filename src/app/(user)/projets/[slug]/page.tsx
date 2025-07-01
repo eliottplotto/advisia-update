@@ -5,7 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Data
-import { getProjectBySlug, getAllProjectSlugs } from "@/sanity/lib/queries";
+import {
+  getProjectBySlug,
+  getServicesByIds,
+  getReviewById,
+  getAllProjectSlugs,
+} from "@/sanity/lib/queries";
 import type { Project } from "@/types/sanity";
 import { urlFor } from "@/sanity/lib/client";
 
@@ -59,13 +64,19 @@ export default async function ProjectDetailPage(props: { params: Params }) {
     notFound();
   }
 
+  // Récupération des données liées en parallèle
+  const [services, review] = await Promise.all([
+    project.services ? getServicesByIds(project.services) : Promise.resolve([]),
+    project.review ? getReviewById(project.review) : Promise.resolve(null),
+  ]);
+
   return (
     <main>
-      <div className="main-layout dark text-foreground bg-background">
+      <div className="main-layout bg-[#DFF24B]">
         <div></div>
-        <div className="lg:border-x">
+        <div>
           <div className="global-padding flex flex-col justify-between mt-20">
-            <Button variant="link" className="mb-32 lg:mb-64 w-fit" asChild>
+            <Button variant="secondary" className="mb-32 w-fit" asChild>
               <Link href="/projets">
                 <RiArrowLeftLine />
                 Tous les projets
@@ -73,16 +84,14 @@ export default async function ProjectDetailPage(props: { params: Params }) {
             </Button>
             <div>
               <p className="text-xl mb-8">{project.client}</p>
-              <RevealText as="h1" className="mb-8 text-4xl md:text-6xl">
+              <RevealText as="h1" className="text-4xl md:text-6xl">
                 {project.headline}
               </RevealText>
             </div>
-            {project.services && (
-              <ul className="w-fit mt-16">
-                {project.services.map((service) => (
-                  <li key={service._id} className="border-t last:border-b">
-                    {service.title}
-                  </li>
+            {services.length > 0 && (
+              <ul className="w-fit mt-8 pl-4 border-l border-foreground">
+                {services.map((service) => (
+                  <li key={service._id}>{service.title}</li>
                 ))}
               </ul>
             )}
@@ -187,7 +196,7 @@ export default async function ProjectDetailPage(props: { params: Params }) {
         )}
       </div>
 
-      {project.review && <Testimonial1 testimonial={project.review} />}
+      {review && <Testimonial1 testimonial={review} />}
 
       <SectionCTASmall />
 
