@@ -158,8 +158,19 @@ export type Project = {
     _key: string;
   }>;
   date?: string;
-  review?: Temoignage;
-  services?: Service[];
+  review?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "temoignage";
+  };
+  services?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "service";
+  }>;
 };
 
 export type Temoignage = {
