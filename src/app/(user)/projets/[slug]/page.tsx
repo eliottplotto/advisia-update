@@ -3,10 +3,12 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
 // Data
 import { getProjectBySlug, getAllProjectSlugs } from "@/sanity/lib/queries";
 import type { Project } from "@/types/sanity";
 import { urlFor } from "@/sanity/lib/client";
+
 // Components
 import Footer from "@/components/footer";
 import { Header2 } from "@/components/ui/sections/header-2";
@@ -16,15 +18,14 @@ import { RiArrowLeftLine } from "@remixicon/react";
 import { RevealText } from "@/components/RevealText";
 import SectionCTASmall from "@/components/section-cta-small";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
+// Types mis à jour pour Next.js 15
+type Params = Promise<{ slug: string }>;
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata(props: {
+  params: Params;
+}): Promise<Metadata> {
+  // Await des params dans Next.js 15
+  const params = await props.params;
   const project = await getProjectBySlug(params.slug);
 
   if (!project) {
@@ -43,14 +44,15 @@ export async function generateMetadata({
 // Fonction pour générer les chemins statiques
 export async function generateStaticParams() {
   const slugs = await getAllProjectSlugs();
-
   // Retourne un tableau d'objets, où chaque objet contient le paramètre de la route
   return slugs.map((slug) => ({
     slug: slug,
   }));
 }
 
-export default async function ProjectDetailPage({ params }: PageProps) {
+export default async function ProjectDetailPage(props: { params: Params }) {
+  // Await des params dans Next.js 15
+  const params = await props.params;
   const project: Project | null = await getProjectBySlug(params.slug);
 
   if (!project) {
@@ -75,7 +77,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 {project.headline}
               </RevealText>
             </div>
-
             {project.services && (
               <ul className="w-fit mt-16">
                 {project.services.map((service) => (
@@ -90,7 +91,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             {project.logo && (
               <div className="w-fit p-8 mt-8 ml-auto mr-0 bg-background">
                 <Image
-                  src={urlFor(project.logo).width(80).url()}
+                  src={urlFor(project.logo).width(80).url() || "/placeholder.svg"}
                   alt={`Logo ${project.client}`}
                   priority // Charge l'image en priorité pour le LCP
                   sizes="(max-width: 768px) 100vw, 80px"
@@ -101,12 +102,14 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             )}*/}
         </div>
       </div>
+
       <div>
         {project.coverImage && (
           <Image
             src={
               urlFor(project.coverImage).width(1920).url() ||
-              "https://placehold.co/1280x720/png"
+              "https://placehold.co/1280x720/png" ||
+              "/placeholder.svg"
             }
             alt={
               project.coverImage.alt ||
@@ -154,6 +157,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             </div>
           </div>
         </div>*/}
+
       <div>
         {project.contexte && (
           <Header2
@@ -184,7 +188,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </div>
 
       {project.review && <Testimonial1 testimonial={project.review} />}
+
       <SectionCTASmall />
+
       <Footer />
     </main>
   );
