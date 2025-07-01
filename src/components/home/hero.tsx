@@ -45,7 +45,7 @@ export default function Hero() {
 
         <RevealText
           as="h1"
-          className="text-4xl md:text-6xl lg:text-7xl mt-10 uppercase"
+          className="text-4xl md:text-6xl lg:text-7xl mt-8 uppercase"
         >
           Gagnez du temps,
           <br />

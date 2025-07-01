@@ -56,10 +56,12 @@ const isReactElement = (
 
 // Type guard to check if props has children property
 const hasChildrenProp = (
-  props: any
+  props: unknown
 ): props is { children: React.ReactNode } => {
   return (
-    props && typeof props === "object" && props !== null && "children" in props
+    typeof props === "object" &&
+    props !== null &&
+    Object.prototype.hasOwnProperty.call(props, "children")
   );
 };
 
@@ -209,10 +211,16 @@ function Button({
 
         // If it has children, process them recursively
         if (hasChildrenProp(child.props)) {
-          return React.cloneElement(child as React.ReactElement<any>, {
-            ...child.props,
-            children: React.Children.map(child.props.children, processChildren),
-          });
+          return React.cloneElement(
+            child as React.ReactElement<{ children?: React.ReactNode }>,
+            {
+              ...child.props,
+              children: React.Children.map(
+                child.props.children,
+                processChildren
+              ),
+            }
+          );
         }
       }
 

@@ -1,12 +1,5 @@
-import Image from "next/image";
-import {
-  RiArrowUpBoxFill,
-  RiCheckFill,
-  RiGitCommitFill,
-  RiRobot3Fill,
-} from "@remixicon/react";
+import { RiCheckFill, RiGitCommitFill, RiRobot3Fill } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
-import { BulletHeadline } from "@/components/ui/bullet-headline";
 import { RevealText } from "@/components/RevealText";
 
 export default function Solutions() {
@@ -23,8 +16,8 @@ export default function Solutions() {
             l&apos;IA dans votre organisation
           </RevealText>
           <p className="max-w-2xl mx-auto mt-6 text-muted-foreground">
-            Nos solutions d'intelligence artificielle s'adaptent à vos besoins
-            spécifiques pour maximiser votre retour sur investissement.
+            Nos solutions d&apos;intelligence artificielle s&apos;adaptent à vos
+            besoins spécifiques pour maximiser votre retour sur investissement.
           </p>
         </div>
       </div>
@@ -53,7 +46,7 @@ export default function Solutions() {
                   </h5>
                   <p className="text-muted-foreground">
                     Libérez vos équipes des tâches répétitives en automatisant
-                    vos workflows avec l'IA.
+                    vos workflows avec l&apos;IA.
                   </p>
                   <ul className="adv_list-icon mt-6">
                     <li>

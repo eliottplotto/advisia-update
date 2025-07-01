@@ -5,24 +5,17 @@ import {
   RiCustomerService2Fill,
   RiHome9Fill,
   RiBankFill,
-  RiGraduationCapFill,
-  RiHeartFill,
   RiMegaphoneFill,
   RiTeamFill,
   RiShoppingCartFill,
   RiArrowRightFill,
-  RiCheckFill,
 } from "@remixicon/react";
 import Solutions from "@/components/services/automatisations-ia/solutions";
-import { Layout70 } from "@/components/ui/sections/layout-70";
 import { Header1 } from "@/components/ui/sections/header-1";
-import SectionCTA from "@/components/section-cta";
 import { RevealText } from "@/components/RevealText";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
-import LogosSlider from "@/components/logos-slider";
-import ContactForm from "@/components/contact-form";
 import FAQ from "@/components/services/automatisations-ia/faq";
 import SectionCTAForm from "@/components/section-cta-form";
 
@@ -43,7 +36,7 @@ export default function AutomatisationsIA() {
                     as="h1"
                     className="text-4xl md:text-6xl xl:text-7xl mt-10 uppercase max-w-4xl"
                   >
-                    Transformez votre entreprise avec l'IA
+                    Transformez votre entreprise avec l&apos;IA
                   </RevealText>
                 </div>
 
@@ -107,7 +100,7 @@ export default function AutomatisationsIA() {
               icon: <RiShoppingCartFill size={32} />,
               heading: "E-commerce & Retail",
               description:
-                "Recommandations produits, assistants d'achat, gestion des stocks, relances paniers abandonnés, chatbots de prévente.",
+                "Recommandations produits, assistants d&apos;achat, gestion des stocks, relances paniers abandonnés, chatbots de prévente.",
             },
             {
               icon: <RiHome9Fill size={32} />,

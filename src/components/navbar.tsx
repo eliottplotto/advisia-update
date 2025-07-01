@@ -5,8 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
   RiArrowDownSFill,
   RiArrowRightUpFill,
-  RiMenuLine,
-  RiCloseLine,
   RiCloseFill,
   RiMenuFill,
 } from "@remixicon/react";
@@ -26,12 +24,6 @@ const servicesLinks = [
   { path: "/services/product-design", label: "Product Design" },
   { path: "/services/marketing-digital", label: "Marketing Digital" },
   { path: "/services/identite-de-marque", label: "Identité de marque" },
-];
-
-const mainNavLinks = [
-  { path: "/projets", label: "Projets" },
-  { path: "/agence", label: "Agence" },
-  { path: "/contact", label: "Contact" },
 ];
 
 const mobileMainNavLinks = [

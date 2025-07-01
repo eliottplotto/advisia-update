@@ -31,6 +31,16 @@ export default function SectionCTAForm() {
           <div className="pt-32 lg:border-x border-foreground grid xl:grid-cols-2">
             <div className="global-padding bg-[#DFF24B]">
               <BulletHeadline as="p">Contact</BulletHeadline>
+              <div className="mt-8">
+                {profils.map((profil, index) => (
+                  <img
+                    key={index}
+                    src={profil.src}
+                    alt={profil.alt}
+                    className="inline-block not-first:-ml-2 w-12 h-12 rounded-full border-3 border-[#DFF24B]"
+                  />
+                ))}
+              </div>
               <RevealText
                 as="h1"
                 className="text-4xl 2xl:text-7xl mt-8 mb-4 2xl:mb-8 uppercase"

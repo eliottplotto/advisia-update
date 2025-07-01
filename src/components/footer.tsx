@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-x-4 gap-y-8 global-padding border-t border-px lg:border-0">
             <div>
               <h2 className="font-mono text-muted-foreground text-sm uppercase mb-4">
-                L'agence
+                L&apos;agence
               </h2>
               <ul>
                 <li>

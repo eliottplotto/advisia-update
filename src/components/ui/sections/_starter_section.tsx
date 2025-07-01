@@ -24,7 +24,9 @@ export const Testimonial1 = (props: Testimonial1Props) => {
     <section
       className={`bg-background text-foreground py-16 md:py-24 lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
     >
-      <div className="container-md"></div>
+      <p>{heading}</p>
+      <p>{description}</p>
+      <img src={image.src} />
     </section>
   );
 };

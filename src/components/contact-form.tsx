@@ -132,7 +132,7 @@ export default function ContactForm() {
       });
     } catch (error) {
       setSubmitError(
-        "Une erreur est survenue lors de l'envoi. Veuillez réessayer."
+        "Une erreur est survenue lors de l&apos;envoi. Veuillez réessayer."
       );
     } finally {
       setIsSubmitting(false);

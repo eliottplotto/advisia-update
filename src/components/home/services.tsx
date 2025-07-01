@@ -40,13 +40,15 @@ export default function Services() {
   return (
     <section>
       <div className="main-layout">
-        <div className="global-padding">
-          <BulletHeadline as="p">Services</BulletHeadline>
-        </div>
+        <div></div>
         <div className="global-padding lg:border-x">
+          <BulletHeadline as="p" className="mt-16 md:mt-32 lg:mt-64">
+            Nos expertises
+          </BulletHeadline>
+
           <RevealText
             as="h2"
-            className="text-4xl md:text-6xl xl:text-7xl max-w-4xl mt-16 md:mt-32 lg:mt-64"
+            className="text-4xl md:text-6xl xl:text-7xl max-w-4xl mt-8"
           >
             Développer <span className="underline">tout le potentiel</span> de
             votre activité.

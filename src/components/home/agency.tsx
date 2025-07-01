@@ -10,7 +10,6 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { BulletHeadline } from "../ui/bullet-headline";
 import { RevealText } from "../RevealText";
-import { Ri24HoursFill } from "@remixicon/react";
 gsap.registerPlugin(useGSAP, ScrollTrigger, TextPlugin);
 
 export default function Agency() {
@@ -90,7 +89,7 @@ export default function Agency() {
     <section data-theme="dark" className="dark bg-background text-foreground">
       <div className="main-layout">
         <div className="global-padding">
-          <BulletHeadline as="h2">L'agence</BulletHeadline>
+          <BulletHeadline as="h2">L&apos;agence</BulletHeadline>
         </div>
         <div className="lg:border-x">
           <div className="global-padding 2xl:w-[50%]">
@@ -104,9 +103,9 @@ export default function Agency() {
               as="p"
               className="text-xl md:text-2xl text-muted-foreground"
             >
-              Nous concevons des sites performants, des stratégies d'acquisition
-              rentables, et des systèmes intelligents qui automatisent vos
-              tâches les plus chronophages.
+              Nous concevons des sites performants, des stratégies
+              d&apos;acquisition rentables, et des systèmes intelligents qui
+              automatisent vos tâches les plus chronophages.
             </RevealText>
             <Button variant="secondary" asChild className="mt-8">
               <Link href="/agence">À propos</Link>

@@ -3,11 +3,6 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { RevealText } from "@/components/RevealText";
 
-type ImageProps = {
-  src: string;
-  alt?: string;
-};
-
 interface TestimonialProps {
   dark?: boolean;
   bg?: string;
