@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { PROJECTS_QUERY } from "@/sanity/lib/queries";
+import type { Project } from "@/types/sanity"; // Ajout de l'import du type
 import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 import { RevealText } from "@/components/RevealText";
@@ -8,19 +9,8 @@ import { BulletHeadline } from "@/components/ui/bullet-headline";
 
 const options = { next: { revalidate: 60 } };
 
-type Projet = {
-  _id: string;
-  title: string;
-  slug: { current: string };
-  coverImage: {
-    asset: {
-      url: string;
-    };
-  };
-};
-
 export default async function Projets() {
-  const projets: Projet[] = await client.fetch(PROJECTS_QUERY, {}, options);
+  const projets: Project[] = await client.fetch(PROJECTS_QUERY, {}, options);
 
   return (
     <>
@@ -39,7 +29,9 @@ export default async function Projets() {
           </div>
         </div>
       </section>
+
       <div className="h-1 bg-primary"></div>
+
       <section className="main-layout" data-theme="light">
         <div></div>
         <ul className="global-padding lg:border-x grid grid-cols-1 divide-y divide-blue-100">
@@ -56,6 +48,7 @@ export default async function Projets() {
         </ul>
         <div></div>
       </section>
+
       <SectionCTASmall />
       <Footer />
     </>
