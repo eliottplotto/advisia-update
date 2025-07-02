@@ -30,7 +30,7 @@ const buttonVariants = cva(
         contrast:
           "bg-foreground text-background hover:bg-neutral-700 dark:hover:bg-neutral-200",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+          "hover:bg-secondary hover:text-foreground dark:hover:bg-secondary",
         link: "text-primary underline-offset-4 hover:underline px-0 has-[>svg]:px-0 py-0 h-auto",
       },
     },

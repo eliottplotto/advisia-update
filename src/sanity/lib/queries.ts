@@ -169,7 +169,15 @@ export async function getAllProjectSlugs(): Promise<string[]> {
 
 export const PROJECTS_QUERY =
   defineQuery(`*[_type == "project" && defined(slug.current)][0...12]{
-  _id, title, slug, headline,
+  _id,
+  title,
+  slug,
+  headline,
+  client,
+  coverImage{
+    ...,
+    asset->
+  },
 }`);
 
 export const FEATURED_PROJECT_QUERY = defineQuery(`

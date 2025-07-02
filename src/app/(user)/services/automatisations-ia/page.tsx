@@ -9,6 +9,9 @@ import {
   RiTeamFill,
   RiShoppingCartFill,
   RiArrowRightFill,
+  RiSearch2Fill,
+  RiGitBranchFill,
+  RiLineChartFill,
 } from "@remixicon/react";
 import Solutions from "@/components/services/automatisations-ia/solutions";
 import { Header1 } from "@/components/ui/sections/header-1";
@@ -18,8 +21,30 @@ import Link from "next/link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import FAQ from "@/components/services/automatisations-ia/faq";
 import SectionCTAForm from "@/components/section-cta-form";
+import Steps1 from "@/components/ui/sections/steps-1";
 
 export default function AutomatisationsIA() {
+  const processSteps = [
+    {
+      title: "Analyse & stratégie sur-mesure",
+      subtitle:
+        "On commence par une analyse approfondie de vos tâches répétitives, outils, flux de travail et points de friction. Ensuite, on élabore une stratégie claire : quelles automatisations mettre en place, avec quels outils, dans quel ordre et pour quel impact. L'objectif : maximiser le gain de temps et l'efficacité, sans alourdir votre organisation.",
+      icon: RiSearch2Fill,
+    },
+    {
+      title: "Mise en place des automatisations",
+      subtitle:
+        "Nous développons ou configurons les automatisations avec des solutions no-code/low-code (Make, Zapier, n8n) ou des scripts sur mesure. Chaque automatisation est testée, documentée, et intégrée proprement dans votre environnement existant.",
+      icon: RiGitBranchFill,
+    },
+    {
+      title: "Suivi et amélioration continue",
+      subtitle:
+        "Vous avez accès à un tableau de bord pour suivre les résultats et nous restons disponibles pour adapter les automatisations ou former vos équipes. L'objectif : que tout tourne efficacement, même sans nous.",
+      icon: RiLineChartFill,
+    },
+  ];
+
   return (
     <>
       <main>
@@ -54,7 +79,7 @@ export default function AutomatisationsIA() {
                     <p className="text-2xl">40%</p>
                     <p className="text-sm ">Gain de productivité moyen</p>
                   </div>
-                  <div className="w-max border-l border-white/50 pl-4 lg:pl-8">
+                  <div className="w-max border-l border-foreground pl-4 lg:pl-8">
                     <p className="text-2xl">100%</p>
                     <p className="text-sm ">Clients satisfaits</p>
                   </div>
@@ -128,16 +153,23 @@ export default function AutomatisationsIA() {
             },
           ]}
         />
+
+        <Steps1
+          title="Notre méthodologie"
+          subtitle="Une approche structurée et collaborative qui combine expertise technique, créativité et vision stratégique. Notre méthode s'adapte à la taille de votre entreprise et à l'organisation de vos équipes."
+          steps={processSteps}
+        />
+
         <Header1
           heading="Architecte IA & prompt engineers expert"
-          dark={true}
+          dark={false}
           layout="imgLeft"
           description="Avec des expériences concrètes d'e-merchandising, d'e-commerce et la maîtrise d'agents IA et de workflows intelligents, Eliott crée des systèmes qui fluidifient les opérations et génèrent de vrais gains en termes de couts, de performance et de temps."
           buttons={[{ title: "Planifier un appel" }]}
           image={{ src: "/eliott-plotto.jpeg", alt: "Eliott Plotto" }}
           legend={{ title: "Eliott Plotto", subtitle: "Architecte IA" }}
         />
-
+        <div className="h-1 bg-primary"></div>
         <FAQ />
 
         <SectionCTAForm />

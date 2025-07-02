@@ -40,11 +40,13 @@ export const Header1 = (props: Header1Props) => {
 
   return (
     <section
-      className={`bg-background text-foreground py-16 md:py-24 lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
+      className={`bg-background text-foreground lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
     >
       <div className="main-layout">
-        <div className="col-start-2 grid grid-cols-1 gap-x-20 gap-y-12 md:gap-y-16 lg:grid-cols-2 lg:items-center">
-          <div className={`${layout === "imgLeft" ? "order-1" : ""}`}>
+        <div className="col-start-2 grid grid-cols-1 lg:grid-cols-2 lg:items-center">
+          <div
+            className={`global-padding-x py-16 ${layout === "imgLeft" ? "order-1" : ""}`}
+          >
             <h2 className="mb-5 text-4xl md:text-6xl md:mb-6">{heading}</h2>
             <p className="md:text-md">{description}</p>
             <div className="mt-6 flex flex-wrap gap-1 md:mt-8">
@@ -74,7 +76,7 @@ export const Header1 = (props: Header1Props) => {
               alt={image.alt}
             />
             {legend && (
-              <div className="dark bg-background text-foreground absolute bottom-4 left-4 p-3">
+              <div className="bg-background text-foreground absolute bottom-4 left-4 p-3">
                 <p className="flex items-center gap-2">
                   <span className="inline-block w-2 h-2 bg-blue-600"></span>
                   {legend.title}

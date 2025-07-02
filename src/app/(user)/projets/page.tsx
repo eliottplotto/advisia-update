@@ -1,11 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
+// Data
+import { urlFor } from "@/sanity/lib/client";
 import { client } from "@/sanity/lib/client";
+import type { Project } from "@/types/sanity";
 import { PROJECTS_QUERY } from "@/sanity/lib/queries";
-import type { Project } from "@/types/sanity"; // Ajout de l'import du type
+// Components
 import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 import { RevealText } from "@/components/RevealText";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
+import { Button } from "@/components/ui/button";
 
 const options = { next: { revalidate: 60 } };
 
@@ -32,16 +37,45 @@ export default async function Projets() {
 
       <div className="h-1 bg-primary"></div>
 
-      <section className="main-layout" data-theme="light">
+      <section className="main-layout">
         <div></div>
-        <ul className="global-padding lg:border-x grid grid-cols-1 divide-y divide-blue-100">
+        <ul className="lg:border-x divide-y-1">
           {projets.map((projet) => (
             <li key={projet._id}>
               <Link
-                className="block p-4 hover:text-blue-500"
+                className="group global-padding grid grid-cols-1 lg:grid-cols-2 items-end gap-4 md:gap-6 lg:gap-8 hover:bg-secondary"
                 href={`/projets/${projet?.slug?.current}`}
               >
-                {projet.headline}
+                <div className="w-full aspect-3/2 overflow-hidden">
+                  {projet.coverImage && (
+                    <Image
+                      src={
+                        urlFor(projet.coverImage).width(1920).url() ||
+                        "https://placehold.co/1280x720/png" ||
+                        "/placeholder.svg"
+                      }
+                      alt={
+                        projet.coverImage.alt ||
+                        `Image de couverture pour ${projet.headline}`
+                      }
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-scale duration-400 ease-(--ease)"
+                      priority
+                      sizes="(max-width: 768px) 100vw, 1920px"
+                      width={1920}
+                      height={1080}
+                      quality={60}
+                    />
+                  )}
+                </div>
+                <div className="h-full flex flex-col justify-between items-start">
+                  <div className="text-2xl xl:text-4xl">
+                    <h2 className="text-muted-foreground">{projet.client}</h2>
+                    <p>{projet.headline}</p>
+                  </div>
+                  <Button className="mt-6" variant={"outline"}>
+                    Voir le projet
+                  </Button>
+                </div>
               </Link>
             </li>
           ))}

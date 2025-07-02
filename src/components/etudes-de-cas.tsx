@@ -18,18 +18,15 @@ export default async function EtudesDeCas() {
         <div className="global-padding">
           <BulletHeadline as="p">Études de cas</BulletHeadline>
         </div>
-        <div className="global-padding lg:border-x">
-          <RevealText
-            as="h2"
-            className="text-4xl md:text-6xl xl:text-7xl mt-16 md:mt-32 lg:mt-64 text-right"
-          >
-            Nos projets à <span className="underline">succès</span>.
-          </RevealText>
-        </div>
-      </div>
-      <div className="main-layout">
-        <div></div>
         <div className="lg:border-x">
+          <div className="global-padding text-center">
+            <RevealText
+              as="h2"
+              className="text-4xl md:text-6xl xl:text-7xl max-w-4xl my-8 md:my-16 lg:my-32 mx-auto"
+            >
+              Nos projets à <span className="underline">succès</span>.
+            </RevealText>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div>
               <Image

@@ -72,19 +72,21 @@ export default async function ProjectDetailPage(props: { params: Params }) {
 
   return (
     <main>
-      <div className="main-layout bg-[#DFF24B]">
+      <div className="main-layout">
         <div></div>
         <div>
           <div className="global-padding flex flex-col justify-between mt-20">
-            <Button variant="secondary" className="mb-32 w-fit" asChild>
+            <Button variant="outline" className="mb-16 w-fit" asChild>
               <Link href="/projets">
                 <RiArrowLeftLine />
                 Tous les projets
               </Link>
             </Button>
             <div>
-              <p className="text-xl mb-8">{project.client}</p>
-              <RevealText as="h1" className="text-4xl md:text-6xl">
+              <p className="text-4xl md:text-6xl text-muted-foreground">
+                {project.client}
+              </p>
+              <RevealText as="h1" className="text-4xl md:text-6xl max-w-4xl">
                 {project.headline}
               </RevealText>
             </div>

@@ -8,7 +8,7 @@ export default function SectionCTASmall() {
     <section className="bg-[#DFF24B] bg-ascii">
       <div className="main-layout">
         <div></div>
-        <div className="global-padding mt-16 mb-16 lg:border-l lg:border-foreground">
+        <div className="global-padding mt-16 mb-16 lg:border-l border-l-4 lg:border-foreground">
           <BulletHeadline className="mb-8">
             Vous avez un projet ?
           </BulletHeadline>

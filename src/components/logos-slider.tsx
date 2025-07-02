@@ -6,7 +6,7 @@ export default function LogosSlider() {
   return (
     <Slider
       width="200px"
-      duration={20}
+      duration={30}
       pauseOnHover={false}
       blurBorders={false}
       blurBorderColor={"#fff"}
