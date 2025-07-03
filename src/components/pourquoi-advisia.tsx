@@ -6,7 +6,6 @@ import {
   RiShakeHandsFill,
   RiShieldStarFill,
 } from "@remixicon/react";
-import { BulletHeadline } from "./ui/bullet-headline";
 
 export default function PourquoiAdvisia() {
   return (

@@ -1,10 +1,7 @@
-import Link from "next/link";
 import { RevealText } from "./RevealText";
-import { Button } from "./ui/button";
 import { BulletHeadline } from "./ui/bullet-headline";
 import ContactForm from "./contact-form";
-import LogosSlider from "./logos-slider";
-import { RiArrowRightFill, RiCheckFill } from "@remixicon/react";
+import { RiCheckFill } from "@remixicon/react";
 
 export default function SectionCTAForm() {
   const profils = [

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { BulletHeadline } from "../ui/bullet-headline";
 import { RevealText } from "../RevealText";
-import { RiArrowRightFill } from "@remixicon/react";
 
 export default function Services() {
   const services = [
