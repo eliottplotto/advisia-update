@@ -12,46 +12,16 @@ export default function LogosSlider() {
       blurBorderColor={"#fff"}
     >
       <Slider.Slide>
-        <img
-          src="/logos-confiance/la-french-tech.svg"
-          alt="any"
-          className="h-20 w-full object-contain"
-        />
+        <img src="/advisia-logo-black-h32.svg" alt="any" className="h-10" />
       </Slider.Slide>
       <Slider.Slide>
-        <img
-          src="/logos-confiance/bpi-france.png"
-          alt="any"
-          className="h-20 w-full object-contain"
-        />
+        <img src="/advisia-logo-black-h32.svg" alt="any" className="h-10" />
       </Slider.Slide>
       <Slider.Slide>
-        <img
-          src="/logos-confiance/reseau-entreprendre.webp"
-          alt="any"
-          className="h-10 w-full object-contain"
-        />
+        <img src="/advisia-logo-black-h32.svg" alt="any" className="h-10" />
       </Slider.Slide>
       <Slider.Slide>
-        <img
-          src="/logos-confiance/banque-populaire.webp"
-          alt="any"
-          className="h-10 w-full object-contain"
-        />
-      </Slider.Slide>
-      <Slider.Slide>
-        <img
-          src="/logos-confiance/kedge-business-school.png"
-          alt="any"
-          className="h-10 w-full object-contain"
-        />
-      </Slider.Slide>
-      <Slider.Slide>
-        <img
-          src="/logos-confiance/lct-sdn.webp"
-          alt="any"
-          className="h-10 w-full object-contain"
-        />
+        <img src="/advisia-logo-black-h32.svg" alt="any" className="h-10" />
       </Slider.Slide>
     </Slider>
   );

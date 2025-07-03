@@ -12,8 +12,8 @@ import { Badge } from "./ui/badge";
 export default function Footer() {
   return (
     <footer>
-      <section data-theme="dark" className="dark text-foreground bg-background">
-        <div className="grid grid-col-1 lg:grid-cols-2 lg:gap-y-32">
+      <section className="dark text-foreground bg-background">
+        <div className="container-md grid grid-col-1 lg:grid-cols-2 lg:gap-y-32">
           <div className="global-padding">
             <Badge className="mb-4">Coming Soon</Badge>
             <h2 className="text-4xl">Newsletter</h2>

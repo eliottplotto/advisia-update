@@ -46,37 +46,37 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="main-layout" data-theme="light">
-      <div></div>
-      <div className="global-padding lg:border-x">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-16 lg:mb-32">
-          {/* Left Column - Heading */}
-          <div className="lg:sticky lg:top-16 lg:self-start">
-            <h2 className="text-4xl md:text-6xl mb-4">
-              Questions
-              <br />
-              fréquentes
-            </h2>
-          </div>
+    <section>
+      <div className="container-md">
+        <div className="global-padding lg:border-x">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-16 lg:mb-32">
+            {/* Left Column - Heading */}
+            <div className="lg:sticky lg:top-16 lg:self-start">
+              <h2 className="text-4xl md:text-6xl mb-4">
+                Questions
+                <br />
+                fréquentes
+              </h2>
+            </div>
 
-          {/* Right Column - Questions */}
-          <div className="space-y-4">
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq) => (
-                <AccordionItem key={faq.id} value={faq.id}>
-                  <AccordionTrigger>
-                    <span>{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p>{faq.answer}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            {/* Right Column - Questions */}
+            <div className="space-y-4">
+              <Accordion type="single" collapsible className="w-full">
+                {faqs.map((faq) => (
+                  <AccordionItem key={faq.id} value={faq.id}>
+                    <AccordionTrigger>
+                      <span>{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <p>{faq.answer}</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
           </div>
         </div>
       </div>
-      <div></div>
     </section>
   );
 }

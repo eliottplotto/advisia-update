@@ -4,7 +4,7 @@ import { RevealText } from "@/components/RevealText";
 
 export default function Solutions() {
   return (
-    <section>
+    <section className="bg-secondary">
       <div className="main-layout">
         <div></div>
         <div className="global-padding-x lg:border-x py-16 lg:pt-32 text-center">
@@ -36,11 +36,11 @@ export default function Solutions() {
               </div>
             </div>
             <div className="grid lg:grid-cols-2 lg:gap-x-2">
-              <div className="bg-secondary flex flex-col justify-between">
+              <div className="bg-background flex flex-col justify-between">
                 <div className="bg-[#DFF24B] h-64 lg:h-80 bg-ascii-2 flex justify-center items-center">
                   <RiGitCommitFill size={128} className="text-blue-600" />
                 </div>
-                <div className="p-8 mb-4">
+                <div className="p-8 mb-4 grow">
                   <h5 className="text-2xl lg:text-3xl mb-4">
                     Automatisations de processus
                   </h5>
@@ -63,7 +63,7 @@ export default function Solutions() {
                 </div>
               </div>
               <div className="lg:hidden h-12 w-0 mx-auto border border-dashed"></div>
-              <div className="bg-secondary flex flex-col justify-between">
+              <div className="bg-background flex flex-col justify-between">
                 <div className="bg-[#DFF24B] h-64 lg:h-80 bg-ascii-2 flex justify-center items-center">
                   <RiRobot3Fill size={128} className="text-blue-600" />
                 </div>

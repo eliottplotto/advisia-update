@@ -6,26 +6,55 @@ import {
   RiShakeHandsFill,
   RiShieldStarFill,
 } from "@remixicon/react";
+import { BulletHeadline } from "./ui/bullet-headline";
 
 export default function PourquoiAdvisia() {
   return (
-    <section className="bg-secondary">
-      <div className="main-layout">
-        <div></div>
-        <div className="lg:border-x xl:pb-32">
-          <div className="global-padding text-center">
+    <section className="bg-ad-1">
+      <div className="container-md">
+        <div className="global-padding-x py-16">
+          <div className="space-y-8 mb-16">
             <RevealText
               as="h2"
-              className="text-4xl md:text-6xl xl:text-7xl max-w-4xl my-8 md:my-16 lg:my-32 mx-auto"
+              className="text-4xl md:text-6xl xl:text-7xl max-w-4xl"
             >
               Pourquoi choisir{" "}
               <span className="text-nowrap">
                 <span className="underline">Advisia</span> ?
               </span>
             </RevealText>
+            <p className="max-w-2xl">
+              Découvrez toutes nos expertises pour mettre en place et développer
+              votre stratégie digitale. Du SEA à la web analyse en passant par
+              le social média, nous vous accompagnons pour faire grandir votre
+              entreprise quel que soit votre secteur.
+            </p>
+            <ul className="flex wrap gap-12 wrap">
+              <li>
+                <img
+                  src="/logos-confiance/shopify_monotone_black.svg"
+                  alt="Logo Shopify"
+                  className="h-10"
+                />
+              </li>
+              <li>
+                <img
+                  src="/logos-confiance/shopify_monotone_black.svg"
+                  alt="Logo Shopify"
+                  className="h-10"
+                />
+              </li>
+              <li>
+                <img
+                  src="/logos-confiance/shopify_monotone_black.svg"
+                  alt="Logo Shopify"
+                  className="h-10"
+                />
+              </li>
+            </ul>
           </div>
 
-          <div className="grid grid-cols-1 xl:grid-cols-3 xl:grid-rows-2 xl:grid-flow-col">
+          <div className="grid grid-cols-1 xl:grid-cols-3 xl:grid-rows-2 xl:grid-flow-col gap-2">
             <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
@@ -41,8 +70,8 @@ export default function PourquoiAdvisia() {
                 </p>
               </div>
             </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 border-t">
-              <div className="flex  no-wrap justify-between">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
+              <div className="flex no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   02
                 </p>
@@ -78,7 +107,7 @@ export default function PourquoiAdvisia() {
                 </p>
               </div>
             </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 border-t">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   04

@@ -6,6 +6,7 @@ import { BulletHeadline } from "../ui/bullet-headline";
 import { RevealText } from "../RevealText";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { RiArrowRightFill } from "@remixicon/react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -37,37 +38,40 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      data-theme="dark"
-      className="relative bg-[#DFF24B] bg-ascii-3"
+      className="relative dark bg-background bg-ascii-4 text-foreground"
     >
-      <div className="global-padding min-h-[80dvh] flex flex-col justify-center items-center text-center">
-        <BulletHeadline as="p">Agence de croissance digitale</BulletHeadline>
+      <div className="border-x container-md pt-[95px] lg:h-screen">
+        <div className="global-padding grid grid-cols-1 lg:grid-cols-[2fr_1fr] items-end justify-end h-full gap-8">
+          <div>
+            <BulletHeadline as="p">
+              Agence de croissance digitale
+            </BulletHeadline>
+            <RevealText
+              as="h1"
+              className="text-4xl md:text-6xl lg:text-6xl xl:text-7xl mt-8 uppercase"
+            >
+              Développez <span className="text-nowrap">tout le potentiel</span>{" "}
+              <span className="text-nowrap">de votre activité.</span>
+            </RevealText>
+          </div>
 
-        <RevealText
-          as="h1"
-          className="text-4xl md:text-6xl lg:text-7xl mt-8 uppercase"
-        >
-          Gagnez du temps,
-          <br />
-          structurez vos actions,
-          <br />
-          développez votre impact.
-        </RevealText>
-        <div className="flex justify-center items-center gap-x-1 gap-y-2 flex-wrap mt-8">
-          <Button asChild size="lg">
-            <Link href="/contact">Demander une estimation gratuite</Link>
-          </Button>
-          <Button variant="outline" size="lg" asChild>
-            <Link href="/prendre-rendez-vous">Réserver un appel</Link>
-          </Button>
+          <div>
+            <RevealText as="h3" className="text-muted-foreground">
+              Advisia est une agence de croissance spécialisée en web, marketing
+              digital et intelligence artificielle.
+            </RevealText>
+            <div className="flex items-center gap-x-1 gap-y-2 flex-wrap mt-8">
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  J&apos;estime mon projet <RiArrowRightFill />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/prendre-rendez-vous">Réserver un appel</Link>
+              </Button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="hidden mask-wrapper absolute bottom-0 flex items-end h-full w-full">
-        <div className="mask-col bg-primary h-0 w-full"></div>
-        <div className="mask-col bg-primary h-0 w-full"></div>
-        <div className="mask-col bg-primary h-0 w-full"></div>
-        <div className="mask-col bg-primary h-0 w-full"></div>
       </div>
     </section>
   );

@@ -48,10 +48,9 @@ export default function AutomatisationsIA() {
   return (
     <>
       <main>
-        <section className="bg-[#DFF24B] bg-ascii-3">
-          <div className="main-layout min-h-[80dvh]">
-            <div></div>
-            <div className="h-full flex justify-center items-center">
+        <section className="dark bg-blue-600 text-white bg-ascii-3">
+          <div className="container-md pt-[95px]">
+            <div className="py-16 flex justify-center items-center">
               <div className="global-padding flex flex-col justify-end items-center gap-6 text-center">
                 <div>
                   <BulletHeadline as="p" className="justify-center">
@@ -86,7 +85,6 @@ export default function AutomatisationsIA() {
                 </div>
               </div>
             </div>
-            <div></div>
           </div>
         </section>
         <Solutions />

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   RiArrowDownSFill,
-  RiArrowRightUpFill,
+  RiArrowRightFill,
   RiCloseFill,
   RiMenuFill,
 } from "@remixicon/react";
@@ -27,7 +27,7 @@ const servicesLinks = [
 ];
 
 const mobileMainNavLinks = [
-  { path: "/projets", label: "Projets" },
+  { path: "/projets", label: "Cas clients" },
   { path: "/agence", label: "Agence" },
 ];
 
@@ -145,19 +145,19 @@ export default function Navbar() {
   };
 
   const isAnyMenuOpen = isServicesMenuOpen || isMobileMenuOpen;
-
   return (
     <>
       <nav
         className={`fixed top-0 z-40 w-full transition-colors duration-300 ${
-          isScrolled || isAnyMenuOpen ? "bg-background" : "bg-transparent"
+          isScrolled || isAnyMenuOpen
+            ? "bg-background"
+            : "dark bg-transparent text-foreground"
         }`}
       >
-        <div></div>
         <div
-          className={`grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] transition-height duration-300 h-20 border-b ${
-            isScrolled ? "lg:h-16 border-b-0" : "lg:h-24"
-          } ${isAnyMenuOpen ? "border-border" : "border-transparent"}`}
+          className={`container-md grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] transition-height duration-300 h-20 ${
+            isScrolled ? "lg:h-14" : "lg:h-24"
+          }`}
         >
           {/* Left */}
           <div className="global-padding-x flex items-center">
@@ -175,17 +175,17 @@ export default function Navbar() {
 
           {/* Center Navigation - Desktop */}
           <div className="hidden lg:flex lg:justify-center lg:items-center">
-            <div className="flex justify-center items-center gap-1">
-              <Button variant="ghost" onClick={toggleServicesMenu}>
+            <div className="flex justify-center items-center gap-8">
+              <Button variant="link" onClick={toggleServicesMenu}>
                 Expertises
                 <RiArrowDownSFill
                   className={`transition-transform duration-300 ${isServicesMenuOpen ? "rotate-180" : ""}`}
                 />
               </Button>
-              <Button asChild variant="ghost" onClick={closeServicesMenu}>
-                <Link href="/projets">Projets</Link>
+              <Button asChild variant="link" onClick={closeServicesMenu}>
+                <Link href="/projets">Cas clients</Link>
               </Button>
-              <Button asChild variant="ghost" onClick={closeServicesMenu}>
+              <Button asChild variant="link" onClick={closeServicesMenu}>
                 <Link href="/agence">Agence</Link>
               </Button>
             </div>
@@ -197,10 +197,11 @@ export default function Navbar() {
               onClick={closeServicesMenu}
               asChild
               className="hidden lg:flex"
+              size={`${isScrolled ? "default" : "lg"}`}
             >
               <Link href="/contact">
                 Demander une estimation
-                <RiArrowRightUpFill />
+                <RiArrowRightFill />
               </Link>
             </Button>
 
@@ -215,15 +216,13 @@ export default function Navbar() {
             </Button>
           </div>
         </div>
-        <div></div>
 
         {/* Services Menu - Desktop */}
         <div
           ref={servicesMenuRef}
-          className="hidden lg:block main-layout w-full overflow-hidden h-0"
+          className="hidden lg:block w-full overflow-hidden h-0"
         >
-          <div></div>
-          <ul className="global-padding">
+          <ul className="container-md global-padding">
             {servicesLinks.map((link, index) => (
               <li key={index}>
                 <Link
@@ -242,7 +241,6 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <div></div>
         </div>
 
         {/* Mobile Menu */}
@@ -295,6 +293,7 @@ export default function Navbar() {
                 <Button asChild size="lg" className="w-full">
                   <Link href="/contact" onClick={closeMobileMenu}>
                     Demander une estimation
+                    <RiArrowRightFill />
                   </Link>
                 </Button>
               </div>

@@ -2,13 +2,13 @@ import Link from "next/link";
 import { RevealText } from "./RevealText";
 import { Button } from "./ui/button";
 import { BulletHeadline } from "./ui/bullet-headline";
+import { RiArrowRightFill } from "@remixicon/react";
 
 export default function SectionCTASmall() {
   return (
-    <section className="bg-[#DFF24B] bg-ascii">
-      <div className="main-layout">
-        <div></div>
-        <div className="global-padding mt-16 mb-16 lg:border-l border-l-4 lg:border-foreground">
+    <section className="dark bg-background bg-ascii-4 text-foreground">
+      <div className="lg:border-x container-md">
+        <div className="global-padding-x py-16 flex flex-col justify-center items-center text-center">
           <BulletHeadline className="mb-8">
             Vous avez un projet ?
           </BulletHeadline>
@@ -17,15 +17,16 @@ export default function SectionCTASmall() {
             <span className="underline">unique</span>.
           </RevealText>
           <div className="flex gap-x-1 gap-y-2 flex-wrap">
-            <Button asChild>
-              <Link href="/contact">Demander une estimation gratuite</Link>
+            <Button asChild size={"lg"}>
+              <Link href="/contact">
+                J&apos;estime mon projet <RiArrowRightFill />
+              </Link>
             </Button>
-            <Button variant="outline" asChild>
+            <Button variant="outline" size={"lg"} asChild>
               <Link href="/prendre-rendez-vous">Réserver un appel</Link>
             </Button>
           </div>
         </div>
-        <div></div>
       </div>
     </section>
   );
