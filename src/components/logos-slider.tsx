@@ -12,16 +12,16 @@ export default function LogosSlider() {
       blurBorderColor={"#fff"}
     >
       <Slider.Slide>
-        <img src="/advisia-logo-white-h32.svg" alt="any" className="h-10" />
+        <img src="/advisia-logo-black-h32.svg" alt="any" className="h-10" />
       </Slider.Slide>
       <Slider.Slide>
-        <img src="/advisia-logo-white-h32.svg" alt="any" className="h-10" />
+        <img src="/advisia-logo-black-h32.svg" alt="any" className="h-10" />
       </Slider.Slide>
       <Slider.Slide>
-        <img src="/advisia-logo-white-h32.svg" alt="any" className="h-10" />
+        <img src="/advisia-logo-black-h32.svg" alt="any" className="h-10" />
       </Slider.Slide>
       <Slider.Slide>
-        <img src="/advisia-logo-white-h32.svg" alt="any" className="h-10" />
+        <img src="/advisia-logo-black-h32.svg" alt="any" className="h-10" />
       </Slider.Slide>
     </Slider>
   );

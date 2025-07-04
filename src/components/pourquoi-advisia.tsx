@@ -9,7 +9,7 @@ import {
 
 export default function PourquoiAdvisia() {
   return (
-    <section className="bg-ad-1">
+    <section>
       <div className="container-md">
         <div className="global-padding-x py-16">
           <div className="space-y-8 mb-16">
@@ -54,7 +54,7 @@ export default function PourquoiAdvisia() {
           </div>
 
           <div className="grid grid-cols-1 xl:grid-cols-3 xl:grid-rows-2 xl:grid-flow-col gap-2">
-            <div className="dark text-foreground bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
+            <div className="bg-secondary p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   01
@@ -69,7 +69,7 @@ export default function PourquoiAdvisia() {
                 </p>
               </div>
             </div>
-            <div className="dark text-foreground bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
+            <div className="bg-secondary p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   02
@@ -85,7 +85,7 @@ export default function PourquoiAdvisia() {
               </div>
             </div>
 
-            <div className="dark text-foreground bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
+            <div className="bg-secondary p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   03
@@ -100,7 +100,7 @@ export default function PourquoiAdvisia() {
                 </p>
               </div>
             </div>
-            <div className="dark text-foreground bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
+            <div className="bg-secondary p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   04
