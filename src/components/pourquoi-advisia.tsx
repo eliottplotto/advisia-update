@@ -54,12 +54,12 @@ export default function PourquoiAdvisia() {
           </div>
 
           <div className="grid grid-cols-1 xl:grid-cols-3 xl:grid-rows-2 xl:grid-flow-col gap-2">
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
+            <div className="dark text-foreground bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   01
                 </p>
-                <RiShieldStarFill />
+                <RiShieldStarFill size={"32"} />
               </div>
               <div>
                 <h3 className="text-2xl">Expertises</h3>
@@ -69,15 +69,46 @@ export default function PourquoiAdvisia() {
                 </p>
               </div>
             </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
+            <div className="dark text-foreground bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
               <div className="flex no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   02
                 </p>
-                <RiBardFill />
+                <RiBardFill size={"32"} />
               </div>
               <div>
                 <h3 className="text-2xl">Innovation</h3>
+                <p className="mt-3 text-muted-foreground">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse ac nisi in nisl feugiat ultricies.
+                </p>
+              </div>
+            </div>
+
+            <div className="dark text-foreground bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
+              <div className="flex  no-wrap justify-between">
+                <p className="font-mono text-muted-foreground uppercase text-sm">
+                  03
+                </p>
+                <RiFocus2Fill size={"32"} />
+              </div>
+              <div>
+                <h3 className="text-2xl">Résultats</h3>
+                <p className="mt-3 text-muted-foreground">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse ac nisi in nisl feugiat ultricies.
+                </p>
+              </div>
+            </div>
+            <div className="dark text-foreground bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
+              <div className="flex  no-wrap justify-between">
+                <p className="font-mono text-muted-foreground uppercase text-sm">
+                  04
+                </p>
+                <RiShakeHandsFill size={"32"} />
+              </div>
+              <div>
+                <h3 className="text-2xl">Collaboration</h3>
                 <p className="mt-3 text-muted-foreground">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse ac nisi in nisl feugiat ultricies.
@@ -91,36 +122,6 @@ export default function PourquoiAdvisia() {
               alt="Equipe Advisia"
               className="object-cover w-full xl:row-span-2 h-full"
             />
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
-              <div className="flex  no-wrap justify-between">
-                <p className="font-mono text-muted-foreground uppercase text-sm">
-                  03
-                </p>
-                <RiFocus2Fill />
-              </div>
-              <div>
-                <h3 className="text-2xl">Résultats</h3>
-                <p className="mt-3 text-muted-foreground">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse ac nisi in nisl feugiat ultricies.
-                </p>
-              </div>
-            </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8">
-              <div className="flex  no-wrap justify-between">
-                <p className="font-mono text-muted-foreground uppercase text-sm">
-                  04
-                </p>
-                <RiShakeHandsFill />
-              </div>
-              <div>
-                <h3 className="text-2xl">Collaboration</h3>
-                <p className="mt-3 text-muted-foreground">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse ac nisi in nisl feugiat ultricies.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

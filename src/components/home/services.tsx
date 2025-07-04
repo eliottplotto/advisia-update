@@ -57,21 +57,25 @@ export default function Services() {
               entreprise quel que soit votre secteur.
             </p>
           </div>
-          <ul className="space-y-2">
+          <ul className="global-padding-x space-y-2">
             {services.map((service, index) => (
               <li
                 key={index}
-                className="group dark bg-background text-foreground relative overflow-hidden bg-background"
+                className="group dark bg-background text-foreground relative overflow-hidden max-w-xl mr-0 ml-auto"
               >
-                <div className="hidden absolute z-1 left-0 bottom-0 bg-secondary w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
+                <div className="absolute z-1 left-0 bottom-0 bg-secondary w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
 
                 <Link
                   href={service.link}
-                  className="relative z-1 flex gap-8 global-padding"
+                  className="block relative z-1 space-y-8 global-padding"
                 >
-                  <p className="font-mono text-sm text-muted-foreground">
-                    0{index + 1}
-                  </p>
+                  <div className="flex justify-between">
+                    <p className="font-mono text-sm text-muted-foreground">
+                      0{index + 1}
+                    </p>
+                    <img src="sample.svg" alt="sample" className="h-24" />
+                  </div>
+
                   <div className="flex flex-col items-start sm:items-end gap-8 justify-between">
                     <div className="w-full">
                       <h3 className="text-xl lg:text-3xl group-hover:underline">

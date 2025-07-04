@@ -84,9 +84,9 @@ export default function Agency() {
   );
 
   return (
-    <section>
-      <div className="lg:border-x container-md">
-        <div className="global-padding-x py-32 max-w-5xl flex flex-col items-center mx-auto">
+    <section className="bg-secondary">
+      <div className="container-md">
+        <div className="global-padding-x py-16 md:py-40 max-w-5xl flex flex-col items-center mx-auto">
           <BulletHeadline as="h2" className="mb-8">
             L&apos;agence
           </BulletHeadline>
@@ -98,9 +98,9 @@ export default function Agency() {
         </div>
         <div
           ref={containerRef}
-          className="grid grid-cols-2 xl:grid-cols-4 border-t"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:pb-16"
         >
-          <div className="p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto">
+          <div className="bg-background p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto">
             <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
               +<span ref={counter1Ref}>10</span>
             </p>
@@ -111,7 +111,7 @@ export default function Agency() {
               accompagnées
             </p>
           </div>
-          <div className="p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto border-l">
+          <div className="bg-background p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto">
             <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
               <span ref={counter2Ref}>100</span>
               <span>%</span>
@@ -122,7 +122,7 @@ export default function Agency() {
               satisfaites
             </p>
           </div>
-          <div className=" p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto xl:border-l border-t xl:border-t-0">
+          <div className="bg-background p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto">
             <p
               ref={counter3Ref}
               className="block text-5xl md:text-6xl 2xl:text-7xl mb-2"

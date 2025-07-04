@@ -11,8 +11,8 @@ export default function CalForm() {
   }, []);
   return (
     <Cal
-      namespace="30min"
-      calLink="advisia/30min"
+      namespace="premier-echange"
+      calLink="advisia/premier-echange"
       style={{ width: "100%", height: "100%", overflow: "scroll" }}
       config={{ layout: "month_view" }}
     />

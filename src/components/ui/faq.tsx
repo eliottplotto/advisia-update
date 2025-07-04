@@ -48,8 +48,8 @@ export default function FAQ() {
   return (
     <section>
       <div className="container-md">
-        <div className="global-padding lg:border-x">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-16 lg:mb-32">
+        <div className="global-padding">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 lg:mb-32">
             {/* Left Column - Heading */}
             <div className="lg:sticky lg:top-16 lg:self-start">
               <h2 className="text-4xl md:text-6xl mb-4">

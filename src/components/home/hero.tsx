@@ -40,7 +40,7 @@ export default function Hero() {
       id="hero"
       className="relative dark bg-background bg-ascii-4 text-foreground"
     >
-      <div className="border-x container-md pt-[95px] lg:h-screen">
+      <div className="container-md pt-[95px] lg:h-screen">
         <div className="global-padding grid grid-cols-1 lg:grid-cols-[2fr_1fr] items-end justify-end h-full gap-8">
           <div>
             <BulletHeadline as="p">

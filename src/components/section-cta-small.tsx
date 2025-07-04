@@ -7,7 +7,7 @@ import { RiArrowRightFill } from "@remixicon/react";
 export default function SectionCTASmall() {
   return (
     <section className="dark bg-background bg-ascii-4 text-foreground">
-      <div className="lg:border-x container-md">
+      <div className="container-md">
         <div className="global-padding-x py-16 flex flex-col justify-center items-center text-center">
           <BulletHeadline className="mb-8">
             Vous avez un projet ?
@@ -16,7 +16,7 @@ export default function SectionCTASmall() {
             Contactez-nous et créons ensemble quelque chose d&#39;
             <span className="underline">unique</span>.
           </RevealText>
-          <div className="flex gap-x-1 gap-y-2 flex-wrap">
+          <div className="flex items-center justify-center gap-x-1 gap-y-2 flex-wrap">
             <Button asChild size={"lg"}>
               <Link href="/contact">
                 J&apos;estime mon projet <RiArrowRightFill />

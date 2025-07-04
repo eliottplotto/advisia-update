@@ -8,6 +8,9 @@ import { BulletHeadline } from "@/components/ui/bullet-headline";
 import FAQ from "@/components/ui/faq";
 import LogosConfiance from "@/components/logos-confiance";
 import CalForm from "@/components/cal-form";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { RiArrowRightUpFill } from "@remixicon/react";
 
 export default function PrendreRendezVous() {
   const profils = [
@@ -29,11 +32,10 @@ export default function PrendreRendezVous() {
   return (
     <main>
       {/* Header */}
-      <section data-theme="dark" className="bg-[#DFF24B] bg-ascii-3">
-        <div className="main-layout">
-          <div></div>
-          <div className="pt-32 lg:border-x border-white/50">
-            <div className="global-padding">
+      <section className="dark bg-background text-foreground bg-ascii-4">
+        <div className="container-md">
+          <div className="pt-[95px]">
+            <div className="global-padding-x py-16">
               <div className="flex flex-col items-center gap-8">
                 <div>
                   {profils.map((profil, index) => (
@@ -41,7 +43,7 @@ export default function PrendreRendezVous() {
                       key={index}
                       src={profil.src}
                       alt={profil.alt}
-                      className="inline-block not-first:-ml-2 w-12 h-12 rounded-full border-3 border-[#DFF24B]"
+                      className="inline-block not-first:-ml-2 w-12 h-12 rounded-full"
                     />
                   ))}
                 </div>
@@ -50,7 +52,7 @@ export default function PrendreRendezVous() {
                 </BulletHeadline>
                 <RevealText
                   as="h1"
-                  className="text-4xl md:text-6xl xl:text-8xl uppercase text-center"
+                  className="text-4xl md:text-6xl xl:text-7xl uppercase text-center"
                 >
                   Réserver un appel
                 </RevealText>
@@ -65,12 +67,19 @@ export default function PrendreRendezVous() {
               <div className="mt-8 md:mt-16">
                 <CalForm />
               </div>
+              <div className="my-8 space-y-2 flex-wrap text-center text-sm text-muted-foreground">
+                <p>Vous ne voyez pas le formulaire ?</p>
+                <Button variant={"link"} asChild className="flex mx-auto">
+                  <Link href={"/prendre-rendez-vous"}>
+                    Cliquez ici <RiArrowRightUpFill />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
       <LogosConfiance />
-      <div className="h-1 bg-primary"></div>
       <FAQ />
       <FooterXS />
     </main>

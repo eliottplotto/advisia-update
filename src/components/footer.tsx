@@ -12,7 +12,7 @@ import { Badge } from "./ui/badge";
 export default function Footer() {
   return (
     <footer>
-      <section className="dark text-foreground bg-background">
+      <section className="bg-secondary">
         <div className="container-md grid grid-col-1 lg:grid-cols-2 lg:gap-y-32">
           <div className="global-padding">
             <Badge className="mb-4">Coming Soon</Badge>
@@ -121,7 +121,7 @@ export default function Footer() {
           <div className="global-padding border-t border-px lg:border-0">
             <Link href="/">
               <Image
-                src="/advisia-logo-white-h32.svg"
+                src="/advisia-logo-black-h32.svg"
                 alt="Logo"
                 width={130}
                 height={32}

@@ -1,7 +1,9 @@
 import { RevealText } from "./RevealText";
 import { BulletHeadline } from "./ui/bullet-headline";
 import ContactForm from "./contact-form";
-import { RiCheckFill } from "@remixicon/react";
+import { RiCheckFill, RiPhoneFill } from "@remixicon/react";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function SectionCTAForm() {
   const profils = [
@@ -53,6 +55,14 @@ export default function SectionCTAForm() {
                 Estimation gratuite sous 48h
               </li>
             </ul>
+            <div className="my-8 flex items-center gap-4 flex-wrap">
+              <h2>Vous préférez planifier un rendez-vous ?</h2>
+              <Button variant={"outline"} asChild>
+                <Link href={"/prendre-rendez-vous"}>
+                  Réserver un appel <RiPhoneFill />
+                </Link>
+              </Button>
+            </div>
           </div>
 
           <div className="w-full mx-auto">
