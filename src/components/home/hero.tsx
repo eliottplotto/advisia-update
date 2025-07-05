@@ -6,12 +6,7 @@ import { InertiaPlugin } from "gsap/InertiaPlugin";
 import { BulletHeadline } from "../ui/bullet-headline";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import {
-  RiAddFill,
-  RiArrowRightFill,
-  RiHeartFill,
-  RiHeartLine,
-} from "@remixicon/react";
+import { RiAddFill, RiArrowRightFill, RiHeartFill } from "@remixicon/react";
 import Link from "next/link";
 
 gsap.registerPlugin(useGSAP, Draggable, InertiaPlugin);
