@@ -13,8 +13,8 @@ export default function Home() {
     <main>
       <Hero />
       <LogosConfiance />
-      <Agency />
       <Services />
+      <Agency />
       <SectionCTASmall />
       <EtudesDeCas />
       <PourquoiAdvisia />
