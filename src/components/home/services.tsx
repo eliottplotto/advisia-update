@@ -47,7 +47,9 @@ export default function Services() {
               className="text-4xl md:text-6xl xl:text-7xl max-w-4xl"
             >
               Développez{" "}
-              <span className="underline text-nowrap">tout le potentiel</span>{" "}
+              <span className=" text-nowrap bg-blue-600 text-white">
+                tout le potentiel
+              </span>{" "}
               de votre activité.
             </RevealText>
             <p>

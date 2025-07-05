@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative z-0 dark bg-background bg-ascii-4 text-foreground"
+      className="relative z-0 dark bg-background bg-ascii-4 text-foreground overflow-hidden"
     >
       <div className="h-[90dvh] lg:h-screen">
         <div className="global-padding flex justify-center items-center h-full text-center">
@@ -51,7 +51,7 @@ export default function Hero() {
 
             {/* Cards */}
             {/* Card 1*/}
-            <div className="hidden lg:block hero-card absolute bg-background border p-2 select-none mb-8 -top-32 right-[110%]">
+            <div className="hidden lg:block hero-card absolute bg-background border p-2 select-none mb-8 -top-32 right-[100%]">
               <p className="text-left mb-2 font-mono text-xs text-muted-foreground">
                 /mes-halles.webp
               </p>
@@ -66,9 +66,9 @@ export default function Hero() {
               </div>
             </div>
             {/* Card 2*/}
-            <div className="hidden lg:block hero-card absolute -bottom-32 right-[110%] bg-background border p-2 select-none">
+            <div className="hidden lg:block hero-card absolute top-0 right-[120%] bg-background border p-2 select-none">
               <p className="text-left mb-2 font-mono text-xs text-muted-foreground">
-                /automatisation.svg
+                /automatisations.svg
               </p>
               <div className="relative w-24 lg:w-44 aspect-square">
                 <Image
@@ -80,8 +80,8 @@ export default function Hero() {
                 ></Image>
               </div>
             </div>
-            {/* Flottant 3 */}
-            <div className="hidden lg:block hero-card absolute -top-28 left-[110%] bg-background border p-2 select-none mb-8">
+            {/* Card 3 */}
+            <div className="hidden lg:block hero-card absolute -bottom-0 left-[120%] bg-background border p-2 select-none mb-8">
               <div className="flex items-center gap-2 mb-2">
                 <Image
                   src={"/home/advisia-icon.svg"}
@@ -113,7 +113,7 @@ export default function Hero() {
               </div>
             </div>
             {/* Flottant 4 */}
-            <div className="hidden lg:block hero-card absolute -bottom-32 left-[110%] bg-background border p-2 select-none">
+            <div className="hidden lg:block hero-card absolute -bottom-40 left-[100%] bg-background border p-2 select-none">
               <p className="text-left mb-2 font-mono text-xs text-muted-foreground">
                 /mes-halles.webp
               </p>
