@@ -26,7 +26,7 @@ import Steps1 from "@/components/ui/sections/steps-1";
 export default function AutomatisationsIA() {
   const processSteps = [
     {
-      title: "Analyse & stratégie sur-mesure",
+      title: "Audit & stratégie sur-mesure",
       subtitle:
         "On commence par une analyse approfondie de vos tâches répétitives, outils, flux de travail et points de friction. Ensuite, on élabore une stratégie claire : quelles automatisations mettre en place, avec quels outils, dans quel ordre et pour quel impact. L'objectif : maximiser le gain de temps et l'efficacité, sans alourdir votre organisation.",
       icon: RiSearch2Fill,
@@ -48,7 +48,7 @@ export default function AutomatisationsIA() {
   return (
     <>
       <main>
-        <section className="dark bg-blue-600 text-white bg-ascii-3">
+        <section className="dark bg-background text-white bg-ascii-4">
           <div className="container-md pt-[95px]">
             <div className="py-16 flex justify-center items-center">
               <div className="global-padding flex flex-col justify-end items-center gap-6 text-center">
@@ -60,11 +60,12 @@ export default function AutomatisationsIA() {
                     as="h1"
                     className="text-4xl md:text-6xl xl:text-7xl mt-10 uppercase max-w-4xl"
                   >
-                    Transformez votre entreprise avec l&apos;IA
+                    <span className="text-nowrap">Agence IA : </span>
+                    Prenez une longueur d'avance.
                   </RevealText>
                 </div>
 
-                <p className="max-w-xl ">
+                <p className="max-w-xl text-muted-foreground">
                   Nous créons des automatisations et des agents IA sur-mesure
                   qui travaillent pour vous, 24/7.
                 </p>
@@ -88,27 +89,6 @@ export default function AutomatisationsIA() {
           </div>
         </section>
         <Solutions />
-        {/* <Layout70
-          dark={false}
-          heading="Pourquoi intégrer l'IA à mon organisation ?"
-          description="L'intelligence artificielle n'est plus un luxe, c'est une nécessité pour rester compétitif dans l'économie moderne."
-          list={[
-            {
-              icon: <RiHeartFill />,
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-            },
-            {
-              icon: <RiHeartFill />,
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-            },
-            {
-              icon: <RiHeartFill />,
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-            },
-          ]}
-        /> */}
-        <div className="h-1 bg-primary"></div>
-
         <Layout302
           heading="Devenez le leader de votre secteur"
           subheading="Nos agents intelligents s'adaptent à vos enjeux métiers pour optimiser vos opérations, personnaliser l'expérience client et libérer du temps."
@@ -123,7 +103,7 @@ export default function AutomatisationsIA() {
               icon: <RiShoppingCartFill size={32} />,
               heading: "E-commerce & Retail",
               description:
-                "Recommandations produits, assistants d&apos;achat, gestion des stocks, relances paniers abandonnés, chatbots de prévente.",
+                "Recommandations produits, assistants d'achat, gestion des stocks, relances paniers abandonnés, chatbots de prévente.",
             },
             {
               icon: <RiHome9Fill size={32} />,

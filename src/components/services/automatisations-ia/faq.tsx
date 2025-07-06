@@ -46,9 +46,8 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="main-layout" data-theme="light">
-      <div></div>
-      <div className="global-padding lg:border-x">
+    <section>
+      <div className="container-md global-padding">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-16 lg:mb-32">
           {/* Left Column - Heading */}
           <div className="lg:sticky lg:top-16 lg:self-start">
@@ -76,7 +75,6 @@ export default function FAQ() {
           </div>
         </div>
       </div>
-      <div></div>
     </section>
   );
 }

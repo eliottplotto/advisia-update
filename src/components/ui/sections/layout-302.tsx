@@ -66,10 +66,11 @@ export const Layout302 = (props: Layout302Props) => {
   }, [api]);
 
   return (
-    <section className={`${dark ? "dark" : ""} text-foreground bg-background`}>
-      <div className="main-layout">
-        <div></div>
-        <div className="global-padding-x lg:border-x py-16 lg:pt-32 text-center">
+    <section
+      className={`${dark ? "dark" : ""} text-foreground bg-background py-16`}
+    >
+      <div className="container-md global-padding-x">
+        <div className="text-center mb-16">
           <RevealText
             as="h2"
             className="text-4xl md:text-6xl max-w-4xl mx-auto"
@@ -82,20 +83,12 @@ export const Layout302 = (props: Layout302Props) => {
             </p>
           )}
         </div>
-      </div>
-      <div className="block lg:grid lg:grid-cols-[1fr_4fr_1fr]">
-        <div></div>
-        <div className="lg:border-x sm:pb-16 lg:pb-32">
+        <div>
           {/* Desktop Content */}
-          <div className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-3 items-stretch border-t">
+          <div className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-3 items-stretch gap-2">
             {sections.map((section, index) => (
-              <div
-                key={index}
-                className={`p-4 md:p-6 lg:p-8
-              ${index % 2 !== 2 ? "border-r" : ""}
-              ${Math.floor(index / 3) < Math.floor((sections.length - 1) / 2) ? "border-b" : ""}`}
-              >
-                <div className="mb-5 md:mb-6 p-4 w-fit bg-[#DFF24B]">
+              <div key={index} className="bg-secondary p-4 md:p-6 lg:p-8">
+                <div className="mb-5 md:mb-6 p-4 w-fit bg-blue-600 text-background">
                   {section.icon}
                 </div>
                 <h3 className="mb-5 text-xl md:mb-6 md:text-2xl">
@@ -107,7 +100,7 @@ export const Layout302 = (props: Layout302Props) => {
           </div>
 
           {/* Mobile Content (Slider) */}
-          <div className="lg:hidden pb-16">
+          <div className="lg:hidden">
             <Carousel
               setApi={setApi}
               opts={{
@@ -121,8 +114,8 @@ export const Layout302 = (props: Layout302Props) => {
                     key={index}
                     className="pl-2 basis-[85%] sm:basis-[70%] md:basis-[60%]"
                   >
-                    <div className="p-4 select-none border">
-                      <div className="mb-5 md:mb-6 p-4 w-fit bg-[#DFF24B]">
+                    <div className="p-4 select-none bg-secondary">
+                      <div className="mb-5 md:mb-6 p-4 w-fit bg-blue-600 text-background">
                         {section.icon}
                       </div>
                       <h3 className="mb-4 text-2xl">{section.heading}</h3>
@@ -180,7 +173,6 @@ export const Layout302 = (props: Layout302Props) => {
             </div>
           )}
         </div>
-        <div></div>
       </div>
     </section>
   );

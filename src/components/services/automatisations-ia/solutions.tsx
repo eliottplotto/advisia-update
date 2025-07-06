@@ -5,40 +5,36 @@ import { RevealText } from "@/components/RevealText";
 export default function Solutions() {
   return (
     <section className="bg-secondary">
-      <div className="main-layout">
-        <div></div>
-        <div className="global-padding-x lg:border-x py-16 lg:pt-32 text-center">
-          <RevealText
-            as="h2"
-            className="text-4xl md:text-6xl max-w-4xl mx-auto"
-          >
-            Intégrer et <span className="underline">tirer profit</span> de
+      <div className="container-md">
+        <div className="global-padding-x py-16 lg:pt-32">
+          <RevealText as="h2" className="text-4xl md:text-6xl max-w-4xl">
+            Intégrer et <span className="bg-ad-1">tirer profit</span> de
             l&apos;IA dans votre organisation
           </RevealText>
-          <p className="max-w-2xl mx-auto mt-6 text-muted-foreground">
+          <p className="max-w-2xl mt-6 text-muted-foreground">
             Nos solutions d&apos;intelligence artificielle s&apos;adaptent à vos
             besoins spécifiques pour maximiser votre retour sur investissement.
           </p>
         </div>
       </div>
 
-      <div className="main-layout border-t">
-        <div></div>
-        <div className="pb-16">
+      <div className="container-md">
+        <div className="global-padding-x pb-16">
           {/* Solutions */}
           <div>
-            <div className="w-[50%] mx-auto flex flex-col items-center">
-              <div className="h-12 border border-dashed"></div>
-              <div className="w-full border border-dashed"></div>
+            <div className="w-[50%] mx-auto flex flex-col items-center lg:items-start">
+              <div className="w-3 h-3 bg-blue-600 -translate-x-[45%]"></div>
+              <div className="h-12 border border-dashed border-foreground"></div>
+              <div className="w-full border border-dashed border-foreground"></div>
               <div className="w-full mx-auto flex justify-between">
-                <div className="h-12 border border-dashed"></div>
-                <div className="h-12 border border-dashed"></div>
+                <div className="h-12 border border-dashed border-foreground"></div>
+                <div className="h-12 border border-dashed border-foreground"></div>
               </div>
             </div>
             <div className="grid lg:grid-cols-2 lg:gap-x-2">
               <div className="bg-background flex flex-col justify-between">
-                <div className="bg-[#DFF24B] h-64 lg:h-80 bg-ascii-2 flex justify-center items-center">
-                  <RiGitCommitFill size={128} className="text-blue-600" />
+                <div className="dark bg-background h-64 flex justify-center items-center">
+                  <RiGitCommitFill size={128} className="text-ad-1" />
                 </div>
                 <div className="p-8 mb-4 grow">
                   <h5 className="text-2xl lg:text-3xl mb-4">
@@ -64,8 +60,8 @@ export default function Solutions() {
               </div>
               <div className="lg:hidden h-12 w-0 mx-auto border border-dashed"></div>
               <div className="bg-background flex flex-col justify-between">
-                <div className="bg-[#DFF24B] h-64 lg:h-80 bg-ascii-2 flex justify-center items-center">
-                  <RiRobot3Fill size={128} className="text-blue-600" />
+                <div className="dark bg-background h-64 flex justify-center items-center">
+                  <RiRobot3Fill size={128} className="text-ad-1" />
                 </div>
                 <div className="p-8 mb-4">
                   <h5 className="text-2xl lg:text-3xl mb-4">Agents IA</h5>
@@ -91,11 +87,11 @@ export default function Solutions() {
             </div>
             <div className="w-[50%] mx-auto flex flex-col items-center">
               <div className="w-full mx-auto flex justify-between">
-                <div className="h-12 border border-dashed"></div>
-                <div className="h-12 border border-dashed"></div>
+                <div className="h-12 border border-dashed border-foreground"></div>
+                <div className="h-12 border border-dashed border-foreground"></div>
               </div>
-              <div className="w-full border border-dashed"></div>
-              <div className="h-12 border border-dashed"></div>
+              <div className="w-full border border-dashed border-foreground"></div>
+              <div className="h-12 border border-dashed border-foreground"></div>
             </div>
           </div>
           {/* CTA */}
@@ -103,7 +99,6 @@ export default function Solutions() {
             <Button size="lg">Contacter un expert IA</Button>
           </div>
         </div>
-        <div></div>
       </div>
     </section>
   );

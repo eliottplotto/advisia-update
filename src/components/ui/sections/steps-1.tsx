@@ -16,8 +16,7 @@ interface ProcessProps {
 export default function Steps1({ title, subtitle, steps }: ProcessProps) {
   return (
     <section className="dark bg-background text-foreground py-16">
-      <div className="main-layout">
-        <div></div>
+      <div className="container-md">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Title & Subtitle */}
           <div className="global-padding lg:sticky lg:top-24 lg:self-start">
@@ -37,10 +36,10 @@ export default function Steps1({ title, subtitle, steps }: ProcessProps) {
                 className="flex flex-col justify-between gap-8 pt-8 border-t"
               >
                 <div className="flex  no-wrap justify-between">
-                  <p className="font-mono text-muted-foreground uppercase text-6xl lg:text-8xl">
+                  <p className="font-mono text-muted-foreground">
                     0{index + 1}
                   </p>
-                  <step.icon size={32} className="text-accent" />
+                  <step.icon size={64} className="text-ad-1" />
                 </div>
                 <div>
                   <h3 className="text-2xl">{step.title}</h3>
@@ -50,7 +49,6 @@ export default function Steps1({ title, subtitle, steps }: ProcessProps) {
             ))}
           </div>
         </div>
-        <div></div>
       </div>
     </section>
   );

@@ -5,7 +5,12 @@ import { Draggable } from "gsap/Draggable";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { RiAddFill, RiArrowRightFill, RiHeartFill } from "@remixicon/react";
+import {
+  RiAddFill,
+  RiArrowRightFill,
+  RiCornerDownRightFill,
+  RiHeartFill,
+} from "@remixicon/react";
 import Link from "next/link";
 
 gsap.registerPlugin(useGSAP, Draggable, InertiaPlugin);
@@ -55,13 +60,16 @@ export default function Hero() {
               </div>
 
               <p className="text-sm font-mono uppercase ">
-                +10 clients heureux
+                +10 clients accompagnés
               </p>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-6xl xl:text-7xl mt-8 uppercase">
-              Développez <span className="text-nowrap">tout le potentiel</span>{" "}
-              <span className="text-nowrap">de votre activité.</span>
+              IA. Web. Design.{" "}
+              <span className="text-nowrap">
+                <RiCornerDownRightFill className="inline-block" size={80} />{" "}
+                Croissance.
+              </span>
             </h1>
             <p className="text-muted-foreground text-lg mt-8 max-w-xl">
               Advisia est une agence de croissance spécialisée en web, marketing

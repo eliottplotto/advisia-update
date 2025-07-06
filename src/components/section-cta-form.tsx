@@ -45,7 +45,7 @@ export default function SectionCTAForm() {
             </div>
             <RevealText
               as="h1"
-              className="text-4xl 2xl:text-7xl mt-8 mb-4 2xl:mb-8 uppercase"
+              className="text-4xl md:text-6xl mt-8 mb-4 2xl:mb-8 uppercase"
             >
               Démarrons{" "}
               <span className="bg-ad-1 text-background text-nowrap">
@@ -73,7 +73,7 @@ export default function SectionCTAForm() {
           </div>
 
           <div className="w-full mx-auto">
-            <div className="bg-background border border-foreground global-padding">
+            <div className="bg-background border global-padding">
               <ContactForm />
             </div>
           </div>
