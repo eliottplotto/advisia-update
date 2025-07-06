@@ -2,7 +2,7 @@ import LogosSlider from "./logos-slider";
 
 export default function LogosConfiance() {
   return (
-    <section className="dark bg-background border-t">
+    <section className="dark bg-background border-t select-none">
       <div className="overflow-hidden container-md">
         {/*<h2 className="text-sm font-mono uppercase text-muted-foreground text-center mt-8 md:mt-20">
           Ils font confiance à Advisia

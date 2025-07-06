@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { BulletHeadline } from "../ui/bullet-headline";
 import { RevealText } from "../RevealText";
+import { Button } from "../ui/button";
+import { RiArrowRightFill } from "@remixicon/react";
 
 export default function Services() {
   const services = [
@@ -47,10 +49,8 @@ export default function Services() {
               className="text-4xl md:text-6xl xl:text-7xl max-w-4xl"
             >
               Développez{" "}
-              <span className=" text-nowrap bg-blue-600 text-white">
-                tout le potentiel
-              </span>{" "}
-              de votre activité.
+              <span className=" text-nowrap bg-ad-1">tout le potentiel</span> de
+              votre activité.
             </RevealText>
             <p>
               Découvrez toutes nos expertises pour mettre en place et développer
@@ -58,6 +58,11 @@ export default function Services() {
               le social média, nous vous accompagnons pour faire grandir votre
               entreprise quel que soit votre secteur.
             </p>
+            <Button asChild size={"lg"}>
+              <Link href="/contact">
+                J&apos;estime mon projet <RiArrowRightFill />
+              </Link>
+            </Button>
           </div>
           <ul className="global-padding-x space-y-2">
             {services.map((service, index) => (
@@ -79,9 +84,7 @@ export default function Services() {
 
                   <div className="flex flex-col items-start sm:items-end gap-8 justify-between">
                     <div className="w-full">
-                      <h3 className="text-xl lg:text-3xl group-hover:underline">
-                        {service.title}
-                      </h3>
+                      <h3 className="text-xl lg:text-3xl">{service.title}</h3>
                       <p className="mt-2 text-muted-foreground group-hover:text-foreground">
                         {service.description}
                       </p>

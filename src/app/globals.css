@@ -83,7 +83,7 @@
   --sidebar-border: oklch(0.923 0.003 48.717);
   --sidebar-ring: oklch(0.709 0.01 56.259);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ad-1: #e1f249;
+  --ad-1: #98f76f;
   --ad-2: #FF5A02;
   --ad-3: #F2BD1D;
   --ad-4: #155DFC;
@@ -130,6 +130,10 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  body::selection {
+    color: oklch(0.147 0.004 49.25);
+    background-color: var(--ad-1);
   }
   input,
   textarea,

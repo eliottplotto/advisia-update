@@ -84,65 +84,64 @@ export default function Agency() {
   );
 
   return (
-    <section className="bg-secondary">
+    <section className="bg-secondary bg-ascii-3">
       <div className="container-md">
-        <div className="global-padding-x py-16 md:py-40 max-w-5xl flex flex-col items-center mx-auto">
-          <BulletHeadline as="h2" className="mb-8">
-            L&apos;agence
-          </BulletHeadline>
+        <div className="global-padding-x py-16 max-w-5xl flex flex-col gap-16 items-center mx-auto">
+          <Image
+            src={"/home/advisia-team.png"}
+            alt={"Collaborateurs Advisia"}
+            width={684}
+            height={256}
+            className=""
+          />
           <RevealText as="h3" className="text-xl md:text-4xl text-center">
-            Nous concevons des sites performants, des stratégies
-            d&apos;acquisition rentables, et des systèmes intelligents qui
+            Nous concevons des sites{" "}
+            <span className="bg-ad-1">performants</span>, des stratégies
+            d&apos;acquisition <span className="bg-ad-1">rentables</span>, et
+            des systèmes <span className="bg-ad-1">intelligents</span> qui
             automatisent vos tâches les plus chronophages.
           </RevealText>
-        </div>
-        <div
-          ref={containerRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:pb-16"
-        >
-          <div className="bg-background p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto">
-            <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
-              +<span ref={counter1Ref}>10</span>
-            </p>
+          <div
+            ref={containerRef}
+            className="grid grid-cols-1 lg:grid-cols-3 gap-x-1 gap-y-2 lg:gap-2 w-full"
+          >
+            <div className="bg-background border-b border-b-4 border-blue-600 p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12">
+              <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
+                +<span ref={counter1Ref}>10</span>
+              </p>
 
-            <p className="text-sm font-mono uppercase text-muted-foreground">
-              Entreprises
-              <br />
-              accompagnées
-            </p>
-          </div>
-          <div className="bg-background p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto">
-            <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
-              <span ref={counter2Ref}>100</span>
-              <span>%</span>
-            </p>
-            <p className="text-sm font-mono uppercase text-muted-foreground">
-              Entreprises
-              <br />
-              satisfaites
-            </p>
-          </div>
-          <div className="bg-background p-4 md:p-6 flex flex-col justify-between aspect-square xl:aspect-auto">
-            <p
-              ref={counter3Ref}
-              className="block text-5xl md:text-6xl 2xl:text-7xl mb-2"
-            >
-              5
-            </p>
+              <p className="text-sm font-mono uppercase">
+                Entreprises
+                <br />
+                accompagnées
+              </p>
+            </div>
+            <div className="bg-background border-b border-b-4 border-blue-600 p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12">
+              <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
+                <span ref={counter2Ref}>100</span>
+                <span>%</span>
+              </p>
+              <p className="text-sm font-mono uppercase">
+                Entreprises
+                <br />
+                satisfaites
+              </p>
+            </div>
+            <div className="bg-background border-b border-b-4 border-blue-600 p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12">
+              <p
+                ref={counter3Ref}
+                className="block text-5xl md:text-6xl 2xl:text-7xl mb-2"
+              >
+                5
+              </p>
 
-            <p className="text-sm font-mono uppercase text-muted-foreground">
-              Domaines
-              <br />
-              d&apos;expertises
-            </p>
+              <p className="text-sm font-mono uppercase">
+                Domaines
+                <br />
+                d&apos;expertises
+              </p>
+            </div>
           </div>
-          <Image
-            src="/equipe-advisia.jpg"
-            width="300"
-            height="400"
-            alt="Equipe Advisia"
-            className="object-cover w-full aspect-square"
-          />
         </div>
       </div>
     </section>

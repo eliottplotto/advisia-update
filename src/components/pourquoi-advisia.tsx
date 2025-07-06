@@ -19,7 +19,7 @@ export default function PourquoiAdvisia() {
             >
               Pourquoi choisir{" "}
               <span className="text-nowrap">
-                <span className="underline">Advisia</span> ?
+                <span className="bg-ad-1">Advisia</span> ?
               </span>
             </RevealText>
             <p className="max-w-2xl">
@@ -31,21 +31,21 @@ export default function PourquoiAdvisia() {
             <ul className="flex wrap gap-12 wrap">
               <li>
                 <img
-                  src="/logos-confiance/shopify_monotone_black.svg"
+                  src="/logos-slider/shopify_monotone_black.svg"
                   alt="Logo Shopify"
                   className="h-10"
                 />
               </li>
               <li>
                 <img
-                  src="/logos-confiance/shopify_monotone_black.svg"
+                  src="/logos-slider/shopify_monotone_black.svg"
                   alt="Logo Shopify"
                   className="h-10"
                 />
               </li>
               <li>
                 <img
-                  src="/logos-confiance/shopify_monotone_black.svg"
+                  src="/logos-slider/shopify_monotone_black.svg"
                   alt="Logo Shopify"
                   className="h-10"
                 />

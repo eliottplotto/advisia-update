@@ -13,8 +13,7 @@ export default function SectionCTASmall() {
             Vous avez un projet ?
           </BulletHeadline>
           <RevealText as="h2" className="text-4xl max-w-2xl mb-8">
-            Contactez-nous et créons ensemble quelque chose d&#39;
-            <span className="underline">unique</span>.
+            Contactez-nous et créons ensemble quelque chose d&#39;unique.
           </RevealText>
           <div className="flex items-center justify-center gap-x-1 gap-y-2 flex-wrap">
             <Button asChild size={"lg"}>

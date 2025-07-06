@@ -25,15 +25,15 @@ export default async function Projets() {
             className="text-4xl md:text-6xl xl:text-7xl max-w-4xl my-8"
           >
             Nous avons transformé leurs objectifs en{" "}
-            <span className="underline">résultats</span>
+            <span className="bg-ad-1">résultats</span>
           </RevealText>
           <ul className="space-y-8">
             {projets.map((projet) => (
               <li
                 key={projet._id}
-                className="group relative overflow-hidden not-first:hidden dark bg-background text-foreground"
+                className="group relative overflow-hidden not-first:hidden bg-background text-foreground"
               >
-                <div className="absolute z-1 left-0 bottom-0 bg-blue-600 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
+                <div className="absolute z-1 left-0 bottom-0 bg-ad-1 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
 
                 <Link
                   className="relative z-1 group global-padding grid grid-cols-1 lg:grid-cols-2 items-end gap-4 md:gap-6 lg:gap-8"
@@ -62,7 +62,7 @@ export default async function Projets() {
                   </div>
                   <div className="h-full flex flex-col justify-between items-start">
                     <div className="text-2xl xl:text-4xl">
-                      <h2 className="text-muted-foreground group-hover:underline group-hover:text-foreground">
+                      <h2 className="text-muted-foreground group-hover:text-foreground">
                         {projet.client}
                       </h2>
                       <p>{projet.headline}</p>
