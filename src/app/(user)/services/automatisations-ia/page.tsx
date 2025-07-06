@@ -61,7 +61,7 @@ export default function AutomatisationsIA() {
                     className="text-4xl md:text-6xl xl:text-7xl mt-10 uppercase max-w-4xl"
                   >
                     <span className="text-nowrap">Agence IA : </span>
-                    Prenez une longueur d'avance.
+                    Prenez une longueur d&apos;avance.
                   </RevealText>
                 </div>
 
