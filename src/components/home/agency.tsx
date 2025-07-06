@@ -6,7 +6,6 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { BulletHeadline } from "../ui/bullet-headline";
 import { RevealText } from "../RevealText";
 gsap.registerPlugin(useGSAP, ScrollTrigger, TextPlugin);
 

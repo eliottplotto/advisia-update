@@ -1,7 +1,6 @@
 import { RevealText } from "./RevealText";
-import { BulletHeadline } from "./ui/bullet-headline";
 import ContactForm from "./contact-form";
-import { RiCheckFill, RiPhoneFill } from "@remixicon/react";
+import { RiPhoneFill } from "@remixicon/react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 
