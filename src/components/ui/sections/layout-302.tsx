@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/carousel";
 
 import { RiBox2Fill } from "@remixicon/react";
-import { RevealText } from "@/components/RevealText";
 
 type ButtonItem = React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -71,12 +70,7 @@ export const Layout302 = (props: Layout302Props) => {
     >
       <div className="container-md global-padding-x">
         <div className="text-center mb-16">
-          <RevealText
-            as="h2"
-            className="text-4xl md:text-6xl max-w-4xl mx-auto"
-          >
-            {heading}
-          </RevealText>
+          <h2 className="text-4xl md:text-6xl max-w-4xl mx-auto">{heading}</h2>
           {subheading && (
             <p className="max-w-2xl mx-auto mt-6 text-muted-foreground">
               {subheading}
@@ -88,12 +82,10 @@ export const Layout302 = (props: Layout302Props) => {
           <div className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-3 items-stretch gap-2">
             {sections.map((section, index) => (
               <div key={index} className="bg-secondary p-4 md:p-6 lg:p-8">
-                <div className="mb-5 md:mb-6 p-4 w-fit bg-blue-600 text-background">
+                <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 ad-pattern">
                   {section.icon}
                 </div>
-                <h3 className="mb-5 text-xl md:mb-6 md:text-2xl">
-                  {section.heading}
-                </h3>
+                <h3 className="mb-5 text-2xl md:mb-6">{section.heading}</h3>
                 <p className="text-muted-foreground">{section.description}</p>
               </div>
             ))}
@@ -115,7 +107,7 @@ export const Layout302 = (props: Layout302Props) => {
                     className="pl-2 basis-[85%] sm:basis-[70%] md:basis-[60%]"
                   >
                     <div className="p-4 select-none bg-secondary">
-                      <div className="mb-5 md:mb-6 p-4 w-fit bg-blue-600 text-background">
+                      <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 ad-pattern">
                         {section.icon}
                       </div>
                       <h3 className="mb-4 text-2xl">{section.heading}</h3>

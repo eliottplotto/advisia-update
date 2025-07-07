@@ -1,4 +1,3 @@
-import { RevealText } from "./RevealText";
 import ContactForm from "./contact-form";
 import { RiPhoneFill } from "@remixicon/react";
 import { Button } from "./ui/button";
@@ -22,7 +21,7 @@ export default function SectionCTAForm() {
   ];
 
   return (
-    <section className="dark bg-background bg-ascii-4 text-foreground">
+    <section className="dark bg-background text-foreground">
       <div className="container-md">
         <div className="py-16 grid lg:grid-cols-2">
           <div className="global-padding xl:mr-8">
@@ -42,15 +41,12 @@ export default function SectionCTAForm() {
                 />
               ))}
             </div>
-            <RevealText
-              as="h1"
-              className="text-4xl md:text-6xl mt-8 mb-4 2xl:mb-8 uppercase"
-            >
+            <h2 className="text-4xl md:text-6xl mt-8 mb-4 2xl:mb-8 uppercase">
               Démarrons{" "}
-              <span className="bg-ad-1 text-background text-nowrap">
+              <span className="text-highlight text-background text-nowrap">
                 votre projet
               </span>
-            </RevealText>
+            </h2>
             <p>
               Un projet ou une question ? Contactez-nous en remplissant le
               formulaire ci-contre. Notre équipe commerciale reviendra vers vous

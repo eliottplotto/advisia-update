@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className="antialiased font-medium min-h-screen">
+      <body className="antialiased 2xl:text-lg min-h-screen">
         {children}
         <SanityLive />
       </body>

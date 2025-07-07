@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { BulletHeadline } from "../ui/bullet-headline";
-import { RevealText } from "../RevealText";
 import { Button } from "../ui/button";
 import { RiArrowRightFill } from "@remixicon/react";
 
@@ -13,10 +12,10 @@ export default function Services() {
       link: "/services/automatisations-ia",
     },
     {
-      title: "Site Web",
+      title: "Développement Web",
       description:
         "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
-      link: "/services/site-web",
+      link: "/services/agence-web",
     },
     {
       title: "Product Design",
@@ -42,23 +41,22 @@ export default function Services() {
     <section>
       <div className="container-md">
         <div className="py-16 grid grid-cols-1 lg:grid-cols-2">
-          <div className="lg:sticky lg:top-24 h-fit global-padding space-y-8">
+          <div className="lg:sticky lg:top-24 h-fit global-padding space-y-6">
             <BulletHeadline as="p">Nos expertises</BulletHeadline>
-            <RevealText
-              as="h2"
-              className="text-4xl md:text-6xl xl:text-7xl max-w-4xl"
-            >
+            <h2 className="text-4xl md:text-6xl max-w-xl">
               Développez{" "}
-              <span className=" text-nowrap bg-ad-1">tout le potentiel</span> de
-              votre activité.
-            </RevealText>
+              <span className="text-nowrap text-highlight">
+                tout le potentiel
+              </span>{" "}
+              de votre activité.
+            </h2>
             <p>
               Découvrez toutes nos expertises pour mettre en place et développer
               votre stratégie digitale. Du SEA à la web analyse en passant par
               le social média, nous vous accompagnons pour faire grandir votre
               entreprise quel que soit votre secteur.
             </p>
-            <Button asChild size={"lg"}>
+            <Button asChild size={"lg"} className="hidden lg:inline-flex">
               <Link href="/contact">
                 J&apos;estime mon projet <RiArrowRightFill />
               </Link>

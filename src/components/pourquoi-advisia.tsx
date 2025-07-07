@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { RevealText } from "./RevealText";
 import {
   RiBardFill,
   RiFocus2Fill,
@@ -13,15 +12,12 @@ export default function PourquoiAdvisia() {
       <div className="container-md">
         <div className="global-padding-x py-16">
           <div className="space-y-8 mb-16">
-            <RevealText
-              as="h2"
-              className="text-4xl md:text-6xl xl:text-7xl max-w-4xl"
-            >
+            <h2 className="text-4xl md:text-6xl max-w-4xl">
               Pourquoi choisir{" "}
               <span className="text-nowrap">
-                <span className="bg-ad-1">Advisia</span> ?
+                <span className="text-highlight">Advisia</span> ?
               </span>
-            </RevealText>
+            </h2>
             <p className="max-w-2xl">
               Découvrez toutes nos expertises pour mettre en place et développer
               votre stratégie digitale. Du SEA à la web analyse en passant par

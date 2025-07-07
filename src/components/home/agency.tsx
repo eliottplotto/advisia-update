@@ -6,7 +6,6 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealText } from "../RevealText";
 gsap.registerPlugin(useGSAP, ScrollTrigger, TextPlugin);
 
 export default function Agency() {
@@ -83,7 +82,7 @@ export default function Agency() {
   );
 
   return (
-    <section className="bg-secondary bg-ascii-3">
+    <section className="bg-secondary ad-pattern">
       <div className="container-md">
         <div className="global-padding-x py-16 max-w-5xl flex flex-col gap-16 items-center mx-auto">
           <Image
@@ -93,13 +92,11 @@ export default function Agency() {
             height={256}
             className=""
           />
-          <RevealText as="h3" className="text-xl md:text-4xl text-center">
-            Nous concevons des sites{" "}
-            <span className="bg-ad-1">performants</span>, des stratégies
-            d&apos;acquisition <span className="bg-ad-1">rentables</span>, et
-            des systèmes <span className="bg-ad-1">intelligents</span> qui
-            automatisent vos tâches les plus chronophages.
-          </RevealText>
+          <h3 className="text-xl md:text-4xl text-center">
+            Nous concevons des sites, des stratégies d&apos;acquisition
+            rentables, et des systèmes intelligents qui automatisent vos tâches
+            les plus chronophages.
+          </h3>
           <div
             ref={containerRef}
             className="grid grid-cols-1 lg:grid-cols-3 gap-x-1 gap-y-2 lg:gap-2 w-full"

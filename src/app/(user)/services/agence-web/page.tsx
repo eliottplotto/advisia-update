@@ -1,29 +1,24 @@
 import React from "react";
 import Footer from "@/components/footer";
-import { Layout302 } from "@/components/ui/sections/layout-302";
 import {
-  RiCustomerService2Fill,
-  RiHome9Fill,
-  RiBankFill,
-  RiMegaphoneFill,
-  RiTeamFill,
-  RiShoppingCartFill,
   RiArrowRightFill,
   RiSearch2Fill,
   RiGitBranchFill,
   RiLineChartFill,
 } from "@remixicon/react";
-import Solutions from "@/components/services/automatisations-ia/solutions";
 import { Header1 } from "@/components/ui/sections/header-1";
-import { RevealText } from "@/components/RevealText";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import FAQ from "@/components/services/automatisations-ia/faq";
 import SectionCTAForm from "@/components/section-cta-form";
 import Steps1 from "@/components/ui/sections/steps-1";
+import LogosConfiance from "@/components/logos-confiance";
+import ServicesWeb from "@/components/services/agence-web/services-web";
+import FeaturesWeb from "@/components/services/agence-web/features-web";
+import SectionCTASmall from "@/components/section-cta-small";
 
-export default function AutomatisationsIA() {
+export default function SiteWeb() {
   const processSteps = [
     {
       title: "Audit & stratégie sur-mesure",
@@ -52,10 +47,10 @@ export default function AutomatisationsIA() {
           <div className="container-md pt-[95px]">
             <div className="py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
-                <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
+                <BulletHeadline as="p">Développment Web</BulletHeadline>
                 <h1 className="text-4xl md:text-6xl xl:text-7xl uppercase max-w-4xl">
-                  <span className="text-nowrap">Agence IA : </span>
-                  Prenez une longueur d&apos;avance.
+                  <span className="text-nowrap">Agence Web : </span>
+                  Sites, eCommerce, App & Saas
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">
@@ -70,8 +65,8 @@ export default function AutomatisationsIA() {
                   </Button>
                   <div className="flex gap-4 lg:gap-8 wrap">
                     <div className="w-max">
-                      <p className="text-2xl">40%</p>
-                      <p className="text-sm ">Gain de productivité moyen</p>
+                      <p className="text-2xl">+10</p>
+                      <p className="text-sm ">Projets réalisés</p>
                     </div>
                     <div className="w-max border-l border-foreground pl-4 lg:pl-8">
                       <p className="text-2xl">100%</p>
@@ -83,50 +78,11 @@ export default function AutomatisationsIA() {
             </div>
           </div>
         </section>
+        <LogosConfiance />
 
-        <Solutions />
-        <Layout302
-          heading="Devenez le leader de votre secteur"
-          subheading="Nos agents intelligents s'adaptent à vos enjeux métiers pour optimiser vos opérations, personnaliser l'expérience client et libérer du temps."
-          sections={[
-            {
-              icon: <RiCustomerService2Fill size={32} />,
-              heading: "Service client & Support",
-              description:
-                "Agents conversationnels, assistants vocaux, ticketing automatisé, tri des demandes, réponses contextualisées.",
-            },
-            {
-              icon: <RiShoppingCartFill size={32} />,
-              heading: "E-commerce & Retail",
-              description:
-                "Recommandations produits, assistants d'achat, gestion des stocks, relances paniers abandonnés, chatbots de prévente.",
-            },
-            {
-              icon: <RiHome9Fill size={32} />,
-              heading: "Immobilier",
-              description:
-                "Agents conversationnels, qualification des leads, matching acheteurs-biens, suivi de dossiers automatisé.",
-            },
-            {
-              icon: <RiBankFill size={32} />,
-              heading: "Banque / Assurance",
-              description:
-                "Assistants virtuels pour la gestion de compte, simulation de crédit, détection de fraude, automatisation des tâches administratives.",
-            },
-            {
-              icon: <RiMegaphoneFill size={32} />,
-              heading: "Communication",
-              description:
-                "Génération de contenu, segmentation automatique, agents de réponse en temps réel, campagnes multi-canaux automatisées.",
-            },
-            {
-              icon: <RiTeamFill size={32} />,
-              heading: "Ressources Humaines",
-              description:
-                "Tri automatisé de CV, agents de préqualification, onboarding digitalisé, assistants RH internes.",
-            },
-          ]}
-        />
+        <ServicesWeb />
+        <FeaturesWeb />
+        <SectionCTASmall />
 
         <Steps1
           title="Notre méthodologie"
@@ -135,13 +91,19 @@ export default function AutomatisationsIA() {
         />
 
         <Header1
-          heading="Architecte IA & prompt engineers expert"
+          heading="Designer UX et Développeur Web"
           dark={false}
           layout="imgLeft"
           description="Avec des expériences concrètes d'e-merchandising, d'e-commerce et la maîtrise d'agents IA et de workflows intelligents, Eliott crée des systèmes qui fluidifient les opérations et génèrent de vrais gains en termes de couts, de performance et de temps."
           buttons={[{ title: "Planifier un appel" }]}
-          image={{ src: "/eliott-plotto.jpeg", alt: "Eliott Plotto" }}
-          legend={{ title: "Eliott Plotto", subtitle: "Architecte IA" }}
+          image={{
+            src: "/services/agence-web/enzo-ferrer.webp",
+            alt: "Enzo Ferrer",
+          }}
+          legend={{
+            title: "Enzo Ferrer",
+            subtitle: "Designer UX et Développeur Web",
+          }}
         />
         <div className="h-1 bg-primary"></div>
         <FAQ />

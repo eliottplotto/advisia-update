@@ -20,14 +20,11 @@ export default async function Projets() {
       <div className="container-md">
         <div className="global-padding-x py-16">
           <BulletHeadline as="p">Études de cas</BulletHeadline>
-          <RevealText
-            as="h1"
-            className="text-4xl md:text-6xl xl:text-7xl max-w-4xl my-8"
-          >
+          <h2 className="text-4xl md:text-6xl max-w-4xl mt-6">
             Nous avons transformé leurs objectifs en{" "}
-            <span className="bg-ad-1">résultats</span>
-          </RevealText>
-          <ul className="space-y-8">
+            <span className="text-highlight">résultats</span>
+          </h2>
+          <ul className="space-y-8 mt-8">
             {projets.map((projet) => (
               <li
                 key={projet._id}

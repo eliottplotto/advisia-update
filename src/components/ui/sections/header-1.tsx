@@ -42,14 +42,14 @@ export const Header1 = (props: Header1Props) => {
     <section
       className={`bg-background text-foreground lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
     >
-      <div className="main-layout">
+      <div className="container-md">
         <div className="col-start-2 grid grid-cols-1 lg:grid-cols-2 lg:items-center">
           <div
-            className={`global-padding-x py-16 ${layout === "imgLeft" ? "order-1" : ""}`}
+            className={`global-padding-x py-16 space-y-6 ${layout === "imgLeft" ? "order-1" : ""}`}
           >
-            <h2 className="mb-5 text-4xl md:text-6xl md:mb-6">{heading}</h2>
+            <h2 className="text-4xl md:text-6xl">{heading}</h2>
             <p className="md:text-md">{description}</p>
-            <div className="mt-6 flex flex-wrap gap-1 md:mt-8">
+            <div className="flex flex-wrap gap-1">
               {buttons?.map((button, index) => {
                 const { title, asChild, children, ...rest } = button;
 
@@ -69,20 +69,24 @@ export const Header1 = (props: Header1Props) => {
               })}
             </div>
           </div>
-          <div className={`${layout === "imgLeft" ? "order-0" : ""} relative`}>
+          <div
+            className={`${layout === "imgLeft" ? "order-0 lg:pr-8" : "lg:pl-8"} relative`}
+          >
             <img
               src={image.src}
               className="w-full object-cover"
               alt={image.alt}
             />
             {legend && (
-              <div className="bg-background text-foreground absolute bottom-4 left-4 p-3">
-                <p className="flex items-center gap-2">
-                  <span className="inline-block w-2 h-2 bg-blue-600"></span>
-                  {legend.title}
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  {legend.subtitle}
+              <div className="dark bg-background text-foreground absolute bottom-4 left-4 p-3">
+                <p className="flex items-center gap-3">
+                  <span className="inline-block w-3 h-3 bg-ad-1"></span>
+                  <span>
+                    <span className="block">{legend.title}</span>
+                    <span className="block text-sm text-muted-foreground">
+                      {legend.subtitle}
+                    </span>
+                  </span>
                 </p>
               </div>
             )}

@@ -1,4 +1,3 @@
-import { RevealText } from "@/components/RevealText";
 import { RemixiconComponentType } from "@remixicon/react";
 
 interface ProcessStep {
@@ -20,11 +19,9 @@ export default function Steps1({ title, subtitle, steps }: ProcessProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Title & Subtitle */}
           <div className="global-padding lg:sticky lg:top-24 lg:self-start">
-            <RevealText as="h2" className="text-4xl md:text-6xl mb-6">
-              {title}
-            </RevealText>
+            <h2 className="text-4xl md:text-6xl mb-6">{title}</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {subtitle}
+              s{subtitle}
             </p>
           </div>
 
