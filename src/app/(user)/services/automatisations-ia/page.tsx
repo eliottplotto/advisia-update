@@ -15,7 +15,6 @@ import {
 } from "@remixicon/react";
 import Solutions from "@/components/services/automatisations-ia/solutions";
 import { Header1 } from "@/components/ui/sections/header-1";
-import { RevealText } from "@/components/RevealText";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";

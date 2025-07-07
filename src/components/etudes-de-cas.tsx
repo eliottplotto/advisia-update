@@ -6,7 +6,6 @@ import { client } from "@/sanity/lib/client";
 import type { Project } from "@/types/sanity";
 import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 // Components
-import { RevealText } from "@/components/RevealText";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import { Button } from "@/components/ui/button";
 
