@@ -8,7 +8,6 @@ import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 // Components
 import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
-import { RevealText } from "@/components/RevealText";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import { Button } from "@/components/ui/button";
 

@@ -111,7 +111,7 @@ export default function SiteWeb() {
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
                 <h1 className="text-4xl md:text-6xl xl:text-7xl uppercase max-w-4xl">
-                  L'agence web de{" "}
+                  L&apos;agence web de{" "}
                   <span className="text-highlight">confiance</span> pour la
                   création de votre site
                 </h1>
