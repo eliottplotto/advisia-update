@@ -12,8 +12,8 @@ import { Badge } from "./ui/badge";
 export default function Footer() {
   return (
     <footer>
-      <section className="bg-secondary">
-        <div className="container-md grid grid-col-1 lg:grid-cols-2 lg:gap-y-32">
+      <section className="dark text-foreground bg-background border-t">
+        <div className="container-md grid grid-col-1 lg:grid-cols-2">
           <div className="global-padding">
             <Badge className="mb-4">Coming Soon</Badge>
             <h2 className="text-4xl">Newsletter</h2>
@@ -63,7 +63,7 @@ export default function Footer() {
                   <Button variant="link" asChild>
                     <Link href="/services/automatisations-ia">
                       IA et Automatisation
-                      <RiSparklingFill className="text-blue-600" />
+                      <RiSparklingFill className="text-ad-1" />
                     </Link>
                   </Button>
                 </li>
@@ -110,22 +110,17 @@ export default function Footer() {
                     </Link>
                   </Button>
                 </li>
-                <li>
-                  <Button variant="link" asChild>
-                    <Link href="/">Cookies</Link>
-                  </Button>
-                </li>
               </ul>
             </div>
           </div>
           <div className="global-padding border-t border-px lg:border-0">
             <Link href="/">
               <Image
-                src="/advisia-logo-black-h32.svg"
+                src="/advisia-logo-white-h32.svg"
                 alt="Logo"
                 width={130}
                 height={32}
-                className="h-8 w-auto mb-8"
+                className="h-10 w-auto mb-8"
               />
             </Link>
             <ul className="flex gap-1">

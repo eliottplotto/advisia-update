@@ -231,7 +231,7 @@ export default function Navbar() {
                     servicesTl.current?.reverse();
                     setIsServicesMenuOpen(false);
                   }}
-                  className="relative block py-2 group"
+                  className="relative block py-1 group"
                 >
                   <p className="text-3xl relative w-max">
                     {link.label}

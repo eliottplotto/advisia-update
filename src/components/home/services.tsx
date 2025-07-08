@@ -40,7 +40,7 @@ export default function Services() {
   return (
     <section>
       <div className="container-md">
-        <div className="py-16 grid grid-cols-1 lg:grid-cols-2">
+        <div className="py-8 lg:py-16 grid grid-cols-1 lg:grid-cols-2">
           <div className="lg:sticky lg:top-24 h-fit global-padding space-y-6">
             <BulletHeadline as="p">Nos expertises</BulletHeadline>
             <h2 className="text-4xl md:text-6xl max-w-xl">

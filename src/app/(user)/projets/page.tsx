@@ -19,17 +19,14 @@ export default async function Projets() {
 
   return (
     <>
-      <section className="bg-neutral-950 text-background">
+      <section className="dark bg-background text-foreground">
         <div className="container-md pt-[95px]">
           <div className="global-padding-x py-16">
             <BulletHeadline as="p">Études de cas</BulletHeadline>
-            <RevealText
-              as="h1"
-              className="text-4xl md:text-6xl xl:text-7xl max-w-4xl my-8"
-            >
+            <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl my-8">
               Nous avons transformé leurs objectifs en{" "}
-              <span className="underline">résultats</span>
-            </RevealText>
+              <span className="text-highlight">résultats</span>
+            </h1>
             <ul className="space-y-8">
               {projets.map((projet) => (
                 <li key={projet._id}>

@@ -17,19 +17,22 @@ export default async function Projets() {
   return (
     <section className="bg-secondary">
       <div className="container-md">
-        <div className="global-padding-x py-16">
-          <BulletHeadline as="p">Études de cas</BulletHeadline>
-          <h2 className="text-4xl md:text-6xl max-w-4xl mt-6">
-            Nous avons transformé leurs objectifs en{" "}
-            <span className="text-highlight">résultats</span>
-          </h2>
-          <ul className="space-y-8 mt-8">
+        <div className="global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
+          <div className="space-y-6">
+            <BulletHeadline as="p">Études de cas</BulletHeadline>
+            <h2 className="text-4xl md:text-6xl max-w-4xl">
+              Nous avons transformé leurs objectifs en{" "}
+              <span className="text-highlight">résultats</span>
+            </h2>
+          </div>
+
+          <ul>
             {projets.map((projet) => (
               <li
                 key={projet._id}
-                className="group relative overflow-hidden not-first:hidden bg-background text-foreground"
+                className="group relative overflow-hidden not-first:hidden dark bg-background text-foreground"
               >
-                <div className="absolute z-1 left-0 bottom-0 bg-ad-1 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
+                <div className="absolute z-1 left-0 bottom-0 bg-blue-600 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
 
                 <Link
                   className="relative z-1 group global-padding grid grid-cols-1 lg:grid-cols-2 items-end gap-4 md:gap-6 lg:gap-8"
@@ -58,7 +61,7 @@ export default async function Projets() {
                   </div>
                   <div className="h-full flex flex-col justify-between items-start">
                     <div className="text-2xl xl:text-4xl">
-                      <h2 className="text-muted-foreground group-hover:text-foreground">
+                      <h2 className="font-mono text-sm uppercase mb-4">
                         {projet.client}
                       </h2>
                       <p>{projet.headline}</p>
@@ -71,7 +74,7 @@ export default async function Projets() {
               </li>
             ))}
           </ul>
-          <Button className="mt-4" variant={"outline"} size={"lg"} asChild>
+          <Button variant={"outline"} size={"lg"} asChild>
             <Link href="/projets">Découvrir nos projets</Link>
           </Button>
         </div>

@@ -3,7 +3,7 @@ import FooterXS from "@/components/footer-xs";
 import { RevealText } from "@/components/RevealText";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import { Button } from "@/components/ui/button";
-import FAQ from "@/components/ui/faq";
+import FAQ from "@/components/ui/sections/faq";
 import { RiCheckFill, RiPhoneFill } from "@remixicon/react";
 import Link from "next/link";
 export default function Contact() {

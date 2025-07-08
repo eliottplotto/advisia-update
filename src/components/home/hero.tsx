@@ -37,7 +37,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative z-0 dark bg-background ad-pattern text-foreground overflow-hidden"
+      className="relative z-0 dark bg-background text-foreground overflow-hidden"
     >
       <div className="h-[90dvh] ">
         <div className="global-padding flex justify-center items-center h-full text-center">
@@ -59,8 +59,9 @@ export default function Hero() {
               </p>
             </div>
 
-            <h1 className="text-4xl md:text-6xl xl:text-7xl mt-8 uppercase">
-              Solutions digitales sur‑mesures pour votre croissance.
+            <h1 className="text-4xl md:text-6xl xl:text-7xl mt-8 ">
+              Créons des solutions digitales sur‑mesures pour votre{" "}
+              <span className="text-highlight">croissance</span>
             </h1>
             <p className="text-muted-foreground text-lg mt-8 max-w-xl">
               Advisia est une agence de croissance spécialisée en intelligence
@@ -79,7 +80,7 @@ export default function Hero() {
 
             {/* Cards */}
             {/* Card 1*/}
-            <div className="hidden lg:block hero-card absolute bg-background border p-2 select-none -top-16 right-[100%]">
+            <div className="hidden lg:block hero-card absolute bg-background border p-2 select-none -top-16 right-[105%]">
               <p className="hidden 2xl:block text-left mb-2 font-mono text-xs text-muted-foreground">
                 /mes-halles.webp
               </p>
@@ -109,7 +110,7 @@ export default function Hero() {
               </div>
             </div>
             {/* Card 3 */}
-            <div className="hidden lg:block hero-card absolute -bottom-0 left-[120%] bg-background border p-2 select-none">
+            <div className="hidden lg:block hero-card absolute -bottom-0 left-[125%] bg-background border p-2 select-none">
               <div className="hidden 2xl:flex items-center gap-2 mb-2">
                 <Image
                   src={"/home/advisia-icon.svg"}
@@ -141,7 +142,7 @@ export default function Hero() {
               </div>
             </div>
             {/* Flottant 4 */}
-            <div className="hidden lg:block hero-card absolute -bottom-16 left-[100%] bg-background border p-2 select-none">
+            <div className="hidden lg:block hero-card absolute -bottom-16 left-[105%] bg-background border p-2 select-none">
               <p className="hidden 2xl:block text-left mb-2 font-mono text-xs text-muted-foreground">
                 /mes-halles.webp
               </p>

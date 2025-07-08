@@ -5,7 +5,7 @@ import React from "react";
 import FooterXS from "@/components/footer-xs";
 import { RevealText } from "@/components/RevealText";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
-import FAQ from "@/components/ui/faq";
+import FAQ from "@/components/ui/sections/faq";
 import LogosConfiance from "@/components/logos-confiance";
 import CalForm from "@/components/cal-form";
 import { Button } from "@/components/ui/button";

@@ -82,9 +82,9 @@ export default function Agency() {
   );
 
   return (
-    <section className="bg-secondary ad-pattern">
+    <section className="bg-secondary">
       <div className="container-md">
-        <div className="global-padding-x py-16 max-w-5xl flex flex-col gap-16 items-center mx-auto">
+        <div className="global-padding-x py-8 lg:py-16 max-w-5xl flex flex-col gap-8 lg:gap-16 items-center mx-auto">
           <Image
             src={"/home/advisia-team.png"}
             alt={"Collaborateurs Advisia"}

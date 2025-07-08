@@ -12,28 +12,28 @@ export default function FeaturesWeb() {
     {
       title: "Optimisation du référencement naturel",
       description:
-        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
+        "Code optimisé, contenus structurés, performance technique : tout est pensé pour plaire à Google.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiSeoFill,
     },
     {
       title: "Optimisation de la conversion",
       description:
-        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
+        "Parcours utilisateur fluide, design persuasif et appels à l’action clairs pour générer plus de contacts ou de ventes.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiCursorFill,
     },
     {
       title: "Gestion facile du contenu",
       description:
-        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
+        "Modifiez textes et images en toute simplicité grâce à un CMS pensé pour vous.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiDatabase2Fill,
     },
     {
       title: "Un produit à votre image",
       description:
-        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
+        "Un site web à votre image, adapté à vos cibles et à votre secteur.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiPencilRuler2Fill,
     },
@@ -47,7 +47,7 @@ export default function FeaturesWeb() {
     {
       title: "Accessibilité et éco-conception",
       description:
-        "Nous respections vos engagements en proposant des solutions accéssibles et éco-conçues.",
+        "Nous respectons vos engagements en proposant des solutions accessibles et éco-conçues.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiAccessibilityFill,
     },
@@ -55,13 +55,11 @@ export default function FeaturesWeb() {
 
   return (
     <section className="dark text-foreground bg-blue-600">
-      <div className="container-md global-padding-x py-16">
-        <div className="space-y-6 mb-16 flex flex-col items-center text-center">
+      <div className="container-md global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
+        <div className="space-y-6 flex flex-col items-center text-center">
           <h2 className="text-4xl md:text-6xl max-w-3xl">
-            Transformez votre site en un{" "}
-            <span className="text-nowrap text-highlight text-background">
-              atout commercial
-            </span>
+            Transformez votre site en un véritable levier de{" "}
+            <span className="text-nowrap text-highlight">croissance</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
@@ -72,13 +70,8 @@ export default function FeaturesWeb() {
                 key={index}
                 className="bg-background overflow-hidden flex flex-col justify-between gap-4"
               >
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="aspect-4/2 object-cover object-top-left ad-pattern"
-                />
                 <div className="global-padding space-y-4">
-                  <IconComponent />
+                  <IconComponent className="text-ad-1" />
                   <div>
                     <h3 className="text-2xl mb-2">{service.title}</h3>
                     <p className="text-muted-foreground">
@@ -86,6 +79,11 @@ export default function FeaturesWeb() {
                     </p>
                   </div>
                 </div>
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="aspect-4/2 object-cover object-top-left"
+                />
               </div>
             );
           })}
