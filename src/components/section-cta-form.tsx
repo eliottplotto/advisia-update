@@ -4,17 +4,17 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import type { ElementType, ReactNode } from "react";
 
-type SectionContactFormProps<T extends ElementType> = {
-  as?: T;
+interface SectionContactFormProps {
+  as?: ElementType;
   title?: ReactNode;
-} & React.ComponentPropsWithoutRef<T>;
+}
 
-export default function SectionContactForm<T extends ElementType = "h2">({
-  as,
+export default function SectionContactForm({
+  as = "h2",
   title,
   ...props
-}: SectionContactFormProps<T>) {
-  const Tag = as || ("h2" as ElementType);
+}: SectionContactFormProps) {
+  const Tag = as;
 
   const defaultTitle = (
     <>
