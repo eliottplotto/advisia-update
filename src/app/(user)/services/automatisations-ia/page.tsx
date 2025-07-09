@@ -54,28 +54,32 @@ export default function AutomatisationsIA() {
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
                 <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl">
-                  <span className="text-nowrap">Agence IA : </span>
-                  Prenez une longueur d&apos;avance.
+                  Prenez une longueur d&apos;avance grâce à l&apos;IA
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">
                   Offrez vous des agents IA qui travaillent pour vous, 24/7.
                 </p>
+
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
                     <Link href="/contact">
                       Contacter un expert IA <RiArrowRightFill />
                     </Link>
                   </Button>
-                  <div className="flex gap-4 lg:gap-8 wrap">
-                    <div className="w-max">
-                      <p className="text-2xl">40%</p>
-                      <p className="text-sm ">Gain de productivité moyen</p>
-                    </div>
-                    <div className="w-max border-l pl-4 lg:pl-8">
-                      <p className="text-2xl">+10h</p>
-                      <p className="text-sm ">Gagnées par semaine</p>
-                    </div>
+                </div>
+                <div className="flex gap-4 lg:gap-8 flex-wrap">
+                  <div className="w-max">
+                    <p className="text-2xl">40%</p>
+                    <p className="text-sm ">Gain de productivité moyen</p>
+                  </div>
+                  <div className="w-max border-l pl-4 lg:pl-8">
+                    <p className="text-2xl">+10h</p>
+                    <p className="text-sm ">Gagnées par semaine</p>
+                  </div>
+                  <div className="hidden sm:block w-max border-l pl-4 lg:pl-8">
+                    <p className="text-2xl">+15</p>
+                    <p className="text-sm ">Agents IA en activité</p>
                   </div>
                 </div>
               </div>
@@ -83,7 +87,6 @@ export default function AutomatisationsIA() {
           </div>
         </section>
         <LogosConfiance />
-        <Solutions />
         <Layout302
           heading="Devenez le leader de votre secteur"
           subheading="Nos agents intelligents s'adaptent à vos enjeux métiers pour optimiser vos opérations, personnaliser l'expérience client et libérer du temps."
@@ -126,12 +129,9 @@ export default function AutomatisationsIA() {
             },
           ]}
         />
+        <Solutions />
 
-        <Steps1
-          title="Notre méthodologie"
-          subtitle="Une approche structurée et collaborative qui combine expertise technique, créativité et vision stratégique. Notre méthode s'adapte à la taille de votre entreprise et à l'organisation de vos équipes."
-          steps={processSteps}
-        />
+        <Steps1 title="Notre méthodologie" steps={processSteps} />
 
         <Header1
           heading="Architecte IA & prompt engineers expert"

@@ -24,7 +24,7 @@ export default function Solutions() {
           {/* Solutions */}
           <div>
             <div className="w-[50%] mx-auto flex flex-col items-center">
-              <div className="w-3 h-3 bg-foreground"></div>
+              <div className="w-3 h-3 bg-foreground rounded-xs"></div>
               <div className="h-12 border border-dashed border-foreground"></div>
               <div className="w-full border border-dashed border-foreground"></div>
               <div className="w-full mx-auto flex justify-between">
@@ -33,54 +33,54 @@ export default function Solutions() {
               </div>
             </div>
             <div className="grid lg:grid-cols-2 lg:gap-x-2">
-              <div className="bg-background flex flex-col justify-between">
-                <div className="dark bg-background h-64 flex justify-center items-center">
-                  <RiGitCommitFill size={64} className="text-ad-1" />
+              <div className="bg-background flex flex-col justify-between rounded-sm">
+                <div className="border-b h-64 flex justify-center items-center">
+                  <RiGitCommitFill size={64} className="text-blue-600" />
                 </div>
-                <div className="p-8 mb-4 grow">
-                  <h5 className="text-2xl lg:text-3xl mb-4">
-                    Automatisations de processus
-                  </h5>
+                <div className="global-padding grow">
+                  <h5 className="text-2xl lg:text-3xl mb-4">Agent IA</h5>
                   <p className="text-muted-foreground">
-                    Libérez vos équipes des tâches répétitives en automatisant
-                    vos workflows avec l&apos;IA.
+                    Automatise vos tâches répétitives avec une mise en place
+                    rapide.
                   </p>
-                  <ul className="adv_list-icon mt-6">
+                  <ul className="ad_list-icon mt-6">
                     <li>
-                      <RiCheckFill />
-                      Workflows intelligents
+                      <RiCheckFill className="text-blue-600" />
+                      Déploiement plug‑and‑play rapide, sans refonte lourde
                     </li>
                     <li>
-                      <RiCheckFill /> Intégration avec vos outils existants
+                      <RiCheckFill className="text-blue-600" /> Automatisation
+                      des tâches répétitives, réduction des erreurs
                     </li>
                     <li>
-                      <RiCheckFill /> Traitement automatique des documents
+                      <RiCheckFill className="text-blue-600" /> Libère vos
+                      équipes pour des missions à valeur
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="lg:hidden h-12 w-0 mx-auto border border-dashed border-foreground"></div>
-              <div className="bg-background flex flex-col justify-between">
-                <div className="dark bg-background h-64 flex justify-center items-center">
-                  <RiRobot3Fill size={64} className="text-ad-1" />
+              <div className="bg-background flex flex-col justify-between rounded-sm">
+                <div className="border-b h-64 flex justify-center items-center">
+                  <RiRobot3Fill size={64} className="text-blue-600" />
                 </div>
-                <div className="p-8 mb-4">
-                  <h5 className="text-2xl lg:text-3xl mb-4">Agents IA</h5>
+                <div className="global-padding grow">
+                  <h5 className="text-2xl lg:text-3xl mb-4">Système IA</h5>
                   <p className="text-muted-foreground">
-                    Un assistant autonome connecté à vos outils internes
-                    &#40;SAV, RH, commercial...&#41; Développez votre activité,
-                    même pendant que vous dormez.
+                    Orchestre vos processus complexes grâce à une IA connectée.
                   </p>
-                  <ul className="adv_list-icon mt-6">
+                  <ul className="ad_list-icon mt-6">
                     <li>
-                      <RiCheckFill />
-                      Workflows intelligents
+                      <RiCheckFill className="text-blue-600" />
+                      Connexion sécurisée à vos données et API
                     </li>
                     <li>
-                      <RiCheckFill /> Intégration avec vos outils existants
+                      <RiCheckFill className="text-blue-600" /> Décisions
+                      autonomes, apprentissage continu intégré
                     </li>
                     <li>
-                      <RiCheckFill /> Traitement automatique des documents
+                      <RiCheckFill className="text-blue-600" /> Exécutions
+                      multi‑étapes traçables en temps réel
                     </li>
                   </ul>
                 </div>

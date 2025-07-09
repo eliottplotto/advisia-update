@@ -39,11 +39,11 @@ export default function Hero() {
       id="hero"
       className="relative z-0 dark bg-background text-foreground overflow-hidden"
     >
-      <div className="h-[90dvh] ">
-        <div className="global-padding flex justify-center items-center h-full text-center">
+      <div className="lg:h-[90dvh]">
+        <div className="global-padding-x mt-16 lg:mt-0 py-16 flex justify-center items-center h-full text-center">
           <div className="relative max-w-2xl xl:max-w-4xl flex flex-col justify-center items-center">
-            <div className="bg-background rounded-xs border p-2 mb-0 flex items-center gap-2">
-              <div>
+            <div className="bg-background rounded-sm bg-secondary pr-2 pl-1 py-1 mb-0 flex items-center gap-2">
+              <div className="flex items-center">
                 {profils.map((profil, index) => (
                   <img
                     key={index}
@@ -55,7 +55,7 @@ export default function Hero() {
               </div>
 
               <p className="text-sm font-mono uppercase ">
-                +10 clients accompagnés
+                +20 clients accompagnés
               </p>
             </div>
 

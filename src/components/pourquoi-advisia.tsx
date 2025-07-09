@@ -19,10 +19,8 @@ export default function PourquoiAdvisia() {
               </span>
             </h2>
             <p className="max-w-2xl">
-              Découvrez toutes nos expertises pour mettre en place et développer
-              votre stratégie digitale. Du SEA à la web analyse en passant par
-              le social média, nous vous accompagnons pour faire grandir votre
-              entreprise quel que soit votre secteur.
+              PME, commerçants, artisans, startups ou groupes établis : chaque
+              projet mérite efficacité, clarté et impact.
             </p>
             <ul className="flex wrap gap-12 wrap">
               <li>
@@ -65,10 +63,10 @@ export default function PourquoiAdvisia() {
                 <RiShieldStarFill size={"32"} />
               </div>
               <div>
-                <h3 className="text-2xl">Expertises</h3>
+                <h3 className="text-2xl">Expertise certifiée</h3>
                 <p className="mt-3 text-muted-foreground">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse ac nisi in nisl feugiat ultricies.
+                  Une équipe experte, des outils maîtrisés, et une approche
+                  testée sur le terrain.
                 </p>
               </div>
             </div>
@@ -80,10 +78,10 @@ export default function PourquoiAdvisia() {
                 <RiBardFill size={"32"} />
               </div>
               <div>
-                <h3 className="text-2xl">Innovation</h3>
+                <h3 className="text-2xl">Solutions modernes</h3>
                 <p className="mt-3 text-muted-foreground">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse ac nisi in nisl feugiat ultricies.
+                  Nous sélectionnons des technologies fiables et durables grâce
+                  à une veille constante.
                 </p>
               </div>
             </div>
@@ -96,10 +94,10 @@ export default function PourquoiAdvisia() {
                 <RiFocus2Fill size={"32"} />
               </div>
               <div>
-                <h3 className="text-2xl">Résultats</h3>
+                <h3 className="text-2xl">Résultats garantis</h3>
                 <p className="mt-3 text-muted-foreground">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse ac nisi in nisl feugiat ultricies.
+                  KPIs définis dès le kick-off ; nos livrables s’alignent sur
+                  vos objectifs.
                 </p>
               </div>
             </div>
@@ -111,10 +109,10 @@ export default function PourquoiAdvisia() {
                 <RiShakeHandsFill size={"32"} />
               </div>
               <div>
-                <h3 className="text-2xl">Collaboration</h3>
+                <h3 className="text-2xl">Partenariat transparent</h3>
                 <p className="mt-3 text-muted-foreground">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse ac nisi in nisl feugiat ultricies.
+                  Suivi hebdo, accès au backlog, feedback continu : vous restez
+                  maître du projet.
                 </p>
               </div>
             </div>

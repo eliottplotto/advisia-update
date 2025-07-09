@@ -92,10 +92,10 @@ export default function Agency() {
             height={256}
             className=""
           />
-          <h3 className="text-xl md:text-4xl text-center">
-            Nous concevons des sites, des stratégies d&apos;acquisition
-            rentables, et des systèmes intelligents qui automatisent vos tâches
-            les plus chronophages.
+          <h3 className="text-2xl md:text-5xl text-center">
+            "Notre mission : rendre accessibles les bénéfices de l’IA et du
+            digital, quel que soit votre secteur ou votre niveau de maturité
+            numérique."
           </h3>
           <div
             ref={containerRef}

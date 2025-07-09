@@ -218,20 +218,20 @@
   background-position: center;
 }
 
-.adv_list-icon li {
+.ad_list-icon li {
   @apply py-4 border-b flex items-center gap-2;
 }
 
+.ad_list-icon li:last-of-type {
+  border: none;
+}
+
 .text-highlight {
-  display: inline-block;
-  text-decoration: underline;
-  text-decoration-color: oklch(54.6% 0.245 262.881);
-  text-decoration-style: dashed;
-  text-underline-offset: 6%;
+  color: oklch(54.6% 0.245 262.881);
 }
 
 .dark .text-highlight {
-  text-decoration-color: var(--ad-1);
+  color: var(--ad-1);
 }
 
 .dark .ad-pattern, .dark.ad-pattern {

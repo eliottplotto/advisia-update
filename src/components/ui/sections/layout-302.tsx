@@ -66,10 +66,10 @@ export const Layout302 = (props: Layout302Props) => {
 
   return (
     <section
-      className={`${dark ? "dark" : ""} text-foreground bg-background py-16`}
+      className={`${dark ? "dark" : ""} text-foreground bg-secondary py-8 lg:py-16`}
     >
       <div className="container-md global-padding-x">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 lg:mb-16">
           <h2 className="text-4xl md:text-6xl max-w-4xl mx-auto">{heading}</h2>
           {subheading && (
             <p className="max-w-2xl mx-auto mt-6 text-muted-foreground">
@@ -81,7 +81,10 @@ export const Layout302 = (props: Layout302Props) => {
           {/* Desktop Content */}
           <div className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-3 items-stretch gap-2">
             {sections.map((section, index) => (
-              <div key={index} className="bg-secondary p-4 md:p-6 lg:p-8">
+              <div
+                key={index}
+                className="bg-background p-4 global-padding rounded-sm"
+              >
                 <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 ad-pattern">
                   {section.icon}
                 </div>
@@ -106,7 +109,7 @@ export const Layout302 = (props: Layout302Props) => {
                     key={index}
                     className="pl-2 basis-[85%] sm:basis-[70%] md:basis-[60%]"
                   >
-                    <div className="p-4 select-none bg-secondary">
+                    <div className="p-4 select-none bg-background">
                       <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 ad-pattern">
                         {section.icon}
                       </div>
@@ -132,7 +135,7 @@ export const Layout302 = (props: Layout302Props) => {
                         index === current - 1 ? "bg-blue-600" : "bg-neutral-400"
                       }`}
                       onClick={() => api?.scrollTo(index)}
-                      aria-label={`Go to slide ${index + 1}`}
+                      aria-label={`Aller à la slide ${index + 1}`}
                     />
                   ))}
                 </div>

@@ -38,7 +38,7 @@ export default function Services() {
   ];
 
   return (
-    <section>
+    <section className="bg-secondary">
       <div className="container-md">
         <div className="py-8 lg:py-16 grid grid-cols-1 lg:grid-cols-2">
           <div className="lg:sticky lg:top-24 h-fit global-padding space-y-6">
@@ -66,7 +66,7 @@ export default function Services() {
             {services.map((service, index) => (
               <li
                 key={index}
-                className="group dark bg-background text-foreground relative overflow-hidden max-w-xl mr-0 ml-auto rounded-xs"
+                className="group dark bg-background text-foreground relative overflow-hidden max-w-xl mr-0 ml-auto rounded-sm"
               >
                 <div className="absolute z-1 left-0 bottom-0 bg-blue-600 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
 
