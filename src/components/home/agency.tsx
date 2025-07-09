@@ -84,7 +84,7 @@ export default function Agency() {
   return (
     <section className="bg-secondary">
       <div className="container-md">
-        <div className="global-padding-x py-8 lg:py-16 max-w-5xl flex flex-col gap-8 lg:gap-16 items-center mx-auto">
+        <div className="global-padding-x py-8 lg:py-16 flex flex-col gap-8 lg:gap-16 items-center mx-auto">
           <Image
             src={"/home/advisia-team.png"}
             alt={"Collaborateurs Advisia"}
@@ -93,9 +93,9 @@ export default function Agency() {
             className=""
           />
           <h3 className="text-2xl md:text-5xl text-center">
-            "Notre mission : rendre accessibles les bénéfices de l’IA et du
+            &quot;Notre mission : rendre accessibles les bénéfices de l’IA et du
             digital, quel que soit votre secteur ou votre niveau de maturité
-            numérique."
+            numérique.&quot;
           </h3>
           <div
             ref={containerRef}
