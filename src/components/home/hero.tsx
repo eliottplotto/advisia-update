@@ -80,7 +80,7 @@ export default function Hero() {
 
             {/* Cards */}
             {/* Card 1*/}
-            <div className="hidden lg:block hero-card absolute bg-background border p-2 select-none -top-16 right-[105%] rounded-xs">
+            <div className="hidden lg:block hero-card absolute bg-background border p-2 select-none top-0 xl:-top-16 right-[105%] rounded-xs">
               <p className="hidden 2xl:block text-left mb-2 font-mono text-xs text-muted-foreground">
                 /mes-halles.webp
               </p>
@@ -95,7 +95,7 @@ export default function Hero() {
               </div>
             </div>
             {/* Card 2*/}
-            <div className="hidden lg:block hero-card absolute top-0 right-[120%] bg-background border p-2 select-none rounded-xs">
+            <div className="hidden lg:block hero-card absolute top-16 xl:top-0 right-[120%] bg-background border p-2 select-none rounded-xs">
               <p className="hidden 2xl:block text-left mb-2 font-mono text-xs text-muted-foreground">
                 /automatisations.svg
               </p>

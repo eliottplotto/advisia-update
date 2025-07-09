@@ -21,6 +21,7 @@ import { BulletHeadline } from "@/components/ui/bullet-headline";
 import FAQ from "@/components/services/automatisations-ia/faq";
 import SectionCTAForm from "@/components/section-cta-form";
 import Steps1 from "@/components/ui/sections/steps-1";
+import LogosConfiance from "@/components/logos-confiance";
 
 export default function AutomatisationsIA() {
   const processSteps = [
@@ -47,24 +48,23 @@ export default function AutomatisationsIA() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-white ad-pattern">
+        <section className="dark bg-background text-white">
           <div className="container-md pt-[95px]">
             <div className="py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
-                <h1 className="text-4xl md:text-6xl xl:text-7xl uppercase max-w-4xl">
+                <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl">
                   <span className="text-nowrap">Agence IA : </span>
                   Prenez une longueur d&apos;avance.
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">
-                  Nous créons des automatisations et des agents IA sur-mesure
-                  qui travaillent pour vous, 24/7.
+                  Offrez vous des agents IA qui travaillent pour vous, 24/7.
                 </p>
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
                     <Link href="/contact">
-                      Contacter un expert <RiArrowRightFill />
+                      Contacter un expert IA <RiArrowRightFill />
                     </Link>
                   </Button>
                   <div className="flex gap-4 lg:gap-8 wrap">
@@ -72,9 +72,9 @@ export default function AutomatisationsIA() {
                       <p className="text-2xl">40%</p>
                       <p className="text-sm ">Gain de productivité moyen</p>
                     </div>
-                    <div className="w-max border-l border-foreground pl-4 lg:pl-8">
-                      <p className="text-2xl">100%</p>
-                      <p className="text-sm ">Clients satisfaits</p>
+                    <div className="w-max border-l pl-4 lg:pl-8">
+                      <p className="text-2xl">+10h</p>
+                      <p className="text-sm ">Gagnées par semaine</p>
                     </div>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ export default function AutomatisationsIA() {
             </div>
           </div>
         </section>
-
+        <LogosConfiance />
         <Solutions />
         <Layout302
           heading="Devenez le leader de votre secteur"
@@ -145,7 +145,14 @@ export default function AutomatisationsIA() {
         <div className="h-1 bg-primary"></div>
         <FAQ />
 
-        <SectionCTAForm />
+        <SectionCTAForm
+          title={
+            <>
+              Prêts à lancer votre{" "}
+              <span className="text-nowrap text-highlight">projet IA ?</span>
+            </>
+          }
+        />
       </main>
       <Footer />
     </>

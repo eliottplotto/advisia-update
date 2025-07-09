@@ -214,7 +214,7 @@ export default function Navbar() {
                 size={`${isScrolled ? "default" : "lg"}`}
               >
                 <Link href="/contact">
-                  Demander une estimation
+                  J&apos;estime mon projet
                   <RiArrowRightFill />
                 </Link>
               </Button>
@@ -307,7 +307,7 @@ export default function Navbar() {
                 </Button>
                 <Button asChild size="lg" className="w-full">
                   <Link href="/contact" onClick={closeMobileMenu}>
-                    Demander une estimation
+                    J&apos;estime mon projet
                     <RiArrowRightFill />
                   </Link>
                 </Button>
