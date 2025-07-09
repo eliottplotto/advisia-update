@@ -3,13 +3,10 @@
 import React from "react";
 
 import FooterXS from "@/components/footer-xs";
-import { RevealText } from "@/components/RevealText";
-import { BulletHeadline } from "@/components/ui/bullet-headline";
 import LogosConfiance from "@/components/logos-confiance";
 import CalForm from "@/components/cal-form";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { RiArrowRightUpFill } from "@remixicon/react";
 import FAQCenter from "@/components/ui/sections/faq-center";
 
 export default function PrendreRendezVous() {
