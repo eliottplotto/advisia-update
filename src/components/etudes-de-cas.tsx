@@ -15,7 +15,7 @@ export default async function Projets() {
   const projets: Project[] = await client.fetch(PROJECTS_QUERY, {}, options);
 
   return (
-    <section className="bg-secondary">
+    <section>
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
           <div className="space-y-6">
@@ -30,7 +30,7 @@ export default async function Projets() {
             {projets.map((projet) => (
               <li
                 key={projet._id}
-                className="group relative overflow-hidden not-first:hidden dark bg-background text-foreground rounded-xs"
+                className="group relative overflow-hidden not-first:hidden dark bg-background text-foreground rounded-sm"
               >
                 <div className="absolute z-1 left-0 bottom-0 bg-blue-600 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
 
@@ -38,7 +38,7 @@ export default async function Projets() {
                   className="relative z-1 group global-padding grid grid-cols-1 lg:grid-cols-2 items-end gap-4 md:gap-6 lg:gap-8"
                   href={`/projets/${projet?.slug?.current}`}
                 >
-                  <div className="w-full aspect-3/2 overflow-hidden">
+                  <div className="w-full aspect-3/2 overflow-hidden rounded-xs">
                     {projet.coverImage && (
                       <Image
                         src={
@@ -74,8 +74,13 @@ export default async function Projets() {
               </li>
             ))}
           </ul>
-          <Button variant={"outline"} size={"lg"} asChild>
-            <Link href="/projets">Découvrir nos projets</Link>
+          <Button
+            variant={"outline"}
+            size={"lg"}
+            asChild
+            className="flex w-max mx-auto"
+          >
+            <Link href="/projets">Découvrir nos cas clients</Link>
           </Button>
         </div>
       </div>

@@ -32,101 +32,92 @@ export default function PrendreRendezVous() {
   const questions = [
     {
       id: "q1",
-      question: "Combien coûte la création d’un site internet ?",
+      question: "Qui se cache derrière l’agence Advisia ?",
       answer:
-        "Le prix dépend de plusieurs facteurs : le type de site (vitrine, e-commerce, sur-mesure), le nombre de pages, les fonctionnalités attendues ou encore le niveau de personnalisation. Chez Advisia, les projets démarrent autour de 1 000€ pour un site vitrine one-page. Un devis précis est toujours réalisé avant de démarrer.",
+        "Advisia, c’est une équipe d’associés expérimentés, entourés d’un collectif de spécialistes : ingénieurs IA, designers UX/UI, développeurs web, experts SEO/SEA et community managers. On combine expertise technique, vision stratégique et sens du concret pour livrer des solutions durables, efficaces et rentables.",
     },
     {
       id: "q2",
-      question: "Quel est le délai pour créer un site web professionnel ?",
+      question:
+        "Est-ce que vous travaillez uniquement avec les grandes entreprises ou aussi avec les PME et indépendants ?",
       answer:
-        "En moyenne, un projet prend entre 4 et 8 semaines. Cela dépend de la complexité, du niveau de contenu fourni et de la réactivité des échanges. Nous établissons ensemble un calendrier réaliste dès le départ, avec des étapes claires.",
+        "On travaille avec tous types de structures : PME, TPE, artisans, franchises, groupes... Ce qui compte, c’est l’envie de se moderniser, de gagner en performance, et de s’équiper intelligemment. On adapte chaque solution à la taille, au budget et aux objectifs de nos clients.",
     },
     {
       id: "q3",
-      question: "Pourquoi passer par une agence web ?",
+      question:
+        " Comment se passe un accompagnement avec Advisia, concrètement ?",
       answer:
-        "Une agence vous apporte une vision stratégique, un accompagnement global, et une exécution professionnelle. Vous gagnez du temps, évitez les erreurs coûteuses, et obtenez un résultat sur-mesure, fiable et évolutif.",
+        "Tout commence par un échange simple pour comprendre vos enjeux. Ensuite, on vous propose une solution sur-mesure, avec un plan clair, un devis transparent et un accompagnement pas à pas. Vous êtes impliqué sans être noyé, et vous avez un point de contact dédié du début à la fin.",
     },
     {
       id: "q4",
       question:
-        "Quelle est la différence entre un site vitrine et un site e-commerce ?",
+        "Est-ce que je peux vous faire confiance si je n’ai pas de connaissances techniques ?",
       answer:
-        "Un site vitrine présente votre activité, vos services et vos coordonnées. Il sert principalement à informer et à générer des prises de contact. Un site e-commerce, lui, permet la vente directe en ligne, avec un panier, des fiches produits et un système de paiement sécurisé.",
+        "Oui, et c’est même notre point fort : rendre des solutions tech accessibles à tous. On vous explique les choses simplement, on vous forme quand il faut, et on reste disponibles après la livraison. Vous gardez toujours le contrôle, sans jamais vous sentir dépassé.",
     },
     {
       id: "q5",
-      question: "Puis-je modifier moi-même le contenu de mon site ?",
+      question:
+        "Est-ce que vous proposez un suivi ou une maintenance après la mise en place des solutions ?",
       answer:
-        "Oui, bien sûr. Tous nos sites sont livrés avec un CMS adapté à votre niveau de compétence. Vous pouvez facilement modifier textes, images, créer des pages ou ajouter des articles. Une formation est toujours prévue à la fin du projet.",
-    },
-    {
-      id: "q6",
-      question: "Comment assurer un bon référencement naturel ?",
-      answer:
-        "Le référencement naturel repose sur trois piliers : la qualité du contenu, la performance technique du site, et la popularité (liens externes). Dès la conception, nous optimisons votre site pour Google : structure logique, balises sémantiques, chargement rapide, responsive design… Et nous vous donnons les bonnes pratiques pour maintenir et améliorer votre positionnement.",
-    },
-    {
-      id: "q7",
-      question: "Est-ce que vous proposez la maintenance de site ?",
-      answer:
-        "Oui. Nous proposons des offres de maintenance adaptées à vos besoins : mises à jour, sauvegardes, surveillance de sécurité, accompagnement pour faire évoluer le site. Vous choisissez le niveau d’accompagnement selon vos attentes.",
-    },
-    {
-      id: "q8",
-      question: "Pourquoi choisir Advisia pour créer mon site web ?",
-      answer:
-        "Parce qu’on va à l’essentiel : un site efficace, bien conçu, pensé pour durer. Notre équipe est réactive, impliquée et humaine. On construit des systèmes solides, pas juste de jolis sites. Et les résultats se voient dès les premières semaines.",
+        "Oui. Chaque projet peut inclure une maintenance ou un accompagnement post-livraison, en fonction de vos besoins. On peut faire évoluer les outils, corriger, améliorer ou même proposer des optimisations régulières. Vous n’êtes jamais seul après le projet.",
     },
   ];
 
   return (
     <main>
       {/* Header */}
-      <section className="dark bg-background text-foreground bg-ascii-4">
+      <section className="dark bg-background text-foreground">
         <div className="container-md">
-          <div className="pt-[95px]">
-            <div className="global-padding-x py-16">
-              <div className="flex flex-col items-center gap-8">
-                <div>
-                  {profils.map((profil, index) => (
-                    <img
-                      key={index}
-                      src={profil.src}
-                      alt={profil.alt}
-                      className="inline-block not-first:-ml-2 w-12 h-12 rounded-full"
-                    />
-                  ))}
-                </div>
-                <BulletHeadline as="p" className="w-max">
-                  Contactez un expert
-                </BulletHeadline>
-                <RevealText
-                  as="h1"
-                  className="text-4xl md:text-6xl xl:text-7xl uppercase text-center"
-                >
-                  Réserver un appel
-                </RevealText>
-                <p className="max-w-4xl text-center">
-                  Vous avez un projet web, marketing ou IA ? Prenez 20 minutes
-                  avec nous pour faire le point. Nous vous offrons un audit
-                  gratuit et un plan d&apos;action personnalisé, sans
-                  engagement.
+          <div className="global-padding-x py-8 lg:py-16">
+            <div className="flex flex-col items-center gap-6">
+              <div>
+                {profils.map((profil, index) => (
+                  <img
+                    key={index}
+                    src={profil.src}
+                    alt={profil.alt}
+                    className="inline-block not-first:-ml-2 w-12 h-12 rounded-full"
+                  />
+                ))}
+              </div>
+              <div className="bg-secondary py-1 px-2 mb-0 flex items-center gap-2 w-fit rounded-sm">
+                <div className="w-2 h-2 bg-ad-1 rounded-xs"></div>
+                <p className="text-sm font-mono uppercase">
+                  Nous sommes à votre écoute
                 </p>
               </div>
+              <h1 className="text-4xl md:text-6xl xl:text-7xl text-center">
+                Prenons 20 min. pour{" "}
+                <span className="text-highlight">faire le point</span>
+              </h1>
+              <p className="max-w-2xl xl:max-w-4xl text-center">
+                Nous vous offrons un audit gratuit et un plan d&apos;action
+                personnalisé, sans engagement.
+              </p>
+            </div>
 
-              <div className="mt-8 md:mt-16">
-                <CalForm />
-              </div>
-              <div className="my-8 space-y-2 flex-wrap text-center text-sm text-muted-foreground">
-                <p>Vous ne voyez pas le formulaire ?</p>
-                <Button variant={"link"} asChild className="flex mx-auto">
-                  <Link href={"/prendre-rendez-vous"}>
-                    Cliquez ici <RiArrowRightUpFill />
-                  </Link>
-                </Button>
-              </div>
+            <div className="mt-8 md:mt-16">
+              <CalForm />
+            </div>
+            <div className="my-8 space-y-2 flex-wrap text-center text-muted-foreground">
+              <p>
+                Vous ne voyez pas le formulaire ?{" "}
+                <Link
+                  href={"https://cal.com/advisia/premier-echange"}
+                  className="underline"
+                >
+                  Cliquez ici
+                </Link>
+              </p>
+            </div>
+            <div className="py-2 px-2 bg-secondary rounded-sm w-fit mx-auto flex justify-center items-center gap-4 flex-wrap">
+              <p className="ml-2">Vous préférez les messages ?</p>
+              <Button asChild>
+                <Link href={"/contact"}>Accéder au formulaire</Link>
+              </Button>
             </div>
           </div>
         </div>

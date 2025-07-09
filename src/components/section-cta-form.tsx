@@ -18,7 +18,7 @@ export default function SectionContactForm({
 
   const defaultTitle = (
     <>
-      Prêts à lancer votre <span className="text-nowrap">projet ?</span>
+      Prêts à lancer votre <span className="text-nowrap">projet digital ?</span>
     </>
   );
 
@@ -43,10 +43,10 @@ export default function SectionContactForm({
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 grid lg:grid-cols-2 gap-x-16 gap-y-8">
           <div className="space-y-6">
-            <div className="bg-background border p-2 mb-0 flex items-center gap-2 w-fit rounded-xs">
+            <div className="bg-secondary py-1 px-2 mb-0 flex items-center gap-2 w-fit rounded-sm">
               <div className="w-2 h-2 bg-ad-1 rounded-xs"></div>
               <p className="text-sm font-mono uppercase">
-                Quelques places restantes
+                Nous sommes à votre écoute
               </p>
             </div>
             <div className="mt-8">

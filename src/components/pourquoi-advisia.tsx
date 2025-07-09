@@ -8,7 +8,7 @@ import {
 
 export default function PourquoiAdvisia() {
   return (
-    <section>
+    <section className="bg-secondary">
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
           <div className="space-y-8">
@@ -53,9 +53,9 @@ export default function PourquoiAdvisia() {
               width="300"
               height="400"
               alt="Equipe Advisia"
-              className="object-cover w-full xl:row-span-2 h-full rounded-xs"
+              className="object-cover w-full xl:row-span-2 h-full rounded-sm"
             />
-            <div className="border p-4 md:p-6 flex flex-col justify-between gap-4 rounded-xs">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 rounded-sm">
               <div className="flex no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   01
@@ -70,7 +70,7 @@ export default function PourquoiAdvisia() {
                 </p>
               </div>
             </div>
-            <div className="border p-4 md:p-6 flex flex-col justify-between gap-4 rounded-xs">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 rounded-sm">
               <div className="flex no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   02
@@ -86,7 +86,7 @@ export default function PourquoiAdvisia() {
               </div>
             </div>
 
-            <div className="border p-4 md:p-6 flex flex-col justify-between gap-4 rounded-xs">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 rounded-sm">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   03
@@ -101,7 +101,7 @@ export default function PourquoiAdvisia() {
                 </p>
               </div>
             </div>
-            <div className="border p-4 md:p-6 flex flex-col justify-between gap-4 rounded-xs">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 rounded-sm">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   04

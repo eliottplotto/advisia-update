@@ -31,7 +31,7 @@ const defaultQuestions: Question[] = [
 ];
 
 export default function FAQCenter({
-  title = "Questions fréquentes",
+  title = "On répond à vos questions",
   questions = defaultQuestions,
 }: FAQ) {
   return (
@@ -43,7 +43,7 @@ export default function FAQCenter({
               <h2 className="text-4xl md:text-6xl">{title}</h2>
             </div>
 
-            <div className="global-padding-x bg-background w-full max-w-2xl rounded-xs">
+            <div className="global-padding-x bg-background w-full max-w-2xl rounded-sm">
               <Accordion type="single" collapsible className="w-full">
                 {questions.map((question, index) => (
                   <AccordionItem key={index} value={question.id}>
