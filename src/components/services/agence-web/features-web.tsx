@@ -68,7 +68,7 @@ export default function FeaturesWeb() {
             return (
               <div
                 key={index}
-                className="bg-background overflow-hidden flex flex-col justify-between gap-4"
+                className="bg-background overflow-hidden flex flex-col justify-between gap-4 rounded-xs"
               >
                 <div className="global-padding space-y-4">
                   <IconComponent className="text-ad-1" />
@@ -83,6 +83,7 @@ export default function FeaturesWeb() {
                   src={service.image}
                   alt={service.title}
                   className="aspect-4/2 object-cover object-top-left"
+                  draggable="false"
                 />
               </div>
             );

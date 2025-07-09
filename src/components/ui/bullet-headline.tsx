@@ -17,7 +17,7 @@ export const BulletHeadline = <T extends ElementType = "h2">({
       className={`${className ?? ""} flex items-center no-wrap gap-2`}
       {...rest}
     >
-      <div className="w-3 h-3 bg-current"></div>
+      <div className="w-3 h-3 bg-current rounded-xs"></div>
       <Tag className="font-mono text-sm uppercase">{children}</Tag>
     </div>
   );

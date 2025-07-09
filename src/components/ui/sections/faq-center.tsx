@@ -43,7 +43,7 @@ export default function FAQCenter({
               <h2 className="text-4xl md:text-6xl">{title}</h2>
             </div>
 
-            <div className="global-padding-x bg-background w-full max-w-xl">
+            <div className="global-padding-x bg-background w-full max-w-2xl rounded-xs">
               <Accordion type="single" collapsible className="w-full">
                 {questions.map((question, index) => (
                   <AccordionItem key={index} value={question.id}>

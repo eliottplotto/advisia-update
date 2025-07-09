@@ -66,7 +66,7 @@ export default function Services() {
             {services.map((service, index) => (
               <li
                 key={index}
-                className="group dark bg-background text-foreground relative overflow-hidden max-w-xl mr-0 ml-auto"
+                className="group dark bg-background text-foreground relative overflow-hidden max-w-xl mr-0 ml-auto rounded-xs"
               >
                 <div className="absolute z-1 left-0 bottom-0 bg-blue-600 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
 

@@ -101,7 +101,7 @@ export default function Agency() {
             ref={containerRef}
             className="grid grid-cols-1 lg:grid-cols-3 gap-x-1 gap-y-2 lg:gap-2 w-full"
           >
-            <div className="bg-background border-b border-b-4 border-blue-600 p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12">
+            <div className="bg-background border-b border-b-4 border-blue-600 p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12 rounded-xs">
               <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
                 +<span ref={counter1Ref}>10</span>
               </p>
@@ -112,7 +112,7 @@ export default function Agency() {
                 accompagnées
               </p>
             </div>
-            <div className="bg-background border-b border-b-4 border-blue-600 p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12">
+            <div className="bg-background border-b border-b-4 border-blue-600 p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12 rounded-xs">
               <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
                 <span ref={counter2Ref}>100</span>
                 <span>%</span>
@@ -123,7 +123,7 @@ export default function Agency() {
                 satisfaites
               </p>
             </div>
-            <div className="bg-background border-b border-b-4 border-blue-600 p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12">
+            <div className="bg-background border-b border-b-4 border-blue-600 p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12 rounded-xs">
               <p
                 ref={counter3Ref}
                 className="block text-5xl md:text-6xl 2xl:text-7xl mb-2"

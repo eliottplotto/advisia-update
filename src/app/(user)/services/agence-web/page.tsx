@@ -110,7 +110,7 @@ export default function SiteWeb() {
             <div className="py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
-                <h1 className="text-4xl md:text-6xl xl:text-7xl uppercase max-w-4xl">
+                <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl">
                   L&apos;agence web de{" "}
                   <span className="text-highlight">confiance</span> pour la
                   création de votre site
@@ -132,7 +132,7 @@ export default function SiteWeb() {
                       <p className="text-2xl">+10</p>
                       <p className="text-sm ">Projets réalisés</p>
                     </div>
-                    <div className="w-max border-l border-foreground pl-4 lg:pl-8">
+                    <div className="w-max border-l pl-4 lg:pl-8">
                       <p className="text-2xl">100%</p>
                       <p className="text-sm ">Clients satisfaits</p>
                     </div>
@@ -169,7 +169,14 @@ export default function SiteWeb() {
         /> */}
 
         <FAQCenter title={"On répond à vos questions"} questions={questions} />
-        <SectionCTAForm />
+        <SectionCTAForm
+          title={
+            <>
+              Prêts à lancer votre{" "}
+              <span className="text-nowrap text-highlight">projet web ?</span>
+            </>
+          }
+        />
       </main>
       <Footer />
     </>

@@ -2,8 +2,26 @@ import ContactForm from "./contact-form";
 import { RiPhoneFill } from "@remixicon/react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import type { ElementType, ReactNode } from "react";
 
-export default function SectionCTAForm() {
+type SectionContactFormProps<T extends ElementType> = {
+  as?: T;
+  title?: ReactNode;
+} & React.ComponentPropsWithoutRef<T>;
+
+export default function SectionContactForm<T extends ElementType = "h2">({
+  as,
+  title,
+  ...props
+}: SectionContactFormProps<T>) {
+  const Tag = as || ("h2" as ElementType);
+
+  const defaultTitle = (
+    <>
+      Prêts à lancer votre <span className="text-nowrap">projet ?</span>
+    </>
+  );
+
   const profils = [
     {
       alt: "Eliott P.",
@@ -25,8 +43,8 @@ export default function SectionCTAForm() {
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 grid lg:grid-cols-2 gap-x-16 gap-y-8">
           <div className="space-y-6">
-            <div className="bg-background border p-2 mb-0 flex items-center gap-2 w-fit">
-              <div className="w-2 h-2 bg-ad-1"></div>
+            <div className="bg-background border p-2 mb-0 flex items-center gap-2 w-fit rounded-xs">
+              <div className="w-2 h-2 bg-ad-1 rounded-xs"></div>
               <p className="text-sm font-mono uppercase">
                 Quelques places restantes
               </p>
@@ -41,10 +59,9 @@ export default function SectionCTAForm() {
                 />
               ))}
             </div>
-            <h2 className="text-4xl md:text-6xl">
-              Prêt à lancer votre{" "}
-              <span className="text-nowrap">votre projet ?</span>
-            </h2>
+            <Tag className="text-4xl md:text-6xl" {...props}>
+              {title || defaultTitle}
+            </Tag>
             <p className="max-w-xl text-muted-foreground">
               Un projet ou une question ? Contactez-nous en remplissant le
               formulaire ci-contre. Notre équipe commerciale reviendra vers vous

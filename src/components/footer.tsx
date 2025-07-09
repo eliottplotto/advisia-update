@@ -69,7 +69,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Button variant="link" asChild>
-                    <Link href="/services/site-web">Site Web</Link>
+                    <Link href="/services/agence-web">Site Web</Link>
                   </Button>
                 </li>
                 <li>

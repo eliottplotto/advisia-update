@@ -8,7 +8,7 @@ export default function SectionCTASmall() {
     <section className="dark bg-background text-foreground">
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center items-center text-center">
-          <BulletHeadline className="mb-8">
+          <BulletHeadline className="mb-6">
             Vous avez un projet ?
           </BulletHeadline>
           <h2 className="text-4xl max-w-2xl mb-8">

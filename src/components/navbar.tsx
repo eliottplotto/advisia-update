@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   RiArrowDownSFill,
@@ -18,20 +19,25 @@ import { Logo } from "./Logo";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const servicesLinks = [
-  { path: "/services/automatisations-ia", label: "Automatisations IA" },
-  { path: "/services/agence-web", label: "Développement Web" },
-  { path: "/services/product-design", label: "Product Design" },
-  { path: "/services/marketing-digital", label: "Marketing Digital" },
-  { path: "/services/identite-de-marque", label: "Identité de marque" },
-];
-
-const mobileMainNavLinks = [
-  { path: "/projets", label: "Cas clients" },
-  { path: "/agence", label: "Agence" },
-];
-
 export default function Navbar() {
+  const pathname = usePathname();
+  const isMinimalNavbar = ["/contact", "/prendre-rendez-vous"].includes(
+    pathname
+  );
+
+  const servicesLinks = [
+    { path: "/services/automatisations-ia", label: "Automatisations IA" },
+    { path: "/services/agence-web", label: "Développement Web" },
+    { path: "/services/product-design", label: "Product Design" },
+    { path: "/services/marketing-digital", label: "Marketing Digital" },
+    { path: "/services/identite-de-marque", label: "Identité de marque" },
+  ];
+
+  const mobileMainNavLinks = [
+    { path: "/projets", label: "Cas clients" },
+    { path: "/agence", label: "Agence" },
+  ];
+
   const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -148,19 +154,24 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 z-40 w-full transition-colors duration-300 ${
-          isScrolled || isAnyMenuOpen
-            ? "bg-background"
-            : "dark bg-transparent text-foreground"
-        }`}
+        className={`
+    w-full transition-colors duration-300
+    ${isMinimalNavbar ? "static dark  bg-background text-foreground border-b" : "fixed top-0 z-40"}
+    ${
+      !isMinimalNavbar &&
+      (isScrolled || isAnyMenuOpen
+        ? "bg-background"
+        : "bg-transparent dark text-foreground")
+    }
+  `}
       >
         <div
-          className={`container-md grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] transition-height duration-300 h-20 ${
+          className={`container-md grid grid-cols-2 ${isMinimalNavbar ? "lg:grid-cols-1" : "lg:grid-cols-[1fr_auto_1fr]"} transition-height duration-300 h-20 ${
             isScrolled ? "lg:h-14" : "lg:h-24"
           }`}
         >
           {/* Left */}
-          <div className="global-padding-x flex items-center">
+          <div className="global-padding-x flex items-center ">
             <Link
               href="/"
               className="flex items-center space-x-2"
@@ -174,47 +185,51 @@ export default function Navbar() {
           </div>
 
           {/* Center Navigation - Desktop */}
-          <div className="hidden lg:flex lg:justify-center lg:items-center">
-            <div className="flex justify-center items-center gap-8">
-              <Button variant="link" onClick={toggleServicesMenu}>
-                Expertises
-                <RiArrowDownSFill
-                  className={`transition-transform duration-300 ${isServicesMenuOpen ? "rotate-180" : ""}`}
-                />
-              </Button>
-              <Button asChild variant="link" onClick={closeServicesMenu}>
-                <Link href="/projets">Cas clients</Link>
-              </Button>
-              <Button asChild variant="link" onClick={closeServicesMenu}>
-                <Link href="/agence">Agence</Link>
-              </Button>
+          {!isMinimalNavbar && (
+            <div className="hidden lg:flex lg:justify-center lg:items-center">
+              <div className="flex justify-center items-center gap-8">
+                <Button variant="link" onClick={toggleServicesMenu}>
+                  Expertises
+                  <RiArrowDownSFill
+                    className={`transition-transform duration-300 ${isServicesMenuOpen ? "rotate-180" : ""}`}
+                  />
+                </Button>
+                <Button asChild variant="link" onClick={closeServicesMenu}>
+                  <Link href="/projets">Cas clients</Link>
+                </Button>
+                <Button asChild variant="link" onClick={closeServicesMenu}>
+                  <Link href="/agence">Agence</Link>
+                </Button>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Right */}
-          <div className="global-padding-x flex justify-end items-center">
-            <Button
-              onClick={closeServicesMenu}
-              asChild
-              className="hidden lg:flex"
-              size={`${isScrolled ? "default" : "lg"}`}
-            >
-              <Link href="/contact">
-                Demander une estimation
-                <RiArrowRightFill />
-              </Link>
-            </Button>
+          {!isMinimalNavbar && (
+            <div className="global-padding-x flex justify-end items-center">
+              <Button
+                onClick={closeServicesMenu}
+                asChild
+                className="hidden lg:flex"
+                size={`${isScrolled ? "default" : "lg"}`}
+              >
+                <Link href="/contact">
+                  Demander une estimation
+                  <RiArrowRightFill />
+                </Link>
+              </Button>
 
-            {/* Mobile Menu Button */}
+              {/* Mobile Menu Button */}
 
-            <Button
-              onClick={toggleMobileMenu}
-              className="lg:hidden w-12 h-12"
-              variant="ghost"
-            >
-              {isMobileMenuOpen ? <RiCloseFill /> : <RiMenuFill />}
-            </Button>
-          </div>
+              <Button
+                onClick={toggleMobileMenu}
+                className="lg:hidden w-12 h-12"
+                variant="ghost"
+              >
+                {isMobileMenuOpen ? <RiCloseFill /> : <RiMenuFill />}
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* Services Menu - Desktop */}

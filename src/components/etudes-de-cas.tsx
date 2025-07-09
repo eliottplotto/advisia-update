@@ -30,7 +30,7 @@ export default async function Projets() {
             {projets.map((projet) => (
               <li
                 key={projet._id}
-                className="group relative overflow-hidden not-first:hidden dark bg-background text-foreground"
+                className="group relative overflow-hidden not-first:hidden dark bg-background text-foreground rounded-xs"
               >
                 <div className="absolute z-1 left-0 bottom-0 bg-blue-600 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
 
