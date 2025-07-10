@@ -16,12 +16,11 @@ import { urlFor } from "@/sanity/lib/client";
 
 // Components
 import Footer from "@/components/footer";
-import { Header2 } from "@/components/ui/sections/header-2";
 import Testimonial1 from "@/components/ui/sections/testimonial-1";
 import { Button } from "@/components/ui/button";
 import { RiArrowLeftLine } from "@remixicon/react";
-import { RevealText } from "@/components/RevealText";
 import SectionCTASmall from "@/components/section-cta-small";
+import { Header1 } from "@/components/ui/sections/header-1";
 
 // Types mis à jour pour Next.js 15
 type Params = Promise<{ slug: string }>;
@@ -72,128 +71,85 @@ export default async function ProjectDetailPage(props: { params: Params }) {
 
   return (
     <main>
-      <div className="main-layout">
-        <div></div>
-        <div>
-          <div className="global-padding flex flex-col justify-between mt-20">
-            <Button variant="outline" className="mb-16 w-fit" asChild>
+      <section className="dark bg-background text-foreground">
+        <div className="container-md pt-[95px]">
+          <div className="global-padding flex flex-col justify-between items-center text-center gap-8 lg:gap-16">
+            <Button variant="secondary" className="w-fit" asChild>
               <Link href="/projets">
                 <RiArrowLeftLine />
                 Tous les projets
               </Link>
             </Button>
             <div>
-              <p className="text-4xl md:text-6xl text-muted-foreground">
-                {project.client}
-              </p>
-              <RevealText as="h1" className="text-4xl md:text-6xl max-w-4xl">
-                {project.headline}
-              </RevealText>
-            </div>
-            {services.length > 0 && (
-              <ul className="w-fit mt-8 pl-4 border-l border-foreground">
-                {services.map((service) => (
-                  <li key={service._id}>{service.title}</li>
-                ))}
-              </ul>
-            )}
-          </div>
-          {/*
-            {project.logo && (
-              <div className="w-fit p-8 mt-8 ml-auto mr-0 bg-background">
-                <Image
-                  src={urlFor(project.logo).width(80).url() || "/placeholder.svg"}
-                  alt={`Logo ${project.client}`}
-                  priority // Charge l'image en priorité pour le LCP
-                  sizes="(max-width: 768px) 100vw, 80px"
-                  width={80}
-                  height={80}
-                />
-              </div>
-            )}*/}
-        </div>
-      </div>
-
-      <div>
-        {project.coverImage && (
-          <Image
-            src={
-              urlFor(project.coverImage).width(1920).url() ||
-              "https://placehold.co/1280x720/png" ||
-              "/placeholder.svg"
-            }
-            alt={
-              project.coverImage.alt ||
-              `Image de couverture pour ${project.headline}`
-            }
-            className="w-full"
-            priority // Charge l'image en priorité pour le LCP
-            sizes="(max-width: 768px) 100vw, 1920px"
-            width={1920}
-            height={1080}
-            quality={60}
-          />
-        )}
-      </div>
-
-      {/* <div className="container-md py-16 md:py-24">
-          <div className="grid grid-col-1 lg:grid-cols-[3fr_2fr] gap-x-[5%]">
-            <div>
-              <h1 className="mb-5 md:mb-6 text-4xl md:text-6xl">
+              <p className="text-4xl md:text-6xl text-ad-1">{project.client}</p>
+              <h1 className="text-4xl md:text-6xl max-w-4xl">
                 {project.headline}
               </h1>
-              {project.services && (
-                <ul className="flex gap-3 wrap">
-                  {project.services.map((service) => (
+              {services.length > 0 && (
+                <ul className="mt-8 flex items-center justify-center gap-1 flex-wrap">
+                  {services.map((service) => (
                     <li
                       key={service._id}
-                      className="group font-mono uppercase text-sm flex items-center no-wrap gap-3"
+                      className="bg-secondary py-1 px-2 mb-0 rounded-sm"
                     >
-                      {service.title}
-                      <div className="inline-block group-last:hidden w-2 h-2 bg-foreground rounded-full"></div>
+                      <p className="text-sm font-mono uppercase">
+                        {service.title}
+                      </p>
                     </li>
                   ))}
                 </ul>
               )}
             </div>
-            <div className="grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-8 self-start">
-              <dl>
-                <dt className="text-muted-foreground">Client</dt>
-                <dd>{project.client}</dd>
-              </dl>
-              <dl>
-                <dt className="text-muted-foreground">Date</dt>
-                <dd>{project.date}</dd>
-              </dl>
-            </div>
+
+            {project.coverImage && (
+              <Image
+                src={
+                  urlFor(project.coverImage).width(1920).url() ||
+                  "https://placehold.co/1280x720/png" ||
+                  "/placeholder.svg"
+                }
+                alt={
+                  project.coverImage.alt ||
+                  `Image de couverture pour ${project.headline}`
+                }
+                className="w-full aspect-16/9 object-cover object-center rounded-sm"
+                priority
+                sizes="(max-width: 768px) 100vw, 1920px"
+                width={1920}
+                height={1080}
+                quality={60}
+              />
+            )}
           </div>
-        </div>*/}
+        </div>
+      </section>
 
       <div>
         {project.contexte && (
-          <Header2
+          <Header1
             heading="Le contexte"
+            dark={true}
             layout="imgLeft"
             description={project.contexte}
-            image={{ src: "/placeholder.jpg", alt: "placeholder" }}
-            number={1}
+            image={{ src: "/bg5.webp", alt: "placeholder" }}
           />
         )}
         {project.impact && (
-          <Header2
+          <Header1
             heading="Notre impact"
+            dark={true}
+            layout="imgRight"
             description={project.impact}
-            image={{ src: "/placeholder.jpg", alt: "placeholder" }}
-            number={2}
+            image={{ src: "/bg1.webp", alt: "placeholder" }}
           />
         )}
         {project.resultats && (
-          <Header2
+          <Header1
             heading="Les résultats"
+            dark={true}
             layout="imgLeft"
             description={project.resultats}
-            image={{ src: "/placeholder.jpg", alt: "placeholder" }}
-            number={3}
+            image={{ src: "/bg2.webp", alt: "placeholder" }}
           />
         )}
       </div>

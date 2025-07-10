@@ -109,7 +109,7 @@ export const Layout302 = (props: Layout302Props) => {
                     key={index}
                     className="pl-2 basis-[85%] sm:basis-[70%] md:basis-[60%]"
                   >
-                    <div className="p-4 select-none bg-background">
+                    <div className="p-4 select-none bg-background rounded-sm  ">
                       <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 ad-pattern">
                         {section.icon}
                       </div>

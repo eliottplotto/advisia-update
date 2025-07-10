@@ -21,7 +21,7 @@ export default function SectionCTASmall() {
                 J&apos;estime mon projet <RiArrowRightFill />
               </Link>
             </Button>
-            <Button variant="outline" size={"lg"} asChild>
+            <Button variant="secondary" size={"lg"} asChild>
               <Link href="/prendre-rendez-vous">Réserver un appel</Link>
             </Button>
           </div>

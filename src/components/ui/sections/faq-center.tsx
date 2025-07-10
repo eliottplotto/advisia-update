@@ -35,7 +35,7 @@ export default function FAQCenter({
   questions = defaultQuestions,
 }: FAQ) {
   return (
-    <section className="bg-secondary bg-ascii-3">
+    <section className="bg-secondary">
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16">
           <div className="flex flex-col items-center gap-8 lg:gap-16">

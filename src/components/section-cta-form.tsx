@@ -84,7 +84,7 @@ export default function SectionContactForm({
             </div>
             <div className="hidden lg:flex items-center gap-4 flex-wrap">
               <p>Vous préférez planifier un rendez-vous ?</p>
-              <Button variant={"outline"} asChild>
+              <Button variant={"secondary"} asChild>
                 <Link href={"/prendre-rendez-vous"}>
                   Réserver un appel <RiPhoneFill />
                 </Link>

@@ -155,13 +155,13 @@ export default function Navbar() {
     <>
       <nav
         className={`
-    w-full transition-colors duration-300
+    w-full transition-colors duration-300  dark text-foreground
     ${isMinimalNavbar ? "static dark  bg-background text-foreground border-b" : "fixed top-0 z-40"}
     ${
       !isMinimalNavbar &&
       (isScrolled || isAnyMenuOpen
-        ? "bg-background"
-        : "bg-transparent dark text-foreground")
+        ? "border-b bg-background"
+        : "bg-transparent")
     }
   `}
       >

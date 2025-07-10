@@ -33,7 +33,7 @@ export default function ServicesWeb() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-background overflow-hidden flex flex-col items-center justify-between rounded-xs"
+              className="bg-background overflow-hidden flex flex-col items-center justify-between rounded-sm"
             >
               <div className="global-padding-x py-8 lg:py-12 text-center">
                 <h3 className="text-2xl lg:text-4xl mb-2">{service.title}</h3>

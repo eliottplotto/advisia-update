@@ -40,12 +40,12 @@ export const Header1 = (props: Header1Props) => {
 
   return (
     <section
-      className={`bg-background text-foreground lg:py-32 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
+      className={`bg-background text-foreground pt-4 pb-8 lg:py-16 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
     >
-      <div className="container-md">
-        <div className="col-start-2 grid grid-cols-1 lg:grid-cols-2 lg:items-center">
+      <div className="container-md global-padding-x">
+        <div className="col-start-2 grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-8 lg:gap-16">
           <div
-            className={`global-padding-x py-16 space-y-6 ${layout === "imgLeft" ? "order-1" : ""}`}
+            className={`space-y-6 order-1 ${layout === "imgLeft" ? "" : "lg:order-0"}`}
           >
             <h2 className="text-4xl md:text-6xl">{heading}</h2>
             <p className="md:text-md">{description}</p>
@@ -70,15 +70,15 @@ export const Header1 = (props: Header1Props) => {
             </div>
           </div>
           <div
-            className={`${layout === "imgLeft" ? "order-0 lg:pr-8" : "lg:pl-8"} relative`}
+            className={`order-0 ${layout === "imgLeft" ? "lg:pr-8" : "lg:order-1 lg:pl-8"} relative`}
           >
             <img
               src={image.src}
-              className="w-full object-cover"
+              className="w-full object-cover rounded-sm overflow-hidden max-w-xl"
               alt={image.alt}
             />
             {legend && (
-              <div className="dark bg-background text-foreground absolute bottom-4 left-4 p-3">
+              <div className="dark bg-background text-foreground absolute bottom-4 left-4 p-3 rounded-xs">
                 <p className="flex items-center gap-3">
                   <span className="inline-block w-3 h-3 bg-ad-1"></span>
                   <span>

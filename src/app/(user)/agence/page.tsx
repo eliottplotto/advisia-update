@@ -1,3 +1,21 @@
+import Footer from "@/components/footer";
+import { Header1 } from "@/components/ui/sections/header-1";
+
 export default function Agence() {
-  return <main>Notre agence</main>;
+  return (
+    <>
+      <main>
+        <div className="dark bg-background pt-[95px]">
+          <Header1
+            heading="Advisia, votre partenaire digital de confiance"
+            dark={true}
+            layout="imgLeft"
+            description="Nous sommes une équipe passionnée de créatifs et de développeurs, dédiée à transformer vos idées en solutions digitales exceptionnelles."
+            image={{ src: "/equipe-advisia-2.jpg", alt: "Équipe Advisia" }}
+          />
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
 }

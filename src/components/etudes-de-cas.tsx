@@ -75,7 +75,7 @@ export default async function Projets() {
             ))}
           </ul>
           <Button
-            variant={"outline"}
+            variant={"secondary"}
             size={"lg"}
             asChild
             className="flex w-max mx-auto"

@@ -7,60 +7,55 @@ import {
   RiSeoFill,
 } from "@remixicon/react";
 
-export default function FeaturesWeb() {
+export default function FeaturesProduct() {
   const services = [
     {
-      title: "Optimisation du référencement naturel",
+      title: "UX/UI Design",
       description:
-        "Code optimisé, contenus structurés, performance technique : tout est pensé pour plaire à Google.",
+        "Des interfaces pensées pour être simples à comprendre et rapides à utiliser.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiSeoFill,
     },
     {
-      title: "Optimisation de la conversion",
+      title: "Recherche utilisateur",
       description:
-        "Parcours utilisateur fluide, design persuasif et appels à l’action clairs pour générer plus de contacts ou de ventes.",
+        "Comprendre vos utilisateurs pour concevoir ce dont ils ont vraiment besoin.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiCursorFill,
     },
     {
-      title: "Gestion facile du contenu",
+      title: "User flows & Wireframes",
       description:
-        "Modifiez textes et images en toute simplicité grâce à un CMS pensé pour vous.",
+        "Visualisation claire des parcours et priorisation des interactions clés.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiDatabase2Fill,
     },
     {
-      title: "Un produit à votre image",
+      title: "Prototypage",
       description:
-        "Un site web à votre image, adapté à vos cibles et à votre secteur.",
+        "Tester vos idées avant d'engager du temps et du budget dans le développement.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiPencilRuler2Fill,
     },
     {
-      title: "Technologies adaptées",
+      title: "Tests utilisateurs",
       description:
-        "Chaque développement web est étudié minutieusement afin de proposer une solution technique adaptée, maintenable et sécurisé.",
+        "Validez les hypothèses et identifier les vrais irritants pour faire évoluer le produit dans le bon sens.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiCodeSSlashFill,
     },
     {
-      title: "Accessibilité et éco-conception",
+      title: "Design System",
       description:
-        "Nous respectons vos engagements en proposant des solutions accessibles et éco-conçues.",
+        "Assurer la cohérence, accélérer la production et préparer la croissance de votre produit.",
       image: "/services/agence-web/placeholder.avif",
       icon: RiAccessibilityFill,
     },
   ];
 
   return (
-    <section className="dark text-foreground bg-blue-600">
-      <div className="container-md global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
-        <div className="space-y-6 flex flex-col items-center text-center">
-          <h2 className="text-4xl md:text-6xl max-w-3xl">
-            Transformez votre site en un véritable levier de croissance
-          </h2>
-        </div>
+    <section className="bg-secondary">
+      <div className="container-md global-padding-x py-8 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {services.map((service, index) => {
             const IconComponent = service.icon;

@@ -102,12 +102,13 @@ export default function PrendreRendezVous() {
             <div className="my-8 space-y-2 flex-wrap text-center text-muted-foreground">
               <p>
                 Vous ne voyez pas le formulaire ?{" "}
-                <Link
-                  href={"https://cal.com/advisia/premier-echange"}
+                <a
+                  href="https://cal.com/advisia/premier-echange"
                   className="underline"
+                  target="_blank"
                 >
                   Cliquez ici
-                </Link>
+                </a>
               </p>
             </div>
             <div className="py-2 px-2 bg-secondary rounded-sm w-fit mx-auto flex justify-center items-center gap-4 flex-wrap">
