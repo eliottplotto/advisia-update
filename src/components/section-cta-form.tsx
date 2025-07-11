@@ -17,7 +17,11 @@ export default function SectionContactForm({
 }: SectionContactFormProps) {
   const Tag = as;
 
-  const defaultTitle = <>Prêts à lancer votre projet digital ?</>;
+  const defaultTitle = (
+    <>
+      Prêts à lancer votre projet <span className="text-nowrap">digital ?</span>
+    </>
+  );
 
   const profils = [
     {
