@@ -44,11 +44,7 @@ export default function Services() {
           <div className="lg:sticky lg:top-24 h-fit global-padding space-y-6">
             <BulletHeadline as="p">Nos expertises</BulletHeadline>
             <h2 className="text-4xl md:text-6xl max-w-xl">
-              Développez{" "}
-              <span className="text-nowrap text-highlight">
-                tout le potentiel
-              </span>{" "}
-              de votre activité.
+              Développez tout le potentiel de votre activité.
             </h2>
             <p>
               Découvrez toutes nos expertises pour mettre en place et développer
@@ -66,9 +62,9 @@ export default function Services() {
             {services.map((service, index) => (
               <li
                 key={index}
-                className="group dark bg-background text-foreground relative overflow-hidden max-w-xl mr-0 ml-auto rounded-sm"
+                className="group bg-background relative overflow-hidden max-w-xl mr-0 ml-auto rounded-lg border"
               >
-                <div className="absolute z-1 left-0 bottom-0 bg-blue-600 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
+                <div className="absolute z-1 left-0 bottom-0 bg-ad-1 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
 
                 <Link
                   href={service.link}

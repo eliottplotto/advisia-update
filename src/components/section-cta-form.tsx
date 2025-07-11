@@ -69,7 +69,7 @@ export default function SectionContactForm({
             </p>
             <div className="lg:hidden space-y-6">
               <Button
-                variant={"outline"}
+                variant={"secondary"}
                 className="w-full"
                 size={"lg"}
                 asChild

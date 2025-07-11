@@ -82,26 +82,29 @@ export default function Agency() {
   );
 
   return (
-    <section className="bg-secondary">
+    <section className="bg-background">
       <div className="container-md">
-        <div className="global-padding-x py-8 lg:py-16 flex flex-col gap-8 lg:gap-16 items-center mx-auto">
-          <Image
-            src={"/home/advisia-team.png"}
-            alt={"Collaborateurs Advisia"}
-            width={684}
-            height={256}
-            className=""
-          />
-          <h3 className="text-2xl md:text-5xl text-center">
-            &quot;Notre mission : rendre accessibles les bénéfices de l’IA et du
-            digital, quel que soit votre secteur ou votre niveau de maturité
-            numérique.&quot;
-          </h3>
+        <div className="global-padding-x py-8 lg:py-16 space-y-2 mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] items-center gap-8 lg:gap-2">
+            <h3 className="text-4xl md:text-5xl lg:mr-24 lg:py-8">
+              Nous voulons rendre accessibles les bénéfices de l’IA et du
+              digital, quel que soit votre secteur ou votre niveau de maturité
+              numérique.
+            </h3>
+            <Image
+              src={"/equipe-advisia-2.jpg"}
+              alt={"Collaborateurs Advisia"}
+              width={684}
+              height={256}
+              className="rounded-lg"
+            />
+          </div>
+
           <div
             ref={containerRef}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-x-1 gap-y-2 lg:gap-2 w-full"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-x-1 gap-y-2 lg:gap-2 w-full text-center lg:text-left"
           >
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12 rounded-sm">
+            <div className="bg-secondary p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12 rounded-lg border">
               <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
                 +<span ref={counter1Ref}>20</span>
               </p>
@@ -112,7 +115,7 @@ export default function Agency() {
                 accompagnées
               </p>
             </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12 rounded-sm">
+            <div className="bg-secondary p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12 rounded-lg border">
               <p className="block text-5xl md:text-6xl 2xl:text-7xl mb-2">
                 <span ref={counter2Ref}>100</span>
                 <span>%</span>
@@ -123,7 +126,7 @@ export default function Agency() {
                 satisfaites
               </p>
             </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12 rounded-sm">
+            <div className="bg-secondary p-4 md:p-6 flex flex-col justify-between gap-4 lg:gap-12 rounded-lg border">
               <p
                 ref={counter3Ref}
                 className="block text-5xl md:text-6xl 2xl:text-7xl mb-2"

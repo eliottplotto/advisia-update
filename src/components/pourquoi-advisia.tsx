@@ -11,14 +11,11 @@ export default function PourquoiAdvisia() {
     <section className="bg-secondary">
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
-          <div className="space-y-8">
+          <div className="flex flex-col items-center gap-8 text-center">
             <h2 className="text-4xl md:text-6xl max-w-4xl">
-              Pourquoi choisir{" "}
-              <span className="text-nowrap">
-                <span className="text-highlight">Advisia</span> ?
-              </span>
+              Pourquoi choisir Advisia ?
             </h2>
-            <p className="max-w-2xl">
+            <p>
               PME, commerçants, artisans, startups ou groupes établis : chaque
               projet mérite efficacité, clarté et impact.
             </p>
@@ -47,15 +44,8 @@ export default function PourquoiAdvisia() {
             </ul>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 lg:grid-flow-col gap-2">
-            <Image
-              src="/equipe-advisia.jpg"
-              width="300"
-              height="400"
-              alt="Equipe Advisia"
-              className="object-cover w-full xl:row-span-2 h-full rounded-sm"
-            />
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 rounded-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 rounded-lg border">
               <div className="flex no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   01
@@ -70,7 +60,7 @@ export default function PourquoiAdvisia() {
                 </p>
               </div>
             </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 rounded-sm">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 rounded-lg border">
               <div className="flex no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   02
@@ -86,7 +76,7 @@ export default function PourquoiAdvisia() {
               </div>
             </div>
 
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 rounded-sm">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 rounded-lg border">
               <div className="flex  no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   03
@@ -101,8 +91,8 @@ export default function PourquoiAdvisia() {
                 </p>
               </div>
             </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 rounded-sm">
-              <div className="flex  no-wrap justify-between">
+            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 rounded-lg border">
+              <div className="flex no-wrap justify-between">
                 <p className="font-mono text-muted-foreground uppercase text-sm">
                   04
                 </p>

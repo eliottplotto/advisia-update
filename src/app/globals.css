@@ -60,7 +60,7 @@
   --popover-foreground: oklch(0.147 0.004 49.25);
   --primary: oklch(0.216 0.006 56.043);
   --primary-foreground: oklch(0.985 0.001 106.423);
-  --secondary: oklch(0.97 0.001 106.424);
+  --secondary: #FAF9F6;
   --secondary-foreground: oklch(0.216 0.006 56.043);
   --muted: oklch(0.97 0.001 106.424);
   --muted-foreground: oklch(0.553 0.013 58.071);
@@ -84,11 +84,9 @@
   --sidebar-border: oklch(0.923 0.003 48.717);
   --sidebar-ring: oklch(0.709 0.01 56.259);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ad-1: #98f76f;
-  --ad-2: #FF5A02;
-  --ad-3: #F2BD1D;
-  --ad-4: #155DFC;
-  --ad-5: #F280CA;
+  --ad-1: #C9FE6E;
+  --ad-2: #F52D00;
+  --ad-3: #256EFF;
 }
 
 .dark {
@@ -100,7 +98,7 @@
   --popover-foreground: oklch(0.985 0.001 106.423);
   --primary: oklch(0.923 0.003 48.717);
   --primary-foreground: oklch(0.216 0.006 56.043);
-  --secondary: oklch(0.268 0.007 34.298);
+  --secondary: oklch(18.15% 0.005 52.65);
   --secondary-foreground: oklch(0.985 0.001 106.423);
   --muted: oklch(0.268 0.007 34.298);
   --muted-foreground: oklch(0.709 0.01 56.259);
@@ -227,7 +225,7 @@
 }
 
 .text-highlight {
-  color: oklch(54.6% 0.245 262.881);
+  color:  var(--ad-2);
 }
 
 .dark .text-highlight {

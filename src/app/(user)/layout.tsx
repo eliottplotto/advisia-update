@@ -17,7 +17,6 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className="antialiased 2xl:text-lg min-h-screen">
-        <ReactLenis root />
         <header>
           <Navbar />
         </header>

@@ -318,6 +318,7 @@ export default function ContactForm() {
         size="lg"
         disabled={isSubmitting}
         aria-describedby="submit-help"
+        className="w-full sm:w-fit"
       >
         {isSubmitting ? (
           <>

@@ -4,7 +4,7 @@ import { BulletHeadline } from "@/components/ui/bullet-headline";
 
 export default function Solutions() {
   return (
-    <section className="bg-secondary">
+    <section className="dark bg-secondary text-foreground">
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 space-y-8">
           <div className="flex flex-col gap-6 justify-center items-center text-center">
@@ -32,7 +32,7 @@ export default function Solutions() {
                 </div>
               </div>
               <div className="grid lg:grid-cols-2 lg:gap-x-2">
-                <div className="bg-background flex flex-col justify-between rounded-sm">
+                <div className="bg-background flex flex-col justify-between rounded-md border">
                   <div className="border-b h-48 flex justify-center items-center">
                     <RiGitCommitFill size={64} className="text-blue-600" />
                   </div>
@@ -59,7 +59,7 @@ export default function Solutions() {
                   </div>
                 </div>
                 <div className="lg:hidden h-12 w-0 mx-auto border border-dashed border-foreground"></div>
-                <div className="bg-background flex flex-col justify-between rounded-sm">
+                <div className="bg-background flex flex-col justify-between rounded-md border">
                   <div className="border-b h-48 flex justify-center items-center">
                     <RiRobot3Fill size={64} className="text-blue-600" />
                   </div>

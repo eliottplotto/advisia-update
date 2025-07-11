@@ -83,9 +83,9 @@ export const Layout302 = (props: Layout302Props) => {
             {sections.map((section, index) => (
               <div
                 key={index}
-                className="bg-background p-4 global-padding rounded-sm"
+                className="bg-background p-4 global-padding rounded-md border"
               >
-                <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 ad-pattern">
+                <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 rounded-xs">
                   {section.icon}
                 </div>
                 <h3 className="mb-5 text-2xl md:mb-6">{section.heading}</h3>
@@ -109,8 +109,8 @@ export const Layout302 = (props: Layout302Props) => {
                     key={index}
                     className="pl-2 basis-[85%] sm:basis-[70%] md:basis-[60%]"
                   >
-                    <div className="p-4 select-none bg-background rounded-sm  ">
-                      <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 ad-pattern">
+                    <div className="p-4 select-none bg-background rounded-md border">
+                      <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 rounded-xs">
                         {section.icon}
                       </div>
                       <h3 className="mb-4 text-2xl">{section.heading}</h3>
@@ -132,7 +132,7 @@ export const Layout302 = (props: Layout302Props) => {
                     <button
                       key={index}
                       className={`w-2 h-2 rounded-full ${
-                        index === current - 1 ? "bg-blue-600" : "bg-neutral-400"
+                        index === current - 1 ? "bg-foreground" : "bg-stone-300"
                       }`}
                       onClick={() => api?.scrollTo(index)}
                       aria-label={`Aller à la slide ${index + 1}`}

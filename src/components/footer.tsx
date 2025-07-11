@@ -11,7 +11,7 @@ import {
 export default function Footer() {
   return (
     <footer>
-      <section className="dark text-foreground bg-background border-t">
+      <section className="dark text-foreground bg-secondary border-t">
         <div className="container-md grid grid-col-1 lg:grid-cols-2">
           <div className="global-padding">
             <h2 className="text-4xl">Newsletter</h2>

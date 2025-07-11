@@ -9,6 +9,7 @@ import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 import { Button } from "@/components/ui/button";
+import { RiArrowRightFill } from "@remixicon/react";
 
 const options = { next: { revalidate: 60 } };
 
@@ -34,7 +35,7 @@ export default async function Projets() {
   return (
     <>
       <section className="dark bg-background text-foreground">
-        <div className="container-md pt-[95px]">
+        <div className="container-md pt-[30dvh]">
           <div className="global-padding-x pt-8 lg:pt-16 space-y-8 lg:space-y-16">
             <div className="space-y-6">
               <div className="bg-background rounded-sm bg-secondary pr-2 pl-1 py-1 flex items-center gap-2 w-fit">
@@ -63,7 +64,7 @@ export default async function Projets() {
               {projets.map((projet) => (
                 <li key={projet._id}>
                   <Link
-                    className="bg-secondary group global-padding grid grid-cols-1 lg:grid-cols-2 items-end gap-4 md:gap-6 lg:gap-8 rounded-sm overflow-hidden"
+                    className="border bg-background group global-padding grid grid-cols-1 lg:grid-cols-2 items-end gap-4 md:gap-6 lg:gap-8 rounded-sm overflow-hidden"
                     href={`/projets/${projet?.slug?.current}`}
                   >
                     <div className="w-full aspect-3/2 overflow-hidden">
@@ -87,7 +88,7 @@ export default async function Projets() {
                         />
                       )}
                     </div>
-                    <div className="h-full flex flex-col justify-between items-start">
+                    <div className="h-full flex flex-col justify-between items-end">
                       <div className="text-2xl xl:text-4xl">
                         <h2 className="text-muted-foreground">
                           {projet.client}
@@ -95,7 +96,7 @@ export default async function Projets() {
                         <p>{projet.headline}</p>
                       </div>
                       <Button variant={"link"} className="mt-6" size={"lg"}>
-                        Voir le projet
+                        Voir le projet <RiArrowRightFill />
                       </Button>
                     </div>
                   </Link>
