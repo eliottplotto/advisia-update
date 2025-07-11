@@ -16,7 +16,7 @@ export default async function Projets() {
   const projets: Project[] = await client.fetch(PROJECTS_QUERY, {}, options);
 
   return (
-    <section className="dark bg-secondary text-foreground">
+    <section className="dark bg-background text-foreground">
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
           <div className="space-y-6">

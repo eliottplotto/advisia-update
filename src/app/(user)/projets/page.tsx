@@ -36,8 +36,8 @@ export default async function Projets() {
     <>
       <section className="dark bg-background text-foreground">
         <div className="container-md pt-[95px]">
-          <div className="global-padding-x py-8 lg:pt-32 space-y-8 lg:space-y-16">
-            <div className="space-y-6">
+          <div className="global-padding-x pb-8 lg:pb-0">
+            <div className="py-16 lg:py-32 text-center flex flex-col items-center gap-6">
               <div className="bg-background rounded-sm bg-secondary pr-2 pl-1 py-1 flex items-center gap-2 w-fit">
                 <div className="flex items-center">
                   {profils.map((profil, index) => (

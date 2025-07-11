@@ -3,6 +3,7 @@ import { RiPhoneFill } from "@remixicon/react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import type { ElementType, ReactNode } from "react";
+import { RevealText } from "./reveal-text";
 
 interface SectionContactFormProps {
   as?: ElementType;
@@ -59,9 +60,12 @@ export default function SectionContactForm({
                 />
               ))}
             </div>
-            <Tag className="text-4xl md:text-6xl" {...props}>
-              {title || defaultTitle}
-            </Tag>
+            <RevealText>
+              <Tag className="text-4xl md:text-6xl" {...props}>
+                {title || defaultTitle}
+              </Tag>
+            </RevealText>
+
             <p className="max-w-xl text-muted-foreground">
               Un projet ou une question ? Contactez-nous en remplissant le
               formulaire ci-contre. Notre équipe commerciale reviendra vers vous

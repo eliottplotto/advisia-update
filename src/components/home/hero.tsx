@@ -11,6 +11,7 @@ import {
   RiHeartFill,
 } from "@remixicon/react";
 import Link from "next/link";
+import { RevealText } from "../reveal-text";
 
 gsap.registerPlugin(useGSAP, Draggable, InertiaPlugin);
 
@@ -62,11 +63,13 @@ export default function Hero() {
                 +20 clients accompagnés
               </p>
             </div>
-
             <h1 className="text-4xl md:text-6xl xl:text-7xl mt-8 ">
-              Créons des solutions digitales sur‑mesures pour votre{" "}
-              <span className="text-highlight">croissance</span>
+              <RevealText>
+                Créons des solutions digitales sur‑mesures pour votre{" "}
+                <span className="text-highlight">croissance</span>
+              </RevealText>
             </h1>
+
             <p className="text-muted-foreground text-lg mt-8 max-w-xl">
               Advisia est une agence de croissance spécialisée en intelligence
               artificielle, développement web et marketing digital.
