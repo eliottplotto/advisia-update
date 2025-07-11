@@ -53,6 +53,7 @@ export function RevealText({ children, className = "" }: AnimatedTextProps) {
       yPercent: 0,
       rotate: 0,
       duration: 0.8,
+      delay: 0.1,
       stagger: 0.12,
       ease: "power3.out",
       scrollTrigger: {

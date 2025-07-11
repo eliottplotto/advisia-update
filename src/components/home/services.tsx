@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BulletHeadline } from "../ui/bullet-headline";
 import { Button } from "../ui/button";
-import { RiCornerDownRightLine } from "@remixicon/react";
+import { RiArrowRightUpLine, RiCornerDownRightLine } from "@remixicon/react";
 import { RevealText } from "../reveal-text";
 
 export default function Services() {
@@ -69,8 +69,6 @@ export default function Services() {
                 key={index}
                 className="group bg-background relative overflow-hidden max-w-xl mr-0 ml-auto rounded-lg border hover:border-muted-foreground"
               >
-                <div className="absolute z-1 left-0 bottom-0 bg-ad-1 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
-
                 <Link
                   href={service.link}
                   className="block relative z-1 space-y-8 global-padding"
@@ -79,6 +77,10 @@ export default function Services() {
                     <p className="font-mono text-sm text-muted-foreground group-hover:text-foreground">
                       0{index + 1}
                     </p>
+                    <div className="relative w-12 h-12">
+                      <div className="w-full h-full rounded-full bg-ad-1 group-hover:scale-140 transition-scale ease-(--my-ease) duration-200"></div>
+                      <RiArrowRightUpLine className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]" />
+                    </div>
                   </div>
 
                   <div className="flex flex-col items-start sm:items-end gap-8 justify-between">
