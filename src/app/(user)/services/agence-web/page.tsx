@@ -108,7 +108,7 @@ export default function SiteWeb() {
       <main>
         <section className="dark bg-background text-foreground">
           <div className="container-md pt-[95px]">
-            <div className="py-16 flex justify-start items-end">
+            <div className="py-8 lg:py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
                 <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-3xl">
