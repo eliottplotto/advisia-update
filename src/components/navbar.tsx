@@ -4,9 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
-  RiArrowDownSFill,
-  RiArrowRightFill,
+  RiArrowDownSLine,
   RiCloseFill,
+  RiCornerDownRightLine,
   RiMenuFill,
 } from "@remixicon/react";
 
@@ -190,7 +190,7 @@ export default function Navbar() {
               <div className="flex justify-center items-center gap-8">
                 <Button variant="link" onClick={toggleServicesMenu}>
                   Expertises
-                  <RiArrowDownSFill
+                  <RiArrowDownSLine
                     className={`transition-transform duration-300 ${isServicesMenuOpen ? "rotate-180" : ""}`}
                   />
                 </Button>
@@ -215,7 +215,7 @@ export default function Navbar() {
               >
                 <Link href="/contact">
                   J&apos;estime mon projet
-                  <RiArrowRightFill />
+                  <RiCornerDownRightLine />
                 </Link>
               </Button>
 
@@ -246,9 +246,9 @@ export default function Navbar() {
                     servicesTl.current?.reverse();
                     setIsServicesMenuOpen(false);
                   }}
-                  className="relative block py-1 group"
+                  className="relative block py-2 group"
                 >
-                  <p className="text-3xl relative w-max">
+                  <p className="text-4xl relative w-max">
                     {link.label}
                     <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-current transition-all duration-300 ease-out group-hover:w-full"></span>
                   </p>
@@ -308,7 +308,7 @@ export default function Navbar() {
                 <Button asChild size="lg" className="w-full">
                   <Link href="/contact" onClick={closeMobileMenu}>
                     J&apos;estime mon projet
-                    <RiArrowRightFill />
+                    <RiCornerDownRightLine />
                   </Link>
                 </Button>
               </div>

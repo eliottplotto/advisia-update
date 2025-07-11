@@ -105,7 +105,7 @@ export default function MarketingDigital() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-white">
+        <section className="dark bg-background text-foreground">
           <div className="container-md pt-[95px]">
             <div className="py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">

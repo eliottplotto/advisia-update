@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "@/components/footer";
-import { RiArrowRightFill } from "@remixicon/react";
+import { RiCornerDownRightLine } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
@@ -69,7 +69,7 @@ export default function ProductDesign() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-white">
+        <section className="dark bg-background text-foreground">
           <div className="container-md pt-[95px]">
             <div className="py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
@@ -88,7 +88,7 @@ export default function ProductDesign() {
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
                     <Link href="/contact">
-                      Demander une estimation <RiArrowRightFill />
+                      Demander une estimation <RiCornerDownRightLine />
                     </Link>
                   </Button>
                   <div className="flex gap-4 lg:gap-8 wrap">
@@ -113,7 +113,7 @@ export default function ProductDesign() {
 
         <Header1
           heading="Un design qui part toujours des usages"
-          dark={true}
+          dark={false}
           layout="imgLeft"
           description="Chez Advisia, chaque projet commence par une phase d’analyse : on identifie les besoins réels, les usages concrets, les points de friction. Cela nous permet de structurer des parcours clairs avant de penser à l’interface. Le design vient ensuite renforcer cette logique : il guide, rassure et met en valeur les bons éléments. Le résultat, c’est un produit utile, cohérent et facile à adopter pour vos utilisateurs."
           image={{ src: "/placeholder-2.jpg", alt: "Équipe Advisia" }}

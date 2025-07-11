@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BulletHeadline } from "../ui/bullet-headline";
 import { Button } from "../ui/button";
-import { RiArrowRightFill } from "@remixicon/react";
+import { RiCornerDownRightLine } from "@remixicon/react";
 
 export default function Services() {
   const services = [
@@ -54,7 +54,7 @@ export default function Services() {
             </p>
             <Button asChild size={"lg"} className="hidden lg:inline-flex">
               <Link href="/contact">
-                J&apos;estime mon projet <RiArrowRightFill />
+                J&apos;estime mon projet <RiCornerDownRightLine />
               </Link>
             </Button>
           </div>
@@ -62,7 +62,7 @@ export default function Services() {
             {services.map((service, index) => (
               <li
                 key={index}
-                className="group bg-background relative overflow-hidden max-w-xl mr-0 ml-auto rounded-lg border"
+                className="group bg-background relative overflow-hidden max-w-xl mr-0 ml-auto rounded-lg border hover:border-muted-foreground"
               >
                 <div className="absolute z-1 left-0 bottom-0 bg-ad-1 w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
 

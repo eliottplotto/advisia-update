@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
   RiCheckFill,
+  RiCornerDownRightLine,
   RiErrorWarningFill,
   RiLoader4Fill,
 } from "@remixicon/react";
@@ -326,7 +327,9 @@ export default function ContactForm() {
             Envoi en cours...
           </>
         ) : (
-          "Envoyer le message"
+          <>
+            Envoyer le message <RiCornerDownRightLine />
+          </>
         )}
       </Button>
     </form>

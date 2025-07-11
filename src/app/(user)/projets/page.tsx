@@ -9,7 +9,7 @@ import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 import { Button } from "@/components/ui/button";
-import { RiArrowRightFill } from "@remixicon/react";
+import { RiCornerDownRightLine } from "@remixicon/react";
 
 const options = { next: { revalidate: 60 } };
 
@@ -35,8 +35,8 @@ export default async function Projets() {
   return (
     <>
       <section className="dark bg-background text-foreground">
-        <div className="container-md pt-[30dvh]">
-          <div className="global-padding-x pt-8 lg:pt-16 space-y-8 lg:space-y-16">
+        <div className="container-md pt-[95px]">
+          <div className="global-padding-x py-8 lg:pt-32 space-y-8 lg:space-y-16">
             <div className="space-y-6">
               <div className="bg-background rounded-sm bg-secondary pr-2 pl-1 py-1 flex items-center gap-2 w-fit">
                 <div className="flex items-center">
@@ -54,7 +54,7 @@ export default async function Projets() {
                   +20 clients accompagnés
                 </p>
               </div>
-              <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl">
+              <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-5xl">
                 Nous avons transformé leurs objectifs en{" "}
                 <span className="text-highlight">résultats</span>
               </h1>
@@ -62,12 +62,17 @@ export default async function Projets() {
 
             <ul className="space-y-4 lg:space-y-8">
               {projets.map((projet) => (
-                <li key={projet._id}>
+                <li
+                  key={projet._id}
+                  className="group relative overflow-hidden bg-background rounded-lg border hover:border-muted-foreground"
+                >
+                  <div className="absolute z-1 left-0 bottom-0 bg-secondary w-full h-0 group-hover:h-full transition-width ease-(--my-ease) duration-400"></div>
+
                   <Link
-                    className="border bg-background group global-padding grid grid-cols-1 lg:grid-cols-2 items-end gap-4 md:gap-6 lg:gap-8 rounded-sm overflow-hidden"
+                    className="relative z-1 group global-padding grid grid-cols-1 lg:grid-cols-2 items-end gap-4 md:gap-6 lg:gap-8"
                     href={`/projets/${projet?.slug?.current}`}
                   >
-                    <div className="w-full aspect-3/2 overflow-hidden">
+                    <div className="w-full aspect-3/2 overflow-hidden rounded-xs">
                       {projet.coverImage && (
                         <Image
                           src={
@@ -79,7 +84,7 @@ export default async function Projets() {
                             projet.coverImage.alt ||
                             `Image de couverture pour ${projet.headline}`
                           }
-                          className="w-full h-full object-cover object-center group-hover:scale-110 transition-scale duration-400 ease-(--ease) rounded-xs"
+                          className="w-full h-full object-cover object-center group-hover:scale-110 transition-scale duration-400 ease-(--ease)"
                           priority
                           sizes="(max-width: 768px) 100vw, 1920px"
                           width={1920}
@@ -88,15 +93,17 @@ export default async function Projets() {
                         />
                       )}
                     </div>
-                    <div className="h-full flex flex-col justify-between items-end">
-                      <div className="text-2xl xl:text-4xl">
-                        <h2 className="text-muted-foreground">
+                    <div className="h-full flex flex-col justify-between lg:items-end text-center lg:text-left">
+                      <div className="w-full">
+                        <h2 className="font-mono text-sm uppercase mb-4 text-muted-foreground">
                           {projet.client}
                         </h2>
-                        <p>{projet.headline}</p>
+                        <p className="text-2xl xl:text-4xl">
+                          {projet.headline}
+                        </p>
                       </div>
-                      <Button variant={"link"} className="mt-6" size={"lg"}>
-                        Voir le projet <RiArrowRightFill />
+                      <Button variant={"link"} className="mt-8" size={"lg"}>
+                        Voir le projet <RiCornerDownRightLine />
                       </Button>
                     </div>
                   </Link>

@@ -8,7 +8,7 @@ import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 // Components
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import { Button } from "@/components/ui/button";
-import { RiArrowRightFill } from "@remixicon/react";
+import { RiCornerDownRightLine } from "@remixicon/react";
 
 const options = { next: { revalidate: 60 } };
 
@@ -22,7 +22,8 @@ export default async function Projets() {
           <div className="space-y-6">
             <BulletHeadline as="p">Études de cas</BulletHeadline>
             <h2 className="text-4xl md:text-6xl max-w-4xl">
-              Nous avons transformé leurs objectifs en résultats
+              Nous avons transformé leurs objectifs en{" "}
+              <span className="text-highlight">résultats</span>
             </h2>
           </div>
 
@@ -67,7 +68,7 @@ export default async function Projets() {
                       <p className="text-2xl xl:text-4xl">{projet.headline}</p>
                     </div>
                     <Button variant={"link"} className="mt-8" size={"lg"}>
-                      Voir le projet <RiArrowRightFill />
+                      Voir le projet <RiCornerDownRightLine />
                     </Button>
                   </div>
                 </Link>
@@ -75,7 +76,9 @@ export default async function Projets() {
             ))}
           </ul>
           <Button size={"lg"} asChild className="flex w-max mx-auto">
-            <Link href="/projets">Découvrir nos cas clients</Link>
+            <Link href="/projets">
+              Découvrir nos cas clients <RiCornerDownRightLine />
+            </Link>
           </Button>
         </div>
       </div>

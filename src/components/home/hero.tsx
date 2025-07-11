@@ -5,7 +5,11 @@ import { Draggable } from "gsap/Draggable";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { RiAddFill, RiArrowRightFill, RiHeartFill } from "@remixicon/react";
+import {
+  RiAddFill,
+  RiCornerDownRightLine,
+  RiHeartFill,
+} from "@remixicon/react";
 import Link from "next/link";
 
 gsap.registerPlugin(useGSAP, Draggable, InertiaPlugin);
@@ -42,7 +46,7 @@ export default function Hero() {
       <div className="lg:h-[90dvh]">
         <div className="global-padding-x mt-16 lg:mt-0 py-16 flex justify-center items-center h-full text-center">
           <div className="relative max-w-2xl xl:max-w-4xl flex flex-col justify-center items-center">
-            <div className="bg-background rounded-xs bg-secondary pr-2 pl-1 py-1 mb-0 flex items-center gap-2">
+            <div className="bg-background rounded-xs border pr-2 pl-1 py-1 mb-0 flex items-center gap-2">
               <div className="flex items-center">
                 {profils.map((profil, index) => (
                   <img
@@ -70,10 +74,10 @@ export default function Hero() {
             <div className="flex lg:hidden items-center justify-center gap-x-1 gap-y-2 flex-wrap mt-8">
               <Button asChild size={"lg"}>
                 <Link href="/contact">
-                  J&apos;estime mon projet <RiArrowRightFill />
+                  J&apos;estime mon projet <RiCornerDownRightLine />
                 </Link>
               </Button>
-              <Button variant="outline" size={"lg"} asChild>
+              <Button variant="secondary" size={"lg"} asChild>
                 <Link href="/prendre-rendez-vous">Réserver un appel</Link>
               </Button>
             </div>

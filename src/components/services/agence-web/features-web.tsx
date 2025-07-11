@@ -54,11 +54,12 @@ export default function FeaturesWeb() {
   ];
 
   return (
-    <section className="dark text-foreground bg-blue-600">
+    <section className="dark text-foreground bg-secondary">
       <div className="container-md global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
         <div className="space-y-6 flex flex-col items-center text-center">
-          <h2 className="text-4xl md:text-6xl max-w-3xl">
-            Transformez votre site en un véritable levier de croissance
+          <h2 className="text-4xl md:text-6xl max-w-4xl">
+            Transformez votre site en un véritable{" "}
+            <span className="text-highlight">levier de croissance</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
@@ -67,23 +68,25 @@ export default function FeaturesWeb() {
             return (
               <div
                 key={index}
-                className="bg-background overflow-hidden flex flex-col justify-between gap-4 rounded-sm"
+                className="bg-background overflow-hidden flex flex-col justify-between gap-4 rounded-md border"
               >
                 <div className="global-padding space-y-4">
                   <IconComponent className="text-ad-1" />
                   <div>
-                    <h3 className="text-2xl mb-2">{service.title}</h3>
+                    <h3 className="text-xl lg:text-2xl mb-2">
+                      {service.title}
+                    </h3>
                     <p className="text-muted-foreground">
                       {service.description}
                     </p>
                   </div>
                 </div>
-                <img
+                {/* <img
                   src={service.image}
                   alt={service.title}
                   className="aspect-4/2 object-cover object-top-left"
                   draggable="false"
-                />
+                /> */}
               </div>
             );
           })}

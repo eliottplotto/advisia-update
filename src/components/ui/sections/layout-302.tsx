@@ -88,7 +88,9 @@ export const Layout302 = (props: Layout302Props) => {
                 <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 rounded-xs">
                   {section.icon}
                 </div>
-                <h3 className="mb-5 text-2xl md:mb-6">{section.heading}</h3>
+                <h3 className="mb-5 text-xl lg:text-2xl md:mb-6">
+                  {section.heading}
+                </h3>
                 <p className="text-muted-foreground">{section.description}</p>
               </div>
             ))}
@@ -113,7 +115,7 @@ export const Layout302 = (props: Layout302Props) => {
                       <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 rounded-xs">
                         {section.icon}
                       </div>
-                      <h3 className="mb-4 text-2xl">{section.heading}</h3>
+                      <h3 className="mb-4 text-xl">{section.heading}</h3>
                       <p className="text-muted-foreground">
                         {section.description}
                       </p>

@@ -54,7 +54,7 @@ export default function FeaturesProduct() {
   ];
 
   return (
-    <section className="bg-secondary">
+    <section className="dark bg-secondary text-foreground">
       <div className="container-md global-padding-x py-8 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {services.map((service, index) => {
@@ -62,12 +62,14 @@ export default function FeaturesProduct() {
             return (
               <div
                 key={index}
-                className="bg-background overflow-hidden flex flex-col justify-between gap-4 rounded-sm"
+                className="bg-background overflow-hidden flex flex-col justify-between gap-4 rounded-md border"
               >
                 <div className="global-padding space-y-4">
                   <IconComponent className="text-ad-1" />
                   <div>
-                    <h3 className="text-2xl mb-2">{service.title}</h3>
+                    <h3 className="text-xl lg:text-2xl mb-2">
+                      {service.title}
+                    </h3>
                     <p className="text-muted-foreground">
                       {service.description}
                     </p>

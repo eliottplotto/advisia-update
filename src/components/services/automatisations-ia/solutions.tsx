@@ -9,7 +9,7 @@ export default function Solutions() {
         <div className="global-padding-x py-8 lg:py-16 space-y-8">
           <div className="flex flex-col gap-6 justify-center items-center text-center">
             <BulletHeadline as="p">Nos solutions</BulletHeadline>
-            <h2 className="text-4xl md:text-6xl max-w-3xl">
+            <h2 className="text-4xl md:text-6xl max-w-4xl">
               Intégrer et <span className="text-highlight">tirer profit</span>{" "}
               de l&apos;IA dans votre organisation
             </h2>
@@ -23,18 +23,18 @@ export default function Solutions() {
           <div className="max-w-6xl mx-auto">
             <div>
               <div className="w-[50%] mx-auto flex flex-col items-center">
-                <div className="w-3 h-3 bg-foreground rounded-xs"></div>
-                <div className="h-12 border border-dashed border-foreground"></div>
-                <div className="w-full border border-dashed border-foreground"></div>
+                <div className="w-3 h-3 bg-muted-foreground rounded-xs"></div>
+                <div className="h-12 border border-dashed border-muted-foreground"></div>
+                <div className="w-full border border-dashed border-muted-foreground"></div>
                 <div className="w-full mx-auto flex justify-between">
-                  <div className="h-12 border border-dashed border-foreground"></div>
-                  <div className="h-12 border border-dashed border-foreground"></div>
+                  <div className="h-12 border border-dashed border-muted-foreground"></div>
+                  <div className="h-12 border border-dashed border-muted-foreground"></div>
                 </div>
               </div>
               <div className="grid lg:grid-cols-2 lg:gap-x-2">
                 <div className="bg-background flex flex-col justify-between rounded-md border">
                   <div className="border-b h-48 flex justify-center items-center">
-                    <RiGitCommitFill size={64} className="text-blue-600" />
+                    <RiRobot3Fill size={64} className="text-ad-1" />
                   </div>
                   <div className="global-padding grow">
                     <h5 className="text-2xl lg:text-3xl mb-4">Agent IA</h5>
@@ -44,24 +44,24 @@ export default function Solutions() {
                     </p>
                     <ul className="ad_list-icon mt-6">
                       <li>
-                        <RiCheckFill className="text-blue-600" />
+                        <RiCheckFill className="text-ad-1" />
                         Déploiement plug‑and‑play rapide, sans refonte lourde
                       </li>
                       <li>
-                        <RiCheckFill className="text-blue-600" /> Automatisation
-                        des tâches répétitives, réduction des erreurs
+                        <RiCheckFill className="text-ad-1" /> Automatisation des
+                        tâches répétitives, réduction des erreurs
                       </li>
                       <li>
-                        <RiCheckFill className="text-blue-600" /> Libère vos
-                        équipes pour des missions à valeur
+                        <RiCheckFill className="text-ad-1" /> Libère vos équipes
+                        pour des missions à valeur
                       </li>
                     </ul>
                   </div>
                 </div>
-                <div className="lg:hidden h-12 w-0 mx-auto border border-dashed border-foreground"></div>
+                <div className="lg:hidden h-12 w-0 mx-auto border border-dashed border-muted-foreground"></div>
                 <div className="bg-background flex flex-col justify-between rounded-md border">
                   <div className="border-b h-48 flex justify-center items-center">
-                    <RiRobot3Fill size={64} className="text-blue-600" />
+                    <RiGitCommitFill size={64} className="text-ad-1" />
                   </div>
                   <div className="global-padding grow">
                     <h5 className="text-2xl lg:text-3xl mb-4">Système IA</h5>
@@ -71,15 +71,15 @@ export default function Solutions() {
                     </p>
                     <ul className="ad_list-icon mt-6">
                       <li>
-                        <RiCheckFill className="text-blue-600" />
+                        <RiCheckFill className="text-ad-1" />
                         Connexion sécurisée à vos données et API
                       </li>
                       <li>
-                        <RiCheckFill className="text-blue-600" /> Décisions
+                        <RiCheckFill className="text-ad-1" /> Décisions
                         autonomes, apprentissage continu intégré
                       </li>
                       <li>
-                        <RiCheckFill className="text-blue-600" /> Exécutions
+                        <RiCheckFill className="text-ad-1" /> Exécutions
                         multi‑étapes traçables en temps réel
                       </li>
                     </ul>
@@ -88,11 +88,11 @@ export default function Solutions() {
               </div>
               <div className="w-[50%] mx-auto flex flex-col items-center">
                 <div className="w-full mx-auto flex justify-between">
-                  <div className="h-12 border border-dashed border-foreground"></div>
-                  <div className="h-12 border border-dashed border-foreground"></div>
+                  <div className="h-12 border border-dashed border-muted-foreground"></div>
+                  <div className="h-12 border border-dashed border-muted-foreground"></div>
                 </div>
-                <div className="w-full border border-dashed border-foreground"></div>
-                <div className="h-12 border border-dashed border-foreground"></div>
+                <div className="w-full border border-dashed border-muted-foreground"></div>
+                <div className="h-12 border border-dashed border-muted-foreground"></div>
               </div>
             </div>
             <div className="flex justify-center">

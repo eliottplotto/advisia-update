@@ -1,10 +1,10 @@
 import React from "react";
 import Footer from "@/components/footer";
 import {
-  RiArrowRightFill,
   RiSearch2Fill,
   RiGitBranchFill,
   RiLineChartFill,
+  RiCornerDownRightLine,
 } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -105,15 +105,15 @@ export default function SiteWeb() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-white">
+        <section className="dark bg-background text-foreground">
           <div className="container-md pt-[95px]">
             <div className="py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
-                <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl">
+                <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-3xl">
                   L&apos;agence web de{" "}
                   <span className="text-highlight">confiance</span> pour la
-                  création de votre site
+                  création de <span className="text-nowrap">votre site</span>
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">
@@ -124,7 +124,7 @@ export default function SiteWeb() {
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
                     <Link href="/contact">
-                      Demander une estimation <RiArrowRightFill />
+                      Demander une estimation <RiCornerDownRightLine />
                     </Link>
                   </Button>
                   <div className="flex gap-4 lg:gap-8 wrap">

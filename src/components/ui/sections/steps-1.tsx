@@ -41,7 +41,7 @@ export default function Steps1({ title, subtitle, steps }: ProcessProps) {
                   <step.icon size={40} className="text-ad-1" />
                 </div>
                 <div>
-                  <h3 className="text-2xl">{step.title}</h3>
+                  <h3 className="text-xl lg:text-2xl">{step.title}</h3>
                   <p className="mt-3 text-muted-foreground">{step.subtitle}</p>
                 </div>
               </div>

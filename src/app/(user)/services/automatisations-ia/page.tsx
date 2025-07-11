@@ -8,10 +8,10 @@ import {
   RiMegaphoneFill,
   RiTeamFill,
   RiShoppingCartFill,
-  RiArrowRightFill,
   RiSearch2Fill,
   RiGitBranchFill,
   RiLineChartFill,
+  RiCornerDownRightLine,
 } from "@remixicon/react";
 import Solutions from "@/components/services/automatisations-ia/solutions";
 import { Header1 } from "@/components/ui/sections/header-1";
@@ -90,7 +90,7 @@ export default function AutomatisationsIA() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-white">
+        <section className="dark bg-background text-foreground">
           <div className="container-md pt-[95px]">
             <div className="py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
@@ -106,7 +106,7 @@ export default function AutomatisationsIA() {
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
                     <Link href="/contact">
-                      Contacter un expert IA <RiArrowRightFill />
+                      Contacter un expert IA <RiCornerDownRightLine />
                     </Link>
                   </Button>
                 </div>
@@ -190,7 +190,7 @@ export default function AutomatisationsIA() {
                   className="flex items-center gap-2"
                 >
                   Planifier un appel
-                  <RiArrowRightFill />
+                  <RiCornerDownRightLine />
                 </Link>
               ),
             },

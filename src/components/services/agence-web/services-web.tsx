@@ -25,18 +25,17 @@ export default function ServicesWeb() {
       <div className="container-md global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
         <div className="space-y-6 flex flex-col items-center text-center">
           <h2 className="text-4xl md:text-6xl max-w-3xl">
-            Nos <span className="text-nowrap text-highlight">expertises</span>{" "}
-            en création de site web
+            Nos expertises en création de site web
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-background overflow-hidden flex flex-col items-center justify-between rounded-sm"
+              className="bg-background overflow-hidden flex flex-col items-center justify-between rounded-md border"
             >
               <div className="global-padding-x py-8 lg:py-12 text-center">
-                <h3 className="text-2xl lg:text-4xl mb-2">{service.title}</h3>
+                <h3 className="text-xl lg:text-3xl mb-2">{service.title}</h3>
                 <p className="text-muted-foreground">{service.description}</p>
               </div>
               <img

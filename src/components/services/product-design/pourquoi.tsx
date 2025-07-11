@@ -1,8 +1,10 @@
-import { RiCheckFill } from "@remixicon/react";
+import { Button } from "@/components/ui/button";
+import { RiCheckFill, RiCornerDownRightLine } from "@remixicon/react";
+import Link from "next/link";
 
 export default function PourquoiProduct() {
   return (
-    <section className="bg-secondary">
+    <section className="dark bg-background text-foreground">
       <div className="container-md global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
         <div className="space-y-6 flex flex-col items-center text-center">
           <h2 className="text-4xl md:text-6xl max-w-3xl">
@@ -14,7 +16,7 @@ export default function PourquoiProduct() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-center">
           <div className="flex flex-col items-center gap-6 global-padding">
-            <div className="bg-ad-1 rounded-sm">
+            <div className="bg-ad-1 rounded-sm text-background">
               <RiCheckFill />
             </div>
             <div className="space-y-2">
@@ -26,7 +28,7 @@ export default function PourquoiProduct() {
             </div>
           </div>
           <div className="flex flex-col items-center gap-6 global-padding border-t border-l-0 md:border-l md:border-t-0">
-            <div className="bg-ad-1 rounded-sm">
+            <div className="bg-ad-1 rounded-sm text-background">
               <RiCheckFill />
             </div>
             <div className="space-y-2">
@@ -38,7 +40,7 @@ export default function PourquoiProduct() {
             </div>
           </div>
           <div className="flex flex-col items-center gap-6 global-padding border-t border-l-0 md:border-l md:border-t-0">
-            <div className="bg-ad-1 rounded-sm">
+            <div className="bg-ad-1 rounded-sm text-background">
               <RiCheckFill />
             </div>
             <div className="space-y-2">
@@ -51,6 +53,11 @@ export default function PourquoiProduct() {
             </div>
           </div>
         </div>
+        <Button asChild size={"lg"} className="flex w-fit mx-auto">
+          <Link href="/contact">
+            J&apos;estime mon projet <RiCornerDownRightLine />
+          </Link>
+        </Button>
       </div>
     </section>
   );

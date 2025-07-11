@@ -86,7 +86,7 @@ export default function Agency() {
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 space-y-2 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] items-center gap-8 lg:gap-2">
-            <h3 className="text-4xl md:text-5xl lg:mr-24 lg:py-8">
+            <h3 className="text-center lg:text-left text-2xl md:text-4xl lg:mr-24 lg:py-8">
               Nous voulons rendre accessibles les bénéfices de l’IA et du
               digital, quel que soit votre secteur ou votre niveau de maturité
               numérique.
@@ -96,7 +96,7 @@ export default function Agency() {
               alt={"Collaborateurs Advisia"}
               width={684}
               height={256}
-              className="rounded-lg"
+              className="rounded-lg w-full"
             />
           </div>
 
