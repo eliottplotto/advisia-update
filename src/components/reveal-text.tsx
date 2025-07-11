@@ -45,21 +45,20 @@ export function RevealText({ children, className = "" }: AnimatedTextProps) {
     // Animation initiale : déplacer les lignes vers le bas
     gsap.set(splitText.lines, {
       yPercent: 100,
-      opacity: 0,
+      rotation: 2,
     });
 
     // Animation au scroll avec valeurs fixes
     gsap.to(splitText.lines, {
       yPercent: 0,
-      opacity: 1,
+      rotate: 0,
       duration: 0.8,
       stagger: 0.12,
-      delay: 0.2,
       ease: "power3.out",
       scrollTrigger: {
         trigger: textRef.current,
-        start: "top 85%",
-        end: "bottom 15%",
+        start: "top 80%",
+        end: "bottom 20%",
         toggleActions: "play none none none", // Animation une seule fois
         // markers: true, // Décommenter pour debug
       },

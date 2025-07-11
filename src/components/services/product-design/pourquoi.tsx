@@ -1,3 +1,4 @@
+import { RevealText } from "@/components/reveal-text";
 import { Button } from "@/components/ui/button";
 import { RiCheckFill, RiCornerDownRightLine } from "@remixicon/react";
 import Link from "next/link";
@@ -8,10 +9,12 @@ export default function PourquoiProduct() {
       <div className="container-md global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
         <div className="space-y-6 flex flex-col items-center text-center">
           <h2 className="text-4xl md:text-6xl max-w-3xl">
-            Pourquoi le Product Design{" "}
-            <span className="text-nowrap">
-              <span className="text-highlight">change tout</span> ?
-            </span>
+            <RevealText>
+              Pourquoi le Product Design{" "}
+              <span className="text-nowrap">
+                <span className="text-highlight">change tout</span> ?
+              </span>
+            </RevealText>
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-center">

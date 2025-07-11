@@ -15,6 +15,7 @@ import LogosConfiance from "@/components/logos-confiance";
 import ServicesWeb from "@/components/services/agence-web/services-web";
 import FeaturesWeb from "@/components/services/agence-web/features-web";
 import FAQCenter from "@/components/ui/sections/faq-center";
+import { RevealText } from "@/components/reveal-text";
 
 export default function SiteWeb() {
   const processSteps = [
@@ -111,9 +112,11 @@ export default function SiteWeb() {
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
                 <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-3xl">
-                  L&apos;agence web de{" "}
-                  <span className="text-highlight">confiance</span> pour la
-                  création de <span className="text-nowrap">votre site</span>
+                  <RevealText>
+                    L&apos;agence web de{" "}
+                    <span className="text-highlight">confiance</span> pour la
+                    création de <span className="text-nowrap">votre site</span>
+                  </RevealText>
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">

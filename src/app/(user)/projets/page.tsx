@@ -10,6 +10,7 @@ import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 import { Button } from "@/components/ui/button";
 import { RiCornerDownRightLine } from "@remixicon/react";
+import { RevealText } from "@/components/reveal-text";
 
 const options = { next: { revalidate: 60 } };
 
@@ -55,8 +56,10 @@ export default async function Projets() {
                 </p>
               </div>
               <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-5xl">
-                Nous avons transformé leurs objectifs en{" "}
-                <span className="text-highlight">résultats</span>
+                <RevealText>
+                  Nous avons transformé leurs objectifs en{" "}
+                  <span className="text-highlight">résultats</span>
+                </RevealText>
               </h1>
             </div>
 

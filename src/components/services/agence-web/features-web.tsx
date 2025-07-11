@@ -1,3 +1,4 @@
+import { RevealText } from "@/components/reveal-text";
 import {
   RiAccessibilityFill,
   RiCodeSSlashFill,
@@ -58,8 +59,10 @@ export default function FeaturesWeb() {
       <div className="container-md global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
         <div className="space-y-6 flex flex-col items-center text-center">
           <h2 className="text-4xl md:text-6xl max-w-4xl">
-            Transformez votre site en un véritable{" "}
-            <span className="text-highlight">levier de croissance</span>
+            <RevealText>
+              Transformez votre site en un véritable{" "}
+              <span className="text-highlight">levier de croissance</span>
+            </RevealText>
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">

@@ -4,6 +4,7 @@ import {
   RiShakeHandsFill,
   RiShieldStarFill,
 } from "@remixicon/react";
+import { RevealText } from "./reveal-text";
 
 export default function PourquoiAdvisia() {
   return (
@@ -12,7 +13,7 @@ export default function PourquoiAdvisia() {
         <div className="global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
           <div className="flex flex-col items-center gap-8 text-center">
             <h2 className="text-4xl md:text-6xl max-w-4xl">
-              Pourquoi choisir Advisia ?
+              <RevealText>Pourquoi choisir Advisia ?</RevealText>
             </h2>
             <p>
               PME, commerçants, artisans, startups ou groupes établis : chaque

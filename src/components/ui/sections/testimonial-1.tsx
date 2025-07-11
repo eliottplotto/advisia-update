@@ -1,7 +1,7 @@
 import type { Review } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
-import { RevealText } from "@/components/RevealText";
+import { RevealText } from "@/components/reveal-text";
 
 interface TestimonialProps {
   dark?: boolean;
@@ -40,12 +40,9 @@ export default function Testimonial1({
           </div>
           <div className="col-span-3 flex flex-col justify-between md:gap-32 p-4 md:p-6 lg:p-8 bg-background">
             <div>
-              <RevealText
-                as="blockquote"
-                className="text-2xl md:text-4xl lg:text-5xl mb-4 md:mb-8"
-              >
-                &ldquo;{testimonial.citation}&rdquo;
-              </RevealText>
+              <blockquote className="text-2xl md:text-4xl lg:text-5xl mb-4 md:mb-8">
+                <RevealText>&ldquo;{testimonial.citation}&rdquo;</RevealText>
+              </blockquote>
               <p className="text-lg md:text-2xl lg:text-3xl">
                 {testimonial.prenom} {testimonial.nom} &#183;{" "}
                 {testimonial.poste} &#183; {testimonial.entreprise}

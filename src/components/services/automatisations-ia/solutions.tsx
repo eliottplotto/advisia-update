@@ -1,6 +1,7 @@
 import { RiCheckFill, RiGitCommitFill, RiRobot3Fill } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
+import { RevealText } from "@/components/reveal-text";
 
 export default function Solutions() {
   return (
@@ -10,8 +11,10 @@ export default function Solutions() {
           <div className="flex flex-col gap-6 justify-center items-center text-center">
             <BulletHeadline as="p">Nos solutions</BulletHeadline>
             <h2 className="text-4xl md:text-6xl max-w-4xl">
-              Intégrer et <span className="text-highlight">tirer profit</span>{" "}
-              de l&apos;IA dans votre organisation
+              <RevealText>
+                Intégrer et <span className="text-highlight">tirer profit</span>{" "}
+                de l&apos;IA dans votre organisation
+              </RevealText>
             </h2>
             <p className="max-w-2xl text-muted-foreground">
               Nos solutions d&apos;intelligence artificielle s&apos;adaptent à

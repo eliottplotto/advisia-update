@@ -15,6 +15,7 @@ import LogosConfiance from "@/components/logos-confiance";
 import ServicesWeb from "@/components/services/agence-web/services-web";
 import FeaturesWeb from "@/components/services/agence-web/features-web";
 import FAQCenter from "@/components/ui/sections/faq-center";
+import { RevealText } from "@/components/reveal-text";
 
 export default function MarketingDigital() {
   const processSteps = [
@@ -111,7 +112,7 @@ export default function MarketingDigital() {
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
                 <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl">
-                  Marketing Digital
+                  <RevealText>Marketing Digital</RevealText>
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">

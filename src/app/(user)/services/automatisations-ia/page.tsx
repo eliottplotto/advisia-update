@@ -22,6 +22,7 @@ import SectionCTAForm from "@/components/section-cta-form";
 import Steps1 from "@/components/ui/sections/steps-1";
 import LogosConfiance from "@/components/logos-confiance";
 import FAQCenter from "@/components/ui/sections/faq-center";
+import { RevealText } from "@/components/reveal-text";
 
 export default function AutomatisationsIA() {
   const processSteps = [
@@ -96,7 +97,9 @@ export default function AutomatisationsIA() {
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
                 <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl">
-                  Prenez une longueur d&apos;avance grâce à l&apos;IA
+                  <RevealText>
+                    Prenez une longueur d&apos;avance grâce à l&apos;IA
+                  </RevealText>
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">

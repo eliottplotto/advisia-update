@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/carousel";
 
 import { RiBox2Fill } from "@remixicon/react";
+import { RevealText } from "@/components/reveal-text";
 
 type ButtonItem = React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -70,7 +71,9 @@ export const Layout302 = (props: Layout302Props) => {
     >
       <div className="container-md global-padding-x">
         <div className="text-center mb-8 lg:mb-16">
-          <h2 className="text-4xl md:text-6xl max-w-4xl mx-auto">{heading}</h2>
+          <h2 className="text-4xl md:text-6xl max-w-4xl mx-auto">
+            <RevealText>{heading}</RevealText>
+          </h2>
           {subheading && (
             <p className="max-w-2xl mx-auto mt-6 text-muted-foreground">
               {subheading}

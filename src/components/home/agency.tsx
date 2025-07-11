@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RevealText } from "../reveal-text";
 gsap.registerPlugin(useGSAP, ScrollTrigger, TextPlugin);
 
 export default function Agency() {
@@ -87,9 +88,11 @@ export default function Agency() {
         <div className="global-padding-x py-8 lg:py-16 space-y-2 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] items-center gap-8 lg:gap-2">
             <h3 className="text-center lg:text-left text-2xl md:text-4xl lg:mr-24 lg:py-8">
-              Nous voulons rendre accessibles les bénéfices de l’IA et du
-              digital, quel que soit votre secteur ou votre niveau de maturité
-              numérique.
+              <RevealText>
+                Nous voulons rendre accessibles les bénéfices de l’IA et du
+                digital, quel que soit votre secteur ou votre niveau de maturité
+                numérique.
+              </RevealText>
             </h3>
             <Image
               src={"/equipe-advisia-2.jpg"}

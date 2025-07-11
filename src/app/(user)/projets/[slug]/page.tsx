@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { RiArrowLeftLine } from "@remixicon/react";
 import SectionCTASmall from "@/components/section-cta-small";
 import { Header1 } from "@/components/ui/sections/header-1";
+import { RevealText } from "@/components/reveal-text";
 
 // Types mis à jour pour Next.js 15
 type Params = Promise<{ slug: string }>;
@@ -83,7 +84,7 @@ export default async function ProjectDetailPage(props: { params: Params }) {
             <div>
               <p className="text-4xl md:text-6xl text-ad-1">{project.client}</p>
               <h1 className="text-4xl md:text-6xl max-w-4xl">
-                {project.headline}
+                <RevealText>{project.headline}</RevealText>
               </h1>
               {services.length > 0 && (
                 <ul className="mt-8 flex items-center justify-center gap-1 flex-wrap">

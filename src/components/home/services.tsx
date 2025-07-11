@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BulletHeadline } from "../ui/bullet-headline";
 import { Button } from "../ui/button";
 import { RiCornerDownRightLine } from "@remixicon/react";
+import { RevealText } from "../reveal-text";
 
 export default function Services() {
   const services = [
@@ -43,9 +44,13 @@ export default function Services() {
         <div className="py-8 lg:py-16 grid grid-cols-1 lg:grid-cols-2">
           <div className="lg:sticky lg:top-24 h-fit global-padding space-y-6">
             <BulletHeadline as="p">Nos expertises</BulletHeadline>
+
             <h2 className="text-4xl md:text-6xl max-w-xl">
-              Développez tout le potentiel de votre activité.
+              <RevealText>
+                Développez tout le potentiel de votre activité.
+              </RevealText>
             </h2>
+
             <p>
               Découvrez toutes nos expertises pour mettre en place et développer
               votre stratégie digitale. Du SEA à la web analyse en passant par

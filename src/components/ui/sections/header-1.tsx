@@ -1,5 +1,6 @@
 import { VariantProps } from "class-variance-authority";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { RevealText } from "@/components/reveal-text";
 
 type ImageProps = {
   src: string;
@@ -47,7 +48,9 @@ export const Header1 = (props: Header1Props) => {
           <div
             className={`space-y-6 order-1 ${layout === "imgLeft" ? "" : "lg:order-0"}`}
           >
-            <h2 className="text-4xl md:text-6xl">{heading}</h2>
+            <h2 className="text-4xl md:text-6xl">
+              <RevealText>{heading}</RevealText>
+            </h2>
             <p className="md:text-md">{description}</p>
             <div className="flex flex-wrap gap-1">
               {buttons?.map((button, index) => {

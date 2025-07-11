@@ -1,3 +1,4 @@
+import { RevealText } from "@/components/reveal-text";
 import {
   Accordion,
   AccordionContent,
@@ -40,7 +41,9 @@ export default function FAQCenter({
         <div className="global-padding-x py-8 lg:py-16">
           <div className="flex flex-col items-center gap-8 lg:gap-16">
             <div className="max-w-3xl text-center">
-              <h2 className="text-4xl md:text-6xl">{title}</h2>
+              <h2 className="text-4xl md:text-6xl">
+                <RevealText>{title}</RevealText>
+              </h2>
             </div>
 
             <div className="global-padding-x bg-background w-full max-w-2xl rounded-sm">

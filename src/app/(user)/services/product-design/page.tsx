@@ -10,6 +10,7 @@ import FAQCenter from "@/components/ui/sections/faq-center";
 import FeaturesProduct from "@/components/services/product-design/features-product";
 import { Header1 } from "@/components/ui/sections/header-1";
 import PourquoiProduct from "@/components/services/product-design/pourquoi";
+import { RevealText } from "@/components/reveal-text";
 
 export default function ProductDesign() {
   const questions = [
@@ -75,9 +76,11 @@ export default function ProductDesign() {
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Product Design</BulletHeadline>
                 <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl">
-                  Un design qui sert vos{" "}
-                  <span className="text-highlight">utilisateurs</span> et vos{" "}
-                  <span className="text-highlight">objectifs</span>
+                  <RevealText>
+                    Un design qui sert vos{" "}
+                    <span className="text-highlight">utilisateurs</span> et vos{" "}
+                    <span className="text-highlight">objectifs</span>
+                  </RevealText>
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">

@@ -60,11 +60,10 @@ export default function SectionContactForm({
                 />
               ))}
             </div>
-            <RevealText>
-              <Tag className="text-4xl md:text-6xl" {...props}>
-                {title || defaultTitle}
-              </Tag>
-            </RevealText>
+
+            <Tag className="text-4xl md:text-6xl" {...props}>
+              <RevealText>{title || defaultTitle}</RevealText>
+            </Tag>
 
             <p className="max-w-xl text-muted-foreground">
               Un projet ou une question ? Contactez-nous en remplissant le

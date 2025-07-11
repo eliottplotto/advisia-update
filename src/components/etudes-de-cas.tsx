@@ -9,6 +9,7 @@ import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import { Button } from "@/components/ui/button";
 import { RiCornerDownRightLine } from "@remixicon/react";
+import { RevealText } from "./reveal-text";
 
 const options = { next: { revalidate: 60 } };
 
@@ -22,8 +23,10 @@ export default async function Projets() {
           <div className="space-y-6">
             <BulletHeadline as="p">Études de cas</BulletHeadline>
             <h2 className="text-4xl md:text-6xl max-w-4xl">
-              Nous avons transformé leurs objectifs en{" "}
-              <span className="text-highlight">résultats</span>
+              <RevealText>
+                Nous avons transformé leurs objectifs en{" "}
+                <span className="text-highlight">résultats</span>
+              </RevealText>
             </h2>
           </div>
 
