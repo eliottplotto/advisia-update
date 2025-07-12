@@ -45,7 +45,7 @@ export default function Services() {
           <div className="lg:sticky lg:top-24 h-fit global-padding space-y-6">
             <BulletHeadline as="p">Nos expertises</BulletHeadline>
 
-            <h2 className="text-4xl md:text-6xl max-w-xl">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl max-w-xl">
               <RevealText>
                 Développez tout le potentiel de votre activité.
               </RevealText>

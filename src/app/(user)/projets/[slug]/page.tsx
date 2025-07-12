@@ -1,18 +1,19 @@
 // Global
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 // Data
 import {
-  getProjectBySlug,
+  projectQuery,
   getServicesByIds,
   getReviewById,
   getAllProjectSlugs,
 } from "@/sanity/lib/queries";
 import type { Project } from "@/types/sanity";
 import { urlFor } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/live";
 
 // Components
 import Footer from "@/components/footer";
@@ -24,26 +25,39 @@ import { Header1 } from "@/components/ui/sections/header-1";
 import { RevealText } from "@/components/reveal-text";
 
 // Types mis à jour pour Next.js 15
-type Params = Promise<{ slug: string }>;
+type Props = {
+  params: Promise<{ slug: string }>;
+};
 
-export async function generateMetadata(props: {
-  params: Params;
-}): Promise<Metadata> {
-  // Await des params dans Next.js 15
+export async function generateMetadata(
+  props: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const params = await props.params;
-  const project = await getProjectBySlug(params.slug);
+  const { data: project } = await sanityFetch({
+    query: projectQuery,
+    params,
+    // Metadata should never contain stega
+    stega: false,
+  });
+  const previousImages = (await parent).openGraph?.images || [];
 
   if (!project) {
     return {
       title: "Projet non trouvé",
       description: "Le projet que vous recherchez n'existe pas.",
+      openGraph: {
+        images: project?.coverImage
+          ? [project?.coverImage, ...previousImages]
+          : previousImages,
+      },
     };
   }
 
   return {
     title: `${project.client} · Étude de cas Advisia`,
     description: project.contexte ? project.contexte : project.headline,
-  };
+  } satisfies Metadata;
 }
 
 // Fonction pour générer les chemins statiques
@@ -55,13 +69,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProjectDetailPage(props: { params: Params }) {
-  // Await des params dans Next.js 15
+export default async function projectPage(props: Props) {
   const params = await props.params;
-  const project: Project | null = await getProjectBySlug(params.slug);
+  const [{ data: project }] = await Promise.all([
+    sanityFetch({ query: projectQuery, params }),
+  ]);
 
-  if (!project) {
-    notFound();
+  if (!project?._id) {
+    return notFound();
   }
 
   // Récupération des données liées en parallèle
@@ -82,8 +97,10 @@ export default async function ProjectDetailPage(props: { params: Params }) {
               </Link>
             </Button>
             <div>
-              <p className="text-4xl md:text-6xl text-ad-1">{project.client}</p>
-              <h1 className="text-4xl md:text-6xl max-w-4xl">
+              <p className="text-2xl lg:text-4xl xl:text-6xl text-ad-1">
+                {project.client}
+              </p>
+              <h1 className="text-2xl lg:text-4xl xl:text-6xl max-w-4xl">
                 <RevealText>{project.headline}</RevealText>
               </h1>
               {services.length > 0 && (
@@ -105,9 +122,8 @@ export default async function ProjectDetailPage(props: { params: Params }) {
             {project.coverImage && (
               <Image
                 src={
-                  urlFor(project.coverImage).width(1920).url() ||
-                  "https://placehold.co/1280x720/png" ||
-                  "/placeholder.svg"
+                  urlFor(project.coverImage).width(1500).url() ||
+                  "https://placehold.co/1280x720/png"
                 }
                 alt={
                   project.coverImage.alt ||
@@ -132,7 +148,14 @@ export default async function ProjectDetailPage(props: { params: Params }) {
             dark={true}
             layout="imgLeft"
             description={project.contexte}
-            image={{ src: "/bg5.webp", alt: "placeholder" }}
+            image={{
+              src:
+                urlFor(project.contextImage).width(600).url() ||
+                "https://placehold.co/600x600/png",
+              alt:
+                project.contextImage.alt ||
+                `Image de couverture pour ${project.headline}`,
+            }}
           />
         )}
         {project.impact && (
@@ -141,7 +164,14 @@ export default async function ProjectDetailPage(props: { params: Params }) {
             dark={true}
             layout="imgRight"
             description={project.impact}
-            image={{ src: "/bg1.webp", alt: "placeholder" }}
+            image={{
+              src:
+                urlFor(project.impactImage).width(600).url() ||
+                "https://placehold.co/600x600/png",
+              alt:
+                project.impactImage.alt ||
+                `Image de couverture pour ${project.headline}`,
+            }}
           />
         )}
         {project.resultats && (
@@ -150,7 +180,14 @@ export default async function ProjectDetailPage(props: { params: Params }) {
             dark={true}
             layout="imgLeft"
             description={project.resultats}
-            image={{ src: "/bg2.webp", alt: "placeholder" }}
+            image={{
+              src:
+                urlFor(project.resultatsImage).width(600).url() ||
+                "https://placehold.co/600x600/png",
+              alt:
+                project.resultatsImage.alt ||
+                `Image de couverture pour ${project.headline}`,
+            }}
           />
         )}
       </div>

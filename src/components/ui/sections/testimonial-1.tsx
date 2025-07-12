@@ -40,7 +40,7 @@ export default function Testimonial1({
           </div>
           <div className="col-span-3 flex flex-col justify-between md:gap-32 p-4 md:p-6 lg:p-8 bg-background">
             <div>
-              <blockquote className="text-2xl md:text-4xl lg:text-5xl mb-4 md:mb-8">
+              <blockquote className="text-2xl md:text-4xl  mb-4 md:mb-8">
                 <RevealText>&ldquo;{testimonial.citation}&rdquo;</RevealText>
               </blockquote>
               <p className="text-lg md:text-2xl lg:text-3xl">

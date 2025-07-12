@@ -38,6 +38,61 @@ export type Review = {
   };
 };
 
+export const projectFields = `
+  _id,
+  _type,
+  _createdAt,
+  _updatedAt,
+  client,
+  slug,
+  coverImage{
+    asset->,
+    alt
+  },
+  logo{
+    asset->,
+    alt
+  },
+  headline,
+  contexte,
+  contextImage{
+    asset->,
+    alt
+  },
+  impact,
+  impactImage{
+    asset->,
+    alt
+  },
+  resultats,
+  resultatsImage{
+    asset->,
+    alt
+  },
+  kpis[]{
+    metric,
+    value,
+    description
+  },
+  date,
+  review->{
+    _id,
+    name,
+    company,
+    content,
+    rating
+  },
+  services[]->{
+    _id,
+    title,
+    slug
+  },
+  seo{
+    metaTitle,
+    metaDescription
+  }
+`;
+
 // Requête principale du projet (sans déréférencement)
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   const query = defineQuery(`
@@ -167,48 +222,14 @@ export async function getAllProjectSlugs(): Promise<string[]> {
   }
 }
 
-export const PROJECTS_QUERY =
-  defineQuery(`*[_type == "project" && defined(slug.current)][0...12]{
-  _id,
-  title,
-  slug,
-  headline,
-  client,
-  coverImage{
-    ...,
-    asset->
-  },
-}`);
-
-export const FEATURED_PROJECT_QUERY = defineQuery(`
-    *[_type == "settings"][0]{
-      featuredProject->{
-        _id,
-        title,
-        slug,
-        client,
-        coverImage{
-          ...,
-          asset->
-        },
-        logo{
-          ...,
-          asset->
-        },
-        alt,
-        headline,
-        publishedAt
-      }
-    }
+export const allProjectsQuery = defineQuery(`
+  *[_type == "project" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+    ${projectFields}
+  }
 `);
 
-export const LASTS_PROJECTS_QUERY = defineQuery(`
-    *[_type == "project" && defined(slug.current)] | order(publishedAt desc)[0..1]{
-      _id,
-      title,
-      slug,
-      coverImage {
-        ...,
-        asset->
-      },
-}`);
+export const projectQuery = defineQuery(`
+  *[_type == "project" && slug.current == $slug][0] {
+    ${projectFields}
+  }
+`);

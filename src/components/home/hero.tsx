@@ -63,7 +63,7 @@ export default function Hero() {
                 +20 clients accompagnés
               </p>
             </div>
-            <h1 className="text-4xl md:text-6xl xl:text-7xl mt-8 ">
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-8 ">
               <RevealText>
                 Créons des solutions digitales sur‑mesures pour votre{" "}
                 <span className="text-highlight">croissance</span>

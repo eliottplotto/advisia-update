@@ -1,7 +1,7 @@
-import EtudesDeCas from "@/components/etudes-de-cas";
 import Footer from "@/components/footer";
 import Agency from "@/components/home/agency";
 import Hero from "@/components/home/hero";
+import ProjectsSection from "@/components/home/projects";
 import Services from "@/components/home/services";
 import LogosConfiance from "@/components/logos-confiance";
 import PourquoiAdvisia from "@/components/pourquoi-advisia";
@@ -14,7 +14,7 @@ export default function Home() {
       <LogosConfiance />
       <Services />
       <Agency />
-      <EtudesDeCas />
+      <ProjectsSection />
       <PourquoiAdvisia />
       <SectionCTAForm />
       <Footer />

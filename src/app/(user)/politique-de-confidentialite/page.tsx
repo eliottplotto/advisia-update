@@ -1,7 +1,7 @@
 import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 
-export default function MentionsLegales() {
+export default function PolitiqueDeConfidentialite() {
   return (
     <main>
       <div className="dark bg-background text-foreground">
@@ -9,7 +9,7 @@ export default function MentionsLegales() {
           <article className="global-padding-x py-8 md:py-16 mx-auto">
             <section className="max-w-3xl mx-auto">
               <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-16">
-                Mentions légales
+                Politique de confidentialité
               </h1>
               <p className="text-muted-foreground">
                 Conformément aux dispositions de la loi n° 2004-575 du 21 juin

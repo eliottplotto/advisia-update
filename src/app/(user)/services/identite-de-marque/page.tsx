@@ -111,7 +111,7 @@ export default function IdentiteDeMarque() {
             <div className="py-8 lg:py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
-                <h1 className="text-4xl md:text-6xl xl:text-7xl max-w-4xl">
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl max-w-4xl">
                   <RevealText>Identité de marque</RevealText>
                 </h1>
 

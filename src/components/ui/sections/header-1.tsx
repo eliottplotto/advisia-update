@@ -48,7 +48,7 @@ export const Header1 = (props: Header1Props) => {
           <div
             className={`space-y-6 order-1 ${layout === "imgLeft" ? "" : "lg:order-0"}`}
           >
-            <h2 className="text-4xl md:text-6xl">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl">
               <RevealText>{heading}</RevealText>
             </h2>
             <p className="md:text-md">{description}</p>

@@ -20,7 +20,7 @@ export default function Steps1({ title, subtitle, steps }: ProcessProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16">
           {/* Left Column - Title & Subtitle */}
           <div className="global-padding lg:sticky lg:top-24 lg:self-start">
-            <h2 className="text-4xl md:text-6xl">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl">
               <RevealText>{title}</RevealText>
             </h2>
             {subtitle && (

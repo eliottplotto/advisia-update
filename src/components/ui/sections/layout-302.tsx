@@ -71,7 +71,7 @@ export const Layout302 = (props: Layout302Props) => {
     >
       <div className="container-md global-padding-x">
         <div className="text-center mb-8 lg:mb-16">
-          <h2 className="text-4xl md:text-6xl max-w-4xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl mx-auto">
             <RevealText>{heading}</RevealText>
           </h2>
           {subheading && (

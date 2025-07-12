@@ -61,7 +61,7 @@ export default function SectionContactForm({
               ))}
             </div>
 
-            <Tag className="text-4xl md:text-6xl" {...props}>
+            <Tag className="text-4xl lg:text-5xl xl:text-6xl" {...props}>
               <RevealText>{title || defaultTitle}</RevealText>
             </Tag>
 

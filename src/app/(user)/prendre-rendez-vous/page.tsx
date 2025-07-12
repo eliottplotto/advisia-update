@@ -86,7 +86,7 @@ export default function PrendreRendezVous() {
                   Nous sommes à votre écoute
                 </p>
               </div>
-              <h1 className="text-4xl md:text-6xl xl:text-7xl text-center">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-center">
                 Prenons 20 min. pour{" "}
                 <span className="text-highlight">faire le point</span>
               </h1>

@@ -41,7 +41,7 @@ export default function FAQ({
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 lg:mb-32">
             {/* Left Column - Heading */}
             <div className="lg:sticky lg:top-16 lg:self-start">
-              <h2 className="text-4xl md:text-6xl mb-4">{title}</h2>
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl mb-4">{title}</h2>
             </div>
 
             {/* Right Column - Questions */}

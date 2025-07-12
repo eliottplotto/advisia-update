@@ -41,7 +41,7 @@ export default function FAQCenter({
         <div className="global-padding-x py-8 lg:py-16">
           <div className="flex flex-col items-center gap-8 lg:gap-16">
             <div className="max-w-3xl text-center">
-              <h2 className="text-4xl md:text-6xl">
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl">
                 <RevealText>{title}</RevealText>
               </h2>
             </div>

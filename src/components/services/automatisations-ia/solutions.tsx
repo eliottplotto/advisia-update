@@ -10,7 +10,7 @@ export default function Solutions() {
         <div className="global-padding-x py-8 lg:py-16 space-y-8">
           <div className="flex flex-col gap-6 justify-center items-center text-center">
             <BulletHeadline as="p">Nos solutions</BulletHeadline>
-            <h2 className="text-4xl md:text-6xl max-w-4xl">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl">
               <RevealText>
                 Intégrer et <span className="text-highlight">tirer profit</span>{" "}
                 de l&apos;IA dans votre organisation

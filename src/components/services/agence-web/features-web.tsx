@@ -58,7 +58,7 @@ export default function FeaturesWeb() {
     <section className="dark text-foreground bg-secondary">
       <div className="container-md global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
         <div className="space-y-6 flex flex-col items-center text-center">
-          <h2 className="text-4xl md:text-6xl max-w-4xl">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl">
             <RevealText>
               Transformez votre site en un véritable{" "}
               <span className="text-highlight">levier de croissance</span>
