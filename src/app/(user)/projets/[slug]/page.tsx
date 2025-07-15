@@ -11,7 +11,6 @@ import {
   getReviewById,
   getAllProjectSlugs,
 } from "@/sanity/lib/queries";
-import type { Project } from "@/types/sanity";
 import { urlFor } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
 

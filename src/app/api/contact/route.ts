@@ -19,7 +19,9 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         sender: { name: "Mon site", email: "hello@advisia.agency" },
-        to: [{ email: "hello@advisia.agency", name: `${firstName} ${lastName}` }],
+        to: [
+          { email: "hello@advisia.agency", name: `${firstName} ${lastName}` },
+        ],
         replyTo: { email },
         subject: `Nouveau message depuis advisia.agency`,
         htmlContent: `

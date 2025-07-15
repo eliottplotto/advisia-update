@@ -1,7 +1,8 @@
 "use client";
 
 import type React from "react";
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -31,7 +32,6 @@ interface FormErrors {
 }
 
 export default function ContactForm() {
-  const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -39,15 +39,11 @@ export default function ContactForm() {
     email: "",
     message: "",
   });
+
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-
-  // Éviter les problèmes d'hydratation
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -104,22 +100,14 @@ export default function ContactForm() {
     }
   };
 
-  const focusFirstErrorField = () => {
-    // Utiliser setTimeout pour s'assurer que les erreurs sont mises à jour
-    setTimeout(() => {
-      const firstErrorField = Object.keys(errors)[0];
-      if (firstErrorField && mounted) {
-        const element = document.getElementById(firstErrorField);
-        element?.focus();
-      }
-    }, 0);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
-      focusFirstErrorField();
+      // Focus sur le premier champ avec erreur
+      const firstErrorField = Object.keys(errors)[0];
+      const element = document.getElementById(firstErrorField);
+      element?.focus();
       return;
     }
 
@@ -133,9 +121,7 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
-      if (!res.ok) {
-        throw new Error("Erreur lors de l'envoi");
-      }
+      if (!res.ok) throw new Error("Erreur lors de l'envoi");
 
       setIsSubmitted(true);
       setFormData({
@@ -145,33 +131,14 @@ export default function ContactForm() {
         email: "",
         message: "",
       });
-    } catch (error) {
+    } catch {
       setSubmitError(
-        "Une erreur est survenue lors de l'envoi. Veuillez réessayer."
+        "Une erreur est survenue lors de l&apos;envoi. Veuillez réessayer."
       );
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  // Éviter le rendu jusqu'à ce que le composant soit monté côté client
-  if (!mounted) {
-    return (
-      <div className="space-y-6">
-        <div className="animate-pulse">
-          <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <div className="h-10 bg-gray-200 rounded"></div>
-            <div className="h-10 bg-gray-200 rounded"></div>
-          </div>
-          <div className="h-10 bg-gray-200 rounded mb-4"></div>
-          <div className="h-10 bg-gray-200 rounded mb-4"></div>
-          <div className="h-24 bg-gray-200 rounded mb-4"></div>
-          <div className="h-10 bg-gray-200 rounded w-32"></div>
-        </div>
-      </div>
-    );
-  }
 
   if (isSubmitted) {
     return (
@@ -199,7 +166,6 @@ export default function ContactForm() {
       <p id="submit-help" className="text-sm text-muted-foreground">
         Tous les champs sont obligatoires.
       </p>
-
       {/* Prénom et Nom */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">

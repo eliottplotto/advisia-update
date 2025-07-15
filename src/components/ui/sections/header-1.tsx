@@ -77,7 +77,7 @@ export const Header1 = (props: Header1Props) => {
           >
             <img
               src={image.src}
-              className="w-full object-cover rounded-sm overflow-hidden max-w-xl"
+              className="w-full object-cover rounded-sm overflow-hidden"
               alt={image.alt}
             />
             {legend && (
