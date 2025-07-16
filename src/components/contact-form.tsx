@@ -149,6 +149,7 @@ export default function ContactForm() {
       setSubmitError(
         "Une erreur est survenue lors de l'envoi. Veuillez réessayer."
       );
+      console.log(error);
     } finally {
       setIsSubmitting(false);
     }

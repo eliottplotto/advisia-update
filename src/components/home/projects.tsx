@@ -25,7 +25,7 @@ export default function ProjectsSection() {
 
           <Button size={"lg"} asChild className="flex w-max mx-auto">
             <Link href="/contact">
-              J'estime mon projet <RiCornerDownRightLine />
+              J&apos;estime mon projet <RiCornerDownRightLine />
             </Link>
           </Button>
         </div>
