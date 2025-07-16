@@ -1,6 +1,12 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 import createImageUrlBuilder from "@sanity/image-url";
 import { dataset, projectId, studioUrl } from "@/sanity/lib/api";
-import { createDataAttribute, CreateDataAttributeProps } from "next-sanity";
+import {
+  createDataAttribute,
+  type CreateDataAttributeProps,
+} from "next-sanity";
 import { getImageDimensions } from "@sanity/asset-utils";
 
 const imageBuilder = createImageUrlBuilder({
@@ -8,7 +14,26 @@ const imageBuilder = createImageUrlBuilder({
   dataset: dataset || "",
 });
 
-export const urlForImage = (source: any) => {
+// Types pour les objets image Sanity
+interface SanityAsset {
+  _ref: string;
+  _type: string;
+}
+
+interface SanityCrop {
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+}
+
+interface SanityImageSource {
+  asset?: SanityAsset;
+  crop?: SanityCrop;
+  alt?: string;
+}
+
+export const urlForImage = (source: SanityImageSource) => {
   // Ensure that source image contains a valid reference
   if (!source?.asset?._ref) {
     return undefined;
@@ -20,10 +45,9 @@ export const urlForImage = (source: any) => {
   // get the image's og dimensions
   const { width, height } = getImageDimensions(imageRef);
 
-  if (Boolean(crop)) {
+  if (crop) {
     // compute the cropped image's area
     const croppedWidth = Math.floor(width * (1 - (crop.right + crop.left)));
-
     const croppedHeight = Math.floor(height * (1 - (crop.top + crop.bottom)));
 
     // compute the cropped image's position
@@ -40,18 +64,32 @@ export const urlForImage = (source: any) => {
   return imageBuilder?.image(source).auto("format");
 };
 
-export function resolveOpenGraphImage(image: any, width = 1200, height = 627) {
+export function resolveOpenGraphImage(
+  image: SanityImageSource,
+  width = 1200,
+  height = 627
+) {
   if (!image) return;
+
   const url = urlForImage(image)?.width(1200).height(627).fit("crop").url();
   if (!url) return;
-  return { url, alt: image?.alt as string, width, height };
+
+  return {
+    url,
+    alt: image?.alt || "",
+    width,
+    height,
+  };
 }
 
-/* Depending on the type of link, we need to fetch the corresponding page, post, or URL.  Otherwise return null.
+/* Depending on the type of link, we need to fetch the corresponding page, post, or URL.
+   Otherwise return null.
 export function linkResolver(link: Link | undefined) {
   if (!link) return null;
 
-  // If linkType is not set but href is, lets set linkType to "href".  This comes into play when pasting links into the portable text editor because a link type is not assumed.
+  // If linkType is not set but href is, lets set linkType to "href". 
+  // This comes into play when pasting links into the portable text editor 
+  // because a link type is not assumed.
   if (!link.linkType && link.href) {
     link.linkType = "href";
   }
@@ -81,4 +119,7 @@ export function dataAttr(config: DataAttributeConfig) {
     dataset,
     baseUrl: studioUrl,
   }).combine(config);
+}
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
