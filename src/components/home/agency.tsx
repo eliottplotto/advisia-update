@@ -87,7 +87,10 @@ export default function Agency() {
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 space-y-2 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] items-center gap-8 lg:gap-2">
-            <h3 className="text-center lg:text-left text-2xl md:text-4xl lg:mr-24 lg:py-8">
+            <h3 className="relative text-center lg:text-left text-2xl md:text-4xl lg:mr-24 lg:py-8">
+              <span className="inline-block text-8xl lg:text-[16rem] absolute z-0 -left-8 -top-14 text-ad-1">
+                &ldquo;
+              </span>
               <RevealText>
                 Nous voulons rendre accessibles les bénéfices de l’IA et du
                 digital, quel que soit votre secteur ou votre niveau de maturité
