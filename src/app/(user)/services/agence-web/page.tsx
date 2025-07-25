@@ -1,10 +1,10 @@
 import React from "react";
 import Footer from "@/components/footer";
 import {
-  RiSearch2Fill,
-  RiGitBranchFill,
   RiLineChartFill,
   RiCornerDownRightLine,
+  RiCompass3Fill,
+  RiPaletteFill,
 } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -23,13 +23,13 @@ export default function SiteWeb() {
       title: "Stratégie & architecture",
       subtitle:
         "On définit ensemble les objectifs, les cibles, et l’arborescence idéale pour que votre site réponde à vos enjeux business.",
-      icon: RiSearch2Fill,
+      icon: RiCompass3Fill,
     },
     {
       title: "Design",
       subtitle:
         "On conçoit une interface claire, esthétique et centrée sur vos utilisateurs pour offrir une expérience fluide et engageante.",
-      icon: RiGitBranchFill,
+      icon: RiPaletteFill,
     },
     {
       title: "Développement",
@@ -111,7 +111,7 @@ export default function SiteWeb() {
             <div className="py-8 lg:py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl max-w-3xl">
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-3xl">
                   <RevealText>
                     L&apos;agence web de{" "}
                     <span className="text-highlight">confiance</span> pour la
@@ -151,7 +151,7 @@ export default function SiteWeb() {
         <FeaturesWeb />
 
         <Steps1
-          title="Les étapes pour lancer votre site web"
+          title="Les étapes pour lancer votre site"
           steps={processSteps}
         />
 

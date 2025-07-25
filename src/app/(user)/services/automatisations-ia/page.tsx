@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Footer from "@/components/footer";
 import { Layout302 } from "@/components/ui/sections/layout-302";
 import {
@@ -91,12 +92,12 @@ export default function AutomatisationsIA() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-foreground">
+        <section className="dark bg-background text-foreground w-full overflow-hidden">
           <div className="container-md pt-[95px]">
-            <div className="py-8 lg:py-16 flex justify-start items-end">
-              <div className="global-padding flex flex-col justify-end gap-6">
+            <div className="py-8 lg:py-16 flex justify-start items-center gap-48">
+              <div className="global-padding flex flex-col justify-end gap-6 w-max">
                 <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl max-w-4xl">
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl w-max">
                   <RevealText>
                     Prenez une longueur d&apos;avance grâce à l&apos;IA
                   </RevealText>
@@ -128,6 +129,12 @@ export default function AutomatisationsIA() {
                   </div>
                 </div>
               </div>
+              <Image
+                src={"/services/ia-automatisations/illu-ia.svg"}
+                alt={"Illustration de nos services"}
+                width={799}
+                height={329}
+              />
             </div>
           </div>
         </section>
