@@ -9,10 +9,11 @@ import {
   RiMegaphoneFill,
   RiTeamFill,
   RiShoppingCartFill,
-  RiSearch2Fill,
-  RiGitBranchFill,
-  RiLineChartFill,
   RiCornerDownRightLine,
+  RiSearchEyeFill,
+  RiRobot3Fill,
+  RiPlugFill,
+  RiHandHeartFill,
 } from "@remixicon/react";
 import Solutions from "@/components/services/automatisations-ia/solutions";
 import { Header1 } from "@/components/ui/sections/header-1";
@@ -24,32 +25,33 @@ import Steps1 from "@/components/ui/sections/steps-1";
 import LogosConfiance from "@/components/logos-confiance";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import { RevealText } from "@/components/reveal-text";
+import { LeaderSecteur } from "@/components/services/automatisations-ia/leader-secteur";
 
 export default function AutomatisationsIA() {
   const processSteps = [
     {
-      title: "Cartographie des process et des irritants",
+      title: "Analyse et audit",
       subtitle:
         "On analyse vos flux existants pour repérer les tâches chronophages, sources d’erreurs ou à faible valeur.",
-      icon: RiSearch2Fill,
+      icon: RiSearchEyeFill,
     },
     {
       title: "Développement de l’agent ou des automatisations",
       subtitle:
         "On conçoit une solution sur mesure (agent IA ou automatisation) alignée avec vos objectifs métiers.",
-      icon: RiGitBranchFill,
+      icon: RiRobot3Fill,
     },
     {
       title: "Intégration aux outils métiers (CRM, agenda, mail...)",
       subtitle:
         "Votre nouveau système s’interface directement avec votre stack sans perturber votre organisation.",
-      icon: RiLineChartFill,
+      icon: RiPlugFill,
     },
     {
       title: "Formation pour garantir l’autonomie",
       subtitle:
         "On forme vos équipes à l’utilisation, la gestion et l’évolution des outils pour rester autonome dans le temps.",
-      icon: RiLineChartFill,
+      icon: RiHandHeartFill,
     },
   ];
 
@@ -94,10 +96,10 @@ export default function AutomatisationsIA() {
       <main>
         <section className="dark bg-background text-foreground w-full overflow-hidden">
           <div className="container-md pt-[95px]">
-            <div className="py-8 lg:py-16 flex justify-start items-center gap-48">
-              <div className="global-padding flex flex-col justify-end gap-6 w-max">
+            <div className="py-8 lg:py-16 flex flex-col lg:flex-row justify-start items-center gap-x-[8%] gap-y-16">
+              <div className="global-padding flex flex-col justify-end gap-6 w-full grow-0">
                 <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl w-max">
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl lg:w-max">
                   <RevealText>
                     Prenez une longueur d&apos;avance grâce à l&apos;IA
                   </RevealText>
@@ -134,47 +136,51 @@ export default function AutomatisationsIA() {
                 alt={"Illustration de nos services"}
                 width={799}
                 height={329}
+                className="global-padding"
               />
             </div>
           </div>
         </section>
         <LogosConfiance />
-        <Layout302
+        <LeaderSecteur
           heading="Devenez le leader de votre secteur"
           subheading="Nos agents intelligents s'adaptent à vos enjeux métiers pour optimiser vos opérations, personnaliser l'expérience client et libérer du temps."
           sections={[
             {
-              icon: <RiCustomerService2Fill size={32} />,
+              image:
+                "/services/ia-automatisations/secteur-service-client-support.jpg",
               heading: "Service client & Support",
               description:
                 "Agents conversationnels, assistants vocaux, ticketing automatisé, tri des demandes, réponses contextualisées.",
             },
             {
-              icon: <RiShoppingCartFill size={32} />,
+              image: "/services/ia-automatisations/secteur-ecommerce.jpg",
               heading: "E-commerce & Retail",
               description:
                 "Recommandations produits, assistants d'achat, gestion des stocks, relances paniers abandonnés, chatbots de prévente.",
             },
             {
-              icon: <RiHome9Fill size={32} />,
+              image: "/services/ia-automatisations/secteur-immobilier.jpg",
               heading: "Immobilier",
               description:
                 "Agents conversationnels, qualification des leads, matching acheteurs-biens, suivi de dossiers automatisé.",
             },
             {
-              icon: <RiBankFill size={32} />,
+              image:
+                "/services/ia-automatisations/secteur-banques-assurances.jpg",
               heading: "Banque / Assurance",
               description:
                 "Assistants virtuels pour la gestion de compte, simulation de crédit, détection de fraude, automatisation des tâches administratives.",
             },
             {
-              icon: <RiMegaphoneFill size={32} />,
+              image: "/services/ia-automatisations/secteur-communication.jpg",
               heading: "Communication",
               description:
                 "Génération de contenu, segmentation automatique, agents de réponse en temps réel, campagnes multi-canaux automatisées.",
             },
             {
-              icon: <RiTeamFill size={32} />,
+              image:
+                "/services/ia-automatisations/secteur-ressources-humaines.jpg",
               heading: "Ressources Humaines",
               description:
                 "Tri automatisé de CV, agents de préqualification, onboarding digitalisé, assistants RH internes.",

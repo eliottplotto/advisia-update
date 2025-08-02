@@ -4,6 +4,7 @@ import Hero from "@/components/home/hero";
 import ProjectsSection from "@/components/home/projects";
 import Services from "@/components/home/services";
 import LogosConfiance from "@/components/logos-confiance";
+import NosOutils from "@/components/nos-outils";
 import PourquoiAdvisia from "@/components/pourquoi-advisia";
 import SectionCTAForm from "@/components/section-cta-form";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Agency />
       <ProjectsSection />
       <PourquoiAdvisia />
+      <NosOutils />
       <SectionCTAForm />
       <Footer />
     </main>

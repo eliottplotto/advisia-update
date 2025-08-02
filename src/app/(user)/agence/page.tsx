@@ -1,4 +1,7 @@
 import Footer from "@/components/footer";
+import NosOutils from "@/components/nos-outils";
+import PourquoiAdvisia from "@/components/pourquoi-advisia";
+import SectionCTASmall from "@/components/section-cta-small";
 import { Header1 } from "@/components/ui/sections/header-1";
 
 export default function Agence() {
@@ -14,6 +17,9 @@ export default function Agence() {
             image={{ src: "/equipe-advisia-2.jpg", alt: "Équipe Advisia" }}
           />
         </div>
+        <PourquoiAdvisia />
+        <NosOutils />
+        <SectionCTASmall />
       </main>
       <Footer />
     </>

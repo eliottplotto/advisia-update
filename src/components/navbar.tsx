@@ -250,7 +250,7 @@ export default function Navbar() {
                 >
                   <p className="text-4xl relative w-max">
                     {link.label}
-                    <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-current transition-all duration-300 ease-out group-hover:w-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-0 h-[3px] bg-current transition-all duration-500 ease-out group-hover:w-full"></span>
                   </p>
                 </Link>
               </li>

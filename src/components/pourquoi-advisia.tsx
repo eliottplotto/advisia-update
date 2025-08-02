@@ -5,6 +5,7 @@ import {
   RiShieldStarFill,
 } from "@remixicon/react";
 import { RevealText } from "./reveal-text";
+import LogosToolsSlider from "./logos-tools-slider";
 
 export default function PourquoiAdvisia() {
   return (
@@ -19,29 +20,6 @@ export default function PourquoiAdvisia() {
               PME, commerçants, artisans, startups ou groupes établis : chaque
               projet mérite efficacité, clarté et impact.
             </p>
-            <ul className="flex gap-12 items-center justify-center wrap">
-              <li>
-                <img
-                  src="/logos-slider/shopify_monotone_black.svg"
-                  alt="Logo Shopify"
-                  className="h-8"
-                />
-              </li>
-              <li>
-                <img
-                  src="/logos-slider/webflow_full_logo_blue_black.svg"
-                  alt="Logo Webflow"
-                  className="h-6"
-                />
-              </li>
-              <li>
-                <img
-                  src="/logos-slider/logo-n8n.svg"
-                  alt="Logo n8n"
-                  className="h-8"
-                />
-              </li>
-            </ul>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">

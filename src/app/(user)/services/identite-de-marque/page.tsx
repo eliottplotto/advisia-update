@@ -16,6 +16,7 @@ import ServicesWeb from "@/components/services/agence-web/services-web";
 import FeaturesWeb from "@/components/services/agence-web/features-web";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import { RevealText } from "@/components/reveal-text";
+import { Header1 } from "@/components/ui/sections/header-1";
 
 export default function IdentiteDeMarque() {
   const processSteps = [
@@ -111,7 +112,7 @@ export default function IdentiteDeMarque() {
             <div className="py-8 lg:py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl max-w-4xl">
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl">
                   <RevealText>Identité de marque</RevealText>
                 </h1>
 
@@ -143,29 +144,21 @@ export default function IdentiteDeMarque() {
         </section>
         <LogosConfiance />
 
-        <ServicesWeb />
-        <FeaturesWeb />
-
-        <Steps1
-          title="Les étapes pour lancer votre site web"
-          steps={processSteps}
-        />
-
-        {/* <Header1
-          heading="Designer UX et Développeur Web"
+        <Header1
+          heading="Advisia, votre partenaire digital de confiance"
           dark={false}
           layout="imgLeft"
-          description="Avec des expériences concrètes d'e-merchandising, d'e-commerce et la maîtrise d'agents IA et de workflows intelligents, Eliott crée des systèmes qui fluidifient les opérations et génèrent de vrais gains en termes de couts, de performance et de temps."
-          buttons={[{ title: "Planifier un appel" }]}
-          image={{
-            src: "/services/agence-web/enzo-ferrer.webp",
-            alt: "Enzo Ferrer",
-          }}
-          legend={{
-            title: "Enzo Ferrer",
-            subtitle: "Designer UX et Développeur Web",
-          }}
-        /> */}
+          description="Nous sommes une équipe passionnée de créatifs et de développeurs, dédiée à transformer vos idées en solutions digitales exceptionnelles."
+          image={{ src: "/equipe-advisia-2.jpg", alt: "Équipe Advisia" }}
+        />
+
+        <Header1
+          heading="Advisia, votre partenaire digital de confiance"
+          dark={true}
+          layout="imgRight"
+          description="Nous sommes une équipe passionnée de créatifs et de développeurs, dédiée à transformer vos idées en solutions digitales exceptionnelles."
+          image={{ src: "/equipe-advisia-2.jpg", alt: "Équipe Advisia" }}
+        />
 
         <FAQCenter title={"On répond à vos questions"} questions={questions} />
         <SectionCTAForm

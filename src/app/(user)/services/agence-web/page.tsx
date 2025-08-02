@@ -1,10 +1,12 @@
 import React from "react";
 import Footer from "@/components/footer";
 import {
-  RiLineChartFill,
   RiCornerDownRightLine,
   RiCompass3Fill,
   RiPaletteFill,
+  RiHandHeartFill,
+  RiCodeBoxFill,
+  RiUploadCloudFill,
 } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -35,19 +37,19 @@ export default function SiteWeb() {
       title: "Développement",
       subtitle:
         "Le site est développé sur-mesure avec des technologies modernes, pour des performances optimales et une base solide.",
-      icon: RiLineChartFill,
+      icon: RiCodeBoxFill,
     },
     {
       title: "Formation",
       subtitle:
         "Vous êtes formé·e à la gestion du site pour être autonome : modifier vos contenus, ajouter des pages, etc.",
-      icon: RiLineChartFill,
+      icon: RiHandHeartFill,
     },
     {
       title: "Mise en ligne",
       subtitle:
         "Une fois validé, le site est mis en ligne, testé, sécurisé, et prêt à performer dès les premiers jours.",
-      icon: RiLineChartFill,
+      icon: RiUploadCloudFill,
     },
   ];
 

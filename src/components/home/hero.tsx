@@ -139,8 +139,8 @@ export default function Hero() {
 
               <div className="relative w-24 xl:w-32 2xl:w-44 aspect-square">
                 <Image
-                  src={"/placeholder-2.jpg"}
-                  alt={"placeholder"}
+                  src={"/home/hero-card-3.webp"}
+                  alt={"Service de Marketing Digital"}
                   fill
                   className="object-cover rounded-xs"
                   draggable="false"
