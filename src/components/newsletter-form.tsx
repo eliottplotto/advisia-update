@@ -70,9 +70,7 @@ export function NewsletterForm({
   return (
     <div className={className}>
       <div className="mb-6">
-        <h2 className="text-lg font-semibold flex items-center gap-2 mb-2">
-          {title}
-        </h2>
+        <h2 className="text-xl lg:text-2xl mb-3">{title}</h2>
         <p className="text-muted-foreground">{description}</p>
       </div>
 

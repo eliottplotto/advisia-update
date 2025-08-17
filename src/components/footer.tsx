@@ -16,8 +16,8 @@ export default function Footer() {
         <div className="container-md grid grid-col-1 lg:grid-cols-2">
           <div className="global-padding">
             <NewsletterForm
-              title="Rejoignez notre communauté"
-              description="Recevez nos conseils hebdomadaires"
+              title="Advisia Insights"
+              description="Recevez chaque semaine les clés du digital pour faire grandir votre entreprise"
               className="max-w-md"
             />
           </div>
