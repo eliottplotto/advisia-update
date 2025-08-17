@@ -1,5 +1,5 @@
 import ContactForm from "./contact-form";
-import { RiPhoneFill } from "@remixicon/react";
+import { RiCheckFill, RiPhoneFill } from "@remixicon/react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import type { ElementType, ReactNode } from "react";
@@ -44,7 +44,7 @@ export default function SectionContactForm({
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 grid lg:grid-cols-2 gap-x-16 gap-y-8">
           <div className="space-y-6">
-            <div className="bg-secondary py-1 px-2 mb-0 flex items-center gap-2 w-fit rounded-sm">
+            <div className="bg-background border py-1 px-2 mb-0 flex items-center gap-2 w-fit rounded-xs">
               <div className="w-2 h-2 bg-ad-1 rounded-xs"></div>
               <p className="text-sm font-mono uppercase">
                 Nous sommes à votre écoute
@@ -70,6 +70,26 @@ export default function SectionContactForm({
               formulaire ci-contre. Notre équipe commerciale reviendra vers vous
               rapidement.
             </p>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2">
+                <div className="bg-secondary p-1 rounded-xs">
+                  <RiCheckFill className="text-ad-1" size={20} />
+                </div>
+                Consultation sur-mesure
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="bg-secondary p-1 rounded-xs">
+                  <RiCheckFill className="text-ad-1" size={20} />
+                </div>
+                Estimation gratuite sous 48h
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="bg-secondary p-1 rounded-xs">
+                  <RiCheckFill className="text-ad-1" size={20} />
+                </div>
+                Sans engagement
+              </li>
+            </ul>
             <div className="lg:hidden space-y-6">
               <Button
                 variant={"secondary"}
@@ -93,11 +113,6 @@ export default function SectionContactForm({
                 </Link>
               </Button>
             </div>
-            <ul className="hidden lg:flex gap-4">
-              <li className="w-16 h-16 border rounded-full"></li>
-              <li className="w-16 h-16 border rounded-full"></li>
-              <li className="w-16 h-16 border rounded-full"></li>
-            </ul>
           </div>
 
           <ContactForm />

@@ -7,6 +7,7 @@ import {
   RiLinkedinFill,
   RiSparklingFill,
 } from "@remixicon/react";
+import { NewsletterForm } from "./newsletter-form";
 
 export default function Footer() {
   return (
@@ -14,9 +15,13 @@ export default function Footer() {
       <section className="dark text-foreground bg-secondary border-t">
         <div className="container-md grid grid-col-1 lg:grid-cols-2">
           <div className="global-padding">
-            <h2 className="text-4xl">Newsletter</h2>
-            <p className="text-muted-foreground mb-4">Bientôt disponible.</p>
+            <NewsletterForm
+              title="Rejoignez notre communauté"
+              description="Recevez nos conseils hebdomadaires"
+              className="max-w-md"
+            />
           </div>
+
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-x-4 gap-y-8 global-padding border-t border-px lg:border-0">
             <div>
               <h2 className="font-mono text-muted-foreground text-sm uppercase mb-4">
