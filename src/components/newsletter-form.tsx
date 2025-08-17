@@ -70,7 +70,7 @@ export function NewsletterForm({
   return (
     <div className={className}>
       <div className="mb-6">
-        <h2 className="text-xl lg:text-2xl mb-3">{title}</h2>
+        <h2 className="text-2xl md:text-4xl mb-3">{title}</h2>
         <p className="text-muted-foreground">{description}</p>
       </div>
 
@@ -109,7 +109,7 @@ export function NewsletterForm({
           />
         </div>
 
-        <Button type="submit" className="w-full" disabled={isLoading}>
+        <Button type="submit" size="lg" disabled={isLoading}>
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
