@@ -61,6 +61,7 @@ export function NewsletterForm({
       toast.error(
         "Impossible de vous inscrire pour le moment. Veuillez réessayer."
       );
+      console.log(error);
     } finally {
       setIsLoading(false);
     }

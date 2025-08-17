@@ -1,11 +1,6 @@
 import React from "react";
 import Footer from "@/components/footer";
-import {
-  RiArrowRightFill,
-  RiSearch2Fill,
-  RiGitBranchFill,
-  RiLineChartFill,
-} from "@remixicon/react";
+import { RiArrowRightFill } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";

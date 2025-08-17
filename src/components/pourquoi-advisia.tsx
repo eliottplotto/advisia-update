@@ -5,7 +5,6 @@ import {
   RiShieldStarFill,
 } from "@remixicon/react";
 import { RevealText } from "./reveal-text";
-import LogosToolsSlider from "./logos-tools-slider";
 
 export default function PourquoiAdvisia() {
   return (
