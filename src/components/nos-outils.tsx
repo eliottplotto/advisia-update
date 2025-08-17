@@ -1,5 +1,4 @@
 import LogosToolsSlider from "./logos-tools-slider";
-import { BulletHeadline } from "./ui/bullet-headline";
 export default function NosOutils() {
   return (
     <section className="bg-background border-t select-none">

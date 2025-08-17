@@ -1,14 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Footer from "@/components/footer";
-import { Layout302 } from "@/components/ui/sections/layout-302";
 import {
-  RiCustomerService2Fill,
-  RiHome9Fill,
-  RiBankFill,
-  RiMegaphoneFill,
-  RiTeamFill,
-  RiShoppingCartFill,
   RiCornerDownRightLine,
   RiSearchEyeFill,
   RiRobot3Fill,

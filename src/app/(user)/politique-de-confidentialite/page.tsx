@@ -103,8 +103,8 @@ export default function PolitiqueDeConfidentialite() {
               </ul>
               <p className="text-muted-foreground">
                 Vous pouvez gérer vos préférences de cookies directement via
-                votre navigateur ou à l'ouverture du site, grâce à la bannière
-                de consentement.
+                votre navigateur ou à l&apos;ouverture du site, grâce à la
+                bannière de consentement.
               </p>
 
               <h2 className="text-xl mb-4 mt-8">6. Droits de l’utilisateur</h2>

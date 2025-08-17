@@ -10,48 +10,12 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
-import Steps1 from "@/components/ui/sections/steps-1";
 import LogosConfiance from "@/components/logos-confiance";
-import ServicesWeb from "@/components/services/agence-web/services-web";
-import FeaturesWeb from "@/components/services/agence-web/features-web";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import { RevealText } from "@/components/reveal-text";
 import { Header1 } from "@/components/ui/sections/header-1";
 
 export default function IdentiteDeMarque() {
-  const processSteps = [
-    {
-      title: "Stratégie & architecture",
-      subtitle:
-        "On définit ensemble les objectifs, les cibles, et l’arborescence idéale pour que votre site réponde à vos enjeux business.",
-      icon: RiSearch2Fill,
-    },
-    {
-      title: "Design",
-      subtitle:
-        "On conçoit une interface claire, esthétique et centrée sur vos utilisateurs pour offrir une expérience fluide et engageante.",
-      icon: RiGitBranchFill,
-    },
-    {
-      title: "Développement",
-      subtitle:
-        "Le site est développé sur-mesure avec des technologies modernes, pour des performances optimales et une base solide.",
-      icon: RiLineChartFill,
-    },
-    {
-      title: "Formation",
-      subtitle:
-        "Vous êtes formé·e à la gestion du site pour être autonome : modifier vos contenus, ajouter des pages, etc.",
-      icon: RiLineChartFill,
-    },
-    {
-      title: "Mise en ligne",
-      subtitle:
-        "Une fois validé, le site est mis en ligne, testé, sécurisé, et prêt à performer dès les premiers jours.",
-      icon: RiLineChartFill,
-    },
-  ];
-
   const questions = [
     {
       id: "q1",
