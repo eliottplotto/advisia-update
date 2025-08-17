@@ -7,19 +7,6 @@ const BREVO_LIST_ID = process.env.BREVO_LIST_ID || "4";
 export async function POST(request: NextRequest) {
   try {
     console.log("[v0] BREVO_API_KEY exists:", !!BREVO_API_KEY);
-    console.log(
-      "[v0] BREVO_API_KEY first 20 chars:",
-      BREVO_API_KEY?.substring(0, 20) + "..."
-    );
-    console.log("[v0] BREVO_LIST_ID:", BREVO_LIST_ID);
-
-    console.log("[v0] Raw BREVO_API_KEY:", JSON.stringify(BREVO_API_KEY));
-    console.log("[v0] Raw BREVO_LIST_ID:", JSON.stringify(BREVO_LIST_ID));
-    console.log("[v0] BREVO_API_KEY length:", BREVO_API_KEY?.length);
-    console.log(
-      "[v0] BREVO_API_KEY starts with 'xkeysib':",
-      BREVO_API_KEY?.startsWith("xkeysib")
-    );
 
     if (!BREVO_API_KEY) {
       return NextResponse.json(
@@ -82,7 +69,7 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         email: email.toLowerCase().trim(),
         attributes: {
-          FIRSTNAME: firstName.trim(),
+          PRENOM: firstName.trim(),
         },
         listIds: [Number.parseInt(BREVO_LIST_ID)],
         updateEnabled: true, // Met à jour le contact s'il existe déjà

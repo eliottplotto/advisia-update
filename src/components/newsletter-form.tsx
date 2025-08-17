@@ -116,7 +116,7 @@ export function NewsletterForm({
               Inscription en cours...
             </>
           ) : (
-            "S'inscrire à la newsletter"
+            "S'abonner gratuitement"
           )}
         </Button>
       </form>
