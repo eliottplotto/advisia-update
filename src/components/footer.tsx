@@ -115,34 +115,14 @@ export default function Footer() {
             </div>
           </div>
           <div className="global-padding border-t border-px lg:border-0">
-            <Link href="/">
-              <Image
-                src="/advisia-logo-white-h32.svg"
-                alt="Logo"
-                width={130}
-                height={32}
-                className="h-10 w-auto mb-8"
-              />
-            </Link>
             <ul className="flex gap-1">
               <li>
                 <Button variant="secondary" asChild>
-                  <Link href="/">
+                  <Link
+                    href="https://www.linkedin.com/company/agence-advisia/"
+                    target="_blank"
+                  >
                     <RiLinkedinFill />
-                  </Link>
-                </Button>
-              </li>
-              <li>
-                <Button variant="secondary" asChild>
-                  <Link href="/">
-                    <RiFacebookFill />
-                  </Link>
-                </Button>
-              </li>
-              <li>
-                <Button variant="secondary" asChild>
-                  <Link href="/">
-                    <RiInstagramFill />
                   </Link>
                 </Button>
               </li>

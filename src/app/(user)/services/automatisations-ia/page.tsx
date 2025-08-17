@@ -89,50 +89,48 @@ export default function AutomatisationsIA() {
       <main>
         <section className="dark bg-background text-foreground w-full overflow-hidden">
           <div className="container-md pt-[95px]">
-            <div className="py-8 lg:py-16 flex flex-col lg:flex-row justify-start items-center gap-x-[8%] gap-y-16">
-              <div className="global-padding flex flex-col justify-end gap-6 w-full grow-0">
-                <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl lg:w-max">
-                  <RevealText>
-                    Prenez une longueur d&apos;avance grâce à l&apos;IA
-                  </RevealText>
-                </h1>
+            <div className="global-padding flex flex-col justify-center items-center gap-6 w-full">
+              <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl lg:w-max text-center">
+                <RevealText>
+                  Prenez une longueur d&apos;avance grâce à l&apos;IA
+                </RevealText>
+              </h1>
 
-                <p className="max-w-xl text-muted-foreground">
-                  Offrez vous des agents IA qui travaillent pour vous, 24/7.
-                </p>
+              <p className="max-w-xl text-muted-foreground text-center">
+                Offrez vous des agents IA qui travaillent pour vous, 24/7.
+              </p>
 
-                <div className="flex gap-8 items-center flex-wrap">
-                  <Button size="lg" asChild className="w-max">
-                    <Link href="/contact">
-                      Contacter un expert IA <RiCornerDownRightLine />
-                    </Link>
-                  </Button>
+              <div className="flex gap-8 items-center flex-wrap">
+                <Button size="lg" asChild className="w-max">
+                  <Link href="/contact">
+                    Contacter un expert IA <RiCornerDownRightLine />
+                  </Link>
+                </Button>
+              </div>
+              <div className="flex gap-4 lg:gap-8 flex-wrap">
+                <div className="w-max">
+                  <p className="text-2xl">40%</p>
+                  <p className="text-sm ">Gain de productivité moyen</p>
                 </div>
-                <div className="flex gap-4 lg:gap-8 flex-wrap">
-                  <div className="w-max">
-                    <p className="text-2xl">40%</p>
-                    <p className="text-sm ">Gain de productivité moyen</p>
-                  </div>
-                  <div className="w-max border-l pl-4 lg:pl-8">
-                    <p className="text-2xl">+10h</p>
-                    <p className="text-sm ">Gagnées par semaine</p>
-                  </div>
-                  <div className="hidden sm:block w-max border-l pl-4 lg:pl-8">
-                    <p className="text-2xl">+15</p>
-                    <p className="text-sm ">Agents IA en activité</p>
-                  </div>
+                <div className="w-max border-l pl-4 lg:pl-8">
+                  <p className="text-2xl">+10h</p>
+                  <p className="text-sm ">Gagnées par semaine</p>
+                </div>
+                <div className="hidden sm:block w-max border-l pl-4 lg:pl-8">
+                  <p className="text-2xl">+15</p>
+                  <p className="text-sm ">Agents IA en activité</p>
                 </div>
               </div>
-              <Image
-                src={"/services/ia-automatisations/illu-ia.svg"}
-                alt={"Illustration de nos services"}
-                width={799}
-                height={329}
-                className="global-padding"
-              />
             </div>
           </div>
+          <Image
+            src={"/services/ia-automatisations/hero.jpg"}
+            alt={"IA et Automatisation"}
+            width={1300}
+            height={340}
+            className="w-full"
+          />
         </section>
         <LogosConfiance />
         <LeaderSecteur
