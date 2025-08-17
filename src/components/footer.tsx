@@ -1,12 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "./ui/button";
-import {
-  RiFacebookFill,
-  RiInstagramFill,
-  RiLinkedinFill,
-  RiSparklingFill,
-} from "@remixicon/react";
+import { RiLinkedinFill, RiSparklingFill } from "@remixicon/react";
 import { NewsletterForm } from "./newsletter-form";
 
 export default function Footer() {
