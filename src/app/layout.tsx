@@ -3,7 +3,7 @@ import { SanityLive } from "@/sanity/lib/live";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  title: "Admin | Advisia",
+  title: "Admin · Advisia",
   description: "Admin",
 };
 

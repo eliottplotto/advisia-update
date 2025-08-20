@@ -27,11 +27,12 @@ const Project = ({ project }: { project: Project }) => {
           {project.coverImage && (
             <Image
               src={
-                urlFor(project.coverImage).width(800).url() ||
-                "https://placehold.co/800x600/png"
+                project.coverImage
+                  ? urlFor(project.coverImage).width(800).url()
+                  : "https://placehold.co/800x600/png"
               }
               alt={
-                project.coverImage.alt ||
+                project.coverImage?.alt ||
                 `Image de couverture pour ${project.headline}`
               }
               className="w-full h-full object-cover object-center group-hover:scale-110 transition-scale duration-400 ease-(--ease)"

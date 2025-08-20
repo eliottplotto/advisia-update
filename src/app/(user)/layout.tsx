@@ -4,8 +4,9 @@ import "./../globals.css";
 import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
-  title: "Advisia",
-  description: "Advisia, agence de croissance digitale.",
+  title: "Advisia · Agence de croissance digitale",
+  description:
+    "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
 };
 
 export default function RootLayout({

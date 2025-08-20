@@ -1,6 +1,22 @@
 import FooterXS from "@/components/footer-xs";
 import SectionContactForm from "@/components/section-cta-form";
 import FAQCenter from "@/components/ui/sections/faq-center";
+
+export const metadata = {
+  title: "Contacter l'agence · Advisia",
+  description:
+    "Un projet ou une question ? Contactez-nous en remplissant le formulaire ci-contre. Notre équipe commerciale reviendra vers vous rapidement.",
+  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+  openGraph: {
+    title: "Contacter l'agence · Advisia",
+    description:
+      "Un projet ou une question ? Contactez-nous en remplissant le formulaire ci-contre. Notre équipe commerciale reviendra vers vous rapidement.",
+    url: "https://advisia.agency",
+    siteName: "Advisia",
+    type: "website",
+  },
+};
+
 export default function Contact() {
   const questions = [
     {

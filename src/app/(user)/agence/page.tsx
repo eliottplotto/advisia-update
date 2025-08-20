@@ -4,6 +4,21 @@ import PourquoiAdvisia from "@/components/pourquoi-advisia";
 import SectionCTASmall from "@/components/section-cta-small";
 import { Header1 } from "@/components/ui/sections/header-1";
 
+export const metadata = {
+  title: "L'agence Advisia · Agence web et digitale",
+  description:
+    "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
+  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+  openGraph: {
+    title: "Advisia · Agence de croissance digitale",
+    description:
+      "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
+    url: "https://advisia.agency",
+    siteName: "Advisia",
+    type: "website",
+  },
+};
+
 export default function Agence() {
   return (
     <>

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 import FooterXS from "@/components/footer-xs";
@@ -8,6 +6,21 @@ import CalForm from "@/components/cal-form";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import FAQCenter from "@/components/ui/sections/faq-center";
+
+export const metadata = {
+  title: "Prendre rendez-vous · Agence Advisia",
+  description:
+    "Un moment pour faire le point, poser vos questions, et envisager l’avenir digital de votre entreprise. Gratuit et sans engagement.",
+  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+  openGraph: {
+    title: "Prendre rendez-vous · Agence Advisia",
+    description:
+      "Un moment pour faire le point, poser vos questions, et envisager l’avenir digital de votre entreprise. Gratuit et sans engagement.",
+    url: "https://advisia.agency",
+    siteName: "Advisia",
+    type: "website",
+  },
+};
 
 export default function PrendreRendezVous() {
   const profils = [

@@ -8,6 +8,21 @@ import LogosConfiance from "@/components/logos-confiance";
 import { RevealText } from "@/components/reveal-text";
 import { Header1 } from "@/components/ui/sections/header-1";
 
+export const metadata = {
+  title: "Marketing digital & acquisition · Agence Advisia",
+  description:
+    "SEO, SEA, contenus et emailing. Stratégies d’acquisition mesurables pour augmenter votre trafic, générer des leads et améliorer la conversion.",
+  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+  openGraph: {
+    title: "Marketing digital & acquisition · Agence Advisia",
+    description:
+      "SEO, SEA, contenus et emailing. Stratégies d’acquisition mesurables pour augmenter votre trafic, générer des leads et améliorer la conversion.",
+    url: "https://advisia.agency",
+    siteName: "Advisia",
+    type: "website",
+  },
+};
+
 export default function MarketingDigital() {
   return (
     <>

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Footer from "@/components/footer";
 import {
   RiCornerDownRightLine,
@@ -18,6 +19,21 @@ import ServicesWeb from "@/components/services/agence-web/services-web";
 import FeaturesWeb from "@/components/services/agence-web/features-web";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import { RevealText } from "@/components/reveal-text";
+
+export const metadata = {
+  title: "Création de Site Web Professionnel · Agence Advisia",
+  description:
+    "Sites vitrines et e-commerce performants, optimisés SEO et accessibles. Conception sur mesure, contenus clairs et mesures d’impact pour convertir durablement.",
+  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+  openGraph: {
+    title: "Création de Site Web Professionnel · Agence Advisia",
+    description:
+      "Sites vitrines et e-commerce performants, optimisés SEO et accessibles. Conception sur mesure, contenus clairs et mesures d’impact pour convertir durablement.",
+    url: "https://advisia.agency",
+    siteName: "Advisia",
+    type: "website",
+  },
+};
 
 export default function SiteWeb() {
   const processSteps = [
@@ -109,7 +125,7 @@ export default function SiteWeb() {
     <>
       <main>
         <section className="dark bg-background text-foreground">
-          <div className="container-md pt-[95px]">
+          <div className="relative container-md pt-[95px]">
             <div className="py-8 lg:py-16 flex justify-start items-end">
               <div className="global-padding flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
@@ -143,6 +159,18 @@ export default function SiteWeb() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            {/* Card 1 */}
+            <div className="hidden lg:block hero-card absolute bottom-0 right-8 bg-background border p-2 select-none rounded-md">
+              <div className="w-24 xl:w-32 2xl:w-44 aspect-square">
+                <Image
+                  src={"/cas-clients/mes-halles/meshalles-app-mockup.jpg"}
+                  alt={"Application Mes Halles"}
+                  fill
+                  className="object-cover rounded-xs"
+                  draggable="false"
+                ></Image>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 import { Draggable } from "gsap/Draggable";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 import Image from "next/image";
@@ -39,14 +40,35 @@ export default function Hero() {
     });
   });
 
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const cards = gsap.utils.toArray<HTMLDivElement>(".hero-card");
+
+      gsap.from(cards, {
+        delay: 0.5,
+        y: 50, // partent un peu plus bas
+        opacity: 0, // partent invisibles
+        duration: 0.8, // vitesse de l'anim
+        ease: "power3.out",
+        stagger: 0.2, // délai entre chaque card
+      });
+    },
+    { scope: container }
+  );
+
   return (
     <section
       id="hero"
-      className="relative z-0 dark bg-secondary text-foreground overflow-hidden"
+      className="relative z-0 dark bg-background text-foreground overflow-hidden"
     >
       <div className="lg:h-[90dvh]">
-        <div className="global-padding-x mt-16 lg:mt-0 py-16 flex justify-center items-center h-full text-center">
-          <div className="relative max-w-2xl xl:max-w-4xl flex flex-col justify-center items-center">
+        <div className="relative container-md global-padding-x mt-16 lg:mt-0 py-16 flex items-end h-full">
+          <div
+            ref={container}
+            className="max-w-2xl xl:max-w-4xl flex flex-col items-start"
+          >
             <div className="bg-background rounded-xs border pr-2 pl-1 py-1 mb-0 flex items-center gap-2">
               <div className="flex items-center">
                 {profils.map((profil, index) => (
@@ -86,23 +108,9 @@ export default function Hero() {
             </div>
 
             {/* Cards */}
-            {/* Card 1*/}
-            <div className="hidden lg:block hero-card absolute bg-background border p-2 select-none top-0 xl:-top-16 right-[105%] rounded-md">
-              <p className="hidden 2xl:block text-left mb-2 font-mono text-xs text-muted-foreground">
-                /mes-halles.webp
-              </p>
-              <div className="relative w-24 xl:w-32 2xl:w-44 aspect-square">
-                <Image
-                  src={"/placeholder-2.jpg"}
-                  alt={"placeholder"}
-                  fill
-                  className="object-cover rounded-xs"
-                  draggable="false"
-                ></Image>
-              </div>
-            </div>
+
             {/* Card 2*/}
-            <div className="hidden lg:block hero-card absolute top-16 xl:top-0 right-[120%] bg-background border p-2 select-none rounded-md">
+            <div className="hidden lg:block hero-card absolute bottom-16 right-64 bg-background border p-2 select-none rounded-md rotate-2">
               <p className="hidden 2xl:block text-left mb-2 font-mono text-xs text-muted-foreground">
                 /automatisations.svg
               </p>
@@ -117,7 +125,7 @@ export default function Hero() {
               </div>
             </div>
             {/* Card 3 */}
-            <div className="hidden lg:block hero-card absolute -bottom-0 left-[125%] bg-background border p-2 select-none rounded-md">
+            <div className="hidden lg:block hero-card absolute bottom-32 right-32 bg-background border p-2 select-none rounded-md -rotate-1">
               <div className="hidden 2xl:flex items-center gap-2 mb-2">
                 <Image
                   src={"/home/advisia-icon.svg"}
@@ -130,7 +138,7 @@ export default function Hero() {
                   Advisia
                 </p>
                 <div className="grow">
-                  <div className="w-fit ml-auto mr-0 px-1 bg-secondary font-mono text-xs text-muted-foreground flex items-center gap-1 rounded-xs">
+                  <div className="w-fit ml-auto mr-0 px-1 bg-secondary font-mono text-xs text-muted-foreground flex items-center gap-1 rounded-xs rotate-1">
                     <RiAddFill size={12} />
                     suivre
                   </div>
@@ -139,8 +147,8 @@ export default function Hero() {
 
               <div className="relative w-24 xl:w-32 2xl:w-44 aspect-square">
                 <Image
-                  src={"/home/hero-card-3.webp"}
-                  alt={"Service de Marketing Digital"}
+                  src={"/home/site-mockup.jpg"}
+                  alt={"Création site web"}
                   fill
                   className="object-cover rounded-xs"
                   draggable="false"
@@ -148,15 +156,15 @@ export default function Hero() {
                 <RiHeartFill className="hidden 2xl:block absolute bottom-3 right-3" />
               </div>
             </div>
-            {/* Flottant 4 */}
-            <div className="hidden lg:block hero-card absolute -bottom-16 left-[105%] bg-background border p-2 select-none rounded-md">
+            {/* Card 4 */}
+            <div className="hidden lg:block hero-card absolute bottom-64 right-8 bg-background border p-2 select-none rounded-md">
               <p className="hidden 2xl:block text-left mb-2 font-mono text-xs text-muted-foreground">
                 /mes-halles.webp
               </p>
               <div className="relative w-24 xl:w-32 2xl:w-44 aspect-square">
                 <Image
-                  src={"/placeholder-2.jpg"}
-                  alt={"placeholder"}
+                  src={"/cas-clients/mes-halles/meshalles-app-mockup.jpg"}
+                  alt={"Application Mes Halles"}
                   fill
                   className="object-cover rounded-xs"
                   draggable="false"

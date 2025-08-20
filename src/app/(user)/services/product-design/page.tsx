@@ -12,6 +12,21 @@ import { Header1 } from "@/components/ui/sections/header-1";
 import PourquoiProduct from "@/components/services/product-design/pourquoi";
 import { RevealText } from "@/components/reveal-text";
 
+export const metadata = {
+  title: "Product Design & UX/UI · Agence Advisia",
+  description:
+    "Recherche utilisateur, wireframes, prototypage et tests. De l’idée au produit, des parcours clairs et utiles pour faire avancer vos métriques et vos clients.",
+  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+  openGraph: {
+    title: "Product Design & UX/UI · Agence Advisia",
+    description:
+      "Recherche utilisateur, wireframes, prototypage et tests. De l’idée au produit, des parcours clairs et utiles pour faire avancer vos métriques et vos clients.",
+    url: "https://advisia.agency",
+    siteName: "Advisia",
+    type: "website",
+  },
+};
+
 export default function ProductDesign() {
   const questions = [
     {

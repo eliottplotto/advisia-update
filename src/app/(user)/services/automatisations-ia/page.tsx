@@ -20,6 +20,21 @@ import FAQCenter from "@/components/ui/sections/faq-center";
 import { RevealText } from "@/components/reveal-text";
 import { LeaderSecteur } from "@/components/services/automatisations-ia/leader-secteur";
 
+export const metadata = {
+  title: "Agents IA & Automatisations · Agence Advisia",
+  description:
+    "Agents IA sur mesure pour automatiser vos tâches, connecter vos outils et fiabiliser les processus. Temps gagné, coûts réduits, décisions mieux informées.",
+  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+  openGraph: {
+    title: "Création de Site Web Professionnel · Agence Advisia",
+    description:
+      "Agents IA sur mesure pour automatiser vos tâches, connecter vos outils et fiabiliser les processus. Temps gagné, coûts réduits, décisions mieux informées.",
+    url: "https://advisia.agency",
+    siteName: "Advisia",
+    type: "website",
+  },
+};
+
 export default function AutomatisationsIA() {
   const processSteps = [
     {
@@ -89,7 +104,7 @@ export default function AutomatisationsIA() {
       <main>
         <section className="dark bg-background text-foreground w-full overflow-hidden">
           <div className="container-md pt-[95px]">
-            <div className="global-padding flex flex-col justify-center items-center gap-6 w-full">
+            <div className="global-padding-x py-16 flex flex-col justify-center items-center gap-6 w-full">
               <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl lg:w-max text-center">
                 <RevealText>
@@ -124,13 +139,6 @@ export default function AutomatisationsIA() {
               </div>
             </div>
           </div>
-          <Image
-            src={"/services/ia-automatisations/hero.jpg"}
-            alt={"IA et Automatisation"}
-            width={1300}
-            height={340}
-            className="w-full"
-          />
         </section>
         <LogosConfiance />
         <LeaderSecteur

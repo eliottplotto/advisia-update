@@ -10,6 +10,21 @@ import FAQCenter from "@/components/ui/sections/faq-center";
 import { RevealText } from "@/components/reveal-text";
 import { Header1 } from "@/components/ui/sections/header-1";
 
+export const metadata = {
+  title: "Identité de marque & branding · Agence Advisia",
+  description:
+    "Logo, charte graphique et système visuel cohérent. Une identité claire qui raconte votre entreprise et vous distingue sur vos supports et vos canaux.",
+  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+  openGraph: {
+    title: "Identité de marque & branding · Agence Advisia",
+    description:
+      "Logo, charte graphique et système visuel cohérent. Une identité claire qui raconte votre entreprise et vous distingue sur vos supports et vos canaux.",
+    url: "https://advisia.agency",
+    siteName: "Advisia",
+    type: "website",
+  },
+};
+
 export default function IdentiteDeMarque() {
   const questions = [
     {
