@@ -16,6 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Advisia" />
+      </head>
       <body className="antialiased 2xl:text-lg min-h-screen">
         <header>
           <Navbar />
