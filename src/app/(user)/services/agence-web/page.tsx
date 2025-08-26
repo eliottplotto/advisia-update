@@ -124,10 +124,10 @@ export default function SiteWeb() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-foreground">
+        <section className="dark bg-background text-foreground overflow-hidden bg-[url('/background-logo-dark.svg')] bg-cover bg-center">
           <div className="relative container-md pt-[95px]">
-            <div className="py-8 lg:py-16 flex justify-start items-end">
-              <div className="global-padding flex flex-col justify-end gap-6">
+            <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
+              <div className="flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-3xl">
                   <RevealText>
@@ -139,8 +139,8 @@ export default function SiteWeb() {
 
                 <p className="max-w-xl text-muted-foreground">
                   Sites vitrines, e-commerce, plateformes SaaS, sites sur-mesure
-                  : nous concevons des sites web performants, optimisés pour le
-                  SEO, la conversion et votre image de marque.
+                  : nous concevons des sites web performants, optimisés pour les
+                  moteurs de recherche, la conversion et votre image de marque.
                 </p>
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
@@ -161,7 +161,7 @@ export default function SiteWeb() {
                 </div>
               </div>
             </div>
-            {/* Card 1 */}
+            {/* Card 1 
             <div className="hidden lg:block hero-card absolute bottom-0 right-8 bg-background border p-2 select-none rounded-md">
               <div className="w-24 xl:w-32 2xl:w-44 aspect-square">
                 <Image
@@ -172,7 +172,7 @@ export default function SiteWeb() {
                   draggable="false"
                 ></Image>
               </div>
-            </div>
+            </div>*/}
           </div>
         </section>
         <LogosConfiance />

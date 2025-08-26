@@ -61,13 +61,13 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative z-0 dark bg-background text-foreground overflow-hidden"
+      className="relative z-0 dark bg-background text-foreground overflow-hidden bg-[url('/background-logo-dark.svg')] bg-cover bg-center"
     >
       <div className="lg:h-[90dvh]">
-        <div className="relative container-md global-padding-x mt-16 lg:mt-0 py-16 flex items-end h-full">
+        <div className="relative container-md global-padding-x mt-16 lg:mt-0 py-16 flex items-end justify-center lg:justify-start h-full text-center lg:text-left">
           <div
             ref={container}
-            className="max-w-2xl xl:max-w-4xl flex flex-col items-start"
+            className="max-w-2xl xl:max-w-4xl flex flex-col items-center lg:items-start"
           >
             <div className="bg-background rounded-xs border pr-2 pl-1 py-1 mb-0 flex items-center gap-2">
               <div className="flex items-center">

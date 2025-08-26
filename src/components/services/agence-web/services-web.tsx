@@ -1,4 +1,7 @@
 import { RevealText } from "@/components/reveal-text";
+import { Button } from "@/components/ui/button";
+import { RiCornerDownRightLine } from "@remixicon/react";
+import Link from "next/link";
 
 export default function ServicesWeb() {
   const services = [
@@ -6,19 +9,19 @@ export default function ServicesWeb() {
       title: "Site Vitrine",
       description:
         "Gagnez en visibilité et crédibilité avec un site vitrine bien référencé et aligné avec votre image de marque.",
-      image: "/services/agence-web/relume.png",
+      image: "/services/agence-web/agence-web-site-vitrine.svg",
     },
     {
       title: "Site e‑Commerce",
       description:
         "Convertissez vos visiteurs en clients grâce à une boutique en ligne rapide, intuitive et bien pensée.",
-      image: "/services/agence-web/relume.png",
+      image: "/services/agence-web/agence-web-site-ecommerce.svg",
     },
     {
       title: "Sur‑mesure et SaaS",
       description:
         "Plateforme, outil métier, application web... nous développons votre produit digital de A à Z.",
-      image: "/services/agence-web/relume.png",
+      image: "/services/agence-web/agence-web-saas.svg",
     },
   ];
 
@@ -43,12 +46,17 @@ export default function ServicesWeb() {
               <img
                 src={service.image}
                 alt={service.title}
-                className="pl-[25%]"
                 draggable="false"
+                className="ml-auto w-full max-w-lg"
               />
             </div>
           ))}
         </div>
+        <Button size={"lg"} className="flex mx-auto w-max" asChild>
+          <Link href="/contact">
+            Demander une estimation <RiCornerDownRightLine />
+          </Link>
+        </Button>
       </div>
     </section>
   );

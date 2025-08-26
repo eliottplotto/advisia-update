@@ -8,33 +8,19 @@ export default function Services() {
   const services = [
     {
       title: "IA & Automatisation",
-      description:
-        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
       link: "/services/automatisations-ia",
     },
     {
       title: "Développement Web",
-      description:
-        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
       link: "/services/agence-web",
     },
     {
       title: "Product Design",
-      description:
-        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
       link: "/services/product-design",
     },
     {
       title: "Marketing Digital",
-      description:
-        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
       link: "/services/marketing-digital",
-    },
-    {
-      title: "Identité de marque",
-      description:
-        "Passer de l'IA grand public à des solutions IA métiers, sur-mesure et connectées à vos données",
-      link: "/services/identite-de-marque",
     },
   ];
 
@@ -86,9 +72,6 @@ export default function Services() {
                   <div className="flex flex-col items-start sm:items-end gap-8 justify-between">
                     <div className="w-full">
                       <h3 className="text-xl lg:text-3xl">{service.title}</h3>
-                      <p className="mt-2 text-muted-foreground group-hover:text-foreground">
-                        {service.description}
-                      </p>
                     </div>
                   </div>
                 </Link>

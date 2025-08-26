@@ -101,17 +101,17 @@ export default function AutomatisationsIA() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-foreground w-full overflow-hidden">
+        <section className="dark bg-background text-foreground w-full overflow-hidden bg-[url('/background-logo-dark.svg')] bg-cover bg-center">
           <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-16 flex flex-col justify-center items-center gap-6 w-full">
+            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
               <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl lg:w-max text-center">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl lg:w-max">
                 <RevealText>
                   Prenez une longueur d&apos;avance grâce à l&apos;IA
                 </RevealText>
               </h1>
 
-              <p className="max-w-xl text-muted-foreground text-center">
+              <p className="max-w-xl text-muted-foreground">
                 Offrez vous des agents IA qui travaillent pour vous, 24/7.
               </p>
 

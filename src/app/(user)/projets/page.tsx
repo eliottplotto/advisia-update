@@ -43,7 +43,7 @@ export default function Projets() {
                   +20 clients accompagnés
                 </p>
               </div>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl max-w-5xl">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-5xl">
                 <RevealText>
                   Nous avons transformé leurs objectifs en{" "}
                   <span className="text-highlight">résultats</span>

@@ -79,13 +79,6 @@ export default function Footer() {
                     </Link>
                   </Button>
                 </li>
-                <li>
-                  <Button variant="link" asChild>
-                    <Link href="/services/identite-de-marque">
-                      Identité de marque
-                    </Link>
-                  </Button>
-                </li>
               </ul>
             </div>
             <div>

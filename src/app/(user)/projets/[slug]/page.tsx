@@ -86,9 +86,9 @@ export default async function projectPage(props: Props) {
 
   return (
     <main>
-      <section className="dark bg-background text-foreground">
+      <section className="dark bg-background text-foreground border-b">
         <div className="container-md pt-[95px]">
-          <div className="global-padding flex flex-col justify-between items-center text-center gap-8 lg:gap-16">
+          <div className="global-padding-x py-8 lg:py-16 flex flex-col gap-8">
             <Button variant="secondary" className="w-fit" asChild>
               <Link href="/projets">
                 <RiArrowLeftLine />
@@ -99,7 +99,7 @@ export default async function projectPage(props: Props) {
               <p className="text-2xl lg:text-4xl xl:text-6xl text-ad-1">
                 {project.client}
               </p>
-              <h1 className="text-2xl lg:text-4xl xl:text-6xl max-w-4xl">
+              <h1 className="text-2xl lg:text-4xl xl:text-6xl max-w-6xl">
                 <RevealText>{project.headline}</RevealText>
               </h1>
               {services.length > 0 && (
@@ -117,30 +117,11 @@ export default async function projectPage(props: Props) {
                 </ul>
               )}
             </div>
-
-            {project.coverImage && (
-              <Image
-                src={
-                  urlFor(project.coverImage).width(1500).url() ||
-                  "https://placehold.co/1280x720/png"
-                }
-                alt={
-                  project.coverImage.alt ||
-                  `Image de couverture pour ${project.headline}`
-                }
-                className="w-full aspect-16/9 object-cover object-center rounded-sm"
-                priority
-                sizes="(max-width: 768px) 100vw, 1920px"
-                width={1920}
-                height={1080}
-                quality={60}
-              />
-            )}
           </div>
         </div>
       </section>
 
-      <div>
+      <div className="dark bg-background border-b">
         {project.contexte && (
           <Header1
             heading="Le contexte"

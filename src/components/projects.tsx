@@ -27,9 +27,8 @@ const Project = ({ project }: { project: Project }) => {
           {project.coverImage && (
             <Image
               src={
-                project.coverImage
-                  ? urlFor(project.coverImage).width(800).url()
-                  : "https://placehold.co/800x600/png"
+                urlFor(project.coverImage).width(800).url() ||
+                "/placeholders/800x600.jpg"
               }
               alt={
                 project.coverImage?.alt ||
@@ -40,7 +39,7 @@ const Project = ({ project }: { project: Project }) => {
               sizes="(max-width: 768px) 100vw, 1920px"
               width={800}
               height={600}
-              quality={60}
+              quality={100}
             />
           )}
         </div>

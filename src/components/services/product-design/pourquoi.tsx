@@ -35,7 +35,7 @@ export default function PourquoiProduct() {
               <RiCheckFill />
             </div>
             <div className="space-y-2">
-              <h3 className="text-2xl">Un impact direct sur vos résultats</h3>
+              <h3 className="text-2xl">Impact direct sur vos résultats</h3>
               <p className="text-muted-foreground max-w-md">
                 Un bon design augmente vos taux de conversion, valorise votre
                 produit et renforce la crédibilité de votre marque.
@@ -47,7 +47,7 @@ export default function PourquoiProduct() {
               <RiCheckFill />
             </div>
             <div className="space-y-2">
-              <h3 className="text-2xl">Un gain de temps pour vos équipes</h3>
+              <h3 className="text-2xl">Gain de temps pour vos équipes</h3>
               <p className="text-muted-foreground max-w-md">
                 Des spécifications claires évitent les incompréhensions,
                 limitent les retours en dev, et accélèrent les mises en

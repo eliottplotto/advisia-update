@@ -81,10 +81,10 @@ export default function IdentiteDeMarque() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-foreground">
+        <section className="dark bg-background text-foreground overflow-hidden bg-[url('/background-logo-dark.svg')] bg-cover bg-center">
           <div className="container-md pt-[95px]">
-            <div className="py-8 lg:py-16 flex justify-start items-end">
-              <div className="global-padding flex flex-col justify-end gap-6">
+            <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
+              <div className="flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Développment Web</BulletHeadline>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl">
                   <RevealText>Identité de marque</RevealText>
@@ -138,8 +138,8 @@ export default function IdentiteDeMarque() {
         <SectionCTAForm
           title={
             <>
-              Prêts à lancer votre{" "}
-              <span className="text-nowrap text-highlight">projet web ?</span>
+              Construisons ensemble
+              <span className="text-nowrap text-highlight">votre identité</span>
             </>
           }
         />

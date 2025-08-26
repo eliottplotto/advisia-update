@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+import Image from "next/image";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -85,6 +86,15 @@ export default function Agency() {
     <section className="bg-background">
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 space-y-2 mx-auto">
+          <Image
+            src={"/equipe-advisia-square-light.jpg"}
+            alt={"Équipe Advisia"}
+            width={556}
+            height={256}
+            quality={100}
+            className="mx-auto"
+          />
+
           <h3 className="relative text-center text-2xl md:text-4xl max-w-4xl mx-auto my-16 lg:my-24">
             <span className="inline-block text-8xl lg:text-[16rem] absolute z-0 -left-2 lg:-left-8 -top-8 lg:-top-24 text-ad-1">
               &ldquo;

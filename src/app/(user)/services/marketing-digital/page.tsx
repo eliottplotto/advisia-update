@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "@/components/footer";
-import { RiArrowRightFill } from "@remixicon/react";
+import { RiCornerDownRightLine } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import SectionCTAForm from "@/components/section-cta-form";
@@ -27,12 +27,18 @@ export default function MarketingDigital() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-foreground">
+        <section className="dark bg-background text-foreground overflow-hidden bg-[url('/background-logo-dark.svg')] bg-cover bg-center">
           <div className="container-md pt-[95px]">
-            <div className="py-8 lg:py-16 flex justify-start items-end">
-              <div className="global-padding flex flex-col justify-end gap-6">
+            <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
+              <div className="flex flex-col justify-end gap-6">
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl">
-                  <RevealText>Marketing Digital</RevealText>
+                  <RevealText>
+                    Votre agence de{" "}
+                    <span className="text-highlight text-nowrap">
+                      Marketing Digital
+                    </span>{" "}
+                    et <span className="text-highlight text-nowrap">SEO</span>
+                  </RevealText>
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">
@@ -42,7 +48,7 @@ export default function MarketingDigital() {
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
                     <Link href="/contact">
-                      Demander une estimation <RiArrowRightFill />
+                      Demander une estimation <RiCornerDownRightLine />
                     </Link>
                   </Button>
                   <div className="flex gap-4 lg:gap-8 wrap">
@@ -67,7 +73,10 @@ export default function MarketingDigital() {
           dark={false}
           layout="imgLeft"
           description="Nous gérons vos campagnes publicitaires sur Google, Meta et TikTok (search, push, retargeting) pour générer plus de visibilité et de conversions. Chaque campagne est optimisée en continu pour maximiser votre ROI."
-          image={{ src: "/equipe-advisia-2.jpg", alt: "Équipe Advisia" }}
+          image={{
+            src: "/services/marketing-digital/agence-sea-campagnes-google-meta-tiktok.svg",
+            alt: "Campagnes Google / Meta / TikTok",
+          }}
         />
 
         <Header1
@@ -75,7 +84,10 @@ export default function MarketingDigital() {
           dark={false}
           layout="imgRight"
           description="Nous boostons votre référencement avec des articles SEO, un maillage interne optimisé et une stratégie de mots-clés ciblée. L’objectif : augmenter votre trafic organique sans effort rédactionnel."
-          image={{ src: "/equipe-advisia-2.jpg", alt: "Équipe Advisia" }}
+          image={{
+            src: "/services/marketing-digital/agence-seo-blogging.svg",
+            alt: "SEO & Blogging",
+          }}
         />
 
         <Header1
@@ -83,14 +95,18 @@ export default function MarketingDigital() {
           dark={false}
           layout="imgLeft"
           description="Nous créons des contenus engageants avec l’IA et des formats UGC pour renforcer votre présence en ligne. Visuels, vidéos, stories : tout est pensé pour capter l’attention et générer des résultats."
-          image={{ src: "/equipe-advisia-2.jpg", alt: "Équipe Advisia" }}
+          image={{
+            src: "/services/marketing-digital/agence-creation-contenu.svg",
+            alt: "Création de contenus",
+          }}
         />
 
         <SectionCTAForm
           title={
             <>
-              Prêts à lancer votre{" "}
-              <span className="text-nowrap text-highlight">projet web ?</span>
+              Discutons de votre
+              <span className="text-nowrap text-highlight">présence</span> en
+              ligne
             </>
           }
         />

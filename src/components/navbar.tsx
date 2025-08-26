@@ -30,7 +30,6 @@ export default function Navbar() {
     { path: "/services/agence-web", label: "Développement Web" },
     { path: "/services/product-design", label: "Product Design" },
     { path: "/services/marketing-digital", label: "Marketing Digital" },
-    { path: "/services/identite-de-marque", label: "Identité de marque" },
   ];
 
   const mobileMainNavLinks = [

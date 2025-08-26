@@ -85,10 +85,10 @@ export default function ProductDesign() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-foreground">
+        <section className="dark bg-background text-foreground overflow-hidden bg-[url('/background-logo-dark.svg')] bg-cover bg-center">
           <div className="container-md pt-[95px]">
-            <div className="py-8 lg:py-16 flex justify-start items-end">
-              <div className="global-padding flex flex-col justify-end gap-6">
+            <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
+              <div className="flex flex-col justify-end gap-6">
                 <BulletHeadline as="p">Product Design</BulletHeadline>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl">
                   <RevealText>
@@ -101,7 +101,7 @@ export default function ProductDesign() {
                 <p className="max-w-xl text-muted-foreground">
                   Notre travail consiste à comprendre ce que vos utilisateurs
                   attendent, à traduire ça en parcours clairs, puis à dessiner
-                  une interface qui fonctionne sans effort.
+                  une interface qui fonctionne.
                 </p>
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
@@ -134,7 +134,10 @@ export default function ProductDesign() {
           dark={false}
           layout="imgLeft"
           description="Chez Advisia, chaque projet commence par une phase d’analyse : on identifie les besoins réels, les usages concrets, les points de friction. Cela nous permet de structurer des parcours clairs avant de penser à l’interface. Le design vient ensuite renforcer cette logique : il guide, rassure et met en valeur les bons éléments. Le résultat, c’est un produit utile, cohérent et facile à adopter pour vos utilisateurs."
-          image={{ src: "/placeholder-2.jpg", alt: "Équipe Advisia" }}
+          image={{
+            src: "/cas-clients/mes-halles/meshalles-app-mockup.jpg",
+            alt: "UX UI Design - Product Design",
+          }}
         />
 
         <FAQCenter title={"On répond à vos questions"} questions={questions} />
