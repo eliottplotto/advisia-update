@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.tonsite.com
+Host: https://www.advisia.agency
 
 # Sitemaps
-Sitemap: https://www.tonsite.com/sitemap.xml
+Sitemap: https://www.advisia.agency/sitemap.xml
