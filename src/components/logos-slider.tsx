@@ -21,14 +21,6 @@ export default function LogosSlider() {
       </Slider.Slide>
       <Slider.Slide>
         <img
-          src="/logos-slider/leroy-merlin.svg"
-          alt="Logo Leroy Merlin"
-          className="h-11 w-full"
-          draggable="false"
-        />
-      </Slider.Slide>
-      <Slider.Slide>
-        <img
           src="/logos-slider/banque-populaire.svg"
           alt="Logo Banque Populaire"
           className="h-10 w-full"
