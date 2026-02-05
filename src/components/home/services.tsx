@@ -4,22 +4,48 @@ import { Button } from "../ui/button";
 import { RiArrowRightUpLine, RiCornerDownRightLine } from "@remixicon/react";
 import { RevealText } from "../reveal-text";
 
+import ShinyText from "@/components/ShinyText";
+
 export default function Services() {
   const services = [
     {
-      title: "IA & Automatisation",
+      title: (
+        <ShinyText
+  text="IA & Automatisation"
+  speed={3}
+  className="font-medium"
+/>
+      ),
       link: "/services/automatisations-ia",
     },
     {
-      title: "Développement Web",
+      title: (
+        <ShinyText
+  text="Développement Web"
+  speed={3}
+  className="font-medium"
+/>
+      ),
       link: "/services/agence-web",
     },
     {
-      title: "Product Design",
+      title: (
+        <ShinyText
+  text="Product Design"
+  speed={3}
+  className="font-medium"
+/>
+      ),
       link: "/services/product-design",
     },
     {
-      title: "Marketing Digital",
+      title: (
+        <ShinyText
+  text="Marketing Digital"
+  speed={3}
+  className="font-medium"
+/>
+      ),
       link: "/services/marketing-digital",
     },
   ];

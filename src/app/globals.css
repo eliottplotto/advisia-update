@@ -240,3 +240,12 @@
 .ad-pattern {
   background-image: url("../../public/pattern-light.svg");
 }
+/* Animation pour ShinyText */
+@keyframes shine {
+  0% { background-position: 100%; }
+  100% { background-position: -100%; }
+}
+
+.animate-shine {
+  animation: shine 8s linear infinite;
+}

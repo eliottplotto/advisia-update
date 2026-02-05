@@ -13,6 +13,7 @@ import {
 } from "@remixicon/react";
 import Link from "next/link";
 import { RevealText } from "../reveal-text";
+import RotatingText from "@/components/RotatingText";
 
 gsap.registerPlugin(useGSAP, Draggable, InertiaPlugin);
 
@@ -26,7 +27,6 @@ export default function Hero() {
       alt: "Julien C.",
       src: "/julien.jpeg",
     },
-
     {
       alt: "Enzo F.",
       src: "/pp1.jpg",
@@ -48,11 +48,11 @@ export default function Hero() {
 
       gsap.from(cards, {
         delay: 0.5,
-        y: 50, // partent un peu plus bas
-        opacity: 0, // partent invisibles
-        duration: 0.8, // vitesse de l'anim
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
         ease: "power3.out",
-        stagger: 0.2, // délai entre chaque card
+        stagger: 0.2,
       });
     },
     { scope: container }
@@ -69,6 +69,7 @@ export default function Hero() {
             ref={container}
             className="max-w-2xl xl:max-w-4xl flex flex-col items-center lg:items-start"
           >
+            {/* --- BLOC PROFILS --- */}
             <div className="bg-background rounded-xs border pr-2 pl-1 py-1 mb-0 flex items-center gap-2">
               <div className="flex items-center">
                 {profils.map((profil, index) => (
@@ -85,17 +86,37 @@ export default function Hero() {
                 +20 clients accompagnés
               </p>
             </div>
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-8 ">
+
+            {/* --- TITRE PRINCIPAL OPTIMISÉ --- */}
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-8 font-medium leading-tight">
+              {/* Partie 1 : Le texte normal */}
               <RevealText>
-                Créons des solutions digitales sur‑mesures pour votre{" "}
-                <span className="text-highlight">croissance</span>
+                Créons des solutions digitales sur‑mesures pour
               </RevealText>
+              
+              {/* Partie 2 : Le "Glue Container" qui force "votre" et le cadre à rester ensemble */}
+              <div className="inline-flex items-center gap-x-2 md:gap-x-3 align-middle mt-2 lg:mt-0">
+                <span>votre</span>
+                <RotatingText
+                  texts={['EXPANSION', 'PERFORMANCE', 'VISIBILITÉ', 'NOTORIÉTÉ', 'RÉUSSITE', 'AVENIR', 'BUSINESS']}
+                  mainClassName="text-highlight flex items-center justify-center overflow-hidden pb-1 h-[1.2em]"
+                  staggerFrom="last"
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "-120%" }}
+                  staggerDuration={0.025}
+                  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={2500}
+                />
+              </div>
             </h1>
 
             <p className="text-muted-foreground text-lg mt-8 max-w-xl">
               Advisia est une agence de croissance spécialisée en intelligence
               artificielle, développement web et marketing digital.
             </p>
+
             <div className="flex lg:hidden items-center justify-center gap-x-1 gap-y-2 flex-wrap mt-8">
               <Button asChild size={"lg"}>
                 <Link href="/contact">
@@ -107,8 +128,7 @@ export default function Hero() {
               </Button>
             </div>
 
-            {/* Cards */}
-
+            {/* --- CARDS FLOTTANTES --- */}
             {/* Card 2*/}
             <div className="hidden lg:block hero-card absolute bottom-16 right-64 bg-background border p-2 select-none rounded-md rotate-2">
               <p className="hidden 2xl:block text-left mb-2 font-mono text-xs text-muted-foreground">
@@ -124,6 +144,7 @@ export default function Hero() {
                 ></Image>
               </div>
             </div>
+
             {/* Card 3 */}
             <div className="hidden lg:block hero-card absolute bottom-32 right-32 bg-background border p-2 select-none rounded-md -rotate-1">
               <div className="hidden 2xl:flex items-center gap-2 mb-2">
@@ -156,6 +177,7 @@ export default function Hero() {
                 <RiHeartFill className="hidden 2xl:block absolute bottom-3 right-3" />
               </div>
             </div>
+
             {/* Card 4 */}
             <div className="hidden lg:block hero-card absolute bottom-64 right-8 bg-background border p-2 select-none rounded-md">
               <p className="hidden 2xl:block text-left mb-2 font-mono text-xs text-muted-foreground">
