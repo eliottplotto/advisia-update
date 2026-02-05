@@ -1,7 +1,7 @@
 "use client";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Draggable } from "gsap/Draggable";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 import Image from "next/image";
@@ -33,6 +33,16 @@ export default function Hero() {
     },
   ];
 
+  // State pour déclencher la rotation après l'apparition du texte
+  const [isRotating, setIsRotating] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsRotating(true);
+    }, 500); // Démarre seulement 0.5s après l'affichage (beaucoup plus rapide)
+    return () => clearTimeout(timer);
+  }, []);
+
   useGSAP(() => {
     Draggable.create(".hero-card", {
       bounds: "#hero",
@@ -46,6 +56,7 @@ export default function Hero() {
     () => {
       const cards = gsap.utils.toArray<HTMLDivElement>(".hero-card");
 
+      // Animation des cartes (existante)
       gsap.from(cards, {
         delay: 0.5,
         y: 50,
@@ -87,29 +98,28 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* --- TITRE PRINCIPAL OPTIMISÉ --- */}
+            {/* --- TITRE PRINCIPAL UNIFIÉ --- */}
             <h1 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-8 font-medium leading-tight">
-              {/* Partie 1 : Le texte normal */}
+              {/* Tout le contenu est maintenant DANS RevealText pour une apparition synchronisée */}
               <RevealText>
-                Créons des solutions digitales sur‑mesures pour
+                Créons des solutions digitales sur‑mesures pour{" "}
+                <span className="inline-block whitespace-nowrap align-bottom">
+                  votre&nbsp;
+                  <RotatingText
+                    texts={['EXPANSION', 'PERFORMANCE', 'VISIBILITÉ', 'NOTORIÉTÉ', 'RÉUSSITE', 'AVENIR', 'BUSINESS']}
+                    mainClassName="text-highlight inline-block text-left min-w-[3ch]"
+                    staggerFrom="last"
+                    initial={{ y: "100%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: "-120%", opacity: 0 }}
+                    staggerDuration={0.06}
+                    splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                    transition={{ type: "spring", damping: 22, stiffness: 180 }}
+                    rotationInterval={3000}
+                    auto={isRotating}
+                  />
+                </span>
               </RevealText>
-              
-              {/* Partie 2 : Le "Glue Container" qui force "votre" et le cadre à rester ensemble */}
-              <div className="inline-flex items-center gap-x-2 md:gap-x-3 align-middle mt-2 lg:mt-0">
-                <span>votre</span>
-                <RotatingText
-                  texts={['EXPANSION', 'PERFORMANCE', 'VISIBILITÉ', 'NOTORIÉTÉ', 'RÉUSSITE', 'AVENIR', 'BUSINESS']}
-                  mainClassName="text-highlight flex items-center justify-center overflow-hidden pb-1 h-[1.2em]"
-                  staggerFrom="last"
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  exit={{ y: "-120%" }}
-                  staggerDuration={0.025}
-                  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                  rotationInterval={2500}
-                />
-              </div>
             </h1>
 
             <p className="text-muted-foreground text-lg mt-8 max-w-xl">
