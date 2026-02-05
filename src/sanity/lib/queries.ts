@@ -95,7 +95,7 @@ export const projectFields = `
 
 // Requête principale du projet (sans déréférencement)
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  const query = defineQuery(`
+  const projectBySlugQuery = defineQuery(`
     *[_type == "project" && slug.current == $slug][0] {
       _id,
       _createdAt,
@@ -126,7 +126,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
   `);
 
   try {
-    const project = await client.fetch<Project>(query, { slug });
+    const project = await client.fetch<Project>(projectBySlugQuery, { slug });
     return project;
   } catch (error) {
     console.error(`Erreur lors de la récupération du projet ${slug}:`, error);
@@ -142,7 +142,7 @@ export async function getServicesByIds(
 
   const serviceIds = serviceRefs.map((ref) => ref._ref);
 
-  const query = defineQuery(`
+  const servicesByIdsQuery = defineQuery(`
     *[_type == "service" && _id in $serviceIds] {
       _id,
       title,
@@ -157,7 +157,7 @@ export async function getServicesByIds(
   `);
 
   try {
-    const services = await client.fetch<Service[]>(query, { serviceIds });
+    const services = await client.fetch<Service[]>(servicesByIdsQuery, { serviceIds });
     return services;
   } catch (error) {
     console.error("Erreur lors de la récupération des services:", error);
@@ -171,7 +171,7 @@ export async function getReviewById(reviewRef: {
 }): Promise<Review | null> {
   if (!reviewRef?._ref) return null;
 
-  const query = defineQuery(`
+  const reviewByIdQuery = defineQuery(`
     *[_type == "temoignage" && _id == $reviewId][0] {
       _id,
       entreprise,
@@ -195,7 +195,7 @@ export async function getReviewById(reviewRef: {
   `);
 
   try {
-    const review = await client.fetch<Review>(query, {
+    const review = await client.fetch<Review>(reviewByIdQuery, {
       reviewId: reviewRef._ref,
     });
     return review;
@@ -206,12 +206,12 @@ export async function getReviewById(reviewRef: {
 }
 
 export async function getAllProjectSlugs(): Promise<string[]> {
-  const query = defineQuery(`
+  const allProjectSlugsQuery = defineQuery(`
     *[_type == "project" && defined(slug.current)][].slug.current
   `);
 
   try {
-    const slugs = await client.fetch<string[]>(query);
+    const slugs = await client.fetch<string[]>(allProjectSlugsQuery);
     return slugs;
   } catch (error) {
     console.error(
