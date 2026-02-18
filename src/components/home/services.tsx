@@ -1,109 +1,122 @@
-import Link from "next/link";
-import { BulletHeadline } from "../ui/bullet-headline";
-import { Button } from "../ui/button";
-import { RiArrowRightUpLine, RiCornerDownRightLine } from "@remixicon/react";
-import { RevealText } from "../reveal-text";
+"use client";
 
-import ShinyText from "@/components/ShinyText";
+import Link from "next/link";
+import { RevealText } from "@/components/reveal-text";
+import {
+  RiCodeSSlashLine,
+  RiRobot2Line,
+  RiPaletteLine,
+  RiMegaphoneLine,
+  RiArrowRightUpLine,
+} from "@remixicon/react";
+import ScrollReveal from "@/components/ui/scroll-reveal";
 
 export default function Services() {
-  const services = [
+  const expertises = [
     {
-      title: (
-        <ShinyText
-  text="IA & Automatisation"
-  speed={3}
-  className="font-medium"
-/>
-      ),
+      title: "IA & Automatisation",
+      description:
+        "Optimisez vos process et gagnez du temps grâce à des agents IA sur-mesure et des workflows intelligents.",
+      icon: RiRobot2Line,
       link: "/services/automatisations-ia",
+      number: "01",
     },
     {
-      title: (
-        <ShinyText
-  text="Développement Web"
-  speed={3}
-  className="font-medium"
-/>
-      ),
+      title: "Développement Web",
+      description:
+        "Sites vitrines, e-commerce ou SaaS : des architectures robustes, rapides et scalables.",
+      icon: RiCodeSSlashLine,
       link: "/services/agence-web",
+      number: "02",
     },
     {
-      title: (
-        <ShinyText
-  text="Product Design"
-  speed={3}
-  className="font-medium"
-/>
-      ),
+      title: "Product Design",
+      description:
+        "UI/UX Design centré utilisateur pour transformer vos visiteurs en clients fidèles.",
+      icon: RiPaletteLine,
       link: "/services/product-design",
+      number: "03",
     },
     {
-      title: (
-        <ShinyText
-  text="Marketing Digital"
-  speed={3}
-  className="font-medium"
-/>
-      ),
+      title: "Marketing Digital",
+      description:
+        "Stratégies d'acquisition SEO/SEA pour booster votre visibilité et votre ROI.",
+      icon: RiMegaphoneLine,
       link: "/services/marketing-digital",
+      number: "04",
     },
   ];
 
   return (
-    <section className="bg-secondary">
-      <div className="container-md">
-        <div className="py-8 lg:py-16 grid grid-cols-1 lg:grid-cols-2">
-          <div className="lg:sticky lg:top-24 h-fit global-padding space-y-6">
-            <BulletHeadline as="p">Nos expertises</BulletHeadline>
+    <section
+      className="relative z-[2] py-16 lg:py-32 px-4 md:px-8 lg:px-12"
+      style={{ background: "var(--bg-primary)" }}
+    >
+      <div className="max-w-[1400px] mx-auto">
+        {/* Header */}
+        <div className="section-label mb-6">● Nos Expertises</div>
+        <h2
+          className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-12 lg:mb-16 max-w-[700px]"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          <RevealText>
+            Développez tout le potentiel de votre activité.
+          </RevealText>
+        </h2>
 
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl max-w-xl">
-              <RevealText>
-                Développez tout le potentiel de votre activité.
-              </RevealText>
-            </h2>
-
-            <p>
-              Découvrez toutes nos expertises pour mettre en place et développer
-              votre stratégie digitale. Du SEA à la web analyse en passant par
-              le social média, nous vous accompagnons pour faire grandir votre
-              entreprise quel que soit votre secteur.
-            </p>
-            <Button asChild size={"lg"} className="hidden lg:inline-flex">
-              <Link href="/contact">
-                J&apos;estime mon projet <RiCornerDownRightLine />
-              </Link>
-            </Button>
-          </div>
-          <ul className="global-padding-x space-y-2">
-            {services.map((service, index) => (
-              <li
-                key={index}
-                className="group bg-background relative overflow-hidden max-w-xl mr-0 ml-auto rounded-lg border hover:border-muted-foreground"
-              >
-                <Link
-                  href={service.link}
-                  className="block relative z-1 space-y-8 global-padding"
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {expertises.map((item, index) => (
+            <ScrollReveal key={index} delay={index * 0.1}>
+              <Link href={item.link} className="group block h-full">
+                <div
+                  className="relative h-full rounded-[20px] p-8 lg:p-10 transition-all duration-500 overflow-hidden expertise-card-glow hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3),0_0_40px_var(--violet-dim)] hover:border-[rgba(124,58,237,0.25)] hover:bg-[rgba(124,58,237,0.05)]"
+                  style={{
+                    background: "var(--bg-card)",
+                    border: "1px solid var(--border)",
+                  }}
                 >
-                  <div className="flex justify-between">
-                    <p className="font-mono text-sm text-muted-foreground group-hover:text-foreground">
-                      0{index + 1}
-                    </p>
-                    <div className="relative w-12 h-12">
-                      <div className="w-full h-full rounded-full bg-ad-1 group-hover:scale-140 transition-scale ease-(--my-ease) duration-200"></div>
-                      <RiArrowRightUpLine className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]" />
-                    </div>
+                  {/* Number */}
+                  <div
+                    className="font-mono text-[0.7rem] mb-8 transition-colors duration-300 group-hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {item.number}
                   </div>
 
-                  <div className="flex flex-col items-start sm:items-end gap-8 justify-between">
-                    <div className="w-full">
-                      <h3 className="text-xl lg:text-3xl">{service.title}</h3>
-                    </div>
+                  {/* Icon */}
+                  <div
+                    className="w-14 h-14 rounded-[14px] flex items-center justify-center mb-8 transition-all duration-300 group-hover:bg-[var(--ad-1)] group-hover:text-black group-hover:border-[var(--ad-1)] group-hover:shadow-[0_0_30px_var(--accent-dim)] group-hover:scale-105"
+                    style={{
+                      background: "var(--violet-dim)",
+                      border: "1px solid rgba(124,58,237,0.15)",
+                    }}
+                  >
+                    <item.icon size={24} />
                   </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+
+                  {/* Text */}
+                  <h3
+                    className="text-xl lg:text-2xl font-bold mb-3 transition-colors duration-300 group-hover:text-[var(--ad-1)]"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    className="text-sm lg:text-base leading-relaxed transition-colors duration-300 group-hover:text-white/80"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    {item.description}
+                  </p>
+
+                  {/* Arrow */}
+                  <div className="absolute bottom-8 right-8 opacity-0 translate-y-2 translate-x-[-8px] group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300 text-[var(--ad-1)]">
+                    <RiArrowRightUpLine size={24} />
+                  </div>
+                </div>
+              </Link>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>

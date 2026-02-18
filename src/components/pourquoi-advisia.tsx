@@ -1,97 +1,103 @@
+"use client";
+
 import {
-  RiBardFill,
-  RiFocus2Fill,
-  RiShakeHandsFill,
-  RiShieldStarFill,
+  RiShieldCheckLine,
+  RiSparklingLine,
+  RiFocus3Line,
+  RiHandHeartLine,
 } from "@remixicon/react";
-import { RevealText } from "./reveal-text";
+import { RevealText } from "@/components/reveal-text";
+import ScrollReveal from "@/components/ui/scroll-reveal";
 
 export default function PourquoiAdvisia() {
+  const features = [
+    {
+      title: "Expertise certifiée",
+      description:
+        "Une équipe experte, des outils maîtrisés, et une approche testée sur le terrain.",
+      icon: RiShieldCheckLine,
+      index: "01",
+    },
+    {
+      title: "Solutions modernes",
+      description:
+        "Technologies fiables et durables grâce à une veille constante du marché.",
+      icon: RiSparklingLine,
+      index: "02",
+    },
+    {
+      title: "Résultats garantis",
+      description:
+        "KPIs définis dès le kick-off ; livrables alignés sur vos objectifs business.",
+      icon: RiFocus3Line,
+      index: "03",
+    },
+    {
+      title: "Transparence totale",
+      description:
+        "Suivi hebdo, accès au backlog, feedback continu : vous restez maître du projet.",
+      icon: RiHandHeartLine,
+      index: "04",
+    },
+  ];
+
   return (
-    <section className="bg-secondary">
-      <div className="container-md">
-        <div className="global-padding-x py-8 lg:py-16 space-y-8 lg:space-y-16">
-          <div className="flex flex-col items-center gap-8 text-center">
-            <h2 className="text-4xl md:text-6xl max-w-4xl">
-              <RevealText>Pourquoi choisir Advisia ?</RevealText>
-            </h2>
-            <p>
-              PME, commerçants, artisans, startups ou groupes établis : chaque
-              projet mérite efficacité, clarté et impact.
-            </p>
-          </div>
+    <section
+      className="relative z-[2] py-16 lg:py-32 px-4 md:px-8 lg:px-12 overflow-hidden"
+      style={{
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
+      <div className="max-w-[1400px] mx-auto">
+        {/* Header */}
+        <div className="section-label mb-6">● Pourquoi nous choisir</div>
+        <h2
+          className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-12 lg:mb-16 max-w-[700px]"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          <RevealText>L&apos;excellence à chaque étape.</RevealText>
+        </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-4 rounded-lg border">
-              <div className="flex no-wrap justify-between">
-                <p className="font-mono text-muted-foreground uppercase text-sm">
-                  01
-                </p>
-                <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 rounded-xs">
-                  <RiShieldStarFill />
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, idx) => (
+            <ScrollReveal key={idx} delay={idx * 0.1}>
+              <div
+                className="relative rounded-2xl p-8 text-center transition-all duration-500 overflow-hidden why-card-glow hover:-translate-y-1 hover:border-[rgba(124,58,237,0.2)] hover:bg-[rgba(124,58,237,0.04)]"
+                style={{
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                {/* Number */}
+                <div
+                  className="font-mono text-3xl font-bold mb-4 opacity-40 gradient-text transition-opacity duration-300"
+                  style={{ opacity: undefined }}
+                >
+                  <span className="gradient-text opacity-40 group-hover:opacity-80 transition-opacity">
+                    {feature.index}
+                  </span>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-xl lg:text-2xl">Expertise certifiée</h3>
-                <p className="mt-3 text-muted-foreground">
-                  Une équipe experte, des outils maîtrisés, et une approche
-                  testée sur le terrain.
-                </p>
-              </div>
-            </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 rounded-lg border">
-              <div className="flex no-wrap justify-between">
-                <p className="font-mono text-muted-foreground uppercase text-sm">
-                  02
-                </p>
-                <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 rounded-xs">
-                  <RiBardFill />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl lg:text-2xl">Solutions modernes</h3>
-                <p className="mt-3 text-muted-foreground">
-                  Nous sélectionnons des technologies fiables et durables grâce
-                  à une veille constante.
-                </p>
-              </div>
-            </div>
 
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 rounded-lg border">
-              <div className="flex  no-wrap justify-between">
-                <p className="font-mono text-muted-foreground uppercase text-sm">
-                  03
-                </p>
-                <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 rounded-xs">
-                  <RiFocus2Fill />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl lg:text-2xl">Résultats garantis</h3>
-                <p className="mt-3 text-muted-foreground">
-                  KPIs définis dès le kick-off ; nos livrables s’alignent sur
-                  vos objectifs.
-                </p>
-              </div>
-            </div>
-            <div className="bg-background p-4 md:p-6 flex flex-col justify-between gap-8 rounded-lg border">
-              <div className="flex no-wrap justify-between">
-                <p className="font-mono text-muted-foreground uppercase text-sm">
-                  04
-                </p>
-                <div className="mb-5 md:mb-6 p-4 w-fit bg-ad-1 rounded-xs">
-                  <RiShakeHandsFill />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl lg:text-2xl">Partenariat transparent</h3>
-                <p className="mt-3 text-muted-foreground">
-                  Suivi hebdo, accès au backlog, feedback continu : vous restez
-                  maître du projet.
+                {/* Title */}
+                <h4
+                  className="text-lg font-bold mb-3 transition-colors duration-300 hover:text-[var(--ad-1)]"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {feature.title}
+                </h4>
+
+                {/* Description */}
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {feature.description}
                 </p>
               </div>
-            </div>
-          </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>

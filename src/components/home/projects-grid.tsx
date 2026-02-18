@@ -1,0 +1,92 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "motion/react";
+import { RiArrowRightLine } from "@remixicon/react";
+import { urlFor } from "@/sanity/lib/image";
+import type { AllProjectsQueryResult } from "@/types/sanity";
+
+interface ProjectsGridProps {
+  projects: AllProjectsQueryResult;
+}
+
+export default function ProjectsGrid({ projects }: ProjectsGridProps) {
+  const displayProjects = projects.slice(0, 3);
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {displayProjects.map((project, index) => (
+        <motion.div
+          key={project._id}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          className="group"
+        >
+          <Link
+            href={`/projets/${project.slug?.current}`}
+            className="block h-full w-full"
+          >
+            <div
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_30px_var(--violet-dim)]"
+              style={{
+                border: "1px solid var(--border)",
+              }}
+            >
+              {/* Image */}
+              <div className="absolute inset-0">
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "var(--bg-secondary)" }}
+                />
+                {project.coverImage && (
+                  <Image
+                    src={urlFor(project.coverImage).width(800).url()}
+                    alt={project.headline || "Projet"}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                )}
+              </div>
+
+              {/* Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[rgba(10,10,15,0.95)] to-transparent">
+                <div
+                  className="text-xl lg:text-2xl font-bold"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {project.headline}
+                </div>
+                {project.client && (
+                  <div
+                    className="text-sm mt-1"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    {project.client}
+                  </div>
+                )}
+                <div
+                  className="inline-block font-mono text-[0.6rem] uppercase tracking-[0.15em] px-2 py-0.5 rounded-full mt-2"
+                  style={{
+                    color: "var(--violet-light)",
+                    background: "var(--violet-dim)",
+                    border: "1px solid rgba(124,58,237,0.2)",
+                  }}
+                >
+                  Voir le projet
+                </div>
+              </div>
+
+              {/* Arrow button */}
+              <div className="absolute top-4 right-4 w-10 h-10 rounded-full backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-[var(--ad-1)] group-hover:text-black" style={{ background: "rgba(255,255,255,0.1)" }}>
+                <RiArrowRightLine size={20} />
+              </div>
+            </div>
+          </Link>
+        </motion.div>
+      ))}
+    </div>
+  );
+}

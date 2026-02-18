@@ -3,11 +3,13 @@ import { allProjectsQuery } from "@/sanity/lib/queries";
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import type { Project } from "@/types/sanity";
+import type { AllProjectsQueryResult } from "@/types/sanity";
 import { Button } from "./ui/button";
 import { RiCornerDownRightLine } from "@remixicon/react";
 
-const Project = ({ project }: { project: Project }) => {
+type ProjectItem = AllProjectsQueryResult[number];
+
+const Project = ({ project }: { project: ProjectItem }) => {
   if (!project.slug?.current) {
     return null;
   }
@@ -68,7 +70,7 @@ export default async function Projects() {
 
   return (
     <div className="space-y-4 lg:space-y-8">
-      {data.map((project: Project) => (
+      {data.map((project) => (
         <Project key={project._id} project={project} />
       ))}
     </div>
