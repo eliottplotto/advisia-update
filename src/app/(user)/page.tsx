@@ -1,12 +1,14 @@
 import Footer from "@/components/footer";
-import Agency from "@/components/home/agency";
+import Team from "@/components/home/team";
 import Hero from "@/components/home/hero";
 import ProjectsSection from "@/components/home/projects";
 import Services from "@/components/home/services";
+import Process from "@/components/home/process";
 import LogosConfiance from "@/components/logos-confiance";
 import NosOutils from "@/components/nos-outils";
 import PourquoiAdvisia from "@/components/pourquoi-advisia";
 import SectionCTAForm from "@/components/section-cta-form";
+import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 
 export const metadata = {
   title: "Advisia · Agence de croissance digitale",
@@ -25,11 +27,13 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative">
+      <VerticalFlowLine />
       <Hero />
       <LogosConfiance />
       <Services />
-      <Agency />
+      <Process />
+      <Team />
       <ProjectsSection />
       <PourquoiAdvisia />
       <NosOutils />

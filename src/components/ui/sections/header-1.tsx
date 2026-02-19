@@ -34,24 +34,33 @@ export type Header1Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 export const Header1 = (props: Header1Props) => {
-  const { dark, bg, layout, heading, description, buttons, image, legend } = {
+  const { layout, heading, description, buttons, image, legend } = {
     ...Header1Defaults,
     ...props,
   };
 
   return (
     <section
-      className={`bg-background text-foreground pt-4 pb-8 lg:py-16 ${dark ? "dark" : ""} ${bg ? `bg-${bg}` : ""}`}
+      className="pt-4 pb-8 lg:py-16"
+      style={{
+        background: "rgba(10,10,15,0.85)",
+        color: "var(--text-primary)",
+      }}
     >
-      <div className="container-md global-padding-x">
-        <div className="col-start-2 grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-8 lg:gap-16">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-8 lg:gap-16">
           <div
             className={`space-y-6 order-1 ${layout === "imgLeft" ? "" : "lg:order-0"}`}
           >
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl">
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl font-bold"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               <RevealText>{heading}</RevealText>
             </h2>
-            <p className="md:text-md">{description}</p>
+            <p className="md:text-md" style={{ color: "var(--text-secondary)" }}>
+              {description}
+            </p>
             <div className="flex flex-wrap gap-1">
               {buttons?.map((button, index) => {
                 const { title, asChild, children, ...rest } = button;
@@ -77,16 +86,30 @@ export const Header1 = (props: Header1Props) => {
           >
             <img
               src={image.src}
-              className="w-full object-cover rounded-sm overflow-hidden"
+              className="w-full object-cover rounded-2xl overflow-hidden"
               alt={image.alt}
+              style={{ border: "1px solid var(--border)" }}
             />
             {legend && (
-              <div className="dark bg-background text-foreground absolute bottom-4 left-4 p-3 rounded-xs">
+              <div
+                className="absolute bottom-4 left-4 p-3 rounded-lg backdrop-blur-md"
+                style={{
+                  background: "rgba(10,10,15,0.8)",
+                  border: "1px solid var(--border)",
+                  color: "var(--text-primary)",
+                }}
+              >
                 <p className="flex items-center gap-3">
-                  <span className="inline-block w-3 h-3 bg-ad-1"></span>
+                  <span
+                    className="inline-block w-3 h-3"
+                    style={{ background: "var(--ad-1)" }}
+                  />
                   <span>
                     <span className="block">{legend.title}</span>
-                    <span className="block text-sm text-muted-foreground">
+                    <span
+                      className="block text-sm"
+                      style={{ color: "var(--text-muted)" }}
+                    >
                       {legend.subtitle}
                     </span>
                   </span>

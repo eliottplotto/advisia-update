@@ -2,11 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import {
   RiArrowDownSLine,
   RiCloseFill,
-  RiCornerDownRightLine,
   RiMenuFill,
 } from "@remixicon/react";
 
@@ -33,8 +31,8 @@ export default function Navbar() {
   ];
 
   const mobileMainNavLinks = [
-    { path: "/projets", label: "Cas clients" },
-    { path: "/agence", label: "Agence" },
+    { path: "/projets", label: "Réalisations" },
+    { path: "/agence", label: "L'équipe" },
   ];
 
   const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
@@ -48,7 +46,6 @@ export default function Navbar() {
   const mobileTl = useRef<gsap.core.Timeline | null>(null);
 
   useGSAP(() => {
-    // Services menu timeline
     if (servicesMenuRef.current) {
       servicesTl.current = gsap
         .timeline({ paused: true })
@@ -71,7 +68,6 @@ export default function Navbar() {
         );
     }
 
-    // Mobile menu timeline
     if (mobileMenuRef.current) {
       mobileTl.current = gsap
         .timeline({ paused: true })
@@ -94,7 +90,6 @@ export default function Navbar() {
         );
     }
 
-    // ScrollTrigger pour changer l'apparence de la navbar
     ScrollTrigger.create({
       trigger: "body",
       start: "top -50px",
@@ -121,6 +116,13 @@ export default function Navbar() {
         servicesTl.current.play();
       }
       setIsServicesMenuOpen(!isServicesMenuOpen);
+    }
+  };
+
+  const openServicesMenu = () => {
+    if (servicesTl.current && !isServicesMenuOpen) {
+      servicesTl.current.play();
+      setIsServicesMenuOpen(true);
     }
   };
 
@@ -153,24 +155,26 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`
-    w-full transition-colors duration-300  dark text-foreground
-    ${isMinimalNavbar ? "static dark  bg-background text-foreground border-b" : "fixed top-0 z-40"}
-    ${
-      !isMinimalNavbar &&
-      (isScrolled || isAnyMenuOpen
-        ? "border-b bg-background"
-        : "bg-transparent")
-    }
-  `}
+        className={`w-full transition-all duration-400 ${isMinimalNavbar ? "static" : "fixed top-0 z-40"}`}
+        style={{
+          background: isMinimalNavbar
+            ? "var(--bg-primary)"
+            : isScrolled || isAnyMenuOpen
+              ? "rgba(10,10,15,0.92)"
+              : "rgba(10,10,15,0.6)",
+          backdropFilter: "blur(20px) saturate(180%)",
+          WebkitBackdropFilter: "blur(20px) saturate(180%)",
+          borderBottom: "1px solid var(--border)",
+          color: "var(--text-primary)",
+        }}
       >
         <div
           className={`container-md grid grid-cols-2 ${isMinimalNavbar ? "lg:grid-cols-1" : "lg:grid-cols-[1fr_auto_1fr]"} transition-height duration-300 h-20 ${
-            isScrolled ? "lg:h-14" : "lg:h-24"
+            isScrolled ? "lg:h-[60px]" : "lg:h-20"
           }`}
         >
-          {/* Left */}
-          <div className="global-padding-x flex items-center ">
+          {/* Left - Logo */}
+          <div className="global-padding-x flex items-center">
             <Link
               href="/"
               className="flex items-center space-x-2"
@@ -179,54 +183,80 @@ export default function Navbar() {
                 closeMobileMenu();
               }}
             >
-              <Logo />
+              <span
+                className="font-bold text-2xl tracking-wide gradient-text"
+                style={{ fontFamily: "var(--font-display)", letterSpacing: "0.05em" }}
+              >
+                <Logo className="text-white" />
+              </span>
             </Link>
           </div>
 
           {/* Center Navigation - Desktop */}
           {!isMinimalNavbar && (
             <div className="hidden lg:flex lg:justify-center lg:items-center">
-              <div className="flex justify-center items-center gap-8">
-                <Button variant="link" onClick={toggleServicesMenu}>
+              <div className="flex justify-center items-center gap-10">
+                <button
+                  onClick={toggleServicesMenu}
+                  onMouseEnter={openServicesMenu}
+                  className="font-mono text-[0.75rem] uppercase tracking-[0.15em] flex items-center gap-1 transition-colors duration-300 hover:text-white relative"
+                  style={{ color: "var(--text-secondary)", background: "none", border: "none" }}
+                >
                   Expertises
                   <RiArrowDownSLine
+                    size={16}
                     className={`transition-transform duration-300 ${isServicesMenuOpen ? "rotate-180" : ""}`}
                   />
-                </Button>
-                <Button asChild variant="link" onClick={closeServicesMenu}>
-                  <Link href="/projets">Cas clients</Link>
-                </Button>
-                <Button asChild variant="link" onClick={closeServicesMenu}>
-                  <Link href="/agence">Agence</Link>
-                </Button>
+                </button>
+                <Link
+                  href="/projets"
+                  onClick={closeServicesMenu}
+                  className="font-mono text-[0.75rem] uppercase tracking-[0.15em] relative transition-colors duration-300 hover:text-white group"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  Réalisations
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] transition-all duration-400 group-hover:w-full" style={{ background: "var(--violet)" }} />
+                </Link>
+                <Link
+                  href="/agence"
+                  onClick={closeServicesMenu}
+                  className="font-mono text-[0.75rem] uppercase tracking-[0.15em] relative transition-colors duration-300 hover:text-white group"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  L&apos;équipe
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] transition-all duration-400 group-hover:w-full" style={{ background: "var(--violet)" }} />
+                </Link>
               </div>
             </div>
           )}
 
-          {/* Right */}
+          {/* Right - CTA */}
           {!isMinimalNavbar && (
             <div className="global-padding-x flex justify-end items-center">
-              <Button
+              <Link
+                href="/contact"
                 onClick={closeServicesMenu}
-                asChild
-                className="hidden lg:flex"
-                size={`${isScrolled ? "default" : "lg"}`}
+                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-mono text-[0.75rem] font-semibold uppercase tracking-[0.1em] rounded-md transition-all duration-300 hover:-translate-y-[1px] hover:shadow-[0_0_40px_var(--accent-glow)]"
+                style={{
+                  background: "var(--ad-1)",
+                  color: "#000",
+                  boxShadow: "0 0 20px var(--accent-dim)",
+                }}
               >
-                <Link href="/contact">
-                  J&apos;estime mon projet
-                  <RiCornerDownRightLine />
-                </Link>
-              </Button>
+                J&apos;estime mon projet →
+              </Link>
 
-              {/* Mobile Menu Button */}
-
-              <Button
+              <button
                 onClick={toggleMobileMenu}
-                className="lg:hidden w-12 h-12"
-                variant="ghost"
+                className="lg:hidden w-12 h-12 flex items-center justify-center"
+                style={{ color: "var(--text-primary)", background: "none", border: "none" }}
               >
-                {isMobileMenuOpen ? <RiCloseFill /> : <RiMenuFill />}
-              </Button>
+                {isMobileMenuOpen ? (
+                  <RiCloseFill size={24} />
+                ) : (
+                  <RiMenuFill size={24} />
+                )}
+              </button>
             </div>
           )}
         </div>
@@ -235,8 +265,16 @@ export default function Navbar() {
         <div
           ref={servicesMenuRef}
           className="hidden lg:block w-full overflow-hidden h-0"
+          style={{
+            background: "#0f0f18",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            borderBottom: "1px solid rgba(124,58,237,0.2)",
+            boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
+          }}
+          onMouseLeave={closeServicesMenu}
         >
-          <ul className="container-md global-padding">
+          <ul className="container-md global-padding" style={{ background: "#0f0f18" }}>
             {servicesLinks.map((link, index) => (
               <li key={index}>
                 <Link
@@ -247,9 +285,15 @@ export default function Navbar() {
                   }}
                   className="relative block py-2 group"
                 >
-                  <p className="text-4xl relative w-max">
+                  <p
+                    className="text-4xl relative w-max transition-colors duration-300 text-white group-hover:text-[var(--ad-1)]"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
                     {link.label}
-                    <span className="absolute -bottom-2 left-0 w-0 h-[3px] bg-current transition-all duration-500 ease-out group-hover:w-full"></span>
+                    <span
+                      className="absolute -bottom-2 left-0 w-0 h-[3px] transition-all duration-500 ease-out group-hover:w-full"
+                      style={{ background: "var(--gradient-1)" }}
+                    />
                   </p>
                 </Link>
               </li>
@@ -261,55 +305,64 @@ export default function Navbar() {
         <div
           ref={mobileMenuRef}
           className="lg:hidden w-full overflow-hidden h-0"
+          style={{ background: "rgba(10,10,15,0.98)" }}
         >
           <div className="global-padding">
             <div>
-              {/* Services Links */}
               <div className="space-y-2">
                 {servicesLinks.map((link, index) => (
                   <Link
                     key={`service-${index}`}
                     href={link.path}
                     onClick={closeMobileMenu}
-                    className="block text-2xl"
+                    className="mobile-nav-item block text-2xl transition-colors hover:text-[var(--ad-1)]"
+                    style={{ fontFamily: "var(--font-display)" }}
                   >
                     {link.label}
                   </Link>
                 ))}
               </div>
 
-              {/* Main Nav Links */}
-              <div className="pt-4 mt-4 border-t space-y-2">
+              <div
+                className="pt-4 mt-4 space-y-2"
+                style={{ borderTop: "1px solid var(--border)" }}
+              >
                 {mobileMainNavLinks.map((link, index) => (
                   <Link
                     key={`main-${index}`}
                     href={link.path}
                     onClick={closeMobileMenu}
-                    className="block text-2xl"
+                    className="mobile-nav-item block text-2xl transition-colors hover:text-[var(--ad-1)]"
+                    style={{ fontFamily: "var(--font-display)" }}
                   >
                     {link.label}
                   </Link>
                 ))}
               </div>
 
-              {/* Mobile CTA */}
               <div className="mobile-nav-item pt-8 flex flex-col gap-y-2">
-                <Button
-                  asChild
-                  size="lg"
-                  className="w-full"
-                  variant="secondary"
+                <Link
+                  href="/prendre-rendez-vous"
+                  onClick={closeMobileMenu}
+                  className="block w-full text-center py-3 font-mono text-xs uppercase tracking-wider rounded-md transition-all backdrop-blur-md"
+                  style={{
+                    border: "1px solid rgba(124,58,237,0.3)",
+                    color: "var(--text-primary)",
+                  }}
                 >
-                  <Link href="/prendre-rendez-vous" onClick={closeMobileMenu}>
-                    Réserver un appel
-                  </Link>
-                </Button>
-                <Button asChild size="lg" className="w-full">
-                  <Link href="/contact" onClick={closeMobileMenu}>
-                    J&apos;estime mon projet
-                    <RiCornerDownRightLine />
-                  </Link>
-                </Button>
+                  Réserver un appel
+                </Link>
+                <Link
+                  href="/contact"
+                  onClick={closeMobileMenu}
+                  className="block w-full text-center py-3 font-mono text-xs uppercase tracking-wider rounded-md font-semibold"
+                  style={{
+                    background: "var(--ad-1)",
+                    color: "#000",
+                  }}
+                >
+                  J&apos;estime mon projet →
+                </Link>
               </div>
             </div>
           </div>
@@ -319,7 +372,8 @@ export default function Navbar() {
       {/* Backdrop */}
       {isAnyMenuOpen && (
         <div
-          className="fixed z-39 top-0 left-0 w-full h-full bg-primary/50 backdrop-blur supports-[backdrop-filter]:bg-primary/50"
+          className="fixed z-[39] top-0 left-0 w-full h-full backdrop-blur"
+          style={{ background: "rgba(10,10,15,0.5)" }}
           onClick={() => {
             if (isServicesMenuOpen) {
               servicesTl.current?.reverse();

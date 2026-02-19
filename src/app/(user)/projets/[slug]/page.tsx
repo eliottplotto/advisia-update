@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Global
 import { notFound } from "next/navigation";
 import type { Metadata, ResolvingMetadata } from "next";
@@ -6,7 +7,6 @@ import Link from "next/link";
 // Data
 import {
   projectQuery,
-  getServicesByIds,
   getReviewById,
   getAllProjectSlugs,
 } from "@/sanity/lib/queries";
@@ -16,7 +16,6 @@ import { sanityFetch } from "@/sanity/lib/live";
 // Components
 import Footer from "@/components/footer";
 import Testimonial1 from "@/components/ui/sections/testimonial-1";
-import { Button } from "@/components/ui/button";
 import { RiArrowLeftLine } from "@remixicon/react";
 import SectionCTASmall from "@/components/section-cta-small";
 import { Header1 } from "@/components/ui/sections/header-1";
@@ -35,7 +34,6 @@ export async function generateMetadata(
   const { data: project } = await sanityFetch({
     query: projectQuery,
     params,
-    // Metadata should never contain stega
     stega: false,
   });
   const previousImages = (await parent).openGraph?.images || [];
@@ -45,23 +43,26 @@ export async function generateMetadata(
       title: "Projet non trouvé",
       description: "Le projet que vous recherchez n'existe pas.",
       openGraph: {
-        images: project?.coverImage
-          ? [project?.coverImage, ...previousImages]
-          : previousImages,
+        images: previousImages,
       },
     };
   }
 
+  const ogImage = project.coverImage
+    ? urlFor(project.coverImage).width(1200).height(630).url()
+    : null;
+
   return {
     title: `${project.client} · Étude de cas Advisia`,
     description: project.contexte ? project.contexte : project.headline,
+    openGraph: {
+      images: ogImage ? [ogImage, ...previousImages] : previousImages,
+    },
   } satisfies Metadata;
 }
 
-// Fonction pour générer les chemins statiques
 export async function generateStaticParams() {
   const slugs = await getAllProjectSlugs();
-  // Retourne un tableau d'objets, où chaque objet contient le paramètre de la route
   return slugs.map((slug) => ({
     slug: slug,
   }));
@@ -77,38 +78,64 @@ export default async function projectPage(props: Props) {
     return notFound();
   }
 
-  // Récupération des données liées en parallèle
-  const [services, review] = await Promise.all([
-    project.services ? getServicesByIds(project.services) : Promise.resolve([]),
-    project.review ? getReviewById(project.review) : Promise.resolve(null),
-  ]);
+  const services = project.services || [];
+
+  let review = null;
+  if (project.review && project.review._id) {
+    review = await getReviewById({ _ref: project.review._id });
+  }
 
   return (
     <main>
-      <section className="dark bg-background text-foreground border-b">
-        <div className="container-md pt-[95px]">
-          <div className="global-padding-x py-8 lg:py-16 flex flex-col gap-8">
-            <Button variant="secondary" className="w-fit" asChild>
-              <Link href="/projets">
-                <RiArrowLeftLine />
-                Tous les projets
-              </Link>
-            </Button>
+      <section
+        style={{
+          background: "rgba(10,10,15,0.85)",
+          color: "var(--text-primary)",
+          borderBottom: "1px solid var(--border)",
+        }}
+      >
+        <div className="max-w-[1400px] mx-auto pt-[95px]">
+          <div className="px-4 md:px-8 lg:px-12 py-12 lg:py-20 flex flex-col gap-8">
+            <Link
+              href="/projets"
+              className="inline-flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-wider rounded-lg transition-all duration-300 hover:bg-[rgba(124,58,237,0.15)] w-fit"
+              style={{
+                background: "rgba(124,58,237,0.08)",
+                border: "1px solid rgba(124,58,237,0.2)",
+                color: "var(--text-primary)",
+              }}
+            >
+              <RiArrowLeftLine size={16} />
+              Tous les projets
+            </Link>
             <div>
-              <p className="text-2xl lg:text-4xl xl:text-6xl text-ad-1">
+              <p
+                className="text-2xl lg:text-4xl xl:text-6xl"
+                style={{ color: "var(--ad-1)" }}
+              >
                 {project.client}
               </p>
-              <h1 className="text-2xl lg:text-4xl xl:text-6xl max-w-6xl">
+              <h1
+                className="text-2xl lg:text-4xl xl:text-6xl max-w-6xl font-bold"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 <RevealText>{project.headline}</RevealText>
               </h1>
               {services.length > 0 && (
-                <ul className="mt-8 flex items-center justify-center gap-1 flex-wrap">
-                  {services.map((service) => (
+                <ul className="mt-8 flex items-center gap-2 flex-wrap">
+                  {services.map((service: any) => (
                     <li
                       key={service._id}
-                      className="bg-secondary py-1 px-2 mb-0 rounded-sm"
+                      className="py-1.5 px-3 rounded-full"
+                      style={{
+                        background: "rgba(124,58,237,0.08)",
+                        border: "1px solid rgba(124,58,237,0.15)",
+                      }}
                     >
-                      <p className="text-sm font-mono uppercase">
+                      <p
+                        className="text-xs font-mono uppercase tracking-[0.15em]"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
                         {service.title}
                       </p>
                     </li>
@@ -120,7 +147,7 @@ export default async function projectPage(props: Props) {
         </div>
       </section>
 
-      <div className="dark bg-background border-b">
+      <div style={{ background: "rgba(10,10,15,0.85)", borderBottom: "1px solid var(--border)" }}>
         {project.contexte && (
           <Header1
             heading="Le contexte"
@@ -128,12 +155,12 @@ export default async function projectPage(props: Props) {
             layout="imgLeft"
             description={project.contexte}
             image={{
-              src:
-                urlFor(project.contextImage).width(600).url() ||
-                "https://placehold.co/600x600/png",
+              src: project.contextImage
+                ? urlFor(project.contextImage).width(600).url()
+                : "https://placehold.co/600x600/png",
               alt:
-                project.contextImage.alt ||
-                `Image de couverture pour ${project.headline}`,
+                project.contextImage?.alt ||
+                `Image de contexte pour ${project.headline}`,
             }}
           />
         )}
@@ -144,12 +171,12 @@ export default async function projectPage(props: Props) {
             layout="imgRight"
             description={project.impact}
             image={{
-              src:
-                urlFor(project.impactImage).width(600).url() ||
-                "https://placehold.co/600x600/png",
+              src: project.impactImage
+                ? urlFor(project.impactImage).width(600).url()
+                : "https://placehold.co/600x600/png",
               alt:
-                project.impactImage.alt ||
-                `Image de couverture pour ${project.headline}`,
+                project.impactImage?.alt ||
+                `Image d'impact pour ${project.headline}`,
             }}
           />
         )}
@@ -160,12 +187,12 @@ export default async function projectPage(props: Props) {
             layout="imgLeft"
             description={project.resultats}
             image={{
-              src:
-                urlFor(project.resultatsImage).width(600).url() ||
-                "https://placehold.co/600x600/png",
+              src: project.resultatsImage
+                ? urlFor(project.resultatsImage).width(600).url()
+                : "https://placehold.co/600x600/png",
               alt:
-                project.resultatsImage.alt ||
-                `Image de couverture pour ${project.headline}`,
+                project.resultatsImage?.alt ||
+                `Image de résultats pour ${project.headline}`,
             }}
           />
         )}

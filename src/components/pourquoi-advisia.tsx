@@ -1,10 +1,10 @@
 "use client";
 
 import {
-  RiShieldCheckLine,
+  RiCodeSSlashLine,
   RiSparklingLine,
-  RiFocus3Line,
-  RiHandHeartLine,
+  RiBarChartBoxLine,
+  RiEyeLine,
 } from "@remixicon/react";
 import { RevealText } from "@/components/reveal-text";
 import ScrollReveal from "@/components/ui/scroll-reveal";
@@ -12,40 +12,40 @@ import ScrollReveal from "@/components/ui/scroll-reveal";
 export default function PourquoiAdvisia() {
   const features = [
     {
-      title: "Expertise certifiée",
+      title: "Tech-first, pas bullshit",
       description:
-        "Une équipe experte, des outils maîtrisés, et une approche testée sur le terrain.",
-      icon: RiShieldCheckLine,
+        "On code nous-mêmes. Pas de sous-traitance offshore, pas de slides sans fin. Du code, du résultat.",
+      icon: RiCodeSSlashLine,
       index: "01",
     },
     {
-      title: "Solutions modernes",
+      title: "L'IA dans notre ADN",
       description:
-        "Technologies fiables et durables grâce à une veille constante du marché.",
+        "L'IA n'est pas un buzzword chez nous. On l'utilise dans nos propres process et on la déploie chez chaque client.",
       icon: RiSparklingLine,
       index: "02",
     },
     {
-      title: "Résultats garantis",
+      title: "Des KPIs, pas des promesses",
       description:
-        "KPIs définis dès le kick-off ; livrables alignés sur vos objectifs business.",
-      icon: RiFocus3Line,
+        "Objectifs chiffrés dès le kick-off. On mesure tout : temps gagné, coût réduit, conversions générées.",
+      icon: RiBarChartBoxLine,
       index: "03",
     },
     {
-      title: "Transparence totale",
+      title: "Votre projet, en temps réel",
       description:
-        "Suivi hebdo, accès au backlog, feedback continu : vous restez maître du projet.",
-      icon: RiHandHeartLine,
+        "Call hebdo, accès au backlog, démos en continu. Vous voyez l'avancement à chaque étape.",
+      icon: RiEyeLine,
       index: "04",
     },
   ];
 
   return (
     <section
-      className="relative z-[2] py-16 lg:py-32 px-4 md:px-8 lg:px-12 overflow-hidden"
+      className="relative z-[2] py-12 md:py-16 px-4 md:px-8 lg:px-12 overflow-hidden"
       style={{
-        background: "var(--bg-primary)",
+        background: "rgba(10,10,15,0.85)",
         borderTop: "1px solid var(--border)",
       }}
     >
@@ -53,45 +53,83 @@ export default function PourquoiAdvisia() {
         {/* Header */}
         <div className="section-label mb-6">● Pourquoi nous choisir</div>
         <h2
-          className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-12 lg:mb-16 max-w-[700px]"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 max-w-[700px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          <RevealText>L&apos;excellence à chaque étape.</RevealText>
+          <RevealText>
+            Pourquoi les PME{" "}
+            <span
+              style={{
+                background: "linear-gradient(90deg, #c9fe6e, #a8e063)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              nous choisissent.
+            </span>
+          </RevealText>
         </h2>
+        <p
+          className="text-base md:text-lg mb-8 lg:mb-12 max-w-[500px]"
+          style={{ color: "rgba(255,255,255,0.6)" }}
+        >
+          Ce qu&apos;on fait différemment des autres agences.
+        </p>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {features.map((feature, idx) => (
-            <ScrollReveal key={idx} delay={idx * 0.1}>
+            <ScrollReveal key={idx} delay={idx * 0.1} className="h-full">
               <div
-                className="relative rounded-2xl p-8 text-center transition-all duration-500 overflow-hidden why-card-glow hover:-translate-y-1 hover:border-[rgba(124,58,237,0.2)] hover:bg-[rgba(124,58,237,0.04)]"
+                className="group relative h-full flex flex-col rounded-2xl p-8 text-center transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:border-[rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(124,58,237,0.1)]"
                 style={{
                   background: "var(--bg-card)",
-                  border: "1px solid var(--border)",
+                  border: "1px solid rgba(255,255,255,0.06)",
                 }}
               >
-                {/* Number */}
+                {/* Green top accent bar */}
                 <div
-                  className="font-mono text-3xl font-bold mb-4 opacity-40 gradient-text transition-opacity duration-300"
-                  style={{ opacity: undefined }}
+                  className="absolute top-0 left-0 right-0 h-[3px] transition-all duration-300 group-hover:shadow-[0_0_12px_rgba(201,254,110,0.4)]"
+                  style={{ background: "#c9fe6e" }}
+                />
+
+                {/* Watermark number */}
+                <div
+                  className="absolute top-4 right-4 font-mono font-bold select-none pointer-events-none"
+                  style={{
+                    fontSize: "4rem",
+                    lineHeight: 1,
+                    opacity: 0.08,
+                    color: "#fff",
+                  }}
                 >
-                  <span className="gradient-text opacity-40 group-hover:opacity-80 transition-opacity">
-                    {feature.index}
-                  </span>
+                  {feature.index}
+                </div>
+
+                {/* Icon */}
+                <div className="relative z-[1] mb-6">
+                  <feature.icon
+                    size={28}
+                    className="mx-auto transition-colors duration-300"
+                    style={{ color: "#c9fe6e" }}
+                  />
                 </div>
 
                 {/* Title */}
                 <h4
-                  className="text-lg font-bold mb-3 transition-colors duration-300 hover:text-[var(--ad-1)]"
-                  style={{ fontFamily: "var(--font-display)" }}
+                  className="relative z-[1] text-lg font-bold mb-3 transition-colors duration-300 group-hover:text-[#c9fe6e]"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    color: "#fff",
+                  }}
                 >
                   {feature.title}
                 </h4>
 
                 {/* Description */}
                 <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "var(--text-secondary)" }}
+                  className="relative z-[1] text-sm leading-relaxed flex-1"
+                  style={{ color: "rgba(255,255,255,0.7)" }}
                 >
                   {feature.description}
                 </p>

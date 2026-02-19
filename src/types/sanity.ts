@@ -361,3 +361,417 @@ export type SanityAssetSourceData = {
 
 export type AllSanitySchemaTypes = BlockContent | Settings | Service | Project | Temoignage | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ./src/sanity/lib/queries.ts
+// Variable: projectBySlugQuery
+// Query: *[_type == "project" && slug.current == $slug][0] {      _id,      _createdAt,      _updatedAt,      client,      slug,      coverImage {        asset->{          _id,          url        },        alt      },      logo {        asset->{          _id,          url        }      },      headline,      contexte,      impact,      resultats,      date,      review,      services    }
+export type ProjectBySlugQueryResult = {
+  _id: string;
+  _createdAt: string;
+  _updatedAt: string;
+  client: string | null;
+  slug: Slug | null;
+  coverImage: {
+    asset: {
+      _id: string;
+      url: string | null;
+    } | null;
+    alt: string | null;
+  } | null;
+  logo: {
+    asset: {
+      _id: string;
+      url: string | null;
+    } | null;
+  } | null;
+  headline: string | null;
+  contexte: string | null;
+  impact: string | null;
+  resultats: string | null;
+  date: string | null;
+  review: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "temoignage";
+  } | null;
+  services: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "service";
+  }> | null;
+} | null;
+// Variable: servicesByIdsQuery
+// Query: *[_type == "service" && _id in $serviceIds] {      _id,      title,      slug,      icon {        asset->{          _id,          url        }      }    }
+export type ServicesByIdsQueryResult = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  icon: {
+    asset: {
+      _id: string;
+      url: string | null;
+    } | null;
+  } | null;
+}>;
+// Variable: reviewByIdQuery
+// Query: *[_type == "temoignage" && _id == $reviewId][0] {      _id,      entreprise,      nom,      prenom,      poste,      citation,      photo {        asset->{          _id,          url        }      },      logo {        asset->{          _id,          url        }      }    }
+export type ReviewByIdQueryResult = {
+  _id: string;
+  entreprise: string | null;
+  nom: string | null;
+  prenom: string | null;
+  poste: string | null;
+  citation: string | null;
+  photo: {
+    asset: {
+      _id: string;
+      url: string | null;
+    } | null;
+  } | null;
+  logo: {
+    asset: {
+      _id: string;
+      url: string | null;
+    } | null;
+  } | null;
+} | null;
+// Variable: allProjectSlugsQuery
+// Query: *[_type == "project" && defined(slug.current)][].slug.current
+export type AllProjectSlugsQueryResult = Array<string | null>;
+// Variable: allProjectsQuery
+// Query: *[_type == "project" && defined(slug.current)] | order(date desc, _updatedAt desc) {      _id,  _type,  _createdAt,  _updatedAt,  client,  slug,  coverImage{    asset->,    alt  },  logo{    asset->,    alt  },  headline,  contexte,  contextImage{    asset->,    alt  },  impact,  impactImage{    asset->,    alt  },  resultats,  resultatsImage{    asset->,    alt  },  kpis[]{    metric,    value,    description  },  date,  review->{    _id,    name,    company,    content,    rating  },  services[]->{    _id,    title,    slug  },  seo{    metaTitle,    metaDescription  }  }
+export type AllProjectsQueryResult = Array<{
+  _id: string;
+  _type: "project";
+  _createdAt: string;
+  _updatedAt: string;
+  client: string | null;
+  slug: Slug | null;
+  coverImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  logo: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  headline: string | null;
+  contexte: string | null;
+  contextImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  impact: string | null;
+  impactImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  resultats: string | null;
+  resultatsImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  kpis: Array<{
+    metric: string | null;
+    value: string | null;
+    description: string | null;
+  }> | null;
+  date: string | null;
+  review: {
+    _id: string;
+    name: null;
+    company: null;
+    content: null;
+    rating: null;
+  } | null;
+  services: Array<{
+    _id: string;
+    title: string | null;
+    slug: Slug | null;
+  }> | null;
+  seo: {
+    metaTitle: string | null;
+    metaDescription: string | null;
+  } | null;
+}>;
+// Variable: projectQuery
+// Query: *[_type == "project" && slug.current == $slug][0] {      _id,  _type,  _createdAt,  _updatedAt,  client,  slug,  coverImage{    asset->,    alt  },  logo{    asset->,    alt  },  headline,  contexte,  contextImage{    asset->,    alt  },  impact,  impactImage{    asset->,    alt  },  resultats,  resultatsImage{    asset->,    alt  },  kpis[]{    metric,    value,    description  },  date,  review->{    _id,    name,    company,    content,    rating  },  services[]->{    _id,    title,    slug  },  seo{    metaTitle,    metaDescription  }  }
+export type ProjectQueryResult = {
+  _id: string;
+  _type: "project";
+  _createdAt: string;
+  _updatedAt: string;
+  client: string | null;
+  slug: Slug | null;
+  coverImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  logo: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  headline: string | null;
+  contexte: string | null;
+  contextImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  impact: string | null;
+  impactImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  resultats: string | null;
+  resultatsImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  kpis: Array<{
+    metric: string | null;
+    value: string | null;
+    description: string | null;
+  }> | null;
+  date: string | null;
+  review: {
+    _id: string;
+    name: null;
+    company: null;
+    content: null;
+    rating: null;
+  } | null;
+  services: Array<{
+    _id: string;
+    title: string | null;
+    slug: Slug | null;
+  }> | null;
+  seo: {
+    metaTitle: string | null;
+    metaDescription: string | null;
+  } | null;
+} | null;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    "\n    *[_type == \"project\" && slug.current == $slug][0] {\n      _id,\n      _createdAt,\n      _updatedAt,\n      client,\n      slug,\n      coverImage {\n        asset->{\n          _id,\n          url\n        },\n        alt\n      },\n      logo {\n        asset->{\n          _id,\n          url\n        }\n      },\n      headline,\n      contexte,\n      impact,\n      resultats,\n      date,\n      review,\n      services\n    }\n  ": ProjectBySlugQueryResult;
+    "\n    *[_type == \"service\" && _id in $serviceIds] {\n      _id,\n      title,\n      slug,\n      icon {\n        asset->{\n          _id,\n          url\n        }\n      }\n    }\n  ": ServicesByIdsQueryResult;
+    "\n    *[_type == \"temoignage\" && _id == $reviewId][0] {\n      _id,\n      entreprise,\n      nom,\n      prenom,\n      poste,\n      citation,\n      photo {\n        asset->{\n          _id,\n          url\n        }\n      },\n      logo {\n        asset->{\n          _id,\n          url\n        }\n      }\n    }\n  ": ReviewByIdQueryResult;
+    "\n    *[_type == \"project\" && defined(slug.current)][].slug.current\n  ": AllProjectSlugsQueryResult;
+    "\n  *[_type == \"project\" && defined(slug.current)] | order(date desc, _updatedAt desc) {\n    \n  _id,\n  _type,\n  _createdAt,\n  _updatedAt,\n  client,\n  slug,\n  coverImage{\n    asset->,\n    alt\n  },\n  logo{\n    asset->,\n    alt\n  },\n  headline,\n  contexte,\n  contextImage{\n    asset->,\n    alt\n  },\n  impact,\n  impactImage{\n    asset->,\n    alt\n  },\n  resultats,\n  resultatsImage{\n    asset->,\n    alt\n  },\n  kpis[]{\n    metric,\n    value,\n    description\n  },\n  date,\n  review->{\n    _id,\n    name,\n    company,\n    content,\n    rating\n  },\n  services[]->{\n    _id,\n    title,\n    slug\n  },\n  seo{\n    metaTitle,\n    metaDescription\n  }\n\n  }\n": AllProjectsQueryResult;
+    "\n  *[_type == \"project\" && slug.current == $slug][0] {\n    \n  _id,\n  _type,\n  _createdAt,\n  _updatedAt,\n  client,\n  slug,\n  coverImage{\n    asset->,\n    alt\n  },\n  logo{\n    asset->,\n    alt\n  },\n  headline,\n  contexte,\n  contextImage{\n    asset->,\n    alt\n  },\n  impact,\n  impactImage{\n    asset->,\n    alt\n  },\n  resultats,\n  resultatsImage{\n    asset->,\n    alt\n  },\n  kpis[]{\n    metric,\n    value,\n    description\n  },\n  date,\n  review->{\n    _id,\n    name,\n    company,\n    content,\n    rating\n  },\n  services[]->{\n    _id,\n    title,\n    slug\n  },\n  seo{\n    metaTitle,\n    metaDescription\n  }\n\n  }\n": ProjectQueryResult;
+  }
+}

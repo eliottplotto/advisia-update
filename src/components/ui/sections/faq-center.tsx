@@ -36,17 +36,35 @@ export default function FAQCenter({
   questions = defaultQuestions,
 }: FAQ) {
   return (
-    <section className="bg-secondary">
-      <div className="container-md">
-        <div className="global-padding-x py-8 lg:py-16">
+    <section
+      style={{
+        background: "var(--bg-secondary)",
+        borderTop: "1px solid var(--border)",
+        color: "var(--text-primary)",
+      }}
+    >
+      <div className="max-w-[1400px] mx-auto">
+        <div className="px-4 md:px-8 lg:px-12 py-12 lg:py-20">
           <div className="flex flex-col items-center gap-8 lg:gap-16">
             <div className="max-w-3xl text-center">
-              <h2 className="text-4xl lg:text-5xl xl:text-6xl">
+              <div className="section-label mb-6 mx-auto w-fit">
+                ● Questions fréquentes
+              </div>
+              <h2
+                className="text-3xl md:text-4xl lg:text-5xl font-bold"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 <RevealText>{title}</RevealText>
               </h2>
             </div>
 
-            <div className="global-padding-x bg-background w-full max-w-2xl rounded-sm">
+            <div
+              className="w-full max-w-2xl rounded-2xl p-6 md:p-8"
+              style={{
+                background: "var(--bg-card)",
+                border: "1px solid var(--border)",
+              }}
+            >
               <Accordion type="single" collapsible className="w-full">
                 {questions.map((question, index) => (
                   <AccordionItem key={index} value={question.id}>
@@ -54,7 +72,9 @@ export default function FAQCenter({
                       <span>{question.question}</span>
                     </AccordionTrigger>
                     <AccordionContent>
-                      <p>{question.answer}</p>
+                      <p style={{ color: "var(--text-secondary)" }}>
+                        {question.answer}
+                      </p>
                     </AccordionContent>
                   </AccordionItem>
                 ))}

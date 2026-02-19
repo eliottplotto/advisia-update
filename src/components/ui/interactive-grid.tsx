@@ -21,15 +21,10 @@ export default function InteractiveGrid({ className }: InteractiveGridProps) {
       });
     };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("mousemove", handleMouseMove);
-    }
+    document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      if (container) {
-        container.removeEventListener("mousemove", handleMouseMove);
-      }
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -37,7 +32,7 @@ export default function InteractiveGrid({ className }: InteractiveGridProps) {
     <div
       ref={containerRef}
       className={cn(
-        "absolute inset-0 z-0 overflow-hidden", // V2 dark bg
+        "absolute inset-0 z-0 overflow-hidden pointer-events-none", // V2 dark bg
         className
       )}
     >

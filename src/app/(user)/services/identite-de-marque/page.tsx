@@ -81,7 +81,8 @@ export default function IdentiteDeMarque() {
   return (
     <>
       <main>
-        <section className="dark bg-background text-foreground overflow-hidden bg-[url('/background-logo-dark.svg')] bg-cover bg-center">
+        <section className="overflow-hidden"
+          style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="container-md pt-[95px]">
             <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
               <div className="flex flex-col justify-end gap-6">
@@ -120,7 +121,7 @@ export default function IdentiteDeMarque() {
 
         <Header1
           heading="Advisia, votre partenaire digital de confiance"
-          dark={false}
+          dark={true}
           layout="imgLeft"
           description="Nous sommes une équipe passionnée de créatifs et de développeurs, dédiée à transformer vos idées en solutions digitales exceptionnelles."
           image={{ src: "/equipe-advisia-2.jpg", alt: "Équipe Advisia" }}

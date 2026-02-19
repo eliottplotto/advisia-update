@@ -5,8 +5,6 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { RevealText } from "../reveal-text";
 import RotatingText from "@/components/RotatingText";
-import ParticlesCanvas from "@/components/ui/particles-canvas";
-
 export default function Hero() {
   const [isRotating, setIsRotating] = useState(false);
   const glowRef = useRef<HTMLDivElement>(null);
@@ -31,9 +29,8 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden z-[1]"
-      style={{ background: "var(--bg-primary)" }}
+      style={{ background: "rgba(10,10,15,0.85)" }}
     >
-      <ParticlesCanvas />
       {/* Grid background */}
       <div className="hero-grid-bg" />
 
@@ -81,28 +78,23 @@ export default function Hero() {
             className="font-mono text-[0.7rem] uppercase tracking-[0.15em]"
             style={{ color: "var(--text-secondary)" }}
           >
-            +20 entreprises accompagnées
+            +20 projets livrés depuis 2023
           </span>
         </div>
 
         {/* Title */}
         <h1
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight mb-8 max-w-[900px]"
+          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight mb-8 max-w-[900px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <RevealText>
-            Solutions digitales pour votre{" "}
-            <span className="inline-block whitespace-nowrap align-bottom">
-              <span className="gradient-text">
+            L&apos;agence tech qui accélère votre{" "}
+            <span className="inline-block whitespace-nowrap align-bottom" style={{ color: "var(--ad-1)" }}>
                 <RotatingText
                   texts={[
-                    "CROISSANCE",
-                    "PERFORMANCE",
-                    "VISIBILITÉ",
-                    "NOTORIÉTÉ",
-                    "RÉUSSITE",
-                    "AVENIR",
-                    "BUSINESS",
+                    "Croissance",
+                    "Productivité",
+                    "Transformation",
                   ]}
                   mainClassName="inline-block text-left min-w-[3ch]"
                   staggerFrom="last"
@@ -115,7 +107,6 @@ export default function Hero() {
                   rotationInterval={3000}
                   auto={isRotating}
                 />
-              </span>
             </span>
           </RevealText>
         </h1>
@@ -128,9 +119,8 @@ export default function Hero() {
             animation: "fadeUp 0.8s var(--ease) 1s forwards",
           }}
         >
-          Advisia est une agence spécialisée en intelligence artificielle,
-          développement web et marketing digital. Nous transformons vos ambitions
-          en résultats mesurables.
+          Agents IA, sites performants, automatisation des process : on conçoit
+          les outils qui font gagner du temps aux PME et ETI.
         </p>
 
         {/* CTA Actions */}
@@ -162,7 +152,7 @@ export default function Hero() {
           className="top-0 right-0 w-[280px]"
           label="Automatisations IA"
           metric="+340%"
-          desc="Productivité moyenne"
+          desc="de productivité chez nos clients"
           fillWidth="75%"
         />
         <FloatCard
@@ -180,7 +170,7 @@ export default function Hero() {
           className="top-[340px] right-[20px] w-[240px]"
           label="Taux de conversion"
           metric="×2.4"
-          desc="Croissance client"
+          desc="de ROI en moyenne"
           fillWidth="60%"
         />
       </div>

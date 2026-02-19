@@ -1,125 +1,192 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
 import { RiLinkedinFill, RiSparklingFill } from "@remixicon/react";
 import { NewsletterForm } from "./newsletter-form";
+import { Logo } from "./Logo";
 
 export default function Footer() {
   return (
-    <footer>
-      <section className="dark text-foreground bg-secondary border-t">
-        <div className="container-md grid grid-col-1 lg:grid-cols-2">
-          <div className="global-padding">
+    <footer
+      style={{
+        background: "var(--bg-secondary)",
+        borderTop: "1px solid var(--border)",
+        color: "var(--text-primary)",
+      }}
+    >
+      <div className="max-w-[1400px] mx-auto">
+        {/* Newsletter + Links */}
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="px-4 md:px-8 lg:px-12 py-12 lg:py-16">
             <NewsletterForm
               title="Advisia Insights"
-              description="Recevez chaque semaine les clés du digital pour faire grandir votre entreprise"
+              description="Recevez nos analyses IA, retours d'expérience et conseils tech — 1 email par semaine."
               className="max-w-md"
             />
           </div>
 
-          <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-x-4 gap-y-8 global-padding border-t border-px lg:border-0">
+          <div
+            className="grid grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] gap-x-4 gap-y-8 px-4 md:px-8 lg:px-12 py-12 lg:py-16"
+            style={{ borderTop: "1px solid var(--border)" }}
+          >
             <div>
-              <h2 className="font-mono text-muted-foreground text-sm uppercase mb-4">
+              <h2
+                className="font-mono text-xs uppercase tracking-[0.15em] mb-5"
+                style={{ color: "var(--text-muted)" }}
+              >
                 L&apos;agence
               </h2>
-              <ul>
+              <ul className="space-y-3">
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/">Acceuil</Link>
-                  </Button>
+                  <Link
+                    href="/"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Accueil
+                  </Link>
                 </li>
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/projets">Études de cas</Link>
-                  </Button>
+                  <Link
+                    href="/projets"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    &Eacute;tudes de cas
+                  </Link>
                 </li>
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/agence">À propos</Link>
-                  </Button>
+                  <Link
+                    href="/agence"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    &Agrave; propos
+                  </Link>
                 </li>
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/prendre-rendez-vous">Réserver un appel</Link>
-                  </Button>
+                  <Link
+                    href="/prendre-rendez-vous"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    R&eacute;server un appel
+                  </Link>
                 </li>
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/contact">Contact</Link>
-                  </Button>
+                  <Link
+                    href="/contact"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Contact
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="font-mono text-muted-foreground text-sm uppercase mb-4">
+              <h2
+                className="font-mono text-xs uppercase tracking-[0.15em] mb-5"
+                style={{ color: "var(--text-muted)" }}
+              >
                 Expertises
               </h2>
-              <ul>
+              <ul className="space-y-3">
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/services/automatisations-ia">
-                      IA et Automatisation
-                      <RiSparklingFill className="text-ad-1" />
-                    </Link>
-                  </Button>
+                  <Link
+                    href="/services/automatisations-ia"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)] flex items-center gap-1.5"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    IA et Automatisation
+                    <RiSparklingFill size={14} style={{ color: "var(--ad-1)" }} />
+                  </Link>
                 </li>
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/services/agence-web">Site Web</Link>
-                  </Button>
+                  <Link
+                    href="/services/agence-web"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Site Web
+                  </Link>
                 </li>
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/services/product-design">Product Design</Link>
-                  </Button>
+                  <Link
+                    href="/services/product-design"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Product Design
+                  </Link>
                 </li>
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/services/digital-marketing">
-                      Digital Marketing
-                    </Link>
-                  </Button>
+                  <Link
+                    href="/services/digital-marketing"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Digital Marketing
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="font-mono text-muted-foreground text-sm uppercase mb-4">
-                Légal
+              <h2
+                className="font-mono text-xs uppercase tracking-[0.15em] mb-5"
+                style={{ color: "var(--text-muted)" }}
+              >
+                L&eacute;gal
               </h2>
-              <ul>
+              <ul className="space-y-3">
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/mentions-legales">Mentions légales</Link>
-                  </Button>
+                  <Link
+                    href="/mentions-legales"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Mentions l&eacute;gales
+                  </Link>
                 </li>
                 <li>
-                  <Button variant="link" asChild>
-                    <Link href="/politique-de-confidentialite">
-                      Politique de confidentialité
-                    </Link>
-                  </Button>
+                  <Link
+                    href="/politique-de-confidentialite"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Politique de confidentialit&eacute;
+                  </Link>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="global-padding border-t border-px lg:border-0">
-            <ul className="flex gap-1">
-              <li>
-                <Button variant="secondary" asChild>
-                  <Link
-                    href="https://www.linkedin.com/company/agence-advisia/"
-                    target="_blank"
-                  >
-                    <RiLinkedinFill />
-                  </Link>
-                </Button>
-              </li>
-            </ul>
+        </div>
+
+        {/* Bottom bar */}
+        <div
+          className="px-4 md:px-8 lg:px-12 py-6 flex flex-col sm:flex-row justify-between items-center gap-4"
+          style={{ borderTop: "1px solid var(--border)" }}
+        >
+          <div className="flex items-center gap-4">
+            <Logo className="text-white opacity-60" />
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              &copy; Advisia 2025
+            </p>
           </div>
-          <div className="self-end global-padding border-t border-px lg:border-0">
-            <p className="text-muted-foreground text-sm">© Advisia 2025</p>
+          <div className="flex gap-2">
+            <Link
+              href="https://www.linkedin.com/company/agence-advisia/"
+              target="_blank"
+              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[rgba(124,58,237,0.15)] hover:text-[var(--violet-light)]"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid var(--border)",
+                color: "var(--text-secondary)",
+              }}
+            >
+              <RiLinkedinFill size={18} />
+            </Link>
           </div>
         </div>
-      </section>
+      </div>
     </footer>
   );
 }

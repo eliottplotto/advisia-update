@@ -28,19 +28,19 @@ export default function Team() {
       value: 20,
       prefix: "+",
       suffix: "",
-      label: "Entreprises accompagnées",
+      label: "Projets livrés",
     },
     {
       value: 100,
       prefix: "",
       suffix: "%",
-      label: "Clients satisfaits",
+      label: "Clients qui renouvellent",
     },
     {
-      value: 9,
+      value: 4,
       prefix: "",
-      suffix: "",
-      label: "Prix & Certifications",
+      suffix: " ans",
+      label: "D'expertise IA appliquée",
     },
   ];
 
@@ -49,13 +49,13 @@ export default function Team() {
       className="relative group overflow-hidden"
       style={{
         borderTop: "1px solid var(--border)",
-        background: "var(--bg-primary)",
+        background: "rgba(10,10,15,0.85)",
       }}
     >
       {/* Interactive grid background */}
       <InteractiveGrid />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto py-16 lg:py-32 px-4 md:px-8 lg:px-12 text-white">
+      <div className="relative z-10 max-w-[1400px] mx-auto py-12 md:py-16 px-4 md:px-8 lg:px-12 text-white">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-12">
           <div className="section-label mb-6">● Vos Interlocuteurs</div>
@@ -64,7 +64,7 @@ export default function Team() {
             style={{ fontFamily: "var(--font-display)" }}
           >
             <RevealText>
-              Un pilotage expert, sans intermédiaire.
+              Deux fondateurs. Zéro intermédiaire.
             </RevealText>
           </h2>
         </div>
@@ -137,16 +137,16 @@ export default function Team() {
               className="text-lg md:text-xl leading-relaxed italic"
               style={{ color: "var(--text-primary)" }}
             >
-              Nous voulons rendre accessibles les bénéfices de l&apos;IA et du
-              digital, quel que soit votre secteur ou votre niveau de maturité
-              numérique.
+              Dans 5 ans, chaque entreprise qui n&apos;aura pas intégré
+              l&apos;IA dans ses process sera dépassée. On est là pour que ce
+              ne soit pas la vôtre.
             </p>
           </div>
         </ScrollReveal>
 
         {/* Stats */}
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-[900px] mx-auto mt-16 pt-16"
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-[900px] mx-auto mt-12 pt-12"
           style={{ borderTop: "1px solid var(--border)" }}
         >
           {stats.map((stat, index) => (
@@ -164,7 +164,7 @@ export default function Team() {
                     to={stat.value}
                     separator=","
                     direction="up"
-                    duration={1.5}
+                    duration={2.5}
                     className="text-white"
                   />
                   {stat.suffix && (

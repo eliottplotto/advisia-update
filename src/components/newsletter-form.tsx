@@ -3,7 +3,6 @@
 import type React from "react";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
@@ -70,13 +69,22 @@ export function NewsletterForm({
   return (
     <div className={className}>
       <div className="mb-6">
-        <h2 className="text-2xl md:text-4xl mb-3">{title}</h2>
-        <p className="text-muted-foreground">{description}</p>
+        <h2
+          className="text-2xl md:text-4xl mb-3 font-bold"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          {title}
+        </h2>
+        <p style={{ color: "var(--text-secondary)" }}>{description}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="firstName" className="flex items-center gap-2">
+          <Label
+            htmlFor="firstName"
+            className="flex items-center gap-2 text-sm"
+            style={{ color: "var(--text-secondary)" }}
+          >
             Prénom
           </Label>
           <Input
@@ -89,11 +97,16 @@ export function NewsletterForm({
             }
             disabled={isLoading}
             required
+            className="!bg-[rgba(255,255,255,0.05)] !border-[var(--border)] !text-white placeholder:!text-[var(--text-muted)] focus:!border-[var(--violet)] focus:!ring-[var(--violet-dim)]"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email" className="flex items-center gap-2">
+          <Label
+            htmlFor="email"
+            className="flex items-center gap-2 text-sm"
+            style={{ color: "var(--text-secondary)" }}
+          >
             Email
           </Label>
           <Input
@@ -106,10 +119,20 @@ export function NewsletterForm({
             }
             disabled={isLoading}
             required
+            className="!bg-[rgba(255,255,255,0.05)] !border-[var(--border)] !text-white placeholder:!text-[var(--text-muted)] focus:!border-[var(--violet)] focus:!ring-[var(--violet-dim)]"
           />
         </div>
 
-        <Button type="submit" size="lg" disabled={isLoading}>
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="inline-flex items-center gap-2 px-6 py-3 font-mono text-xs font-semibold uppercase tracking-[0.1em] rounded-lg transition-all duration-300 hover:-translate-y-[1px] hover:shadow-[0_0_40px_var(--accent-glow)] disabled:opacity-50"
+          style={{
+            background: "var(--ad-1)",
+            color: "#000",
+            boxShadow: "0 0 20px var(--accent-dim)",
+          }}
+        >
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -118,7 +141,7 @@ export function NewsletterForm({
           ) : (
             "S'abonner gratuitement"
           )}
-        </Button>
+        </button>
       </form>
     </div>
   );

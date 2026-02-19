@@ -1,6 +1,5 @@
 import ContactForm from "./contact-form";
 import { RiCheckFill, RiPhoneFill } from "@remixicon/react";
-import { Button } from "./ui/button";
 import Link from "next/link";
 import type { ElementType, ReactNode } from "react";
 import { RevealText } from "./reveal-text";
@@ -19,7 +18,8 @@ export default function SectionContactForm({
 
   const defaultTitle = (
     <>
-      Prêts à lancer votre projet <span className="text-nowrap">digital ?</span>
+      Racontez-nous votre{" "}
+      <span className="text-nowrap">problème.</span>
     </>
   );
 
@@ -40,14 +40,32 @@ export default function SectionContactForm({
   ];
 
   return (
-    <section className="dark bg-background text-foreground">
-      <div className="container-md">
-        <div className="global-padding-x py-8 lg:py-16 grid lg:grid-cols-2 gap-x-16 gap-y-8">
+    <section
+      style={{
+        background: "rgba(10,10,15,0.85)",
+        color: "var(--text-primary)",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
+      <div className="max-w-[1400px] mx-auto">
+        <div className="px-4 md:px-8 lg:px-12 py-12 md:py-16 grid lg:grid-cols-2 gap-x-16 gap-y-8">
           <div className="space-y-6">
-            <div className="bg-background border py-1 px-2 mb-0 flex items-center gap-2 w-fit rounded-xs">
-              <div className="w-2 h-2 bg-ad-1 rounded-xs"></div>
-              <p className="text-sm font-mono uppercase">
-                Nous sommes à votre écoute
+            <div
+              className="py-1.5 px-3 mb-0 flex items-center gap-2 w-fit rounded-full"
+              style={{
+                background: "rgba(124,58,237,0.08)",
+                border: "1px solid rgba(124,58,237,0.15)",
+              }}
+            >
+              <div
+                className="w-2 h-2 rounded-full"
+                style={{ background: "var(--ad-1)" }}
+              />
+              <p
+                className="text-xs font-mono uppercase tracking-[0.15em]"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                Nous sommes &agrave; votre &eacute;coute
               </p>
             </div>
             <div className="mt-8">
@@ -57,61 +75,105 @@ export default function SectionContactForm({
                   src={profil.src}
                   alt={profil.alt}
                   className="inline-block not-first:-ml-2 w-12 h-12 rounded-full"
+                  style={{ border: "2px solid var(--violet-dim)" }}
                 />
               ))}
             </div>
 
-            <Tag className="text-4xl lg:text-5xl xl:text-6xl" {...props}>
+            <Tag
+              className="text-4xl lg:text-5xl xl:text-6xl font-bold"
+              style={{ fontFamily: "var(--font-display)" }}
+              {...props}
+            >
               <RevealText>{title || defaultTitle}</RevealText>
             </Tag>
 
-            <p className="max-w-xl text-muted-foreground">
-              Un projet ou une question ? Contactez-nous en remplissant le
-              formulaire ci-contre. Notre équipe commerciale reviendra vers vous
-              rapidement.
+            <p
+              className="max-w-xl text-base"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Décrivez votre besoin en quelques lignes. On vous répond sous
+              48h avec une première analyse — gratuit, sans engagement.
             </p>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2">
-                <div className="bg-secondary p-1 rounded-xs">
-                  <RiCheckFill className="text-ad-1" size={20} />
+            <ul className="space-y-3">
+              <li className="flex items-center gap-3">
+                <div
+                  className="p-1.5 rounded-lg"
+                  style={{
+                    background: "rgba(124,58,237,0.1)",
+                    border: "1px solid rgba(124,58,237,0.15)",
+                  }}
+                >
+                  <RiCheckFill style={{ color: "var(--ad-1)" }} size={18} />
                 </div>
-                Consultation sur-mesure
+                <span style={{ color: "var(--text-secondary)" }}>
+                  Réponse sous 48h
+                </span>
               </li>
-              <li className="flex items-center gap-2">
-                <div className="bg-secondary p-1 rounded-xs">
-                  <RiCheckFill className="text-ad-1" size={20} />
+              <li className="flex items-center gap-3">
+                <div
+                  className="p-1.5 rounded-lg"
+                  style={{
+                    background: "rgba(124,58,237,0.1)",
+                    border: "1px solid rgba(124,58,237,0.15)",
+                  }}
+                >
+                  <RiCheckFill style={{ color: "var(--ad-1)" }} size={18} />
                 </div>
-                Estimation gratuite sous 48h
+                <span style={{ color: "var(--text-secondary)" }}>
+                  Estimation chiffrée offerte
+                </span>
               </li>
-              <li className="flex items-center gap-2">
-                <div className="bg-secondary p-1 rounded-xs">
-                  <RiCheckFill className="text-ad-1" size={20} />
+              <li className="flex items-center gap-3">
+                <div
+                  className="p-1.5 rounded-lg"
+                  style={{
+                    background: "rgba(124,58,237,0.1)",
+                    border: "1px solid rgba(124,58,237,0.15)",
+                  }}
+                >
+                  <RiCheckFill style={{ color: "var(--ad-1)" }} size={18} />
                 </div>
-                Sans engagement
+                <span style={{ color: "var(--text-secondary)" }}>
+                  Zéro engagement, zéro bullshit
+                </span>
               </li>
             </ul>
             <div className="lg:hidden space-y-6">
-              <Button
-                variant={"secondary"}
-                className="w-full"
-                size={"lg"}
-                asChild
+              <Link
+                href="/prendre-rendez-vous"
+                className="block w-full text-center py-3 font-mono text-xs uppercase tracking-wider rounded-lg transition-all duration-300"
+                style={{
+                  background: "rgba(124,58,237,0.1)",
+                  border: "1px solid rgba(124,58,237,0.3)",
+                  color: "var(--text-primary)",
+                }}
               >
-                <Link href={"/prendre-rendez-vous"}>
-                  Réserver un appel <RiPhoneFill />
-                </Link>
-              </Button>
-              <p className="font-mono text-sm uppercase text-center">
-                ou complétez le formulaire ci-dessous
+                R&eacute;server un appel{" "}
+                <RiPhoneFill className="inline ml-1" size={14} />
+              </Link>
+              <p
+                className="font-mono text-xs uppercase text-center tracking-wider"
+                style={{ color: "var(--text-muted)" }}
+              >
+                ou compl&eacute;tez le formulaire ci-dessous
               </p>
             </div>
             <div className="hidden lg:flex items-center gap-4 flex-wrap">
-              <p>Vous préférez planifier un rendez-vous ?</p>
-              <Button variant={"secondary"} asChild>
-                <Link href={"/prendre-rendez-vous"}>
-                  Réserver un appel <RiPhoneFill />
-                </Link>
-              </Button>
+              <p style={{ color: "var(--text-secondary)" }}>
+                Vous pr&eacute;f&eacute;rez planifier un rendez-vous ?
+              </p>
+              <Link
+                href="/prendre-rendez-vous"
+                className="inline-flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-wider rounded-lg transition-all duration-300 hover:bg-[rgba(124,58,237,0.15)]"
+                style={{
+                  background: "rgba(124,58,237,0.08)",
+                  border: "1px solid rgba(124,58,237,0.2)",
+                  color: "var(--text-primary)",
+                }}
+              >
+                R&eacute;server un appel <RiPhoneFill size={14} />
+              </Link>
             </div>
           </div>
 

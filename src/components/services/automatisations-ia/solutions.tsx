@@ -42,8 +42,8 @@ export default function Solutions() {
                   <div className="global-padding grow">
                     <h5 className="text-2xl lg:text-3xl mb-4">Agent IA</h5>
                     <p className="text-muted-foreground">
-                      Automatise vos tâches répétitives avec une mise en place
-                      rapide.
+                      Un assistant intelligent qui exécute des tâches précises.
+                      Plug-and-play, opérationnel en quelques jours.
                     </p>
                     <ul className="ad_list-icon mt-6">
                       <li>
@@ -69,8 +69,9 @@ export default function Solutions() {
                   <div className="global-padding grow">
                     <h5 className="text-2xl lg:text-3xl mb-4">Système IA</h5>
                     <p className="text-muted-foreground">
-                      Orchestre vos processus complexes grâce à une IA
-                      connectée.
+                      Une infrastructure IA complète qui orchestre vos données,
+                      vos outils et vos décisions. Pour les entreprises qui
+                      veulent passer à l&apos;échelle.
                     </p>
                     <ul className="ad_list-icon mt-6">
                       <li>

@@ -51,10 +51,19 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                 )}
               </div>
 
-              {/* Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[rgba(10,10,15,0.95)] to-transparent">
+              {/* Bottom gradient overlay */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1/2 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%)",
+                }}
+              />
+
+              {/* Text — bottom left */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
                 <div
-                  className="text-xl lg:text-2xl font-bold"
+                  className="text-lg lg:text-xl font-bold"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {project.headline}
@@ -67,16 +76,6 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                     {project.client}
                   </div>
                 )}
-                <div
-                  className="inline-block font-mono text-[0.6rem] uppercase tracking-[0.15em] px-2 py-0.5 rounded-full mt-2"
-                  style={{
-                    color: "var(--violet-light)",
-                    background: "var(--violet-dim)",
-                    border: "1px solid rgba(124,58,237,0.2)",
-                  }}
-                >
-                  Voir le projet
-                </div>
               </div>
 
               {/* Arrow button */}

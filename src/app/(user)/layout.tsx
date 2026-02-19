@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./../globals.css";
 
 import Navbar from "@/components/navbar";
+import ParticlesCanvas from "@/components/ui/particles-canvas";
 
 export const metadata: Metadata = {
   title: "Advisia · Agence de croissance digitale",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Advisia" />
       </head>
       <body className="antialiased 2xl:text-lg min-h-screen">
+        <ParticlesCanvas />
         <header>
           <Navbar />
         </header>

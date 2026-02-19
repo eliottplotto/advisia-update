@@ -6,7 +6,10 @@ import {
   RiPaletteFill,
   RiHandHeartFill,
   RiCodeBoxFill,
-  RiUploadCloudFill,
+  RiWindow2Fill,
+  RiShoppingCart2Fill,
+  RiDashboardFill,
+  RiBuilding2Fill,
 } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -14,64 +17,72 @@ import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
 import Steps1 from "@/components/ui/sections/steps-1";
 import LogosConfiance from "@/components/logos-confiance";
-import ServicesWeb from "@/components/services/agence-web/services-web";
-import FeaturesWeb from "@/components/services/agence-web/features-web";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import { RevealText } from "@/components/reveal-text";
+import ServiceCards from "@/components/ui/sections/service-cards";
+import TechStack from "@/components/services/agence-web/tech-stack";
+import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 
 export const metadata = {
   title: "Création de Site Web Professionnel · Agence Advisia",
   description:
-    "Sites vitrines et e-commerce performants, optimisés SEO et accessibles. Conception sur mesure, contenus clairs et mesures d’impact pour convertir durablement.",
+    "Sites vitrines et e-commerce performants, optimisés SEO et accessibles. Conception sur mesure, contenus clairs et mesures d'impact pour convertir durablement.",
   keywords: ["advisia", "agence ia", "agence web", "creation site web"],
   openGraph: {
     title: "Création de Site Web Professionnel · Agence Advisia",
     description:
-      "Sites vitrines et e-commerce performants, optimisés SEO et accessibles. Conception sur mesure, contenus clairs et mesures d’impact pour convertir durablement.",
+      "Sites vitrines et e-commerce performants, optimisés SEO et accessibles. Conception sur mesure, contenus clairs et mesures d'impact pour convertir durablement.",
     url: "https://advisia.agency",
     siteName: "Advisia",
     type: "website",
   },
 };
 
+const SERVICE_WAYPOINTS = [
+  { x: 50, y: 0 },
+  { x: 70, y: 0.10 },
+  { x: 30, y: 0.22 },
+  { x: 70, y: 0.35 },
+  { x: 30, y: 0.48 },
+  { x: 70, y: 0.62 },
+  { x: 30, y: 0.78 },
+  { x: 50, y: 1.0 },
+];
+
+const SERVICE_DOT_FRACTIONS = [0, 0.12, 0.25, 0.38, 0.52, 0.65, 0.78, 0.92, 1.0];
+
 export default function SiteWeb() {
   const processSteps = [
     {
-      title: "Stratégie & architecture",
+      title: "Cadrage",
       subtitle:
-        "On définit ensemble les objectifs, les cibles, et l’arborescence idéale pour que votre site réponde à vos enjeux business.",
-      icon: RiCompass3Fill,
+        "On comprend votre besoin, votre cible, vos contraintes.",
+      icon: <RiCompass3Fill size={40} />,
     },
     {
       title: "Design",
       subtitle:
-        "On conçoit une interface claire, esthétique et centrée sur vos utilisateurs pour offrir une expérience fluide et engageante.",
-      icon: RiPaletteFill,
+        "Maquettes Figma, parcours utilisateur, validation avant le code.",
+      icon: <RiPaletteFill size={40} />,
     },
     {
       title: "Développement",
       subtitle:
-        "Le site est développé sur-mesure avec des technologies modernes, pour des performances optimales et une base solide.",
-      icon: RiCodeBoxFill,
+        "Sprints de 2 semaines, démos régulières, code propre.",
+      icon: <RiCodeBoxFill size={40} />,
     },
     {
-      title: "Formation",
+      title: "Livraison",
       subtitle:
-        "Vous êtes formé·e à la gestion du site pour être autonome : modifier vos contenus, ajouter des pages, etc.",
-      icon: RiHandHeartFill,
-    },
-    {
-      title: "Mise en ligne",
-      subtitle:
-        "Une fois validé, le site est mis en ligne, testé, sécurisé, et prêt à performer dès les premiers jours.",
-      icon: RiUploadCloudFill,
+        "Mise en prod, formation, documentation, support.",
+      icon: <RiHandHeartFill size={40} />,
     },
   ];
 
   const questions = [
     {
       id: "q1",
-      question: "Combien coûte la création d’un site internet ?",
+      question: "Combien coûte la création d'un site internet ?",
       answer:
         "Le prix dépend de plusieurs facteurs : le type de site (vitrine, e-commerce, sur-mesure), le nombre de pages, les fonctionnalités attendues ou encore le niveau de personnalisation. Chez Advisia, les projets démarrent autour de 1 000€ pour un site vitrine one-page. Un devis précis est toujours réalisé avant de démarrer.",
     },
@@ -110,40 +121,40 @@ export default function SiteWeb() {
       id: "q7",
       question: "Est-ce que vous proposez la maintenance de site ?",
       answer:
-        "Oui. Nous proposons des offres de maintenance adaptées à vos besoins : mises à jour, sauvegardes, surveillance de sécurité, accompagnement pour faire évoluer le site. Vous choisissez le niveau d’accompagnement selon vos attentes.",
+        "Oui. Nous proposons des offres de maintenance adaptées à vos besoins : mises à jour, sauvegardes, surveillance de sécurité, accompagnement pour faire évoluer le site. Vous choisissez le niveau d'accompagnement selon vos attentes.",
     },
     {
       id: "q8",
       question: "Pourquoi choisir Advisia pour créer mon site web ?",
       answer:
-        "Parce qu’on va à l’essentiel : un site efficace, bien conçu, pensé pour durer. Notre équipe est réactive, impliquée et humaine. On construit des systèmes solides, pas juste de jolis sites. Et les résultats se voient dès les premières semaines.",
+        "Parce qu'on va à l'essentiel : un site efficace, bien conçu, pensé pour durer. Notre équipe est réactive, impliquée et humaine. On construit des systèmes solides, pas juste de jolis sites. Et les résultats se voient dès les premières semaines.",
     },
   ];
 
   return (
     <>
-      <main>
-        <section className="dark bg-background text-foreground overflow-hidden bg-[url('/background-logo-dark.svg')] bg-cover bg-center">
+      <main className="relative">
+        <VerticalFlowLine waypoints={SERVICE_WAYPOINTS} dotFractions={SERVICE_DOT_FRACTIONS} />
+        <section className="overflow-hidden"
+          style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="relative container-md pt-[95px]">
             <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
               <div className="flex flex-col justify-end gap-6">
-                <BulletHeadline as="p">Développment Web</BulletHeadline>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-3xl">
+                <BulletHeadline as="p">Développement Web</BulletHeadline>
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl">
                   <RevealText>
-                    L&apos;agence web de{" "}
-                    <span className="text-highlight">confiance</span> pour la
-                    création de <span className="text-nowrap">votre site</span>
+                    Des sites qui chargent en moins d&apos;une seconde. Et qui convertissent.
                   </RevealText>
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">
-                  Sites vitrines, e-commerce, plateformes SaaS, sites sur-mesure
-                  : nous concevons des sites web performants, optimisés pour les
-                  moteurs de recherche, la conversion et votre image de marque.
+                  Sites vitrines, e-commerce, SaaS, intranets : on construit des
+                  applications web modernes avec Next.js, React et Supabase.
+                  Rapides, maintenables, pensées pour durer.
                 </p>
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
-                    <Link href="/contact">
+                    <Link href="/prendre-rendez-vous">
                       Demander une estimation <RiCornerDownRightLine />
                     </Link>
                   </Button>
@@ -153,52 +164,62 @@ export default function SiteWeb() {
                       <p className="text-sm ">Projets réalisés</p>
                     </div>
                     <div className="w-max border-l pl-4 lg:pl-8">
-                      <p className="text-2xl">100%</p>
-                      <p className="text-sm ">Clients satisfaits</p>
+                      <p className="text-2xl">98/100</p>
+                      <p className="text-sm ">Score Lighthouse</p>
+                    </div>
+                    <div className="hidden sm:block w-max border-l pl-4 lg:pl-8">
+                      <p className="text-2xl">&lt;1s</p>
+                      <p className="text-sm ">Temps de chargement</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            {/* Card 1 
-            <div className="hidden lg:block hero-card absolute bottom-0 right-8 bg-background border p-2 select-none rounded-md">
-              <div className="w-24 xl:w-32 2xl:w-44 aspect-square">
-                <Image
-                  src={"/cas-clients/mes-halles/meshalles-app-mockup.jpg"}
-                  alt={"Application Mes Halles"}
-                  fill
-                  className="object-cover rounded-xs"
-                  draggable="false"
-                ></Image>
-              </div>
-            </div>*/}
           </div>
         </section>
         <LogosConfiance />
 
-        <ServicesWeb />
-        <FeaturesWeb />
-
-        <Steps1
-          title="Les étapes pour lancer votre site"
-          steps={processSteps}
+        <ServiceCards
+          label="● Ce qu'on construit"
+          heading="Du site vitrine au SaaS complet."
+          cards={[
+            {
+              icon: <RiWindow2Fill size={24} />,
+              title: "Sites vitrines",
+              description:
+                "Votre vitrine en ligne, optimisée SEO, rapide, responsive. De la landing page au site corporate multi-pages.",
+              number: "01",
+            },
+            {
+              icon: <RiShoppingCart2Fill size={24} />,
+              title: "E-commerce",
+              description:
+                "Shopify, WooCommerce ou sur-mesure. Catalogues produits, paiement, gestion de stock, analytics intégrés.",
+              number: "02",
+            },
+            {
+              icon: <RiDashboardFill size={24} />,
+              title: "Applications SaaS",
+              description:
+                "Dashboards, portails clients, outils métier. Architecture scalable, auth, API, base de données temps réel.",
+              number: "03",
+            },
+            {
+              icon: <RiBuilding2Fill size={24} />,
+              title: "Intranets & outils internes",
+              description:
+                "Centraliser vos données, piloter vos équipes, automatiser vos reportings. Comme celui qu'on a construit pour LCT.",
+              number: "04",
+            },
+          ]}
         />
 
-        {/* <Header1
-          heading="Designer UX et Développeur Web"
-          dark={false}
-          layout="imgLeft"
-          description="Avec des expériences concrètes d'e-merchandising, d'e-commerce et la maîtrise d'agents IA et de workflows intelligents, Eliott crée des systèmes qui fluidifient les opérations et génèrent de vrais gains en termes de couts, de performance et de temps."
-          buttons={[{ title: "Planifier un appel" }]}
-          image={{
-            src: "/services/agence-web/enzo-ferrer.webp",
-            alt: "Enzo Ferrer",
-          }}
-          legend={{
-            title: "Enzo Ferrer",
-            subtitle: "Designer UX et Développeur Web",
-          }}
-        /> */}
+        <TechStack />
+
+        <Steps1
+          title="Notre méthode de développement"
+          steps={processSteps}
+        />
 
         <FAQCenter title={"On répond à vos questions"} questions={questions} />
         <SectionCTAForm
