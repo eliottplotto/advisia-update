@@ -70,7 +70,7 @@ export default async function Projects() {
 
   return (
     <div className="space-y-4 lg:space-y-8">
-      {data.map((project) => (
+      {data.map((project: ProjectItem) => (
         <Project key={project._id} project={project} />
       ))}
     </div>
