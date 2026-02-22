@@ -115,7 +115,6 @@ export default function AutomatisationsIA() {
     <>
       <main className="relative">
         <VerticalFlowLine waypoints={SERVICE_WAYPOINTS} dotFractions={SERVICE_DOT_FRACTIONS} />
-        <div className="relative z-10">
         <section className="w-full overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="container-md pt-[95px]">
@@ -217,7 +216,6 @@ export default function AutomatisationsIA() {
             </>
           }
         />
-        </div>
       </main>
       <Footer />
     </>
