@@ -245,20 +245,22 @@ export default function VerticalFlowLine({
           </filter>
         </defs>
 
-        <path
-          ref={glowPathRef}
-          stroke="url(#glowGradient)"
-          strokeWidth="8"
-          strokeLinecap="round"
-          filter="url(#glowFilter)"
-        />
+        <g style={{ mixBlendMode: "screen", opacity: 0.45 }}>
+          <path
+            ref={glowPathRef}
+            stroke="url(#glowGradient)"
+            strokeWidth="8"
+            strokeLinecap="round"
+            filter="url(#glowFilter)"
+          />
 
-        <path
-          ref={mainPathRef}
-          stroke="url(#curveGradient)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
+          <path
+            ref={mainPathRef}
+            stroke="url(#curveGradient)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </g>
 
         {dotFractions.map((_, i) => (
           <circle

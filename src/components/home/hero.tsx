@@ -28,7 +28,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative z-10 min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden z-[1]"
       style={{ background: "rgba(10,10,15,0.85)" }}
     >
       {/* Grid background */}

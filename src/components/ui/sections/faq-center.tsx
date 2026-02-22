@@ -37,7 +37,6 @@ export default function FAQCenter({
 }: FAQ) {
   return (
     <section
-      className="relative z-10"
       style={{
         background: "var(--bg-secondary)",
         borderTop: "1px solid var(--border)",

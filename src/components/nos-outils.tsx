@@ -2,7 +2,7 @@ import LogosToolsSlider from "./logos-tools-slider";
 export default function NosOutils() {
   return (
     <section
-      className="relative z-10 select-none"
+      className="select-none"
       style={{
         background: "rgba(10,10,15,0.85)",
         borderTop: "1px solid var(--border)",
