@@ -29,16 +29,18 @@ export default function Home() {
   return (
     <main className="relative">
       <VerticalFlowLine />
-      <Hero />
-      <LogosConfiance />
-      <Services />
-      <Process />
-      <Team />
-      <ProjectsSection />
-      <PourquoiAdvisia />
-      <NosOutils />
-      <SectionCTAForm />
-      <Footer />
+      <div className="relative z-10">
+        <Hero />
+        <LogosConfiance />
+        <Services />
+        <Process />
+        <Team />
+        <ProjectsSection />
+        <PourquoiAdvisia />
+        <NosOutils />
+        <SectionCTAForm />
+        <Footer />
+      </div>
     </main>
   );
 }

@@ -213,7 +213,7 @@ export default function VerticalFlowLine({
   return (
     <div
       ref={containerRef}
-      className="hidden lg:block absolute top-0 left-0 w-full pointer-events-none z-[5]"
+      className="hidden lg:block absolute top-0 left-0 w-full pointer-events-none z-0"
       style={{ overflow: "visible" }}
     >
       <svg
