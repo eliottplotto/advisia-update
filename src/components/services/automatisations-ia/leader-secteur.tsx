@@ -63,7 +63,7 @@ export const LeaderSecteur = (props: LeaderSecteurProps) => {
 
   return (
     <section
-      className={`${dark ? "dark" : ""} text-foreground bg-secondary py-8 lg:py-16`}
+      className={`relative z-10 ${dark ? "dark" : ""} text-foreground bg-secondary py-8 lg:py-16`}
     >
       <div className="container-md global-padding-x">
         <div className="text-center mb-8 lg:mb-16">

@@ -46,7 +46,7 @@ export default function Team() {
 
   return (
     <section
-      className="relative group overflow-hidden"
+      className="relative z-10 group overflow-hidden"
       style={{
         borderTop: "1px solid var(--border)",
         background: "rgba(10,10,15,0.85)",

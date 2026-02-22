@@ -16,7 +16,7 @@ interface ProcessProps {
 export default function Steps1({ title, subtitle, steps }: ProcessProps) {
   return (
     <section
-      className="py-12 lg:py-20"
+      className="relative z-10 py-12 lg:py-20"
       style={{
         background: "rgba(10,10,15,0.85)",
         color: "var(--text-primary)",

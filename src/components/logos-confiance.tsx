@@ -3,7 +3,7 @@ import LogosSlider from "./logos-slider";
 export default function LogosConfiance() {
   return (
     <section
-      className="select-none"
+      className="relative z-10 select-none"
       style={{
         background: "rgba(10,10,15,0.85)",
         borderTop: "1px solid var(--border)",

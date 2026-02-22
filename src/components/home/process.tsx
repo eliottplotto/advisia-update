@@ -33,7 +33,7 @@ const steps = [
 export default function Process() {
   return (
     <section
-      className="relative z-[2] py-12 md:py-16 px-4 md:px-8 lg:px-12 overflow-hidden"
+      className="relative z-10 py-12 md:py-16 px-4 md:px-8 lg:px-12 overflow-hidden"
       style={{
         background: "rgba(10,10,15,0.85)",
         borderTop: "1px solid var(--border)",

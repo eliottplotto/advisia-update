@@ -41,6 +41,7 @@ export default function SectionContactForm({
 
   return (
     <section
+      className="relative z-10"
       style={{
         background: "rgba(10,10,15,0.85)",
         color: "var(--text-primary)",
