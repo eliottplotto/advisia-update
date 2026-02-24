@@ -10,6 +10,11 @@ import {
   RiDashboardFill,
   RiSmartphoneFill,
   RiLayoutGridFill,
+  RiCursorFill,
+  RiUserSearchFill,
+  RiFlowChart,
+  RiFlagFill,
+  RiSettings3Fill,
 } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -20,6 +25,7 @@ import FAQCenter from "@/components/ui/sections/faq-center";
 import { RevealText } from "@/components/reveal-text";
 import ServiceCards from "@/components/ui/sections/service-cards";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
+import DesignExpertiseGrid from "@/components/ui/sections/design-expertise-grid";
 
 export const metadata = {
   title: "Product Design & UX/UI · Agence Advisia",
@@ -150,6 +156,65 @@ export default function ProductDesign() {
           </div>
         </section>
         <LogosConfiance />
+
+        {/* === Expertise Design Grid === */}
+        <DesignExpertiseGrid
+          label="● Nos expertises"
+          heading="Ce qu'on maîtrise en Product Design."
+          cards={[
+            {
+              icon: <RiCursorFill size={22} />,
+              title: "UX/UI Design",
+              description:
+                "Des interfaces pensées pour être simples à comprendre et rapides à utiliser.",
+              illustration: "/services/product-design/ux-ui-design.svg",
+              illustrationAlt: "UX/UI Design",
+            },
+            {
+              icon: <RiUserSearchFill size={22} />,
+              title: "Recherche utilisateur",
+              description:
+                "Comprendre vos utilisateurs pour concevoir ce dont ils ont vraiment besoin.",
+              illustration: "/services/product-design/ux-research.svg",
+              illustrationAlt: "Recherche utilisateur",
+            },
+            {
+              icon: <RiFlowChart size={22} />,
+              title: "User flows & Wireframes",
+              description:
+                "Visualisation claire des parcours et priorisation des interactions clés.",
+              illustration:
+                "/services/product-design/ux-ui-user-flow-wireframe.svg",
+              illustrationAlt: "User flows & Wireframes",
+            },
+            {
+              icon: <RiFlagFill size={22} />,
+              title: "Prototypage",
+              description:
+                "Tester vos idées avant d'engager du temps et du budget dans le développement.",
+              illustration: "/services/product-design/ux-ui-prototypage.svg",
+              illustrationAlt: "Prototypage",
+            },
+            {
+              icon: <RiTestTubeFill size={22} />,
+              title: "Tests utilisateurs",
+              description:
+                "Validez les hypothèses et identifier les vrais irritants pour faire évoluer le produit dans le bon sens.",
+              illustration:
+                "/services/product-design/ux-ui-test-utilisateur.svg",
+              illustrationAlt: "Tests utilisateurs",
+            },
+            {
+              icon: <RiSettings3Fill size={22} />,
+              title: "Design System",
+              description:
+                "Assurer la cohérence, accélérer la production et préparer la croissance de votre produit.",
+              illustration:
+                "/services/product-design/ux-ui-design-system.svg",
+              illustrationAlt: "Design System",
+            },
+          ]}
+        />
 
         <ServiceCards
           label="● Notre approche"
