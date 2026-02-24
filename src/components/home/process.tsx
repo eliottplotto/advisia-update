@@ -47,7 +47,7 @@ export default function Process() {
           style={{ fontFamily: "var(--font-display)" }}
         >
           <RevealText>
-            Du premier call à la{" "}
+            De votre idée à votre outil.{" "}
             <span
               style={{
                 background: "linear-gradient(90deg, #c9fe6e, #a8e063)",
@@ -55,7 +55,7 @@ export default function Process() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              mise en prod.
+              En 4 semaines.
             </span>
           </RevealText>
         </h2>
@@ -63,7 +63,7 @@ export default function Process() {
           className="text-base md:text-lg mb-8 lg:mb-12 max-w-[500px]"
           style={{ color: "rgba(255,255,255,0.6)" }}
         >
-          Un process clair, en 4 étapes.
+          Un process transparent. Vous voyez tout, vous validez tout.
         </p>
 
         {/* Timeline */}

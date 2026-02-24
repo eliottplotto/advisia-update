@@ -1,18 +1,11 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { RevealText } from "../reveal-text";
-import RotatingText from "@/components/RotatingText";
 export default function Hero() {
-  const [isRotating, setIsRotating] = useState(false);
   const glowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsRotating(true), 500);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -78,7 +71,7 @@ export default function Hero() {
             className="font-mono text-[0.7rem] uppercase tracking-[0.15em]"
             style={{ color: "var(--text-secondary)" }}
           >
-            +20 projets livrés depuis 2023
+            +20 projets livrés · PME et ETI en France
           </span>
         </div>
 
@@ -88,25 +81,9 @@ export default function Hero() {
           style={{ fontFamily: "var(--font-display)" }}
         >
           <RevealText>
-            L&apos;agence tech qui accélère votre{" "}
-            <span className="inline-block whitespace-nowrap align-bottom" style={{ color: "var(--ad-1)" }}>
-                <RotatingText
-                  texts={[
-                    "Croissance",
-                    "Productivité",
-                    "Transformation",
-                  ]}
-                  mainClassName="inline-block text-left min-w-[3ch]"
-                  staggerFrom="last"
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: "-120%", opacity: 0 }}
-                  staggerDuration={0.06}
-                  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                  transition={{ type: "spring", damping: 22, stiffness: 180 }}
-                  rotationInterval={3000}
-                  auto={isRotating}
-                />
+            On automatise vos process. On construit vos outils.{" "}
+            <span style={{ color: "var(--ad-1)" }}>
+              Vous gagnez du temps.
             </span>
           </RevealText>
         </h1>
@@ -119,8 +96,8 @@ export default function Hero() {
             animation: "fadeUp 0.8s var(--ease) 1s forwards",
           }}
         >
-          Agents IA, sites performants, automatisation des process : on conçoit
-          les outils qui font gagner du temps aux PME et ETI.
+          Pas de commercial, pas de sous-traitance. Les experts qui vous
+          conseillent sont ceux qui codent et qui livrent.
         </p>
 
         {/* CTA Actions */}
@@ -130,7 +107,7 @@ export default function Hero() {
         >
           <Button asChild size="lg" className="!bg-ad-1 !text-black font-mono text-xs uppercase tracking-wider px-8 py-6 rounded-md shadow-[0_0_30px_var(--accent-dim)] hover:shadow-[0_0_60px_var(--accent-glow)] hover:-translate-y-0.5 transition-all duration-300">
             <Link href="/contact">
-              J&apos;estime mon projet <span>↗</span>
+              Analyser mon besoin — gratuit <span>↗</span>
             </Link>
           </Button>
           <Button
@@ -152,7 +129,7 @@ export default function Hero() {
           className="top-0 right-0 w-[280px]"
           label="Automatisations IA"
           metric="+340%"
-          desc="de productivité chez nos clients"
+          desc="de productivité (mesuré chez LCT, 20 magasins)"
           fillWidth="75%"
         />
         <FloatCard
@@ -169,8 +146,8 @@ export default function Hero() {
           speed={0.04}
           className="top-[340px] right-[20px] w-[240px]"
           label="Taux de conversion"
-          metric="×2.4"
-          desc="de ROI en moyenne"
+          metric="+12h"
+          desc="gagnées par semaine en moyenne"
           fillWidth="60%"
         />
       </div>

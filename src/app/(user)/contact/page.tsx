@@ -3,15 +3,19 @@ import SectionContactForm from "@/components/section-cta-form";
 import FAQCenter from "@/components/ui/sections/faq-center";
 
 export const metadata = {
-  title: "Contacter l'agence · Advisia",
+  title: "Contacter Advisia · Agence IA & Web",
   description:
-    "Un projet ou une question ? Contactez-nous en remplissant le formulaire ci-contre. Notre équipe commerciale reviendra vers vous rapidement.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "Décrivez votre projet. Eliott ou Julien vous répond sous 48h avec une première analyse. Gratuit, sans engagement.",
+  keywords: [
+    "contacter agence web IA",
+    "devis agence digitale",
+    "contact agence automatisation",
+  ],
   openGraph: {
-    title: "Contacter l'agence · Advisia",
+    title: "Contacter Advisia · Agence IA & Web",
     description:
-      "Un projet ou une question ? Contactez-nous en remplissant le formulaire ci-contre. Notre équipe commerciale reviendra vers vous rapidement.",
-    url: "https://advisia.agency",
+      "Décrivez votre projet. Eliott ou Julien vous répond sous 48h avec une première analyse. Gratuit, sans engagement.",
+    url: "https://advisia.agency/contact",
     siteName: "Advisia",
     type: "website",
   },
@@ -21,37 +25,33 @@ export default function Contact() {
   const questions = [
     {
       id: "q1",
-      question: "Qui se cache derrière l’agence Advisia ?",
+      question: "Que se passe-t-il après l’envoi du formulaire ?",
       answer:
-        "Advisia, c’est une équipe d’associés expérimentés, entourés d’un collectif de spécialistes : ingénieurs IA, designers UX/UI, développeurs web, experts SEO/SEA et community managers. On combine expertise technique, vision stratégique et sens du concret pour livrer des solutions durables, efficaces et rentables.",
+        "Eliott ou Julien lit votre message et vous répond sous 48h avec une première analyse de votre besoin et une estimation. C’est gratuit et sans engagement.",
     },
     {
       id: "q2",
-      question:
-        "Est-ce que vous travaillez uniquement avec les grandes entreprises ou aussi avec les PME et indépendants ?",
+      question: "Je ne sais pas encore exactement ce qu’il me faut. Je peux quand même vous écrire ?",
       answer:
-        "On travaille avec tous types de structures : PME, TPE, artisans, franchises, groupes... Ce qui compte, c’est l’envie de se moderniser, de gagner en performance, et de s’équiper intelligemment. On adapte chaque solution à la taille, au budget et aux objectifs de nos clients.",
+        "Bien sûr. Décrivez votre problème ou votre objectif, même vaguement. On vous aide à cadrer le besoin. C’est justement à ça que sert le premier échange.",
     },
     {
       id: "q3",
-      question:
-        " Comment se passe un accompagnement avec Advisia, concrètement ?",
+      question: "Sous quel délai recevrai-je une réponse ?",
       answer:
-        "Tout commence par un échange simple pour comprendre vos enjeux. Ensuite, on vous propose une solution sur-mesure, avec un plan clair, un devis transparent et un accompagnement pas à pas. Vous êtes impliqué sans être noyé, et vous avez un point de contact dédié du début à la fin.",
+        "48h maximum en jours ouvrés. En pratique, souvent le jour même.",
     },
     {
       id: "q4",
-      question:
-        "Est-ce que je peux vous faire confiance si je n’ai pas de connaissances techniques ?",
+      question: "Est-ce qu’un premier échange est payant ?",
       answer:
-        "Oui, et c’est même notre point fort : rendre des solutions tech accessibles à tous. On vous explique les choses simplement, on vous forme quand il faut, et on reste disponibles après la livraison. Vous gardez toujours le contrôle, sans jamais vous sentir dépassé.",
+        "Non. Le diagnostic initial est toujours gratuit. On ne facture qu’à partir du moment où un devis est validé et le projet lancé.",
     },
     {
       id: "q5",
-      question:
-        "Est-ce que vous proposez un suivi ou une maintenance après la mise en place des solutions ?",
+      question: "Je préfère appeler plutôt qu’écrire. C’est possible ?",
       answer:
-        "Oui. Chaque projet peut inclure une maintenance ou un accompagnement post-livraison, en fonction de vos besoins. On peut faire évoluer les outils, corriger, améliorer ou même proposer des optimisations régulières. Vous n’êtes jamais seul après le projet.",
+        "Oui. Vous pouvez réserver un créneau de 20 min directement sur notre page de prise de rendez-vous. Sinon, indiquez dans le formulaire que vous préférez être rappelé.",
     },
   ];
 

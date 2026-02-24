@@ -16,7 +16,7 @@ export default function Services() {
     {
       title: "IA & Automatisation",
       description:
-        "Agents IA, workflows n8n et Make, extraction de données, chatbots : on automatise les tâches qui vous coûtent 10h par semaine.",
+        "Agents IA, workflows automatisés, chatbots : on automatise les tâches qui vous coûtent 10h par semaine. Souvent couplé avec un site ou un dashboard sur mesure.",
       icon: RiRobot2Line,
       link: "/services/automatisations-ia",
       number: "01",
@@ -24,7 +24,7 @@ export default function Services() {
     {
       title: "Développement Web",
       description:
-        "Sites Next.js, applications SaaS, intranets sur-mesure : rapides à charger, simples à maintenir, conçus pour durer.",
+        "Sites vitrines, boutiques en ligne, apps métier : rapides à charger, simples à maintenir, conçus pour durer.",
       icon: RiCodeSSlashLine,
       link: "/services/agence-web",
       number: "02",
@@ -40,7 +40,7 @@ export default function Services() {
     {
       title: "Marketing Digital",
       description:
-        "SEO, Google Ads, Meta Ads : on met en place votre acquisition et on la pilote avec vous, data à l'appui.",
+        "SEO, Google Ads, Social Ads : on met en place votre acquisition et on l'optimise chaque semaine, data à l'appui.",
       icon: RiMegaphoneLine,
       link: "/services/marketing-digital",
       number: "04",
@@ -54,13 +54,13 @@ export default function Services() {
     >
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
-        <div className="section-label mb-6">● Nos Expertises</div>
+        <div className="section-label mb-6">● Vos solutions</div>
         <h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8 lg:mb-12 max-w-[700px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <RevealText>
-            Ce qu&apos;on sait faire. Concrètement.
+            Comment on résout vos problèmes.
           </RevealText>
         </h2>
 

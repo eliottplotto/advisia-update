@@ -25,13 +25,18 @@ import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 export const metadata = {
   title: "Marketing Digital & SEO pour PME | Agence Advisia",
   description:
-    "SEO, SEA, contenus et emailing. Stratégies d'acquisition mesurables pour augmenter votre trafic, générer des leads et améliorer la conversion.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "SEO, Google Ads, Social Ads : on génère du trafic et des leads pour les PME. ROI mesuré, budget optimisé. À partir de 500€/mois.",
+  keywords: [
+    "agence marketing digital PME",
+    "agence SEO PME",
+    "Google Ads PME",
+    "acquisition digitale entreprise",
+  ],
   openGraph: {
     title: "Marketing Digital & SEO pour PME | Agence Advisia",
     description:
-      "SEO, SEA, contenus et emailing. Stratégies d'acquisition mesurables pour augmenter votre trafic, générer des leads et améliorer la conversion.",
-    url: "https://advisia.agency",
+      "SEO, Google Ads, Social Ads : on génère du trafic et des leads pour les PME. ROI mesuré, budget optimisé. À partir de 500€/mois.",
+    url: "https://advisia.agency/services/marketing-digital",
     siteName: "Advisia",
     type: "website",
   },

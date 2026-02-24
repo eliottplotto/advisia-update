@@ -9,13 +9,17 @@ import FAQCenter from "@/components/ui/sections/faq-center";
 export const metadata = {
   title: "Prendre rendez-vous · Agence Advisia",
   description:
-    "Un moment pour faire le point, poser vos questions, et envisager l'avenir digital de votre entreprise. Gratuit et sans engagement.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "20 min pour faire le point sur votre projet digital. Vous repartez avec 3 pistes concrètes. Gratuit et sans engagement.",
+  keywords: [
+    "rendez-vous agence digitale",
+    "audit gratuit IA PME",
+    "consultation agence web gratuite",
+  ],
   openGraph: {
     title: "Prendre rendez-vous · Agence Advisia",
     description:
-      "Un moment pour faire le point, poser vos questions, et envisager l'avenir digital de votre entreprise. Gratuit et sans engagement.",
-    url: "https://advisia.agency",
+      "20 min pour faire le point sur votre projet digital. Vous repartez avec 3 pistes concrètes. Gratuit et sans engagement.",
+    url: "https://advisia.agency/prendre-rendez-vous",
     siteName: "Advisia",
     type: "website",
   },
@@ -41,37 +45,33 @@ export default function PrendreRendezVous() {
   const questions = [
     {
       id: "q1",
-      question: "Qui se cache derrière l'agence Advisia ?",
+      question: "L'appel est vraiment gratuit ?",
       answer:
-        "Advisia, c'est une équipe d'associés expérimentés, entourés d'un collectif de spécialistes : ingénieurs IA, designers UX/UI, développeurs web, experts SEO/SEA et community managers. On combine expertise technique, vision stratégique et sens du concret pour livrer des solutions durables, efficaces et rentables.",
+        "Oui, complètement. 20 min de votre temps, zéro euro. Vous repartez avec des pistes concrètes, que vous travailliez avec nous ou non.",
     },
     {
       id: "q2",
-      question:
-        "Est-ce que vous travaillez uniquement avec les grandes entreprises ou aussi avec les PME et indépendants ?",
+      question: "Avec qui vais-je parler ?",
       answer:
-        "On travaille avec tous types de structures : PME, TPE, artisans, franchises, groupes... Ce qui compte, c'est l'envie de se moderniser, de gagner en performance, et de s'équiper intelligemment. On adapte chaque solution à la taille, au budget et aux objectifs de nos clients.",
+        "Avec Eliott ou Julien directement. Pas un commercial, pas un assistant. Les gens qui font le travail.",
     },
     {
       id: "q3",
-      question:
-        " Comment se passe un accompagnement avec Advisia, concrètement ?",
+      question: "Que faut-il préparer avant l'appel ?",
       answer:
-        "Tout commence par un échange simple pour comprendre vos enjeux. Ensuite, on vous propose une solution sur-mesure, avec un plan clair, un devis transparent et un accompagnement pas à pas. Vous êtes impliqué sans être noyé, et vous avez un point de contact dédié du début à la fin.",
+        "Rien d'obligatoire. Si vous avez un brief, un site existant ou des exemples de ce que vous aimez, partagez-les. Sinon, on vous pose les bonnes questions pendant l'appel.",
     },
     {
       id: "q4",
-      question:
-        "Est-ce que je peux vous faire confiance si je n'ai pas de connaissances techniques ?",
+      question: "Est-ce que ça m'engage à quelque chose ?",
       answer:
-        "Oui, et c'est même notre point fort : rendre des solutions tech accessibles à tous. On vous explique les choses simplement, on vous forme quand il faut, et on reste disponibles après la livraison. Vous gardez toujours le contrôle, sans jamais vous sentir dépassé.",
+        "Non. L'appel est sans engagement. Si on peut vous aider, on vous envoie un devis. Si ce n'est pas le bon moment ou le bon fit, on vous le dit honnêtement.",
     },
     {
       id: "q5",
-      question:
-        "Est-ce que vous proposez un suivi ou une maintenance après la mise en place des solutions ?",
+      question: "Je ne vois pas le calendrier de prise de rendez-vous. Comment faire ?",
       answer:
-        "Oui. Chaque projet peut inclure une maintenance ou un accompagnement post-livraison, en fonction de vos besoins. On peut faire évoluer les outils, corriger, améliorer ou même proposer des optimisations régulières. Vous n'êtes jamais seul après le projet.",
+        "Le calendrier Cal.com peut mettre quelques secondes à charger. Si ça ne fonctionne pas, cliquez sur le lien direct sous le calendrier ou passez par notre formulaire de contact.",
     },
   ];
 
@@ -127,8 +127,8 @@ export default function PrendreRendezVous() {
                 className="max-w-2xl xl:max-w-4xl text-center"
                 style={{ color: "var(--text-secondary)" }}
               >
-                Nous vous offrons un audit gratuit et un plan d&apos;action
-                personnalisé, sans engagement.
+                On regarde ensemble vos process pendant 20 min. Vous repartez
+                avec 3 pistes concrètes — gratuit, sans engagement.
               </p>
             </div>
 

@@ -31,7 +31,7 @@ export default function Team() {
       label: "Projets livrés",
     },
     {
-      value: 100,
+      value: 92,
       prefix: "",
       suffix: "%",
       label: "Clients qui renouvellent",
@@ -64,7 +64,7 @@ export default function Team() {
             style={{ fontFamily: "var(--font-display)" }}
           >
             <RevealText>
-              Deux fondateurs. Zéro intermédiaire.
+              Vos experts. Du premier call à la mise en prod.
             </RevealText>
           </h2>
         </div>
@@ -137,9 +137,8 @@ export default function Team() {
               className="text-lg md:text-xl leading-relaxed italic"
               style={{ color: "var(--text-primary)" }}
             >
-              Dans 5 ans, chaque entreprise qui n&apos;aura pas intégré
-              l&apos;IA dans ses process sera dépassée. On est là pour que ce
-              ne soit pas la vôtre.
+              Les gens qui vous conseillent sont ceux qui codent. Pas de
+              commercial, pas de sous-traitance, pas de mauvaise surprise.
             </p>
           </div>
         </ScrollReveal>

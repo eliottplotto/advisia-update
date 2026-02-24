@@ -6,15 +6,20 @@ import FAQCenter from "@/components/ui/sections/faq-center";
 import { Header1 } from "@/components/ui/sections/header-1";
 
 export const metadata = {
-  title: "À propos d'Advisia | Agence IA & Web pour PME",
+  title: "À propos d'Advisia | Agence IA & Web à Tarbes",
   description:
-    "Deux fondateurs, une obsession : que la tech serve votre business. Advisia apporte aux PME les mêmes outils que les grands groupes.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "Agence IA, web et marketing digital à Tarbes (Hautes-Pyrénées). Vos experts du début à la fin : pas de commercial, pas de sous-traitance. On conseille, on code, on livre.",
+  keywords: [
+    "agence digitale Tarbes",
+    "agence web Hautes-Pyrénées",
+    "agence IA Sud-Ouest",
+    "agence digitale Occitanie",
+  ],
   openGraph: {
-    title: "À propos d'Advisia | Agence IA & Web pour PME",
+    title: "À propos d'Advisia | Agence IA & Web à Tarbes",
     description:
-      "Deux fondateurs, une obsession : que la tech serve votre business. Advisia apporte aux PME les mêmes outils que les grands groupes.",
-    url: "https://advisia.agency",
+      "Agence IA, web et marketing digital à Tarbes. Vos experts du début à la fin : pas de commercial, pas de sous-traitance.",
+    url: "https://advisia.agency/agence",
     siteName: "Advisia",
     type: "website",
   },
@@ -24,37 +29,33 @@ export default function Agence() {
   const questions = [
     {
       id: "q1",
-      question: "Qui se cache derrière l'agence Advisia ?",
+      question: "Qui sont les gens derrière Advisia ?",
       answer:
-        "Advisia, c'est une équipe d'associés expérimentés, entourés d'un collectif de spécialistes : ingénieurs IA, designers UX/UI, développeurs web, experts SEO/SEA et community managers. On combine expertise technique, vision stratégique et sens du concret pour livrer des solutions durables, efficaces et rentables.",
+        "Advisia, c'est Eliott (tech) et Julien (stratégie). Les experts qui vous conseillent sont ceux qui codent et qui livrent. Quand le projet le demande, on mobilise des spécialistes qu'on connaît et qu'on a déjà testés : designers, développeurs spécialisés, experts SEO.",
     },
     {
       id: "q2",
-      question:
-        "Est-ce que vous travaillez uniquement avec les grandes entreprises ou aussi avec les PME et indépendants ?",
+      question: "Vous travaillez avec quel type d'entreprise ?",
       answer:
-        "On travaille avec tous types de structures : PME, TPE, artisans, franchises, groupes... Ce qui compte, c'est l'envie de se moderniser, de gagner en performance, et de s'équiper intelligemment. On adapte chaque solution à la taille, au budget et aux objectifs de nos clients.",
+        "PME, ETI, startups, franchises. Ce qui compte, c'est l'envie d'avancer et un projet concret. On adapte notre accompagnement à votre taille et votre budget.",
     },
     {
       id: "q3",
-      question:
-        " Comment se passe un accompagnement avec Advisia, concrètement ?",
+      question: "Comment ça se passe concrètement si on travaille ensemble ?",
       answer:
-        "Tout commence par un échange simple pour comprendre vos enjeux. Ensuite, on vous propose une solution sur-mesure, avec un plan clair, un devis transparent et un accompagnement pas à pas. Vous êtes impliqué sans être noyé, et vous avez un point de contact dédié du début à la fin.",
+        "On commence par un échange de 20-30 min pour comprendre votre besoin. On vous envoie un devis clair sous 48h. Si c'est OK, on démarre en sprints de 2 semaines avec un call hebdo. Vous validez à chaque étape.",
     },
     {
       id: "q4",
-      question:
-        "Est-ce que je peux vous faire confiance si je n'ai pas de connaissances techniques ?",
+      question: "Je n'y connais rien en tech, c'est un problème ?",
       answer:
-        "Oui, et c'est même notre point fort : rendre des solutions tech accessibles à tous. On vous explique les choses simplement, on vous forme quand il faut, et on reste disponibles après la livraison. Vous gardez toujours le contrôle, sans jamais vous sentir dépassé.",
+        "C'est justement notre métier de traduire. On vous explique tout simplement, on vous forme sur les outils livrés, et on reste disponibles après. Vous gardez le contrôle sans avoir besoin d'être technique.",
     },
     {
       id: "q5",
-      question:
-        "Est-ce que vous proposez un suivi ou une maintenance après la mise en place des solutions ?",
+      question: "Vous êtes basés où ?",
       answer:
-        "Oui. Chaque projet peut inclure une maintenance ou un accompagnement post-livraison, en fonction de vos besoins. On peut faire évoluer les outils, corriger, améliorer ou même proposer des optimisations régulières. Vous n'êtes jamais seul après le projet.",
+        "À Juillan, près de Tarbes dans les Hautes-Pyrénées. Mais on travaille avec des clients partout en France — en visio, Slack ou téléphone. La proximité est dans la réactivité, pas forcément dans la géographie.",
     },
   ];
 
@@ -63,10 +64,10 @@ export default function Agence() {
       <main>
         <div className="pt-[95px]" style={{ background: "rgba(10,10,15,0.85)" }}>
           <Header1
-            heading="Advisia, votre partenaire digital de confiance"
+            heading="Vos experts du début à la fin."
             dark={true}
             layout="imgLeft"
-            description="Deux fondateurs. Une obsession : que la tech serve votre business. Eliott (tech) et Julien (stratégie) ont créé Advisia pour apporter aux PME les mêmes outils que les grands groupes — sans les budgets ni la complexité."
+            description="Pas de commercial, pas de sous-traitance. Les experts qui vous conseillent sont ceux qui codent et qui livrent. Eliott (tech) et Julien (stratégie) ont créé Advisia pour apporter aux PME les mêmes outils que les grands groupes — sans les budgets ni la complexité."
             image={{
               src: "/equipe-advisia-square-dark.png",
               alt: "Équipe Advisia",

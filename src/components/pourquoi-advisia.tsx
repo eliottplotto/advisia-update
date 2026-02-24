@@ -14,7 +14,7 @@ export default function PourquoiAdvisia() {
     {
       title: "Tech-first, pas bullshit",
       description:
-        "On code nous-mêmes. Pas de sous-traitance offshore, pas de slides sans fin. Du code, du résultat.",
+        "Pas de sous-traitance offshore, pas de slides sans fin. Les experts qui vous conseillent sont ceux qui livrent.",
       icon: RiCodeSSlashLine,
       index: "01",
     },
@@ -35,7 +35,7 @@ export default function PourquoiAdvisia() {
     {
       title: "Votre projet, en temps réel",
       description:
-        "Call hebdo, accès au backlog, démos en continu. Vous voyez l'avancement à chaque étape.",
+        "Call hebdo, accès au backlog, démos en continu. Zéro effet tunnel.",
       icon: RiEyeLine,
       index: "04",
     },
@@ -51,7 +51,7 @@ export default function PourquoiAdvisia() {
     >
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
-        <div className="section-label mb-6">● Pourquoi nous choisir</div>
+        <div className="section-label mb-6">● Ce qui fait la différence</div>
         <h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 max-w-[700px]"
           style={{ fontFamily: "var(--font-display)" }}
@@ -65,7 +65,7 @@ export default function PourquoiAdvisia() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              nous choisissent.
+              nous font confiance.
             </span>
           </RevealText>
         </h2>
@@ -73,7 +73,7 @@ export default function PourquoiAdvisia() {
           className="text-base md:text-lg mb-8 lg:mb-12 max-w-[500px]"
           style={{ color: "rgba(255,255,255,0.6)" }}
         >
-          Un interlocuteur unique, des résultats mesurés, et zéro sous-traitance.
+          Vos experts du début à la fin. Des résultats mesurés. Zéro sous-traitance.
         </p>
 
         {/* Grid */}

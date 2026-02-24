@@ -2,6 +2,7 @@ import { RiCheckFill, RiGitCommitFill, RiRobot3Fill } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import { RevealText } from "@/components/reveal-text";
+import Link from "next/link";
 
 export default function Solutions() {
   return (
@@ -17,9 +18,8 @@ export default function Solutions() {
               </RevealText>
             </h2>
             <p className="max-w-2xl text-muted-foreground">
-              Nos solutions d&apos;intelligence artificielle s&apos;adaptent à
-              vos besoins spécifiques pour maximiser votre retour sur
-              investissement.
+              On intègre l&apos;IA dans vos outils existants. Pas de refonte,
+              pas de migration. Juste des gains immédiats.
             </p>
           </div>
           {/* Solutions */}
@@ -42,8 +42,8 @@ export default function Solutions() {
                   <div className="global-padding grow">
                     <h5 className="text-2xl lg:text-3xl mb-4">Agent IA</h5>
                     <p className="text-muted-foreground">
-                      Un assistant intelligent qui exécute des tâches précises.
-                      Plug-and-play, opérationnel en quelques jours.
+                      Répond à vos clients, trie vos emails, qualifie vos leads.
+                      Opérationnel en quelques jours, 24h/24.
                     </p>
                     <ul className="ad_list-icon mt-6">
                       <li>
@@ -69,9 +69,8 @@ export default function Solutions() {
                   <div className="global-padding grow">
                     <h5 className="text-2xl lg:text-3xl mb-4">Système IA</h5>
                     <p className="text-muted-foreground">
-                      Une infrastructure IA complète qui orchestre vos données,
-                      vos outils et vos décisions. Pour les entreprises qui
-                      veulent passer à l&apos;échelle.
+                      Vos outils communiquent entre eux. Vos reportings se
+                      génèrent seuls. Vos équipes se concentrent sur le terrain.
                     </p>
                     <ul className="ad_list-icon mt-6">
                       <li>
@@ -100,7 +99,7 @@ export default function Solutions() {
               </div>
             </div>
             <div className="flex justify-center">
-              <Button size="lg">Contacter un expert IA</Button>
+              <Button size="lg" asChild><Link href="/prendre-rendez-vous">Contacter un expert IA</Link></Button>
             </div>
           </div>
         </div>

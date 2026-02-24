@@ -30,13 +30,18 @@ import DesignExpertiseGrid from "@/components/ui/sections/design-expertise-grid"
 export const metadata = {
   title: "Product Design & UX/UI · Agence Advisia",
   description:
-    "Recherche utilisateur, wireframes, prototypage et tests. De l'idée au produit, des parcours clairs et utiles pour faire avancer vos métriques et vos clients.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "Parcours utilisateurs, maquettes Figma, tests UX : on conçoit des interfaces qui convertissent. De l'idée au prototype en 3 semaines.",
+  keywords: [
+    "agence product design UX UI",
+    "design interface application",
+    "UX design PME",
+    "maquettes Figma agence",
+  ],
   openGraph: {
     title: "Product Design & UX/UI · Agence Advisia",
     description:
-      "Recherche utilisateur, wireframes, prototypage et tests. De l'idée au produit, des parcours clairs et utiles pour faire avancer vos métriques et vos clients.",
-    url: "https://advisia.agency",
+      "Parcours utilisateurs, maquettes Figma, tests UX : on conçoit des interfaces qui convertissent. De l'idée au prototype en 3 semaines.",
+    url: "https://advisia.agency/services/product-design",
     siteName: "Advisia",
     type: "website",
   },

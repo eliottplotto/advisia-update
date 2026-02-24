@@ -65,7 +65,7 @@ export default function SectionContactForm({
                 className="text-xs font-mono uppercase tracking-[0.15em]"
                 style={{ color: "var(--text-secondary)" }}
               >
-                Nous sommes &agrave; votre &eacute;coute
+                Réponse sous 48h
               </p>
             </div>
             <div className="mt-8">

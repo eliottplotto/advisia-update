@@ -22,13 +22,18 @@ import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 export const metadata = {
   title: "Agents IA & Automatisation pour PME | Agence Advisia",
   description:
-    "Agents IA sur mesure pour automatiser vos tâches, connecter vos outils et fiabiliser les processus. Temps gagné, coûts réduits, décisions mieux informées.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "Agents IA sur mesure pour automatiser vos tâches répétitives. +10h/semaine gagnées. CRM, emails, leads, reporting : tout s'automatise.",
+  keywords: [
+    "agent IA entreprise PME",
+    "automatisation process IA",
+    "chatbot entreprise IA",
+    "workflow automatisé PME",
+  ],
   openGraph: {
     title: "Agents IA & Automatisation pour PME | Agence Advisia",
     description:
-      "Agents IA sur mesure pour automatiser vos tâches, connecter vos outils et fiabiliser les processus. Temps gagné, coûts réduits, décisions mieux informées.",
-    url: "https://advisia.agency",
+      "Agents IA sur mesure pour automatiser vos tâches répétitives. +10h/semaine gagnées. CRM, emails, leads, reporting : tout s'automatise.",
+    url: "https://advisia.agency/services/automatisations-ia",
     siteName: "Advisia",
     type: "website",
   },

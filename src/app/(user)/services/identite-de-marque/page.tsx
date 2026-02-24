@@ -13,13 +13,13 @@ import { Header1 } from "@/components/ui/sections/header-1";
 export const metadata = {
   title: "Identité de marque & branding · Agence Advisia",
   description:
-    "Logo, charte graphique et système visuel cohérent. Une identité claire qui raconte votre entreprise et vous distingue sur vos supports et vos canaux.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "Logo, charte graphique et système visuel cohérent. Page en construction.",
+  robots: { index: false, follow: false },
+  keywords: [],
   openGraph: {
     title: "Identité de marque & branding · Agence Advisia",
-    description:
-      "Logo, charte graphique et système visuel cohérent. Une identité claire qui raconte votre entreprise et vous distingue sur vos supports et vos canaux.",
-    url: "https://advisia.agency",
+    description: "Page en construction.",
+    url: "https://advisia.agency/services/identite-de-marque",
     siteName: "Advisia",
     type: "website",
   },

@@ -26,13 +26,18 @@ import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 export const metadata = {
   title: "Création de Site Web Professionnel · Agence Advisia",
   description:
-    "Sites vitrines et e-commerce performants, optimisés SEO et accessibles. Conception sur mesure, contenus clairs et mesures d'impact pour convertir durablement.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "Sites vitrines, e-commerce et apps métier sur mesure. À partir de 1 000€. Livré en 4-8 semaines. Score Lighthouse 98/100.",
+  keywords: [
+    "création site web professionnel",
+    "agence création site internet",
+    "développeur web PME",
+    "site e-commerce sur mesure",
+  ],
   openGraph: {
     title: "Création de Site Web Professionnel · Agence Advisia",
     description:
-      "Sites vitrines et e-commerce performants, optimisés SEO et accessibles. Conception sur mesure, contenus clairs et mesures d'impact pour convertir durablement.",
-    url: "https://advisia.agency",
+      "Sites vitrines, e-commerce et apps métier sur mesure. À partir de 1 000€. Livré en 4-8 semaines. Score Lighthouse 98/100.",
+    url: "https://advisia.agency/services/agence-web",
     siteName: "Advisia",
     type: "website",
   },
@@ -148,9 +153,9 @@ export default function SiteWeb() {
                 </h1>
 
                 <p className="max-w-xl text-muted-foreground">
-                  Sites vitrines, e-commerce, SaaS, intranets : on construit des
-                  applications web modernes avec Next.js, React et Supabase.
-                  Rapides, maintenables, pensées pour durer.
+                  Sites vitrines, boutiques en ligne, apps métier : on construit
+                  des outils web qui vont vite, qui durent, et que vous pouvez
+                  gérer vous-même.
                 </p>
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
