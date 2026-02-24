@@ -1,6 +1,7 @@
 import Footer from "@/components/footer";
 import Team from "@/components/home/team";
 import Hero from "@/components/home/hero";
+import InsightsPreview from "@/components/home/insights-preview";
 import ProjectsSection from "@/components/home/projects";
 import Services from "@/components/home/services";
 import Process from "@/components/home/process";
@@ -37,6 +38,7 @@ export default function Home() {
       <ProjectsSection />
       <PourquoiAdvisia />
       <NosOutils />
+      <InsightsPreview />
       <SectionCTAForm />
       <Footer />
     </main>

@@ -32,6 +32,7 @@ export default function Navbar() {
 
   const mobileMainNavLinks = [
     { path: "/projets", label: "Réalisations" },
+    { path: "/insights", label: "Insights" },
     { path: "/agence", label: "L'équipe" },
   ];
 
@@ -215,6 +216,15 @@ export default function Navbar() {
                   style={{ color: "var(--text-secondary)" }}
                 >
                   Réalisations
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] transition-all duration-400 group-hover:w-full" style={{ background: "var(--violet)" }} />
+                </Link>
+                <Link
+                  href="/insights"
+                  onClick={closeServicesMenu}
+                  className="font-mono text-[0.75rem] uppercase tracking-[0.15em] relative transition-colors duration-300 hover:text-white group"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  Insights
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] transition-all duration-400 group-hover:w-full" style={{ background: "var(--violet)" }} />
                 </Link>
                 <Link

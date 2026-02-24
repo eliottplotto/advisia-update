@@ -233,3 +233,66 @@ export const projectQuery = defineQuery(`
     ${projectFields}
   }
 `);
+
+// ── Articles (Insights) ──────────────────────────────────────
+
+export const articleFields = `
+  _id,
+  title,
+  slug,
+  excerpt,
+  category,
+  coverImage{
+    asset->,
+    alt
+  },
+  publishedAt,
+  author,
+  readTime
+`;
+
+export const allArticlesQuery = defineQuery(`
+  *[_type == "article" && defined(slug.current)] | order(publishedAt desc) {
+    ${articleFields}
+  }
+`);
+
+export const articleBySlugQuery = defineQuery(`
+  *[_type == "article" && slug.current == $slug][0] {
+    ${articleFields},
+    body,
+    seo{
+      metaTitle,
+      metaDescription
+    }
+  }
+`);
+
+export const latestArticlesQuery = defineQuery(`
+  *[_type == "article" && defined(slug.current)] | order(publishedAt desc) [0...3] {
+    ${articleFields}
+  }
+`);
+
+export const relatedArticlesQuery = defineQuery(`
+  *[_type == "article" && defined(slug.current) && category == $category && _id != $currentId] | order(publishedAt desc) [0...3] {
+    ${articleFields}
+  }
+`);
+
+export async function getAllArticleSlugs(): Promise<string[]> {
+  const allArticleSlugsQuery = defineQuery(`
+    *[_type == "article" && defined(slug.current)][].slug.current
+  `);
+
+  try {
+    const slugs = await client.fetch<string[]>(allArticleSlugsQuery);
+    return slugs;
+  } catch (error) {
+    console.error(
+      "Erreur lors de la récupération de tous les slugs d'article:",
+      error
+    );
+    return [];
+  }
+}

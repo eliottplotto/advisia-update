@@ -241,6 +241,39 @@ export type Temoignage = {
   };
 };
 
+export type Article = {
+  _id: string;
+  _type: "article";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  excerpt?: string;
+  category?: "guide" | "veille" | "etude-de-cas";
+  coverImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  body?: BlockContent;
+  publishedAt?: string;
+  author?: "Eliott" | "Julien";
+  readTime?: number;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+  };
+};
+
 export type SanityImagePaletteSwatch = {
   _type: "sanity.imagePaletteSwatch";
   background?: string;
@@ -359,7 +392,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = BlockContent | Settings | Service | Project | Temoignage | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = BlockContent | Settings | Service | Project | Temoignage | Article | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: projectBySlugQuery
@@ -762,6 +795,162 @@ export type ProjectQueryResult = {
     metaDescription: string | null;
   } | null;
 } | null;
+// Variable: allArticlesQuery
+// Query: *[_type == "article" && defined(slug.current)] | order(publishedAt desc) {      _id,  title,  slug,  excerpt,  category,  coverImage{    asset->,    alt  },  publishedAt,  author,  readTime  }
+export type AllArticlesQueryResult = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  excerpt: string | null;
+  category: "etude-de-cas" | "guide" | "veille" | null;
+  coverImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  publishedAt: string | null;
+  author: "Eliott" | "Julien" | null;
+  readTime: number | null;
+}>;
+// Variable: articleBySlugQuery
+// Query: *[_type == "article" && slug.current == $slug][0] {      _id,  title,  slug,  excerpt,  category,  coverImage{    asset->,    alt  },  publishedAt,  author,  readTime,    body,    seo{      metaTitle,      metaDescription    }  }
+export type ArticleBySlugQueryResult = {
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  excerpt: string | null;
+  category: "etude-de-cas" | "guide" | "veille" | null;
+  coverImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  publishedAt: string | null;
+  author: "Eliott" | "Julien" | null;
+  readTime: number | null;
+  body: BlockContent | null;
+  seo: {
+    metaTitle: string | null;
+    metaDescription: string | null;
+  } | null;
+} | null;
+// Variable: latestArticlesQuery
+// Query: *[_type == "article" && defined(slug.current)] | order(publishedAt desc) [0...3] {      _id,  title,  slug,  excerpt,  category,  coverImage{    asset->,    alt  },  publishedAt,  author,  readTime  }
+export type LatestArticlesQueryResult = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  excerpt: string | null;
+  category: "etude-de-cas" | "guide" | "veille" | null;
+  coverImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  publishedAt: string | null;
+  author: "Eliott" | "Julien" | null;
+  readTime: number | null;
+}>;
+// Variable: relatedArticlesQuery
+// Query: *[_type == "article" && defined(slug.current) && category == $category && _id != $currentId] | order(publishedAt desc) [0...3] {      _id,  title,  slug,  excerpt,  category,  coverImage{    asset->,    alt  },  publishedAt,  author,  readTime  }
+export type RelatedArticlesQueryResult = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  excerpt: string | null;
+  category: "etude-de-cas" | "guide" | "veille" | null;
+  coverImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+    alt: string | null;
+  } | null;
+  publishedAt: string | null;
+  author: "Eliott" | "Julien" | null;
+  readTime: number | null;
+}>;
+// Variable: allArticleSlugsQuery
+// Query: *[_type == "article" && defined(slug.current)][].slug.current
+export type AllArticleSlugsQueryResult = Array<string | null>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -773,5 +962,10 @@ declare module "@sanity/client" {
     "\n    *[_type == \"project\" && defined(slug.current)][].slug.current\n  ": AllProjectSlugsQueryResult;
     "\n  *[_type == \"project\" && defined(slug.current)] | order(date desc, _updatedAt desc) {\n    \n  _id,\n  _type,\n  _createdAt,\n  _updatedAt,\n  client,\n  slug,\n  coverImage{\n    asset->,\n    alt\n  },\n  logo{\n    asset->,\n    alt\n  },\n  headline,\n  contexte,\n  contextImage{\n    asset->,\n    alt\n  },\n  impact,\n  impactImage{\n    asset->,\n    alt\n  },\n  resultats,\n  resultatsImage{\n    asset->,\n    alt\n  },\n  kpis[]{\n    metric,\n    value,\n    description\n  },\n  date,\n  review->{\n    _id,\n    name,\n    company,\n    content,\n    rating\n  },\n  services[]->{\n    _id,\n    title,\n    slug\n  },\n  seo{\n    metaTitle,\n    metaDescription\n  }\n\n  }\n": AllProjectsQueryResult;
     "\n  *[_type == \"project\" && slug.current == $slug][0] {\n    \n  _id,\n  _type,\n  _createdAt,\n  _updatedAt,\n  client,\n  slug,\n  coverImage{\n    asset->,\n    alt\n  },\n  logo{\n    asset->,\n    alt\n  },\n  headline,\n  contexte,\n  contextImage{\n    asset->,\n    alt\n  },\n  impact,\n  impactImage{\n    asset->,\n    alt\n  },\n  resultats,\n  resultatsImage{\n    asset->,\n    alt\n  },\n  kpis[]{\n    metric,\n    value,\n    description\n  },\n  date,\n  review->{\n    _id,\n    name,\n    company,\n    content,\n    rating\n  },\n  services[]->{\n    _id,\n    title,\n    slug\n  },\n  seo{\n    metaTitle,\n    metaDescription\n  }\n\n  }\n": ProjectQueryResult;
+    "\n  *[_type == \"article\" && defined(slug.current)] | order(publishedAt desc) {\n    \n  _id,\n  title,\n  slug,\n  excerpt,\n  category,\n  coverImage{\n    asset->,\n    alt\n  },\n  publishedAt,\n  author,\n  readTime\n\n  }\n": AllArticlesQueryResult;
+    "\n  *[_type == \"article\" && slug.current == $slug][0] {\n    \n  _id,\n  title,\n  slug,\n  excerpt,\n  category,\n  coverImage{\n    asset->,\n    alt\n  },\n  publishedAt,\n  author,\n  readTime\n,\n    body,\n    seo{\n      metaTitle,\n      metaDescription\n    }\n  }\n": ArticleBySlugQueryResult;
+    "\n  *[_type == \"article\" && defined(slug.current)] | order(publishedAt desc) [0...3] {\n    \n  _id,\n  title,\n  slug,\n  excerpt,\n  category,\n  coverImage{\n    asset->,\n    alt\n  },\n  publishedAt,\n  author,\n  readTime\n\n  }\n": LatestArticlesQueryResult;
+    "\n  *[_type == \"article\" && defined(slug.current) && category == $category && _id != $currentId] | order(publishedAt desc) [0...3] {\n    \n  _id,\n  title,\n  slug,\n  excerpt,\n  category,\n  coverImage{\n    asset->,\n    alt\n  },\n  publishedAt,\n  author,\n  readTime\n\n  }\n": RelatedArticlesQueryResult;
+    "\n    *[_type == \"article\" && defined(slug.current)][].slug.current\n  ": AllArticleSlugsQueryResult;
   }
 }
