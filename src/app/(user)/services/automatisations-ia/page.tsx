@@ -20,12 +20,12 @@ import { LeaderSecteur } from "@/components/services/automatisations-ia/leader-s
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 
 export const metadata = {
-  title: "Agents IA & Automatisations · Agence Advisia",
+  title: "Agents IA & Automatisation pour PME | Agence Advisia",
   description:
     "Agents IA sur mesure pour automatiser vos tâches, connecter vos outils et fiabiliser les processus. Temps gagné, coûts réduits, décisions mieux informées.",
   keywords: ["advisia", "agence ia", "agence web", "creation site web"],
   openGraph: {
-    title: "Agents IA & Automatisations · Agence Advisia",
+    title: "Agents IA & Automatisation pour PME | Agence Advisia",
     description:
       "Agents IA sur mesure pour automatiser vos tâches, connecter vos outils et fiabiliser les processus. Temps gagné, coûts réduits, décisions mieux informées.",
     url: "https://advisia.agency",
@@ -158,8 +158,8 @@ export default function AutomatisationsIA() {
         </section>
         <LogosConfiance />
         <LeaderSecteur
-          heading="Devenez le leader de votre secteur"
-          subheading="Nos agents intelligents s'adaptent à vos enjeux métiers pour optimiser vos opérations, personnaliser l'expérience client et libérer du temps."
+          heading="L'IA adaptée à votre secteur."
+          subheading="Des agents IA conçus pour votre métier, déployés en quelques jours."
           sections={[
             {
               image:

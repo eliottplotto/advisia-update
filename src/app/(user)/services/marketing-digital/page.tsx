@@ -23,12 +23,12 @@ import FAQCenter from "@/components/ui/sections/faq-center";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 
 export const metadata = {
-  title: "Marketing digital & acquisition · Agence Advisia",
+  title: "Marketing Digital & SEO pour PME | Agence Advisia",
   description:
     "SEO, SEA, contenus et emailing. Stratégies d'acquisition mesurables pour augmenter votre trafic, générer des leads et améliorer la conversion.",
   keywords: ["advisia", "agence ia", "agence web", "creation site web"],
   openGraph: {
-    title: "Marketing digital & acquisition · Agence Advisia",
+    title: "Marketing Digital & SEO pour PME | Agence Advisia",
     description:
       "SEO, SEA, contenus et emailing. Stratégies d'acquisition mesurables pour augmenter votre trafic, générer des leads et améliorer la conversion.",
     url: "https://advisia.agency",

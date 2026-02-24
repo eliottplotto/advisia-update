@@ -6,14 +6,14 @@ import FAQCenter from "@/components/ui/sections/faq-center";
 import { Header1 } from "@/components/ui/sections/header-1";
 
 export const metadata = {
-  title: "L'agence Advisia · Agence web et digitale",
+  title: "À propos d'Advisia | Agence IA & Web pour PME",
   description:
-    "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
+    "Deux fondateurs, une obsession : que la tech serve votre business. Advisia apporte aux PME les mêmes outils que les grands groupes.",
   keywords: ["advisia", "agence ia", "agence web", "creation site web"],
   openGraph: {
-    title: "Advisia · Agence de croissance digitale",
+    title: "À propos d'Advisia | Agence IA & Web pour PME",
     description:
-      "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
+      "Deux fondateurs, une obsession : que la tech serve votre business. Advisia apporte aux PME les mêmes outils que les grands groupes.",
     url: "https://advisia.agency",
     siteName: "Advisia",
     type: "website",
@@ -66,7 +66,7 @@ export default function Agence() {
             heading="Advisia, votre partenaire digital de confiance"
             dark={true}
             layout="imgLeft"
-            description="Nous sommes une équipe passionnée de créatifs et de développeurs, dédiée à transformer vos idées en solutions digitales exceptionnelles."
+            description="Deux fondateurs. Une obsession : que la tech serve votre business. Eliott (tech) et Julien (stratégie) ont créé Advisia pour apporter aux PME les mêmes outils que les grands groupes — sans les budgets ni la complexité."
             image={{
               src: "/equipe-advisia-square-dark.png",
               alt: "Équipe Advisia",

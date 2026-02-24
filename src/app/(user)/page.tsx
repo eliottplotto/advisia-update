@@ -12,14 +12,14 @@ import SectionCTAForm from "@/components/section-cta-form";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 
 export const metadata = {
-  title: "Advisia · Agence de croissance digitale",
+  title: "Agence IA & Automatisation pour PME | Advisia",
   description:
-    "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
+    "Agents IA, sites web performants, automatisation des process : Advisia conçoit les outils qui font gagner du temps aux PME et ETI. Diagnostic gratuit.",
   keywords: ["advisia", "agence ia", "agence web", "creation site web"],
   openGraph: {
-    title: "Advisia · Agence de croissance digitale",
+    title: "Agence IA & Automatisation pour PME | Advisia",
     description:
-      "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
+      "Agents IA, sites web performants, automatisation des process : Advisia conçoit les outils qui font gagner du temps aux PME et ETI. Diagnostic gratuit.",
     url: "https://advisia.agency",
     siteName: "Advisia",
     type: "website",

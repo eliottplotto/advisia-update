@@ -50,7 +50,7 @@ export default function Footer() {
                     className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
                     style={{ color: "var(--text-secondary)" }}
                   >
-                    &Eacute;tudes de cas
+                    Réalisations
                   </Link>
                 </li>
                 <li>
@@ -106,7 +106,7 @@ export default function Footer() {
                     className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
                     style={{ color: "var(--text-secondary)" }}
                   >
-                    Site Web
+                    Développement Web
                   </Link>
                 </li>
                 <li>
@@ -120,11 +120,11 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/services/digital-marketing"
+                    href="/services/marketing-digital"
                     className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
                     style={{ color: "var(--text-secondary)" }}
                   >
-                    Digital Marketing
+                    Marketing Digital
                   </Link>
                 </li>
               </ul>
@@ -168,7 +168,7 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <Logo className="text-white opacity-60" />
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              &copy; Advisia 2025
+              &copy; Advisia {new Date().getFullYear()}
             </p>
           </div>
           <div className="flex gap-2">

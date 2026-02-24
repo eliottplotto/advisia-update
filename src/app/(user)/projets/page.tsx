@@ -4,6 +4,20 @@ import SectionCTASmall from "@/components/section-cta-small";
 import { RevealText } from "@/components/reveal-text";
 import Projects from "@/components/projects";
 
+export const metadata = {
+  title: "Nos réalisations et études de cas | Advisia",
+  description:
+    "Découvrez nos projets clients : intranets, e-commerce, agents IA, dashboards. Des résultats concrets pour des PME et ETI.",
+  openGraph: {
+    title: "Nos réalisations et études de cas | Advisia",
+    description:
+      "Découvrez nos projets clients : intranets, e-commerce, agents IA, dashboards. Des résultats concrets pour des PME et ETI.",
+    url: "https://advisia.agency/projets",
+    siteName: "Advisia",
+    type: "website",
+  },
+};
+
 export default function Projets() {
   const profils = [
     {

@@ -73,7 +73,7 @@ export default function PourquoiAdvisia() {
           className="text-base md:text-lg mb-8 lg:mb-12 max-w-[500px]"
           style={{ color: "rgba(255,255,255,0.6)" }}
         >
-          Ce qu&apos;on fait différemment des autres agences.
+          Un interlocuteur unique, des résultats mesurés, et zéro sous-traitance.
         </p>
 
         {/* Grid */}

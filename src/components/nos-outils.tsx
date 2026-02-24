@@ -15,7 +15,7 @@ export default function NosOutils() {
             className="font-mono text-xs text-center uppercase tracking-[0.15em] mb-12"
             style={{ color: "rgba(255,255,255,0.6)" }}
           >
-            Nous exploitons les meilleurs outils du marché
+            Les outils qu&apos;on utilise au quotidien
           </h2>
           <LogosToolsSlider />
         </div>
