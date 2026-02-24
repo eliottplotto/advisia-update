@@ -145,7 +145,7 @@ export default function Hero() {
           delay="1.8s"
           speed={0.04}
           className="top-[340px] right-[20px] w-[240px]"
-          label="Taux de conversion"
+          label="Temps économisé"
           metric="+12h"
           desc="gagnées par semaine en moyenne"
           fillWidth="60%"

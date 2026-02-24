@@ -6,10 +6,6 @@ import {
   RiDraftFill,
   RiPaletteFill,
   RiTestTubeFill,
-  RiWindow2Fill,
-  RiDashboardFill,
-  RiSmartphoneFill,
-  RiLayoutGridFill,
   RiCursorFill,
   RiUserSearchFill,
   RiFlowChart,
@@ -251,41 +247,6 @@ export default function ProductDesign() {
               title: "Tests & Itération",
               description:
                 "Tests utilisateurs, A/B testing, analytics. On mesure et on améliore en continu.",
-              number: "04",
-            },
-          ]}
-        />
-
-        <ServiceCards
-          label="● Ce qu'on design"
-          heading="Des produits digitaux qui convertissent."
-          cards={[
-            {
-              icon: <RiWindow2Fill size={24} />,
-              title: "Sites web & landing pages",
-              description:
-                "Des pages qui convertissent, pas juste qui sont belles.",
-              number: "01",
-            },
-            {
-              icon: <RiDashboardFill size={24} />,
-              title: "Applications SaaS",
-              description:
-                "Dashboards complexes rendus simples. Ergonomie pensée pour l'usage quotidien.",
-              number: "02",
-            },
-            {
-              icon: <RiSmartphoneFill size={24} />,
-              title: "Applications mobiles",
-              description:
-                "Design natif iOS/Android ou responsive web app.",
-              number: "03",
-            },
-            {
-              icon: <RiLayoutGridFill size={24} />,
-              title: "Design systems",
-              description:
-                "Bibliothèques de composants documentées, scalables, cohérentes.",
               number: "04",
             },
           ]}

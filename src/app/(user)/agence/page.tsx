@@ -4,6 +4,8 @@ import PourquoiAdvisia from "@/components/pourquoi-advisia";
 import SectionCTASmall from "@/components/section-cta-small";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import { Header1 } from "@/components/ui/sections/header-1";
+import { StorySection, ManifestoSection } from "@/components/agence/story-and-manifesto";
+import StatsBar from "@/components/home/stats-bar";
 
 export const metadata = {
   title: "À propos d'Advisia | Agence IA & Web à Tarbes",
@@ -74,7 +76,10 @@ export default function Agence() {
             }}
           />
         </div>
+        <StorySection />
+        <ManifestoSection />
         <PourquoiAdvisia />
+        <StatsBar />
         <NosOutils />
         <FAQCenter title="On répond à vos questions" questions={questions} />
         <SectionCTASmall />

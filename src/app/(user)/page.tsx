@@ -1,6 +1,6 @@
 import Footer from "@/components/footer";
-import Team from "@/components/home/team";
 import Hero from "@/components/home/hero";
+import StatsBar from "@/components/home/stats-bar";
 import InsightsPreview from "@/components/home/insights-preview";
 import ProjectsSection from "@/components/home/projects";
 import Services from "@/components/home/services";
@@ -41,7 +41,7 @@ export default function Home() {
       <LogosConfiance />
       <Services />
       <Process />
-      <Team />
+      <StatsBar />
       <ProjectsSection />
       {/* PLACEHOLDER : remplacer par de vrais témoignages clients */}
       <Testimonials />
