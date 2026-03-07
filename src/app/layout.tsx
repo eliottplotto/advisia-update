@@ -3,6 +3,7 @@ import { SanityLive } from "@/sanity/lib/live";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://advisia.agency"),
   title: "Admin · Advisia",
   description: "Admin",
 };
