@@ -13,7 +13,7 @@ import {
   RiSettings3Fill,
 } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import TrackedLink from "@/components/ui/tracked-link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
 import LogosConfiance from "@/components/logos-confiance";
@@ -133,9 +133,9 @@ export default function ProductDesign() {
                 </p>
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
-                    <Link href="/prendre-rendez-vous">
+                    <TrackedLink href="/prendre-rendez-vous" trackingLabel="demander_estimation" trackingPage="product-design" isBooking>
                       Demander une estimation <RiCornerDownRightLine />
-                    </Link>
+                    </TrackedLink>
                   </Button>
                   <div className="flex gap-4 lg:gap-8 wrap">
                     <div className="w-max">

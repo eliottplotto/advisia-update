@@ -11,6 +11,7 @@ import {
   RiErrorWarningFill,
   RiLoader4Fill,
 } from "@remixicon/react";
+import { trackFormSubmission } from "@/lib/analytics";
 
 interface FormData {
   firstName: string;
@@ -126,6 +127,7 @@ export default function ContactForm() {
         throw new Error("Erreur lors de l'envoi");
       }
 
+      trackFormSubmission("contact");
       setIsSubmitted(true);
       setFormData({
         firstName: "",

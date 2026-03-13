@@ -1,10 +1,18 @@
 import type { MetadataRoute } from "next";
+import { getAllProjectSlugs, getAllArticleSlugs } from "@/sanity/lib/queries";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://advisia.agency";
   const now = new Date().toISOString();
 
-  return [
+  // Fetch dynamic slugs from Sanity
+  const [projectSlugs, articleSlugs] = await Promise.all([
+    getAllProjectSlugs(),
+    getAllArticleSlugs(),
+  ]);
+
+  // Static pages
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: now,
@@ -53,16 +61,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     },
-    // TODO: fetch project slugs dynamically from Sanity to include /projets/[slug] pages
-    // e.g. using: client.fetch('*[_type == "project" && defined(slug.current)][].slug.current')
     {
       url: `${baseUrl}/insights`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.7,
     },
-    // TODO: fetch article slugs dynamically from Sanity to include /insights/[slug] pages
-    // e.g. using: client.fetch('*[_type == "article" && defined(slug.current)][].slug.current')
     {
       url: `${baseUrl}/contact`,
       lastModified: now,
@@ -88,4 +92,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.1,
     },
   ];
+
+  // Dynamic project pages from Sanity
+  const projectPages: MetadataRoute.Sitemap = projectSlugs.map((slug) => ({
+    url: `${baseUrl}/projets/${slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
+
+  // Dynamic article pages from Sanity
+  const articlePages: MetadataRoute.Sitemap = articleSlugs.map((slug) => ({
+    url: `${baseUrl}/insights/${slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...projectPages, ...articlePages];
 }

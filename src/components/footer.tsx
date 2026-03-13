@@ -2,6 +2,7 @@ import Link from "next/link";
 import { RiLinkedinFill, RiSparklingFill } from "@remixicon/react";
 import { NewsletterForm } from "./newsletter-form";
 import { Logo } from "./Logo";
+import TrackedLink from "./ui/tracked-link";
 
 export default function Footer() {
   return (
@@ -63,22 +64,27 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link
+                  <TrackedLink
                     href="/prendre-rendez-vous"
+                    trackingLabel="reserver_appel"
+                    trackingPage="footer"
+                    isBooking
                     className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
                     style={{ color: "var(--text-secondary)" }}
                   >
                     R&eacute;server un appel
-                  </Link>
+                  </TrackedLink>
                 </li>
                 <li>
-                  <Link
+                  <TrackedLink
                     href="/contact"
+                    trackingLabel="contact"
+                    trackingPage="footer"
                     className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
                     style={{ color: "var(--text-secondary)" }}
                   >
                     Contact
-                  </Link>
+                  </TrackedLink>
                 </li>
               </ul>
             </div>

@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { RevealText } from "../reveal-text";
+import { trackCTAClick, trackBookingClick } from "@/lib/analytics";
 export default function Hero() {
   const glowRef = useRef<HTMLDivElement>(null);
 
@@ -106,7 +107,7 @@ export default function Hero() {
           style={{ animation: "fadeUp 0.8s var(--ease) 1.2s forwards" }}
         >
           <Button asChild size="lg" className="!bg-ad-1 !text-black font-mono text-xs uppercase tracking-wider px-8 py-6 rounded-md shadow-[0_0_30px_var(--accent-dim)] hover:shadow-[0_0_60px_var(--accent-glow)] hover:-translate-y-0.5 transition-all duration-300">
-            <Link href="/contact">
+            <Link href="/contact" onClick={() => trackCTAClick("analyser_besoin", "hero")}>
               Analyser mon besoin — gratuit <span>↗</span>
             </Link>
           </Button>
@@ -116,7 +117,7 @@ export default function Hero() {
             size="lg"
             className="!border-[rgba(124,58,237,0.3)] !bg-transparent !text-white font-mono text-xs uppercase tracking-wider px-8 py-6 rounded-md backdrop-blur-md hover:!border-[var(--violet)] hover:!bg-[var(--violet-dim)] hover:shadow-[0_0_30px_var(--violet-dim)] transition-all duration-300"
           >
-            <Link href="/prendre-rendez-vous">Réserver un appel</Link>
+            <Link href="/prendre-rendez-vous" onClick={() => { trackCTAClick("reserver_appel", "hero"); trackBookingClick(); }}>Réserver un appel</Link>
           </Button>
         </div>
       </div>

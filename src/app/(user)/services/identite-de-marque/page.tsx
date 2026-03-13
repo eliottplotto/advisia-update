@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "@/components/footer";
 import { RiArrowRightFill } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import TrackedLink from "@/components/ui/tracked-link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
 import LogosConfiance from "@/components/logos-confiance";
@@ -98,9 +98,9 @@ export default function IdentiteDeMarque() {
                 </p>
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
-                    <Link href="/contact">
+                    <TrackedLink href="/contact" trackingLabel="demander_estimation" trackingPage="identite-de-marque">
                       Demander une estimation <RiArrowRightFill />
-                    </Link>
+                    </TrackedLink>
                   </Button>
                   <div className="flex gap-4 lg:gap-8 wrap">
                     <div className="w-max">

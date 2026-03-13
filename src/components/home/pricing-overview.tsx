@@ -4,6 +4,7 @@ import Link from "next/link";
 import { RevealText } from "@/components/reveal-text";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 import { RiArrowRightUpLine } from "@remixicon/react";
+import { trackCTAClick, trackBookingClick } from "@/lib/analytics";
 
 export default function PricingOverview() {
   const offers = [
@@ -70,7 +71,7 @@ export default function PricingOverview() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {offers.map((offer, idx) => (
             <ScrollReveal key={idx} delay={idx * 0.1} className="h-full">
-              <Link href={offer.link} className="group block h-full">
+              <Link href={offer.link} onClick={() => { trackCTAClick(offer.cta, "pricing"); if (offer.link === "/prendre-rendez-vous") trackBookingClick(); }} className="group block h-full">
                 <div
                   className="relative h-full flex flex-col rounded-2xl p-8 transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:border-[rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(124,58,237,0.1)]"
                   style={{

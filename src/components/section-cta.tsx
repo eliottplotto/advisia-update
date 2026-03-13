@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TrackedLink from "./ui/tracked-link";
 import { RevealText } from "./RevealText";
 import { Button } from "./ui/button";
 
@@ -78,7 +78,7 @@ export default function SectionCTA() {
           </RevealText>
         </div>
         <Button size="huge" asChild>
-          <Link href="/contact">Je r&eacute;serve</Link>
+          <TrackedLink href="/contact" trackingLabel="je_reserve" trackingPage="section-cta">Je r&eacute;serve</TrackedLink>
         </Button>
         <p
           className="font-mono uppercase text-sm tracking-wider"

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { trackFormSubmission } from "@/lib/analytics";
 
 interface NewsletterFormProps {
   title?: string;
@@ -47,6 +48,7 @@ export function NewsletterForm({
       const result = await response.json();
 
       if (response.ok) {
+        trackFormSubmission("newsletter");
         toast.success(
           "Inscription réussie ! Vous avez été ajouté à notre newsletter avec succès."
         );

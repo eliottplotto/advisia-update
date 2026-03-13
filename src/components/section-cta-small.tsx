@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TrackedLink from "./ui/tracked-link";
 import { RiArrowRightFill } from "@remixicon/react";
 import { RevealText } from "./reveal-text";
 
@@ -30,8 +30,10 @@ export default function SectionCTASmall() {
           </RevealText>
         </h2>
         <div className="flex items-center justify-center gap-3 flex-wrap">
-          <Link
+          <TrackedLink
             href="/contact"
+            trackingLabel="estime_projet"
+            trackingPage="section-cta-small"
             className="inline-flex items-center gap-2 px-6 py-3 font-mono text-xs font-semibold uppercase tracking-[0.1em] rounded-lg transition-all duration-300 hover:-translate-y-[1px] hover:shadow-[0_0_40px_var(--accent-glow)]"
             style={{
               background: "var(--ad-1)",
@@ -40,9 +42,12 @@ export default function SectionCTASmall() {
             }}
           >
             J&apos;estime mon projet <RiArrowRightFill size={16} />
-          </Link>
-          <Link
+          </TrackedLink>
+          <TrackedLink
             href="/prendre-rendez-vous"
+            trackingLabel="reserver_appel"
+            trackingPage="section-cta-small"
+            isBooking
             className="inline-flex items-center gap-2 px-6 py-3 font-mono text-xs uppercase tracking-[0.1em] rounded-lg transition-all duration-300 hover:bg-[rgba(124,58,237,0.15)]"
             style={{
               border: "1px solid rgba(124,58,237,0.3)",
@@ -50,7 +55,7 @@ export default function SectionCTASmall() {
             }}
           >
             R&eacute;server un appel
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@ import {
 } from "@remixicon/react";
 import Solutions from "@/components/services/automatisations-ia/solutions";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import TrackedLink from "@/components/ui/tracked-link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
 import Steps1 from "@/components/ui/sections/steps-1";
@@ -139,9 +139,9 @@ export default function AutomatisationsIA() {
 
               <div className="flex gap-8 items-center flex-wrap">
                 <Button size="lg" asChild className="w-max">
-                  <Link href="/prendre-rendez-vous">
+                  <TrackedLink href="/prendre-rendez-vous" trackingLabel="contacter_expert_ia" trackingPage="automatisations-ia" isBooking>
                     Contacter un expert IA <RiCornerDownRightLine />
-                  </Link>
+                  </TrackedLink>
                 </Button>
               </div>
               <div className="flex gap-4 lg:gap-8 flex-wrap">

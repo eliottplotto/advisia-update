@@ -1,6 +1,6 @@
 import ContactForm from "./contact-form";
 import { RiCheckFill, RiPhoneFill } from "@remixicon/react";
-import Link from "next/link";
+import TrackedLink from "./ui/tracked-link";
 import type { ElementType, ReactNode } from "react";
 import { RevealText } from "./reveal-text";
 
@@ -140,8 +140,11 @@ export default function SectionContactForm({
               </li>
             </ul>
             <div className="lg:hidden space-y-6">
-              <Link
+              <TrackedLink
                 href="/prendre-rendez-vous"
+                trackingLabel="reserver_appel"
+                trackingPage="section-cta-form-mobile"
+                isBooking
                 className="block w-full text-center py-3 font-mono text-xs uppercase tracking-wider rounded-lg transition-all duration-300"
                 style={{
                   background: "rgba(124,58,237,0.1)",
@@ -151,7 +154,7 @@ export default function SectionContactForm({
               >
                 R&eacute;server un appel{" "}
                 <RiPhoneFill className="inline ml-1" size={14} />
-              </Link>
+              </TrackedLink>
               <p
                 className="font-mono text-xs uppercase text-center tracking-wider"
                 style={{ color: "var(--text-muted)" }}
@@ -163,8 +166,11 @@ export default function SectionContactForm({
               <p style={{ color: "var(--text-secondary)" }}>
                 Vous pr&eacute;f&eacute;rez planifier un rendez-vous ?
               </p>
-              <Link
+              <TrackedLink
                 href="/prendre-rendez-vous"
+                trackingLabel="reserver_appel"
+                trackingPage="section-cta-form-desktop"
+                isBooking
                 className="inline-flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-wider rounded-lg transition-all duration-300 hover:bg-[rgba(124,58,237,0.15)]"
                 style={{
                   background: "rgba(124,58,237,0.08)",
@@ -173,7 +179,7 @@ export default function SectionContactForm({
                 }}
               >
                 R&eacute;server un appel <RiPhoneFill size={14} />
-              </Link>
+              </TrackedLink>
             </div>
           </div>
 

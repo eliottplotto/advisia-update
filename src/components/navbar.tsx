@@ -7,6 +7,7 @@ import {
   RiCloseFill,
   RiMenuFill,
 } from "@remixicon/react";
+import { trackCTAClick, trackBookingClick } from "@/lib/analytics";
 
 // GSAP
 import { useRef, useState } from "react";
@@ -245,7 +246,7 @@ export default function Navbar() {
             <div className="global-padding-x flex justify-end items-center">
               <Link
                 href="/contact"
-                onClick={closeServicesMenu}
+                onClick={() => { closeServicesMenu(); trackCTAClick("estime_projet", "navbar"); }}
                 className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-mono text-[0.75rem] font-semibold uppercase tracking-[0.1em] rounded-md transition-all duration-300 hover:-translate-y-[1px] hover:shadow-[0_0_40px_var(--accent-glow)]"
                 style={{
                   background: "var(--ad-1)",
@@ -353,7 +354,7 @@ export default function Navbar() {
               <div className="mobile-nav-item pt-8 flex flex-col gap-y-2">
                 <Link
                   href="/prendre-rendez-vous"
-                  onClick={closeMobileMenu}
+                  onClick={() => { closeMobileMenu(); trackCTAClick("reserver_appel", "navbar_mobile"); trackBookingClick(); }}
                   className="block w-full text-center py-3 font-mono text-xs uppercase tracking-wider rounded-md transition-all backdrop-blur-md"
                   style={{
                     border: "1px solid rgba(124,58,237,0.3)",
@@ -364,7 +365,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/contact"
-                  onClick={closeMobileMenu}
+                  onClick={() => { closeMobileMenu(); trackCTAClick("estime_projet", "navbar_mobile"); }}
                   className="block w-full text-center py-3 font-mono text-xs uppercase tracking-wider rounded-md font-semibold"
                   style={{
                     background: "var(--ad-1)",
