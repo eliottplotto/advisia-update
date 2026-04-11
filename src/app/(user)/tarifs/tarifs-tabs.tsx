@@ -765,7 +765,7 @@ export default function TarifsTabs() {
                                 )}
                               </div>
                               <Link
-                                href="/contact"
+                                href={`/contact?besoin=${offre.slug}`}
                                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200 hover:-translate-y-[1px]"
                                 style={
                                   offre.featured
