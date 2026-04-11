@@ -125,13 +125,12 @@ export default function ProductDesign() {
         <section className="overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
-              <div className="flex flex-col justify-end gap-6">
-                <BulletHeadline as="p">Design d&apos;Interface</BulletHeadline>
-                <SketchReveal
-                  text="Des interfaces que vos utilisateurs comprennent. Du premier clic."
-                  className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl"
-                />
+            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
+              <BulletHeadline as="p">Design d&apos;Interface</BulletHeadline>
+              <SketchReveal
+                text="Des interfaces que vos utilisateurs comprennent. Du premier clic."
+                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
+              />
 
                 <p className="max-w-xl text-muted-foreground">
                   UI/UX Design centré sur la conversion. On ne fait pas du joli
@@ -159,7 +158,6 @@ export default function ProductDesign() {
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </section>

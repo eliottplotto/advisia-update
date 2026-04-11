@@ -9,15 +9,22 @@ interface ValueRevealProps {
   style?: CSSProperties;
 }
 
-// Cession & Reprise — balance/weighing effect: text rocks like a scale
-// finding its equilibrium, then a big "+15% valorisation" appears
+// Cession & Reprise — value/money pops on key words
+// like the marketing +% effect but with € and ↗ symbols
 export default function ValueReveal({ text, className, style }: ValueRevealProps) {
   const [mounted, setMounted] = useState(false);
-  const [showValue, setShowValue] = useState(false);
+  const words = text.split(" ");
+
+  // Which words get a pop icon and what icon
+  const pops: Record<string, string> = {
+    "vaut": "€",
+    "plus": "↗",
+    "numériquement": "⚡",
+    "mature.": "+20%",
+  };
 
   useEffect(() => {
     setMounted(true);
-    setTimeout(() => setShowValue(true), 1400);
   }, []);
 
   if (!mounted) {
@@ -26,51 +33,47 @@ export default function ValueReveal({ text, className, style }: ValueRevealProps
 
   return (
     <h1 className={className} style={style}>
-      {/* Main text with weighing/balance animation */}
-      <motion.span
-        initial={{ opacity: 0, rotateZ: -2, y: 10 }}
-        animate={{
-          opacity: 1,
-          rotateZ: [0, 1.5, -1, 0.5, 0],
-          y: [10, -5, 3, -1, 0],
-        }}
-        transition={{
-          duration: 1.2,
-          ease: "easeInOut",
-          times: [0, 0.3, 0.55, 0.8, 1],
-        }}
-        style={{
-          display: "block",
-          transformOrigin: "center bottom",
-        }}
-      >
-        {text}
-      </motion.span>
-
-      {/* Big value indicator that pops up after balance settles */}
-      <motion.span
-        initial={{ opacity: 0, scale: 0.5, y: 10 }}
-        animate={showValue ? { opacity: 1, scale: 1, y: 0 } : {}}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 15,
-        }}
-        className="inline-flex items-center gap-2 mt-4"
-        style={{ display: "flex" }}
-      >
-        <span
-          className="text-lg md:text-xl font-bold px-4 py-1.5 rounded-full"
-          style={{
-            background: "rgba(201,254,110,0.1)",
-            border: "1px solid rgba(201,254,110,0.3)",
-            color: "#c9fe6e",
-            fontSize: "0.35em",
-          }}
-        >
-          +5 à +20% de valorisation estimée
-        </span>
-      </motion.span>
+      {words.map((word, i) => {
+        const popIcon = pops[word];
+        return (
+          <span key={i} style={{ display: "inline-block", position: "relative" }}>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 25,
+                delay: i * 0.07,
+              }}
+              style={{ display: "inline-block" }}
+            >
+              {word}
+            </motion.span>
+            {/* Pop icon on key words */}
+            {popIcon && (
+              <motion.span
+                initial={{ opacity: 0, y: 0, scale: 0.5 }}
+                animate={{ opacity: [0, 1, 1, 0], y: [0, -10, -14, -20], scale: [0.5, 1.2, 1, 0.8] }}
+                transition={{ duration: 0.8, delay: i * 0.07 + 0.15, ease: "easeOut" }}
+                style={{
+                  position: "absolute",
+                  top: "-6px",
+                  right: "-12px",
+                  fontSize: "0.3em",
+                  fontWeight: 700,
+                  color: "#c9fe6e",
+                  pointerEvents: "none",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {popIcon}
+              </motion.span>
+            )}
+            {i < words.length - 1 && <span>&nbsp;</span>}
+          </span>
+        );
+      })}
     </h1>
   );
 }

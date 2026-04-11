@@ -1,6 +1,7 @@
 import Footer from "@/components/footer";
-import ValueReveal from "@/components/hero-animations/ValueReveal";
 import ScrollReveal from "@/components/ui/scroll-reveal";
+import ValueReveal from "@/components/hero-animations/ValueReveal";
+import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import HoverExpandColumns from "@/components/hover-expand-columns";
@@ -218,21 +219,18 @@ export default function CessionReprisePage() {
           style={{ background: "rgba(10,10,15,0.85)" }}
         >
           <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-10 lg:py-16 flex flex-col gap-6 max-w-3xl">
-              <span
-                className="inline-flex w-max items-center gap-2 px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-widest"
-                style={{
-                  background: "rgba(124,58,237,0.15)",
-                  border: "1px solid rgba(124,58,237,0.3)",
-                  color: "var(--violet)",
-                }}
-              >
-                Cession & Reprise
-              </span>
+            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
+              <div className="flex items-center justify-between flex-wrap">
+                <BulletHeadline as="p">Cession & Reprise</BulletHeadline>
+                <div className="hidden lg:block flex-shrink-0 rounded-xl p-4 text-center" style={{ background: "rgba(201,254,110,0.06)", border: "1px solid rgba(201,254,110,0.15)" }}>
+                  <p className="text-2xl font-bold" style={{ color: "#c9fe6e" }}>+5 à +20%</p>
+                  <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>de valorisation estimée</p>
+                </div>
+              </div>
 
               <ValueReveal
                 text="Votre entreprise vaut plus si elle est numériquement mature."
-                className="text-4xl lg:text-5xl xl:text-6xl"
+                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
               />
 
               <p className="text-lg max-w-xl" style={{ color: "var(--text-secondary)" }}>

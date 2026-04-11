@@ -187,11 +187,11 @@ export default function DiagnosticsPage() {
           style={{ background: "rgba(10,10,15,0.85)" }}
         >
           <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-10 lg:py-16 flex flex-col justify-center gap-6 w-full max-w-3xl">
+            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
               <BulletHeadline as="p">Diagnostics & Audits</BulletHeadline>
               <ScanReveal
                 text="Avant de construire, on analyse."
-                className="text-4xl lg:text-5xl xl:text-6xl"
+                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
               />
               <p className="text-lg max-w-xl" style={{ color: "var(--text-secondary)" }}>
                 Advisia, agence IA pour PME en France, vous livre en 48-72h un état précis de votre situation et les actions prioritaires à mener. Pas de PowerPoint. Un rapport actionnable.

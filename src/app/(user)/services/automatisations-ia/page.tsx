@@ -131,15 +131,21 @@ export default function AutomatisationsIA() {
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="container-md pt-[95px]">
             <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
-              <div className="flex items-center gap-4 flex-wrap">
-                <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                  À partir de <span style={{ color: "#c9fe6e" }}>390 €</span>
-                </span>
+              <div className="flex items-center justify-between flex-wrap">
+                <div className="flex items-center gap-4 flex-wrap">
+                  <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    À partir de <span style={{ color: "#c9fe6e" }}>390 €</span>
+                  </span>
+                </div>
+                <div className="hidden lg:block flex-shrink-0 rounded-xl p-4 text-center" style={{ background: "rgba(201,254,110,0.06)", border: "1px solid rgba(201,254,110,0.15)" }}>
+                  <p className="text-2xl font-bold" style={{ color: "#c9fe6e" }}>2-3 jours</p>
+                  <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>pour la 1ère automatisation</p>
+                </div>
               </div>
               <PixelReveal
                 text="Vos équipes perdent 10h par semaine sur des tâches que l'IA peut faire."
-                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
+                className="text-3xl lg:text-4xl xl:text-5xl lg:max-w-4xl"
               />
 
               <p className="max-w-xl text-muted-foreground">

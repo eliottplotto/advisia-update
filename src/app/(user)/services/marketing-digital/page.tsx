@@ -128,13 +128,12 @@ export default function MarketingDigital() {
         <section className="overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
-              <div className="flex flex-col justify-end gap-6">
-                <BulletHeadline as="p">Marketing Digital</BulletHeadline>
-                <GraphReveal
-                  text="Plus de trafic. Plus de demandes clients. Moins de budget gaspillé."
-                  className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl"
-                />
+            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
+              <BulletHeadline as="p">Marketing Digital</BulletHeadline>
+              <GraphReveal
+                text="Plus de trafic. Plus de demandes clients. Moins de budget gaspillé."
+                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
+              />
 
                 <p className="max-w-xl text-muted-foreground">
                   SEO, Google Ads, Meta Ads, LinkedIn Ads : on met en place
@@ -162,7 +161,6 @@ export default function MarketingDigital() {
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </section>

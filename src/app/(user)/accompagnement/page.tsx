@@ -1,6 +1,7 @@
 import Footer from "@/components/footer";
-import HandshakeReveal from "@/components/hero-animations/HandshakeReveal";
 import ScrollReveal from "@/components/ui/scroll-reveal";
+import HandshakeReveal from "@/components/hero-animations/HandshakeReveal";
+import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import HoverExpandColumns from "@/components/hover-expand-columns";
@@ -211,10 +212,11 @@ export default function AccompagnementPage() {
           style={{ background: "rgba(10,10,15,0.85)" }}
         >
           <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-10 lg:py-16 flex flex-col gap-6 max-w-3xl">
+            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
+              <BulletHeadline as="p">Formation & Accompagnement</BulletHeadline>
               <HandshakeReveal
                 text="Votre investissement porte ses fruits après la livraison."
-                className="text-4xl lg:text-5xl xl:text-6xl"
+                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
               />
               <p className="text-lg max-w-xl" style={{ color: "var(--text-secondary)" }}>
                 Formation de vos équipes, suivi mensuel, évolutions continues. On reste dans la durée pour que votre investissement continue de porter ses fruits.

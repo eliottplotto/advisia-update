@@ -2,6 +2,7 @@
 
 import { CSSProperties, useState, useEffect } from "react";
 import { motion } from "motion/react";
+import { Check, Rocket, Shield, Clock } from "lucide-react";
 
 interface HandshakeRevealProps {
   text: string;
@@ -9,25 +10,19 @@ interface HandshakeRevealProps {
   style?: CSSProperties;
 }
 
-// Accompagnement — puzzle pieces: words fly in from different directions
-// and assemble into the final sentence
+// Accompagnement — words appear with reward icons popping on key words
+// like achievements unlocking
 export default function HandshakeReveal({ text, className, style }: HandshakeRevealProps) {
   const [mounted, setMounted] = useState(false);
   const words = text.split(" ");
 
-  // Different entry directions for each word
-  const directions = [
-    { x: -60, y: -20 },   // from top-left
-    { x: 40, y: -30 },    // from top-right
-    { x: -50, y: 20 },    // from bottom-left
-    { x: 60, y: 10 },     // from right
-    { x: -30, y: -40 },   // from top-left
-    { x: 50, y: 30 },     // from bottom-right
-    { x: -40, y: 15 },    // from left
-    { x: 30, y: -25 },    // from top-right
-    { x: -20, y: 35 },    // from bottom-left
-    { x: 45, y: -15 },    // from top-right
-  ];
+  // Key words get a popping icon
+  const iconMap: Record<string, React.ReactNode> = {
+    "investissement": <Clock size={14} />,
+    "fruits": <Check size={14} />,
+    "après": <Shield size={14} />,
+    "livraison.": <Rocket size={14} />,
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -40,51 +35,43 @@ export default function HandshakeReveal({ text, className, style }: HandshakeRev
   return (
     <h1 className={className} style={style}>
       {words.map((word, i) => {
-        const dir = directions[i % directions.length];
+        const icon = iconMap[word];
         return (
-          <span key={i}>
+          <span key={i} style={{ display: "inline-block", position: "relative" }}>
             <motion.span
-              initial={{
-                opacity: 0,
-                x: dir.x,
-                y: dir.y,
-                rotate: (Math.random() - 0.5) * 15,
-                scale: 0.8,
-              }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                y: 0,
-                rotate: 0,
-                scale: 1,
-              }}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.6,
-                delay: 0.1 + i * 0.08,
-                ease: [0.22, 1, 0.36, 1],
+                type: "spring",
+                stiffness: 350,
+                damping: 22,
+                delay: i * 0.08,
               }}
-              style={{
-                display: "inline-block",
-              }}
+              style={{ display: "inline-block" }}
             >
               {word}
             </motion.span>
+            {/* Icon pop on key words */}
+            {icon && (
+              <motion.span
+                initial={{ opacity: 0, scale: 0, y: 4 }}
+                animate={{ opacity: [0, 1, 1, 0], scale: [0, 1.3, 1, 0.6], y: [4, -10, -14, -20] }}
+                transition={{ duration: 0.8, delay: i * 0.08 + 0.12, ease: "easeOut" }}
+                style={{
+                  position: "absolute",
+                  top: "-4px",
+                  right: "-10px",
+                  color: "#c9fe6e",
+                  pointerEvents: "none",
+                }}
+              >
+                {icon}
+              </motion.span>
+            )}
             {i < words.length - 1 && <span>&nbsp;</span>}
           </span>
         );
       })}
-      {/* Connection line that appears after all words are placed */}
-      <motion.span
-        initial={{ width: 0, opacity: 0 }}
-        animate={{ width: "80px", opacity: 1 }}
-        transition={{ delay: words.length * 0.08 + 0.5, duration: 0.4, ease: "easeOut" }}
-        className="block mt-3"
-        style={{
-          height: "3px",
-          background: "linear-gradient(90deg, #c9fe6e, transparent)",
-          borderRadius: "2px",
-        }}
-      />
     </h1>
   );
 }

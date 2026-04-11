@@ -150,18 +150,17 @@ export default function SiteWeb() {
         <section className="overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="relative container-md pt-[95px]">
-            <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
-              <div className="flex flex-col justify-end gap-6">
-                <div className="flex items-center gap-4 flex-wrap">
-                  <BulletHeadline as="p">Développement Web</BulletHeadline>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    À partir de <span style={{ color: "#c9fe6e" }}>690 €</span>
-                  </span>
-                </div>
-                <CodeCompile
-                  text="Des sites qui chargent en moins d'une seconde. Et qui convertissent."
-                  className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl"
-                />
+            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
+              <div className="flex items-center gap-4 flex-wrap">
+                <BulletHeadline as="p">Développement Web</BulletHeadline>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  À partir de <span style={{ color: "#c9fe6e" }}>690 €</span>
+                </span>
+              </div>
+              <CodeCompile
+                text="Des sites qui chargent en moins d'une seconde. Et qui convertissent."
+                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
+              />
 
                 <p className="max-w-xl text-muted-foreground">
                   Sites vitrines, boutiques en ligne, apps métier : on construit
@@ -188,7 +187,6 @@ export default function SiteWeb() {
                       <p className="text-sm ">Temps de chargement</p>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
           </div>
