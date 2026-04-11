@@ -8,6 +8,9 @@ export const metadata = {
   title: "Insights IA — Guides, veille et études de cas · Advisia",
   description:
     "On partage ce qu'on apprend, ce qu'on teste et ce qui marche vraiment pour les PME. Guides pratiques, veille IA et retours terrain.",
+  alternates: {
+    canonical: "https://advisia.agency/insights",
+  },
   openGraph: {
     title: "Insights IA — Guides, veille et études de cas · Advisia",
     description:
@@ -28,7 +31,6 @@ export default async function InsightsPage() {
         className="relative z-[2] pt-32 pb-12 md:pt-40 md:pb-16 px-4 md:px-8 lg:px-12"
         style={{
           background: "var(--bg-primary)",
-          borderBottom: "1px solid var(--border)",
         }}
       >
         <div className="max-w-[1400px] mx-auto">
@@ -54,7 +56,7 @@ export default async function InsightsPage() {
       {/* Articles Grid */}
       <section
         className="relative z-[2] py-12 md:py-16 px-4 md:px-8 lg:px-12"
-        style={{ background: "rgba(10,10,15,0.85)" }}
+        style={{ background: "transparent" }}
       >
         <div className="max-w-[1400px] mx-auto">
           {articles && articles.length > 0 ? (

@@ -5,8 +5,7 @@ export default function LogosConfiance() {
     <section
       className="select-none"
       style={{
-        background: "rgba(10,10,15,0.85)",
-        borderTop: "1px solid var(--border)",
+        background: "transparent",
       }}
     >
       <div className="overflow-hidden max-w-[1400px] mx-auto">

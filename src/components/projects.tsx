@@ -9,6 +9,13 @@ import { RiCornerDownRightLine } from "@remixicon/react";
 
 type ProjectItem = AllProjectsQueryResult[number];
 
+const resultBadges: Record<string, string> = {
+  "Bring": "+12h récupérées/semaine",
+  "Mes Halles": "Livré en 5 semaines",
+  "LCT": "+340% vitesse reporting",
+  "LCT Investissements": "+340% vitesse reporting",
+};
+
 const Project = ({ project }: { project: ProjectItem }) => {
   if (!project.slug?.current) {
     return null;
@@ -51,6 +58,18 @@ const Project = ({ project }: { project: ProjectItem }) => {
               {project.client}
             </h2>
             <p className="text-2xl xl:text-4xl">{project.headline}</p>
+            {project.client && resultBadges[project.client] && (
+              <span
+                className="inline-block mt-3 text-xs font-mono font-semibold px-2.5 py-1 rounded-full"
+                style={{
+                  color: "#c9fe6e",
+                  background: "rgba(201,254,110,0.08)",
+                  border: "1px solid rgba(201,254,110,0.2)",
+                }}
+              >
+                {resultBadges[project.client]}
+              </span>
+            )}
           </div>
           <Button variant={"link"} className="mt-8" size={"lg"}>
             Voir le projet <RiCornerDownRightLine />

@@ -55,6 +55,9 @@ export async function generateMetadata(
   return {
     title: `${project.client} · Étude de cas Advisia`,
     description: project.contexte ? project.contexte : project.headline,
+    alternates: {
+      canonical: `https://advisia.agency/projets/${params.slug}`,
+    },
     openGraph: {
       images: ogImage ? [ogImage, ...previousImages] : previousImages,
     },
@@ -91,7 +94,6 @@ export default async function projectPage(props: Props) {
         style={{
           background: "rgba(10,10,15,0.85)",
           color: "var(--text-primary)",
-          borderBottom: "1px solid var(--border)",
         }}
       >
         <div className="max-w-[1400px] mx-auto pt-[95px]">
@@ -147,7 +149,7 @@ export default async function projectPage(props: Props) {
         </div>
       </section>
 
-      <div style={{ background: "rgba(10,10,15,0.85)", borderBottom: "1px solid var(--border)" }}>
+      <div style={{ background: "rgba(10,10,15,0.85)" }}>
         {project.contexte && (
           <Header1
             heading="Le contexte"

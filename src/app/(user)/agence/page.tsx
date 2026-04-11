@@ -1,26 +1,28 @@
 import Footer from "@/components/footer";
 import NosOutils from "@/components/nos-outils";
-import PourquoiAdvisia from "@/components/pourquoi-advisia";
 import SectionCTASmall from "@/components/section-cta-small";
 import FAQCenter from "@/components/ui/sections/faq-center";
-import { Header1 } from "@/components/ui/sections/header-1";
 import { StorySection, ManifestoSection } from "@/components/agence/story-and-manifesto";
 import StatsBar from "@/components/home/stats-bar";
+import AgenceHero from "@/components/agence/agence-hero";
 
 export const metadata = {
-  title: "À propos d'Advisia | Agence IA & Web à Tarbes",
+  title: "À propos d'Advisia | Agence IA pour PME",
   description:
-    "Agence IA, web et marketing digital à Tarbes (Hautes-Pyrénées). Vos experts du début à la fin : pas de commercial, pas de sous-traitance. On conseille, on code, on livre.",
+    "Agence IA, web et marketing digital en France. Vos experts du début à la fin : pas de commercial, pas de sous-traitance. On conseille, on code, on livre.",
   keywords: [
-    "agence digitale Tarbes",
-    "agence web Hautes-Pyrénées",
-    "agence IA Sud-Ouest",
+    "agence digitale France",
+    "agence web PME",
+    "agence IA France",
     "agence digitale Occitanie",
   ],
+  alternates: {
+    canonical: "https://advisia.agency/agence",
+  },
   openGraph: {
-    title: "À propos d'Advisia | Agence IA & Web à Tarbes",
+    title: "À propos d'Advisia | Agence IA pour PME",
     description:
-      "Agence IA, web et marketing digital à Tarbes. Vos experts du début à la fin : pas de commercial, pas de sous-traitance.",
+      "Agence IA, web et marketing digital en France. Vos experts du début à la fin : pas de commercial, pas de sous-traitance.",
     url: "https://advisia.agency/agence",
     siteName: "Advisia",
     type: "website",
@@ -64,25 +66,85 @@ export default function Agence() {
   return (
     <>
       <main>
-        <div className="pt-[95px]" style={{ background: "rgba(10,10,15,0.85)" }}>
-          <Header1
-            heading="Vos experts du début à la fin."
-            dark={true}
-            layout="imgLeft"
-            description="Pas de commercial, pas de sous-traitance. Les experts qui vous conseillent sont ceux qui codent et qui livrent. Eliott (tech) et Julien (stratégie) ont créé Advisia pour apporter aux PME les mêmes outils que les grands groupes — sans les budgets ni la complexité."
-            image={{
-              src: "/equipe-advisia-square-dark.png",
-              alt: "Équipe Advisia",
-            }}
-          />
-        </div>
+        <AgenceHero />
         <StorySection />
         <ManifestoSection />
-        <PourquoiAdvisia />
+
+        {/* Comment on travaille avec vous */}
+        <section className="py-16 lg:py-24" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="container-md global-padding-x">
+            <p className="font-mono text-xs uppercase tracking-[0.15em] mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>● Notre process</p>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-12" style={{ fontFamily: "var(--font-display)" }}>
+              Comment on travaille avec vous
+            </h2>
+            <div className="relative flex flex-col gap-0 max-w-2xl">
+              {[
+                {
+                  num: "01",
+                  title: "Premier échange gratuit (20-30 min)",
+                  desc: "Vous nous décrivez votre situation. On vous dit franchement si on peut vous aider et par où commencer.",
+                },
+                {
+                  num: "02",
+                  title: "Diagnostic ou cadrage (48-72h)",
+                  desc: "On analyse votre situation en détail. Vous recevez un rapport clair avec les actions prioritaires. À partir de 490 €.",
+                },
+                {
+                  num: "03",
+                  title: "Devis et validation",
+                  desc: "On vous propose un devis ferme et définitif. Pas de surprise. Vous validez, on démarre.",
+                },
+                {
+                  num: "04",
+                  title: "Exécution et livraison (2-8 semaines selon le projet)",
+                  desc: "Point hebdomadaire. Avancement en temps réel. Livraison par étapes.",
+                },
+                {
+                  num: "05",
+                  title: "Formation et autonomie",
+                  desc: "On forme vos équipes. On documente tout. Vous êtes autonomes.",
+                },
+              ].map((step, i, arr) => (
+                <div key={i} className="flex gap-6">
+                  {/* Timeline column */}
+                  <div className="flex flex-col items-center" style={{ width: 40, flexShrink: 0 }}>
+                    <div
+                      className="flex items-center justify-center w-10 h-10 rounded-full font-mono text-xs font-bold z-10"
+                      style={{
+                        background: "rgba(201,254,110,0.12)",
+                        border: "2px solid #c9fe6e",
+                        color: "#c9fe6e",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {step.num}
+                    </div>
+                    {i < arr.length - 1 && (
+                      <div
+                        className="flex-1 w-[2px] my-1"
+                        style={{
+                          background: "repeating-linear-gradient(to bottom, rgba(201,254,110,0.35) 0px, rgba(201,254,110,0.35) 6px, transparent 6px, transparent 12px)",
+                          minHeight: 40,
+                        }}
+                      />
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className={i < arr.length - 1 ? "pb-10" : "pb-0"}>
+                    <p className="font-bold text-white mb-1">{step.title}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>{step.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <StatsBar />
-        <NosOutils />
         <FAQCenter title="On répond à vos questions" questions={questions} />
         <SectionCTASmall />
+        <NosOutils />
       </main>
       <Footer />
     </>

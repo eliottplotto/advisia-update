@@ -6,7 +6,7 @@ export default function SchemaOrg() {
     url: "https://advisia.agency",
     logo: "https://advisia.agency/logo-advisia.png",
     description:
-      "Agence IA, automatisation et développement web pour PME et ETI en France. Basée à Tarbes, Hautes-Pyrénées.",
+      "Agence IA, automatisation et développement web pour PME et ETI en France.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Juillan",
@@ -64,11 +64,11 @@ export default function SchemaOrg() {
     name: "Advisia",
     image: "https://advisia.agency/logo-advisia.png",
     url: "https://advisia.agency",
-    telephone: "",
+    telephone: "+33 X XX XX XX XX",
     address: {
       "@type": "PostalAddress",
       streetAddress: "",
-      addressLocality: "Juillan",
+      addressLocality: "France",
       addressRegion: "Hautes-Pyrénées",
       postalCode: "65290",
       addressCountry: "FR",

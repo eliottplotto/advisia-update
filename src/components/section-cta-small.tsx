@@ -8,8 +8,9 @@ export default function SectionCTASmall() {
       className="relative overflow-hidden"
       style={{
         background: "rgba(10,10,15,0.85)",
-        borderTop: "1px solid var(--border)",
         color: "var(--text-primary)",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
+        borderBottom: "1px solid rgba(255,255,255,0.08)",
       }}
     >
       {/* Subtle glow */}

@@ -22,7 +22,6 @@ export default function Testimonial1({
       style={{
         background: "var(--bg-secondary)",
         color: "var(--text-primary)",
-        borderTop: "1px solid var(--border)",
       }}
     >
       <div className="max-w-[1400px] mx-auto">

@@ -14,11 +14,11 @@ const steps = [
     number: "02",
     title: "Cadrage & devis",
     description:
-      "Specs fonctionnelles, planning, budget : tout est posé avant de coder une seule ligne.",
+      "Périmètre précis, planning, budget : tout est posé avant de coder une seule ligne.",
   },
   {
     number: "03",
-    title: "Build en sprints",
+    title: "Avancement par étapes de 2 semaines",
     description:
       "On construit par itérations de 2 semaines. Vous testez et validez à chaque étape.",
   },
@@ -26,7 +26,7 @@ const steps = [
     number: "04",
     title: "Livraison & support",
     description:
-      "Mise en prod, formation de vos équipes, et support continu si besoin.",
+      "Mise en service, formation de vos équipes, et support continu si besoin.",
   },
 ];
 
@@ -35,8 +35,7 @@ export default function Process() {
     <section
       className="relative z-[2] py-12 md:py-16 px-4 md:px-8 lg:px-12 overflow-hidden"
       style={{
-        background: "rgba(10,10,15,0.85)",
-        borderTop: "1px solid var(--border)",
+        background: "transparent",
       }}
     >
       <div className="max-w-[1400px] mx-auto">
@@ -63,7 +62,7 @@ export default function Process() {
           className="text-base md:text-lg mb-8 lg:mb-12 max-w-[500px]"
           style={{ color: "rgba(255,255,255,0.6)" }}
         >
-          Un process transparent. Vous voyez tout, vous validez tout.
+          Une méthode transparente. Vous voyez tout, vous validez tout.
         </p>
 
         {/* Timeline */}

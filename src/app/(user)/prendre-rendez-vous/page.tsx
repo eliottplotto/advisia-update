@@ -4,21 +4,25 @@ import FooterXS from "@/components/footer-xs";
 import LogosConfiance from "@/components/logos-confiance";
 import CalForm from "@/components/cal-form";
 import Link from "next/link";
+import Image from "next/image";
 import FAQCenter from "@/components/ui/sections/faq-center";
 
 export const metadata = {
   title: "Prendre rendez-vous · Agence Advisia",
   description:
-    "20 min pour faire le point sur votre projet digital. Vous repartez avec 3 pistes concrètes. Gratuit et sans engagement.",
+    "Un appel de 20 minutes avec un expert Advisia. On analyse votre situation et vous repartez avec 3 axes d'amélioration concrets. Gratuit, sans engagement.",
   keywords: [
     "rendez-vous agence digitale",
     "audit gratuit IA PME",
     "consultation agence web gratuite",
   ],
+  alternates: {
+    canonical: "https://advisia.agency/prendre-rendez-vous",
+  },
   openGraph: {
     title: "Prendre rendez-vous · Agence Advisia",
     description:
-      "20 min pour faire le point sur votre projet digital. Vous repartez avec 3 pistes concrètes. Gratuit et sans engagement.",
+      "Un appel de 20 minutes avec un expert Advisia. On analyse votre situation et vous repartez avec 3 axes d'amélioration concrets. Gratuit, sans engagement.",
     url: "https://advisia.agency/prendre-rendez-vous",
     siteName: "Advisia",
     type: "website",
@@ -89,10 +93,12 @@ export default function PrendreRendezVous() {
             <div className="flex flex-col items-center gap-6">
               <div>
                 {profils.map((profil, index) => (
-                  <img
+                  <Image
                     key={index}
                     src={profil.src}
                     alt={profil.alt}
+                    width={48}
+                    height={48}
                     className="inline-block not-first:-ml-2 w-12 h-12 rounded-full"
                     style={{ border: "2px solid var(--violet-dim)" }}
                   />

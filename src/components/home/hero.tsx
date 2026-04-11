@@ -72,7 +72,7 @@ export default function Hero() {
             className="font-mono text-[0.7rem] uppercase tracking-[0.15em]"
             style={{ color: "var(--text-secondary)" }}
           >
-            +20 projets livrés · PME et ETI en France
+            +20 projets livrés : agents IA, sites web, dashboards et automatisations
           </span>
         </div>
 
@@ -82,7 +82,7 @@ export default function Hero() {
           style={{ fontFamily: "var(--font-display)" }}
         >
           <RevealText>
-            On automatise vos process. On construit vos outils.{" "}
+            On automatise vos tâches. On construit vos outils.{" "}
             <span style={{ color: "var(--ad-1)" }}>
               Vous gagnez du temps.
             </span>
@@ -97,8 +97,7 @@ export default function Hero() {
             animation: "fadeUp 0.8s var(--ease) 1s forwards",
           }}
         >
-          Pas de commercial, pas de sous-traitance. Les experts qui vous
-          conseillent sont ceux qui codent et qui livrent.
+          L&apos;IA ne remplace pas les entreprises. Elle remplace celles qui attendent.
         </p>
 
         {/* CTA Actions */}
@@ -108,7 +107,7 @@ export default function Hero() {
         >
           <Button asChild size="lg" className="!bg-ad-1 !text-black font-mono text-xs uppercase tracking-wider px-8 py-6 rounded-md shadow-[0_0_30px_var(--accent-dim)] hover:shadow-[0_0_60px_var(--accent-glow)] hover:-translate-y-0.5 transition-all duration-300">
             <Link href="/contact" onClick={() => trackCTAClick("analyser_besoin", "hero")}>
-              Analyser mon besoin — gratuit <span>↗</span>
+              Analyser mon besoin — gratuit <span aria-hidden="true">↗</span>
             </Link>
           </Button>
           <Button
@@ -119,6 +118,33 @@ export default function Hero() {
           >
             <Link href="/prendre-rendez-vous" onClick={() => { trackCTAClick("reserver_appel", "hero"); trackBookingClick(); }}>Réserver un appel</Link>
           </Button>
+        </div>
+
+        {/* Trust badges */}
+        <div
+          className="flex flex-wrap gap-3 mt-4 opacity-0"
+          style={{ animation: "fadeUp 0.8s var(--ease) 1.4s forwards" }}
+        >
+          <span
+            className="text-xs font-mono px-3 py-1.5 rounded-full"
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "var(--text-secondary)",
+            }}
+          >
+            Zéro engagement
+          </span>
+          <span
+            className="text-xs font-mono px-3 py-1.5 rounded-full"
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "var(--text-secondary)",
+            }}
+          >
+            Réponse sous 48h
+          </span>
         </div>
       </div>
 

@@ -2,6 +2,7 @@ import ContactForm from "./contact-form";
 import { RiCheckFill, RiPhoneFill } from "@remixicon/react";
 import TrackedLink from "./ui/tracked-link";
 import type { ElementType, ReactNode } from "react";
+import { Suspense } from "react";
 import { RevealText } from "./reveal-text";
 
 interface SectionContactFormProps {
@@ -44,7 +45,8 @@ export default function SectionContactForm({
       style={{
         background: "rgba(10,10,15,0.85)",
         color: "var(--text-primary)",
-        borderTop: "1px solid var(--border)",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
+        borderBottom: "1px solid rgba(255,255,255,0.08)",
       }}
     >
       <div className="max-w-[1400px] mx-auto">
@@ -135,7 +137,7 @@ export default function SectionContactForm({
                   <RiCheckFill style={{ color: "var(--ad-1)" }} size={18} />
                 </div>
                 <span style={{ color: "var(--text-secondary)" }}>
-                  Zéro engagement, zéro bullshit
+                  Zéro engagement, zéro jargon
                 </span>
               </li>
             </ul>
@@ -183,7 +185,9 @@ export default function SectionContactForm({
             </div>
           </div>
 
-          <ContactForm />
+          <Suspense>
+            <ContactForm />
+          </Suspense>
         </div>
       </div>
     </section>

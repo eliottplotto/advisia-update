@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "@/components/footer";
+import FAQFloatingButton from "@/components/faq-floating-button";
 import {
   RiCornerDownRightLine,
   RiCompass3Fill,
@@ -18,25 +19,30 @@ import SectionCTAForm from "@/components/section-cta-form";
 import Steps1 from "@/components/ui/sections/steps-1";
 import LogosConfiance from "@/components/logos-confiance";
 import FAQCenter from "@/components/ui/sections/faq-center";
-import { RevealText } from "@/components/reveal-text";
+import CodeCompile from "@/components/hero-animations/CodeCompile";
 import ServiceCards from "@/components/ui/sections/service-cards";
 import TechStack from "@/components/services/agence-web/tech-stack";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
+import MidPageCTA from "@/components/ui/sections/mid-page-cta";
+import PageTestimonial from "@/components/page-testimonial";
 
 export const metadata = {
   title: "Création de Site Web Professionnel · Agence Advisia",
   description:
-    "Sites vitrines, e-commerce et apps métier sur mesure. À partir de 1 000€. Livré en 4-8 semaines. Score Lighthouse 98/100.",
+    "Sites vitrines, e-commerce et applications sur mesure. À partir de 1 000€. Livré en 4 à 8 semaines. Modifiable par vos équipes sans développeur.",
   keywords: [
     "création site web professionnel",
     "agence création site internet",
     "développeur web PME",
     "site e-commerce sur mesure",
   ],
+  alternates: {
+    canonical: "https://advisia.agency/services/agence-web",
+  },
   openGraph: {
     title: "Création de Site Web Professionnel · Agence Advisia",
     description:
-      "Sites vitrines, e-commerce et apps métier sur mesure. À partir de 1 000€. Livré en 4-8 semaines. Score Lighthouse 98/100.",
+      "Sites vitrines, e-commerce et applications sur mesure. À partir de 1 000€. Livré en 4 à 8 semaines. Modifiable par vos équipes sans développeur.",
     url: "https://advisia.agency/services/agence-web",
     siteName: "Advisia",
     type: "website",
@@ -79,7 +85,7 @@ export default function SiteWeb() {
     {
       title: "Livraison",
       subtitle:
-        "Mise en prod, formation, documentation, support.",
+        "Mise en service, formation, documentation, support.",
       icon: <RiHandHeartFill size={40} />,
     },
   ];
@@ -140,17 +146,22 @@ export default function SiteWeb() {
     <>
       <main className="relative">
         <VerticalFlowLine waypoints={SERVICE_WAYPOINTS} dotFractions={SERVICE_DOT_FRACTIONS} />
+        {/* 1. Hero */}
         <section className="overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="relative container-md pt-[95px]">
             <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
               <div className="flex flex-col justify-end gap-6">
-                <BulletHeadline as="p">Développement Web</BulletHeadline>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl">
-                  <RevealText>
-                    Des sites qui chargent en moins d&apos;une seconde. Et qui convertissent.
-                  </RevealText>
-                </h1>
+                <div className="flex items-center gap-4 flex-wrap">
+                  <BulletHeadline as="p">Développement Web</BulletHeadline>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    À partir de <span style={{ color: "#c9fe6e" }}>690 €</span>
+                  </span>
+                </div>
+                <CodeCompile
+                  text="Des sites qui chargent en moins d'une seconde. Et qui convertissent."
+                  className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl"
+                />
 
                 <p className="max-w-xl text-muted-foreground">
                   Sites vitrines, boutiques en ligne, apps métier : on construit
@@ -159,8 +170,8 @@ export default function SiteWeb() {
                 </p>
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
-                    <TrackedLink href="/prendre-rendez-vous" trackingLabel="demander_estimation" trackingPage="agence-web" isBooking>
-                      Demander une estimation <RiCornerDownRightLine />
+                    <TrackedLink href="/contact?besoin=site-web" trackingLabel="analyser_besoin" trackingPage="agence-web">
+                      Analyser mon besoin — gratuit <RiCornerDownRightLine />
                     </TrackedLink>
                   </Button>
                   <div className="flex gap-4 lg:gap-8 wrap">
@@ -182,8 +193,11 @@ export default function SiteWeb() {
             </div>
           </div>
         </section>
+
+        {/* 2. Logos confiance */}
         <LogosConfiance />
 
+        {/* 4. Contenu spécifique */}
         <ServiceCards
           label="● Ce qu'on construit"
           heading="Du site vitrine au SaaS complet."
@@ -206,7 +220,7 @@ export default function SiteWeb() {
               icon: <RiDashboardFill size={24} />,
               title: "Applications SaaS",
               description:
-                "Dashboards, portails clients, outils métier. Architecture scalable, auth, API, base de données temps réel.",
+                "Dashboards, portails clients, outils métier. Architecture évolutive, accès sécurisé, données synchronisées en temps réel.",
               number: "03",
             },
             {
@@ -221,12 +235,81 @@ export default function SiteWeb() {
 
         <TechStack />
 
+        {/* 6. Méthode */}
         <Steps1
           title="Notre méthode de développement"
           steps={processSteps}
         />
 
-        <FAQCenter title={"On répond à vos questions"} questions={questions} />
+        {/* 7. NOS OFFRES + PROCHAINES ÉTAPES */}
+        <section
+          className="py-10 lg:py-14"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div className="container-md global-padding-x">
+            <p className="section-label mb-8">● Nos offres web</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              {[
+                { title: "Landing Page", price: "690 – 1 490 €", delay: "3–5 jours", href: "/tarifs?category=web&offre=landing-page" },
+                { title: "Site Vitrine", price: "1 990 – 4 990 €", delay: "2–4 semaines", href: "/tarifs?category=web&offre=site-vitrine" },
+                { title: "E-commerce", price: "4 990 – 12 000 €", delay: "4–8 semaines", href: "/tarifs?category=web&offre=site-ecommerce" },
+              ].map((offer, i) => (
+                <a
+                  key={i}
+                  href={offer.href}
+                  className="flex flex-col gap-3 p-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5 border border-white/[0.08] hover:border-[#c9fe6e]"
+                  style={{ background: "rgba(255,255,255,0.05)" }}
+                >
+                  <h3 className="font-bold text-white">{offer.title}</h3>
+                  <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>{offer.price}</p>
+                  <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>{offer.delay}</p>
+                  <div className="flex justify-end mt-auto pt-2">
+                    <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.45)" }}>Voir le détail →</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <a href="/tarifs?category=web" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:border-[#c9fe6e] hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.7)" }}>
+                Voir tous nos tarifs web →
+              </a>
+              <a href="/diagnostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:border-[#c9fe6e] hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.7)" }}>
+                Faire un diagnostic →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. Témoignages */}
+        <PageTestimonial
+          testimonials={[
+            {
+              quote: "Advisia a livré notre site en 5 semaines. Rapide, propre, et on peut tout modifier nous-mêmes.",
+              author: "Fondateur",
+              company: "Mes Halles",
+              detail: "E-commerce alimentaire",
+            },
+            {
+              quote: "Notre ancien site mettait 8 secondes à charger. Le nouveau charge en moins d'une seconde et on a triplé nos demandes de contact en 2 mois.",
+              author: "Thomas R., Gérant",
+              company: "Cabinet de conseil RH (15 salariés)",
+            },
+          ]}
+        />
+
+        {/* 9. MidPageCTA */}
+        <MidPageCTA
+          title="Vous avez un projet web en tête ?"
+          subtitle="On vous chiffre en 48h."
+          buttonText="Demander une estimation"
+        />
+
+        {/* 11. FAQ */}
+        <div id="faq">
+          <FAQCenter title={"On répond à vos questions"} questions={questions} />
+        </div>
+
+        {/* 12. Formulaire contact */}
         <SectionCTAForm
           title={
             <>
@@ -237,6 +320,7 @@ export default function SiteWeb() {
         />
       </main>
       <Footer />
+      <FAQFloatingButton />
     </>
   );
 }

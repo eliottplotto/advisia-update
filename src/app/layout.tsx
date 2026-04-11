@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./globals.css";
 import { SanityLive } from "@/sanity/lib/live";
 import { Toaster } from "sonner";
 

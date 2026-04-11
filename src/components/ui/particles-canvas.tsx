@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Particle {
   x: number;
@@ -13,10 +13,15 @@ interface Particle {
 }
 
 export default function ParticlesCanvas() {
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>(0);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -106,6 +111,8 @@ export default function ParticlesCanvas() {
       cancelAnimationFrame(animationRef.current);
     };
   }, []);
+
+  if (isMobile === null || isMobile) return null;
 
   return (
     <canvas

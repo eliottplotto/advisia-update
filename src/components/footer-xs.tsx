@@ -5,7 +5,6 @@ export default function FooterXS() {
     <footer
       style={{
         background: "rgba(10,10,15,0.85)",
-        borderTop: "1px solid var(--border)",
         color: "var(--text-primary)",
       }}
     >

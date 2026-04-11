@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Solutions() {
   return (
-    <section className="dark bg-secondary text-foreground">
+    <section className="dark text-foreground" style={{ background: "transparent" }}>
       <div className="container-md">
         <div className="global-padding-x py-8 lg:py-16 space-y-8">
           <div className="flex flex-col gap-6 justify-center items-center text-center">
@@ -42,13 +42,13 @@ export default function Solutions() {
                   <div className="global-padding grow">
                     <h5 className="text-2xl lg:text-3xl mb-4">Agent IA</h5>
                     <p className="text-muted-foreground">
-                      Répond à vos clients, trie vos emails, qualifie vos leads.
+                      Répond à vos clients, trie vos emails, qualifie vos contacts entrants.
                       Opérationnel en quelques jours, 24h/24.
                     </p>
                     <ul className="ad_list-icon mt-6">
                       <li>
                         <RiCheckFill className="text-ad-1" />
-                        Déploiement plug‑and‑play rapide, sans refonte lourde
+                        Mise en service rapide, sans refonte lourde
                       </li>
                       <li>
                         <RiCheckFill className="text-ad-1" /> Automatisation des
@@ -56,7 +56,7 @@ export default function Solutions() {
                       </li>
                       <li>
                         <RiCheckFill className="text-ad-1" /> Libère vos équipes
-                        pour des missions à valeur
+                        pour des missions qui nécessitent vraiment leur expertise
                       </li>
                     </ul>
                   </div>
@@ -75,15 +75,13 @@ export default function Solutions() {
                     <ul className="ad_list-icon mt-6">
                       <li>
                         <RiCheckFill className="text-ad-1" />
-                        Connexion sécurisée à vos données et API
+                        Synchronisation de vos logiciels métier
                       </li>
                       <li>
-                        <RiCheckFill className="text-ad-1" /> Décisions
-                        autonomes, apprentissage continu intégré
+                        <RiCheckFill className="text-ad-1" /> Le système s&apos;améliore avec le temps sans intervention
                       </li>
                       <li>
-                        <RiCheckFill className="text-ad-1" /> Exécutions
-                        multi‑étapes traçables en temps réel
+                        <RiCheckFill className="text-ad-1" /> Chaque tâche automatisée est visible et auditable en temps réel
                       </li>
                     </ul>
                   </div>

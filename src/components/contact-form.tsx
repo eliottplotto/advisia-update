@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,6 +13,55 @@ import {
   RiLoader4Fill,
 } from "@remixicon/react";
 import { trackFormSubmission } from "@/lib/analytics";
+
+
+const BESOIN_LABELS: Record<string, string> = {
+  "diagnostic-digital-ia": "Diagnostic Digital & IA — 490 €",
+  "audit-securite": "Audit Sécurité — 490 €",
+  "audit-visibilite": "Audit Visibilité & Référencement — 490 €",
+  "audit-e-reputation": "Audit E-réputation & Sémantique — 990 €",
+  "audit-maturite-cession": "Audit Maturité Digitale Cession — 990 €",
+  "automatisation-documentaire": "Automatisation documentaire — à partir de 390 €",
+  "automatisation-commerciale": "Automatisation commerciale — à partir de 1 990 €",
+  "automatisation-reporting": "Automatisation reporting — à partir de 1 990 €",
+  "assistant-ia": "Assistant IA — à partir de 1 990 €",
+  "site-refonte": "Refonte de site web — à partir de 1 990 €",
+  "site-zero": "Site vitrine sur mesure — à partir de 1 990 €",
+  "site-app": "Application sur mesure — sur devis",
+  "workshop-ia": "Workshop IA Dirigeants — 490 €",
+  "formation-equipes": "Formation Équipes — à partir de 990 €",
+  "partenariat": "Partenariat mensuel — à partir de 490 €/mois",
+  // Quiz slugs
+  "automatiser-saisie": "Automatisation documentaire — à partir de 390 €",
+  "automatiser-relances": "Automatisation commerciale — à partir de 1 990 €",
+  "automatiser-reporting": "Automatisation du reporting — à partir de 1 990 €",
+  "automatiser-qualification": "Assistant IA service client — à partir de 1 990 €",
+  "visibilite-trafic": "Audit Visibilité SEO — 490 €",
+  "visibilite-conversion": "Optimisation de conversion — 490 €",
+  "visibilite-sais-pas": "Audit Visibilité complet — 490 €",
+  "cession-cedant": "Audit Maturité Digitale cédant — 990 €",
+  "cession-repreneur": "Diagnostic pré-acquisition — 990 €",
+  "formation-dirigeant": "Workshop IA Dirigeants — 490 €",
+  "formation-deux": "Pack Formation complet — à partir de 1 490 €",
+  "je-ne-sais-pas-taches": "Diagnostic Digital et IA — 490 €",
+  "je-ne-sais-pas-visibilite": "Audit Visibilité — 490 €",
+  "je-ne-sais-pas-cession": "Accompagnement Cession Reprise",
+  "je-ne-sais-pas-explorer": "Diagnostic Digital et IA — 490 €",
+  "pack-audit-general": "Pack Audit General — 1 990 €",
+  "pack-audit-correction": "Pack Audit + Correction — 3 490 €",
+  "partenariat-essentiel": "Partenaire Essentiel — 490 €/mois",
+  "partenariat-business": "Partenaire Business — 990 €/mois",
+  "partenariat-strategique": "Partenaire Stratégique — 1 990 €/mois",
+  // Pages service
+  "automatisation-ia": "IA et Automatisation — à partir de 390 €",
+  "site-web": "Création de site web — à partir de 690 €",
+  "product-design": "Product Design — à partir de 1 990 €",
+  "marketing-digital": "Marketing Digital — à partir de 490 €",
+  // Packs cession
+  "cession-pack-essentiel": "Modernisation Express — 3 500 à 6 000 €",
+  "cession-pack-transformation": "Transformation Post-Reprise — 8 000 à 15 000 €",
+  "cession-pack-complet": "Transformation + IA Métier — 18 000 à 35 000 €",
+};
 
 interface FormData {
   firstName: string;
@@ -31,6 +81,7 @@ interface FormErrors {
 
 export default function ContactForm() {
   const [mounted, setMounted] = useState(false);
+  const [besoinParam, setBesoinParam] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -42,10 +93,13 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    const besoin = searchParams.get("besoin");
+    setBesoinParam(besoin);
+  }, [searchParams]);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -120,7 +174,7 @@ export default function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, ...(besoinParam ? { besoin: besoinParam } : {}) }),
       });
 
       if (!res.ok) {
@@ -223,11 +277,33 @@ export default function ContactForm() {
     );
   }
 
+  const besoinLabel = besoinParam ? (BESOIN_LABELS[besoinParam] ?? null) : null;
+
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       <p id="submit-help" className="text-sm" style={{ color: "var(--text-muted)" }}>
-        Tous les champs sont obligatoires.
+        {besoinLabel ? "Complétez vos coordonnées — on revient vers vous sous 48h." : "Tous les champs sont obligatoires."}
       </p>
+
+      {/* Sujet pré-rempli */}
+      {besoinLabel && (
+        <div className="space-y-2">
+          <Label
+            htmlFor="sujet"
+            className="text-sm font-medium"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Votre demande
+          </Label>
+          <div
+            className="rounded-md px-3 py-2 text-sm font-medium flex items-center gap-2"
+            style={{ background: "rgba(201,254,110,0.06)", border: "1px solid rgba(201,254,110,0.2)" }}
+          >
+            <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: "#c9fe6e" }} />
+            <span style={{ color: "#c9fe6e" }}>{besoinLabel}</span>
+          </div>
+        </div>
+      )}
 
       {/* Prénom et Nom */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -348,7 +424,7 @@ export default function ContactForm() {
           id="message"
           value={formData.message}
           onChange={(e) => handleInputChange("message", e.target.value)}
-          placeholder="Décrivez votre demande..."
+          placeholder={besoinParam ? "Précisez votre situation ou vos contraintes particulières..." : "Décrivez votre demande..."}
           className={`min-h-[120px] resize-y ${inputStyles} ${errors.message ? "!border-red-500 focus:!border-red-500" : ""}`}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
@@ -397,6 +473,9 @@ export default function ContactForm() {
           </>
         )}
       </button>
+      <p className="text-sm text-center sm:text-left font-medium" style={{ color: "var(--text-secondary)" }}>
+        ✓ Réponse garantie sous 48h · Zéro engagement
+      </p>
     </form>
   );
 }

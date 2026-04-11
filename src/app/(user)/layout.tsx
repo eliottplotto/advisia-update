@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "./../globals.css";
 
 import Navbar from "@/components/navbar";
 import ParticlesCanvas from "@/components/ui/particles-canvas";
 import GoogleAnalytics from "@/components/google-analytics";
 import SchemaOrg from "@/components/schema-org";
+import { QuizShell } from "@/components/quiz-shell";
 
 export const metadata: Metadata = {
   title: "Advisia · Agence de croissance digitale",
@@ -15,25 +15,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function UserLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <head>
-        <meta name="apple-mobile-web-app-title" content="Advisia" />
-      </head>
-      <body className="antialiased 2xl:text-lg min-h-screen">
-        <SchemaOrg />
-        <GoogleAnalytics />
-        <ParticlesCanvas />
-        <header>
-          <Navbar />
-        </header>
-        {children}
-      </body>
-    </html>
+    <QuizShell>
+      <SchemaOrg />
+      <GoogleAnalytics />
+      <ParticlesCanvas />
+      <header>
+        <Navbar />
+      </header>
+      {children}
+    </QuizShell>
   );
 }

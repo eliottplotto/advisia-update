@@ -9,7 +9,6 @@ export default function Footer() {
     <footer
       style={{
         background: "var(--bg-secondary)",
-        borderTop: "1px solid var(--border)",
         color: "var(--text-primary)",
       }}
     >
@@ -19,7 +18,7 @@ export default function Footer() {
           <div className="px-4 md:px-8 lg:px-12 py-12 lg:py-16">
             <NewsletterForm
               title="Advisia Insights"
-              description="Recevez nos analyses IA, retours d'expérience et conseils tech — 1 email par semaine."
+              description="Recevez nos analyses IA, retours d'expérience et retours terrain concrets — 1 email par semaine."
               className="max-w-md"
             />
           </div>
@@ -121,7 +120,7 @@ export default function Footer() {
                     className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
                     style={{ color: "var(--text-secondary)" }}
                   >
-                    Product Design
+                    Design d&apos;Interface
                   </Link>
                 </li>
                 <li>
@@ -131,6 +130,33 @@ export default function Footer() {
                     style={{ color: "var(--text-secondary)" }}
                   >
                     Marketing Digital
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/diagnostics"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Diagnostics & Audits
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/cession-reprise"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Cession &amp; Reprise
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/accompagnement"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Accompagnement
                   </Link>
                 </li>
               </ul>

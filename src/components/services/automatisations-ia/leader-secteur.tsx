@@ -1,31 +1,32 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from "react";
-
-import { VariantProps } from "class-variance-authority";
-import { Button, buttonVariants } from "@/components/ui/button";
-import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
+import { AnimatePresence, motion } from "motion/react";
 import { RevealText } from "@/components/reveal-text";
-import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import {
+  Target,
+  MessageCircle,
+  BarChart2,
+  Search,
+  FileText,
+  Megaphone,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-type ButtonItem = React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    title?: string;
-    asChild?: boolean;
-    children?: React.ReactNode;
-  };
+const iconMap: Record<string, LucideIcon> = {
+  Target,
+  MessageCircle,
+  BarChart2,
+  Search,
+  FileText,
+  Megaphone,
+};
 
 type SectionProps = {
-  image: string;
+  image?: string;
+  icon?: string;
   heading: string;
   description: string;
 };
@@ -35,35 +36,42 @@ type Props = {
   heading: string;
   subheading?: string;
   sections: SectionProps[];
-  buttons?: ButtonItem[];
 };
 
 export type LeaderSecteurProps = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 export const LeaderSecteur = (props: LeaderSecteurProps) => {
-  const { dark, heading, subheading, sections, buttons } = {
+  const { dark, heading, subheading, sections } = {
     ...LeaderSecteurDefaults,
     ...props,
   };
 
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (!api) return;
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+  const toggleCard = (index: number) => {
+    setExpandedIndex((prev) => (prev === index ? null : index));
+  };
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
+  const renderDescription = (description: string) => {
+    if (description.includes("→ ")) {
+      const parts = description.split("→ ");
+      return (
+        <>
+          {parts[0]}
+          <span style={{ color: "#c9fe6e", fontWeight: 600 }}>
+            → {parts[1]}
+          </span>
+        </>
+      );
+    }
+    return description;
+  };
 
   return (
     <section
-      className={`${dark ? "dark" : ""} text-foreground bg-secondary py-8 lg:py-16`}
+      className={`${dark ? "dark" : ""} text-foreground py-8 lg:py-16`}
+      style={{ background: "rgba(10,10,15,0.85)" }}
     >
       <div className="container-md global-padding-x">
         <div className="text-center mb-8 lg:mb-16">
@@ -76,106 +84,80 @@ export const LeaderSecteur = (props: LeaderSecteurProps) => {
             </p>
           )}
         </div>
-        <div>
-          {/* Desktop Content */}
-          <div className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-3 items-stretch gap-2">
-            {sections.map((section, index) => (
+
+        {/* Hint */}
+        <p className="text-center text-sm text-muted-foreground/60 mb-4 flex items-center justify-center gap-1.5">
+          <span className="hidden lg:inline">Passez la souris sur ce qui vous coûte le plus de temps</span>
+          <span className="lg:hidden">Touchez ce qui vous coûte le plus de temps</span>
+          <ChevronDown size={14} className="animate-bounce" />
+        </p>
+
+        {/* Grid — unified for desktop & mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
+          {sections.map((section, index) => {
+            const isOpen = expandedIndex === index;
+            const Icon = section.icon ? iconMap[section.icon] : null;
+
+            return (
               <div
                 key={index}
-                className="bg-background p-4 global-padding rounded-md border"
+                className="rounded-md border cursor-pointer select-none overflow-hidden transition-colors duration-300"
+                style={{
+                  background: isOpen
+                    ? "rgba(255,255,255,0.07)"
+                    : "rgba(255,255,255,0.03)",
+                  borderColor: isOpen
+                    ? "rgba(201,254,110,0.3)"
+                    : "rgba(255,255,255,0.08)",
+                }}
+                onClick={() => toggleCard(index)}
+                onMouseEnter={() => {
+                  // Desktop hover: only on lg+
+                  if (window.innerWidth >= 1024) {
+                    setExpandedIndex(index);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (window.innerWidth >= 1024) {
+                    setExpandedIndex(null);
+                  }
+                }}
               >
-                <Image
-                  src={section.image}
-                  alt={section.heading}
-                  className="w-full object-center object-cover aspect-2/1 rounded-sm mb-4"
-                  width={500}
-                  height={250}
-                  quality={60}
-                />
-                <h3 className="mb-4 text-xl lg:text-2xl">{section.heading}</h3>
-                <p className="text-muted-foreground">{section.description}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile Content (Slider) */}
-          <div className="lg:hidden">
-            <Carousel
-              setApi={setApi}
-              opts={{
-                align: "center",
-                loop: true,
-              }}
-            >
-              <CarouselContent className="-ml-4">
-                {sections.map((section, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="pl-2 basis-[85%] sm:basis-[70%] md:basis-[60%]"
-                  >
-                    <div className="p-4 select-none bg-background rounded-md border">
-                      <Image
-                        src={section.image}
-                        alt={section.heading}
-                        className="w-full object-center object-cover aspect-2/1 rounded-sm mb-4"
-                        width={400}
-                        height={200}
-                        quality={60}
-                      />
-                      <h3 className="mb-4 text-xl">{section.heading}</h3>
-                      <p className="text-muted-foreground">
-                        {section.description}
-                      </p>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-
-              {/* Navigation buttons below the carousel */}
-              <div className="flex justify-center items-center gap-4 mt-4">
-                <CarouselPrevious className="static translate-y-0" />
-
-                {/* Dots indicators */}
-                <div className="flex justify-center gap-2">
-                  {Array.from({ length: count }).map((_, index) => (
-                    <button
-                      key={index}
-                      className={`w-2 h-2 rounded-full ${
-                        index === current - 1 ? "bg-foreground" : "bg-stone-300"
-                      }`}
-                      onClick={() => api?.scrollTo(index)}
-                      aria-label={`Aller à la slide ${index + 1}`}
+                {/* Collapsed state — always visible */}
+                <div className="flex flex-col items-center justify-center px-3 py-6 lg:py-8 gap-2">
+                  {Icon && (
+                    <Icon
+                      size={32}
+                      style={{ color: isOpen ? "#c9fe6e" : "rgba(255,255,255,0.5)" }}
+                      className="transition-colors duration-300"
                     />
-                  ))}
+                  )}
+                  <h3 className="text-sm lg:text-base font-medium text-center leading-tight">
+                    {section.heading}
+                  </h3>
                 </div>
 
-                <CarouselNext className="static translate-y-0" />
+                {/* Expanded content */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-4 pb-5 pt-0">
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {renderDescription(section.description)}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            </Carousel>
-          </div>
-
-          {/* Buttons */}
-          {buttons && buttons.length > 0 && (
-            <div className="mt-6 flex flex-wrap gap-1 md:mt-8">
-              {buttons.map((button, index) => {
-                const { title, asChild, children, ...rest } = button;
-
-                if (asChild && children) {
-                  return (
-                    <Button key={index} asChild {...rest}>
-                      {children}
-                    </Button>
-                  );
-                }
-
-                return (
-                  <Button key={index} {...rest}>
-                    {title}
-                  </Button>
-                );
-              })}
-            </div>
-          )}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -187,28 +169,20 @@ export const LeaderSecteurDefaults: Props = {
   heading: "Long heading is what you see here in this feature section",
   sections: [
     {
-      image: "/placeholder.jpg",
-      heading: "Long heading is what you see here in this feature section",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+      heading: "Section 1",
+      description: "Default description text.",
     },
     {
-      image: "/placeholder.jpg",
-      heading: "Long heading is what you see here in this feature section",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+      heading: "Section 2",
+      description: "Default description text.",
     },
     {
-      image: "/placeholder.jpg",
-      heading: "Long heading is what you see here in this feature section",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+      heading: "Section 3",
+      description: "Default description text.",
     },
     {
-      image: "/placeholder.jpg",
-      heading: "Long heading is what you see here in this feature section",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+      heading: "Section 4",
+      description: "Default description text.",
     },
   ],
 };

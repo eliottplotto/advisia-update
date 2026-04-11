@@ -8,6 +8,9 @@ export const metadata = {
   title: "Nos réalisations et études de cas | Advisia",
   description:
     "Découvrez nos projets clients : intranets, e-commerce, agents IA, dashboards. Des résultats concrets pour des PME et ETI.",
+  alternates: {
+    canonical: "https://advisia.agency/projets",
+  },
   openGraph: {
     title: "Nos réalisations et études de cas | Advisia",
     description:
@@ -64,7 +67,7 @@ export default function Projets() {
                   className="text-xs font-mono uppercase tracking-[0.15em]"
                   style={{ color: "var(--text-secondary)" }}
                 >
-                  +20 clients accompagnés
+                  +20 projets livrés
                 </p>
               </div>
               <h1
@@ -72,8 +75,8 @@ export default function Projets() {
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 <RevealText>
-                  Nous avons transformé leurs objectifs en{" "}
-                  <span className="gradient-text">résultats</span>
+                  Ce qu&apos;on a construit pour nos clients — et ce que ça leur a{" "}
+                  <span className="gradient-text">rapporté.</span>
                 </RevealText>
               </h1>
             </div>

@@ -38,8 +38,7 @@ export default function FAQCenter({
   return (
     <section
       style={{
-        background: "var(--bg-secondary)",
-        borderTop: "1px solid var(--border)",
+        background: "transparent",
         color: "var(--text-primary)",
       }}
     >

@@ -48,8 +48,7 @@ export default function Team() {
     <section
       className="relative group overflow-hidden"
       style={{
-        borderTop: "1px solid var(--border)",
-        background: "rgba(10,10,15,0.85)",
+        background: "transparent",
       }}
     >
       {/* Interactive grid background */}
@@ -64,7 +63,7 @@ export default function Team() {
             style={{ fontFamily: "var(--font-display)" }}
           >
             <RevealText>
-              Vos experts. Du premier call à la mise en prod.
+              Vos experts. Du premier call à la mise en service.
             </RevealText>
           </h2>
         </div>

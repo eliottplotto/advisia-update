@@ -5,16 +5,19 @@ import FAQCenter from "@/components/ui/sections/faq-center";
 export const metadata = {
   title: "Contacter Advisia · Agence IA & Web",
   description:
-    "Décrivez votre projet. Eliott ou Julien vous répond sous 48h avec une première analyse. Gratuit, sans engagement.",
+    "Décrivez votre projet à Eliott ou Julien. Réponse personnalisée sous 48h avec une première analyse. Gratuit, sans engagement, sans jargon.",
   keywords: [
     "contacter agence web IA",
     "devis agence digitale",
     "contact agence automatisation",
   ],
+  alternates: {
+    canonical: "https://advisia.agency/contact",
+  },
   openGraph: {
     title: "Contacter Advisia · Agence IA & Web",
     description:
-      "Décrivez votre projet. Eliott ou Julien vous répond sous 48h avec une première analyse. Gratuit, sans engagement.",
+      "Décrivez votre projet à Eliott ou Julien. Réponse personnalisée sous 48h avec une première analyse. Gratuit, sans engagement, sans jargon.",
     url: "https://advisia.agency/contact",
     siteName: "Advisia",
     type: "website",
@@ -58,6 +61,25 @@ export default function Contact() {
   return (
     <main>
       <SectionContactForm as="h1" />
+      <section className="px-4 md:px-8 lg:px-12 pb-10" style={{ background: "rgba(10,10,15,0.85)" }}>
+        <div className="max-w-[1400px] mx-auto">
+          <div
+            className="rounded-xl p-4 mt-6 text-center"
+            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
+          >
+            <p className="text-sm mb-3" style={{ color: "var(--text-secondary)" }}>
+              Vous préférez un appel ?
+            </p>
+            <a
+              href="/prendre-rendez-vous"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
+              style={{ background: "#c9fe6e", color: "#0a0a0f" }}
+            >
+              Réserver un créneau de 20 min →
+            </a>
+          </div>
+        </div>
+      </section>
       <FAQCenter title="On répond à vos questions" questions={questions} />
       <FooterXS />
     </main>

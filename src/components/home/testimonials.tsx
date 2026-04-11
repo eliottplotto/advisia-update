@@ -10,6 +10,7 @@ const testimonials = [
     name: "Directeur des opérations",
     company: "LCT Investissements",
     role: "Réseau de 20 magasins SFR",
+    result: "+12h/semaine récupérées",
   },
   {
     quote:
@@ -17,13 +18,15 @@ const testimonials = [
     name: "Fondateur",
     company: "Mes Halles",
     role: "E-commerce alimentaire",
+    result: "Site livré en 5 semaines",
   },
   {
     quote:
-      "Pour une fois, on travaille directement avec les gens qui codent. Pas de téléphone arabe.",
+      "Ils ont compris notre métier en une heure de call. Pas besoin de tout réexpliquer à chaque étape.",
     name: "CEO",
     company: "Bring",
     role: "Startup logistique",
+    result: "",
   },
 ];
 
@@ -32,8 +35,7 @@ export default function Testimonials() {
     <section
       className="relative z-[2] py-12 md:py-16 px-4 md:px-8 lg:px-12 overflow-hidden"
       style={{
-        background: "rgba(10,10,15,0.85)",
-        borderTop: "1px solid var(--border)",
+        background: "transparent",
       }}
     >
       <div className="max-w-[1400px] mx-auto">
@@ -93,6 +95,18 @@ export default function Testimonials() {
                   >
                     {t.role}
                   </p>
+                  {t.result && t.result !== "" && (
+                    <p
+                      className="text-xs mt-2 font-mono font-semibold px-2 py-0.5 rounded w-fit"
+                      style={{
+                        color: "#c9fe6e",
+                        background: "rgba(201,254,110,0.08)",
+                        border: "1px solid rgba(201,254,110,0.15)",
+                      }}
+                    >
+                      {t.result}
+                    </p>
+                  )}
                 </div>
               </div>
             </ScrollReveal>

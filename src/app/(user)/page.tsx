@@ -5,6 +5,7 @@ import InsightsPreview from "@/components/home/insights-preview";
 import ProjectsSection from "@/components/home/projects";
 import Services from "@/components/home/services";
 import Process from "@/components/home/process";
+import DecisionMatrix from "@/components/home/decision-matrix";
 import LogosConfiance from "@/components/logos-confiance";
 import NosOutils from "@/components/nos-outils";
 import PourquoiAdvisia from "@/components/pourquoi-advisia";
@@ -16,7 +17,7 @@ import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 export const metadata = {
   title: "Agence IA & Automatisation pour PME | Advisia",
   description:
-    "Advisia automatise vos process et construit vos outils digitaux. +12h/semaine économisées en moyenne. Diagnostic gratuit, zéro engagement.",
+    "Advisia automatise vos tâches et construit vos outils digitaux. +12h/semaine économisées en moyenne. Diagnostic gratuit, zéro engagement.",
   keywords: [
     "agence IA automatisation PME",
     "agence digitale PME",
@@ -26,7 +27,7 @@ export const metadata = {
   openGraph: {
     title: "Agence IA & Automatisation pour PME | Advisia",
     description:
-      "Advisia automatise vos process et construit vos outils digitaux. +12h/semaine économisées en moyenne. Diagnostic gratuit.",
+      "Advisia automatise vos tâches et construit vos outils digitaux. +12h/semaine économisées en moyenne. Diagnostic gratuit.",
     url: "https://advisia.agency",
     siteName: "Advisia",
     type: "website",
@@ -39,6 +40,8 @@ export default function Home() {
       <VerticalFlowLine />
       <Hero />
       <LogosConfiance />
+      <DecisionMatrix />
+
       <Services />
       <Process />
       <StatsBar />
@@ -47,9 +50,9 @@ export default function Home() {
       <Testimonials />
       <PourquoiAdvisia />
       <PricingOverview />
-      <NosOutils />
       <InsightsPreview />
       <SectionCTAForm />
+      <NosOutils />
       <Footer />
     </main>
   );

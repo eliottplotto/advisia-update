@@ -1,42 +1,42 @@
 "use client";
 
 import {
-  RiCodeSSlashLine,
   RiSparklingLine,
   RiBarChartBoxLine,
   RiEyeLine,
 } from "@remixicon/react";
+import { HeartHandshake } from "lucide-react";
 import { RevealText } from "@/components/reveal-text";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 
 export default function PourquoiAdvisia() {
   const features = [
     {
-      title: "Tech-first, pas bullshit",
-      description:
-        "Pas de sous-traitance offshore, pas de slides sans fin. Les experts qui vous conseillent sont ceux qui livrent.",
-      icon: RiCodeSSlashLine,
-      index: "01",
-    },
-    {
       title: "L'IA dans notre ADN",
       description:
-        "L'IA n'est pas un buzzword chez nous. On l'utilise dans nos propres process et on la déploie chez chaque client.",
+        "On utilise l'IA dans notre propre fonctionnement avant de la déployer chez vous.",
       icon: RiSparklingLine,
-      index: "02",
+      index: "01",
     },
     {
       title: "Des KPIs, pas des promesses",
       description:
-        "Objectifs chiffrés dès le kick-off. On mesure tout : temps gagné, coût réduit, conversions générées.",
+        "Objectifs chiffrés dès le premier jour. On mesure tout : temps gagné, coût réduit, conversions générées.",
       icon: RiBarChartBoxLine,
-      index: "03",
+      index: "02",
     },
     {
       title: "Votre projet, en temps réel",
       description:
-        "Call hebdo, accès au backlog, démos en continu. Zéro effet tunnel.",
+        "Point hebdomadaire, accès à l'avancement en temps réel, démonstrations à chaque étape. Zéro effet tunnel.",
       icon: RiEyeLine,
+      index: "03",
+    },
+    {
+      title: "On reste après la livraison.",
+      description:
+        "Votre outil évolue avec votre entreprise. On reste disponibles, on ajuste, on améliore. Pas de contrat qui s'arrête le jour de la mise en service. 92% de nos clients renouvellent.",
+      icon: HeartHandshake,
       index: "04",
     },
   ];
@@ -45,8 +45,7 @@ export default function PourquoiAdvisia() {
     <section
       className="relative z-[2] py-12 md:py-16 px-4 md:px-8 lg:px-12 overflow-hidden"
       style={{
-        background: "rgba(10,10,15,0.85)",
-        borderTop: "1px solid var(--border)",
+        background: "transparent",
       }}
     >
       <div className="max-w-[1400px] mx-auto">

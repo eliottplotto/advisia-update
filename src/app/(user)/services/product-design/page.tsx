@@ -1,5 +1,7 @@
 import React from "react";
+import Link from "next/link";
 import Footer from "@/components/footer";
+import FAQFloatingButton from "@/components/faq-floating-button";
 import {
   RiCornerDownRightLine,
   RiSearchEyeFill,
@@ -18,23 +20,28 @@ import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
 import LogosConfiance from "@/components/logos-confiance";
 import FAQCenter from "@/components/ui/sections/faq-center";
-import { RevealText } from "@/components/reveal-text";
+import SketchReveal from "@/components/hero-animations/SketchReveal";
 import ServiceCards from "@/components/ui/sections/service-cards";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
+import MidPageCTA from "@/components/ui/sections/mid-page-cta";
+import PageTestimonial from "@/components/page-testimonial";
 import DesignExpertiseGrid from "@/components/ui/sections/design-expertise-grid";
 
 export const metadata = {
-  title: "Product Design & UX/UI · Agence Advisia",
+  title: "Design d'Interface et UX · Agence Advisia",
   description:
     "Parcours utilisateurs, maquettes Figma, tests UX : on conçoit des interfaces qui convertissent. De l'idée au prototype en 3 semaines.",
   keywords: [
-    "agence product design UX UI",
+    "agence design interface UX UI",
     "design interface application",
     "UX design PME",
     "maquettes Figma agence",
   ],
+  alternates: {
+    canonical: "https://advisia.agency/services/product-design",
+  },
   openGraph: {
-    title: "Product Design & UX/UI · Agence Advisia",
+    title: "Design d'Interface et UX · Agence Advisia",
     description:
       "Parcours utilisateurs, maquettes Figma, tests UX : on conçoit des interfaces qui convertissent. De l'idée au prototype en 3 semaines.",
     url: "https://advisia.agency/services/product-design",
@@ -114,17 +121,17 @@ export default function ProductDesign() {
     <>
       <main className="relative">
         <VerticalFlowLine waypoints={SERVICE_WAYPOINTS} dotFractions={SERVICE_DOT_FRACTIONS} />
+        {/* 1. Hero */}
         <section className="overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="container-md pt-[95px]">
             <div className="global-padding-x py-8 lg:py-16 flex justify-start items-end">
               <div className="flex flex-col justify-end gap-6">
-                <BulletHeadline as="p">Product Design</BulletHeadline>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl">
-                  <RevealText>
-                    Des interfaces que vos utilisateurs comprennent. Du premier clic.
-                  </RevealText>
-                </h1>
+                <BulletHeadline as="p">Design d&apos;Interface</BulletHeadline>
+                <SketchReveal
+                  text="Des interfaces que vos utilisateurs comprennent. Du premier clic."
+                  className="text-4xl lg:text-5xl xl:text-6xl max-w-4xl"
+                />
 
                 <p className="max-w-xl text-muted-foreground">
                   UI/UX Design centré sur la conversion. On ne fait pas du joli
@@ -133,8 +140,8 @@ export default function ProductDesign() {
                 </p>
                 <div className="flex gap-8 items-center flex-wrap">
                   <Button size="lg" asChild className="w-max">
-                    <TrackedLink href="/prendre-rendez-vous" trackingLabel="demander_estimation" trackingPage="product-design" isBooking>
-                      Demander une estimation <RiCornerDownRightLine />
+                    <TrackedLink href="/contact?besoin=product-design" trackingLabel="analyser_besoin" trackingPage="product-design">
+                      Analyser mon besoin — gratuit <RiCornerDownRightLine />
                     </TrackedLink>
                   </Button>
                   <div className="flex gap-4 lg:gap-8 wrap">
@@ -156,9 +163,11 @@ export default function ProductDesign() {
             </div>
           </div>
         </section>
+
+        {/* 2. Logos confiance */}
         <LogosConfiance />
 
-        {/* === Expertise Design Grid === */}
+        {/* 4. Contenu spécifique — Expertise Grid */}
         <DesignExpertiseGrid
           label="● Nos expertises"
           heading="Ce qu'on maîtrise en Product Design."
@@ -181,12 +190,12 @@ export default function ProductDesign() {
             },
             {
               icon: <RiFlowChart size={22} />,
-              title: "User flows & Wireframes",
+              title: "Parcours d'utilisation & Maquettes fonctionnelles",
               description:
                 "Visualisation claire des parcours et priorisation des interactions clés.",
               illustration:
                 "/services/product-design/ux-ui-user-flow-wireframe.svg",
-              illustrationAlt: "User flows & Wireframes",
+              illustrationAlt: "Parcours d'utilisation & Maquettes fonctionnelles",
             },
             {
               icon: <RiFlagFill size={22} />,
@@ -217,20 +226,21 @@ export default function ProductDesign() {
           ]}
         />
 
+        {/* 6. Méthode */}
         <ServiceCards
           label="● Notre approche"
           heading="Du problème utilisateur à l'interface finale."
           cards={[
             {
               icon: <RiSearchEyeFill size={24} />,
-              title: "Research & Audit",
+              title: "Analyse & Audit",
               description:
                 "Analyse de l'existant, interviews utilisateurs, benchmark concurrentiel. On comprend avant de dessiner.",
               number: "01",
             },
             {
               icon: <RiDraftFill size={24} />,
-              title: "Wireframes & Prototypage",
+              title: "Maquettes fonctionnelles & Prototypage",
               description:
                 "Architecture de l'information, wireframes basse fidélité, prototypes interactifs Figma.",
               number: "02",
@@ -244,7 +254,7 @@ export default function ProductDesign() {
             },
             {
               icon: <RiTestTubeFill size={24} />,
-              title: "Tests & Itération",
+              title: "Tests & Ajustements",
               description:
                 "Tests utilisateurs, A/B testing, analytics. On mesure et on améliore en continu.",
               number: "04",
@@ -252,7 +262,73 @@ export default function ProductDesign() {
           ]}
         />
 
-        <FAQCenter title={"On répond à vos questions"} questions={questions} />
+        {/* 7. NOS OFFRES + PROCHAINES ÉTAPES */}
+        <section
+          className="py-10 lg:py-14"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div className="container-md global-padding-x">
+            <p className="section-label mb-8">● Nos offres design</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              {[
+                { title: "Audit UX", price: "À partir de 990 €", href: "/contact?besoin=product-design" },
+                { title: "Refonte interface complète", price: "Sur devis", href: "/contact?besoin=product-design" },
+              ].map((offer, i) => (
+                <a
+                  key={i}
+                  href={offer.href}
+                  className="flex flex-col gap-3 p-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5 border border-white/[0.08] hover:border-[#c9fe6e]"
+                  style={{ background: "rgba(255,255,255,0.05)" }}
+                >
+                  <h3 className="font-bold text-white">{offer.title}</h3>
+                  <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>{offer.price}</p>
+                  <div className="flex justify-end mt-auto pt-2">
+                    <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.45)" }}>Voir le détail →</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <a href="/tarifs" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:border-[#c9fe6e] hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.7)" }}>
+                Voir tous nos tarifs →
+              </a>
+              <Link href="/projets" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:border-[#c9fe6e] hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.7)" }}>
+                Voir nos réalisations →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. Témoignages */}
+        <PageTestimonial
+          testimonials={[
+            {
+              quote: "Ils ont compris notre métier en une heure de call. Pas besoin de tout réexpliquer à chaque étape.",
+              author: "CEO",
+              company: "Bring",
+              detail: "Startup logistique",
+            },
+            {
+              quote: "On avait un outil interne que personne n'utilisait. Advisia l'a repensé avec nos équipes, et maintenant c'est le premier truc qu'on ouvre le matin.",
+              author: "Pauline G., Responsable opérations",
+              company: "SaaS B2B (25 salariés)",
+            },
+          ]}
+        />
+
+        {/* 9. MidPageCTA */}
+        <MidPageCTA
+          title="Votre interface est peu utilisée ou mal comprise ?"
+          subtitle="C'est un problème de design, pas de technologie."
+          buttonText="En parler avec un expert"
+        />
+
+        {/* 11. FAQ */}
+        <div id="faq">
+          <FAQCenter title={"On répond à vos questions"} questions={questions} />
+        </div>
+
+        {/* 12. Formulaire contact */}
         <SectionCTAForm
           title={
             <>
@@ -264,6 +340,7 @@ export default function ProductDesign() {
         />
       </main>
       <Footer />
+      <FAQFloatingButton />
     </>
   );
 }

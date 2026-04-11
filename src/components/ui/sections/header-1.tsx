@@ -24,6 +24,7 @@ type Props = {
   bg?: string;
   layout: "imgRight" | "imgLeft";
   heading: string;
+  headingAs?: "h1" | "h2" | "h3";
   description: string;
   image: ImageProps;
   buttons?: ButtonItem[];
@@ -34,10 +35,11 @@ export type Header1Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 export const Header1 = (props: Header1Props) => {
-  const { layout, heading, description, buttons, image, legend } = {
+  const { layout, heading, headingAs = "h2", description, buttons, image, legend } = {
     ...Header1Defaults,
     ...props,
   };
+  const HeadingTag = headingAs;
 
   return (
     <section
@@ -52,12 +54,12 @@ export const Header1 = (props: Header1Props) => {
           <div
             className={`space-y-6 order-1 ${layout === "imgLeft" ? "" : "lg:order-0"}`}
           >
-            <h2
+            <HeadingTag
               className="text-3xl md:text-4xl lg:text-5xl font-bold"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <RevealText>{heading}</RevealText>
-            </h2>
+            </HeadingTag>
             <p className="md:text-md" style={{ color: "var(--text-secondary)" }}>
               {description}
             </p>

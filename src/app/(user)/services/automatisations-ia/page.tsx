@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "@/components/footer";
+import FAQFloatingButton from "@/components/faq-floating-button";
 import {
   RiCornerDownRightLine,
   RiSearchEyeFill,
@@ -15,9 +16,11 @@ import SectionCTAForm from "@/components/section-cta-form";
 import Steps1 from "@/components/ui/sections/steps-1";
 import LogosConfiance from "@/components/logos-confiance";
 import FAQCenter from "@/components/ui/sections/faq-center";
-import { RevealText } from "@/components/reveal-text";
+import PixelReveal from "@/components/hero-animations/PixelReveal";
 import { LeaderSecteur } from "@/components/services/automatisations-ia/leader-secteur";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
+import MidPageCTA from "@/components/ui/sections/mid-page-cta";
+import PageTestimonial from "@/components/page-testimonial";
 
 export const metadata = {
   title: "Agents IA & Automatisation pour PME | Agence Advisia",
@@ -27,8 +30,11 @@ export const metadata = {
     "agent IA entreprise PME",
     "automatisation process IA",
     "chatbot entreprise IA",
-    "workflow automatisé PME",
+    "automatisation PME",
   ],
+  alternates: {
+    canonical: "https://advisia.agency/services/automatisations-ia",
+  },
   openGraph: {
     title: "Agents IA & Automatisation pour PME | Agence Advisia",
     description:
@@ -69,7 +75,7 @@ export default function AutomatisationsIA() {
     {
       title: "Intégration aux outils métiers (CRM, agenda, mail...)",
       subtitle:
-        "Votre nouveau système s'interface directement avec votre stack sans perturber votre organisation.",
+        "Votre nouveau système s'interface directement avec vos outils existants sans perturber votre organisation.",
       icon: <RiPlugFill size={40} />,
     },
     {
@@ -105,14 +111,14 @@ export default function AutomatisationsIA() {
       question:
         "Est-ce que l'IA peut vraiment s'adapter à mon métier ou à mes outils ?",
       answer:
-        "Oui, c'est justement l'intérêt d'un agent IA métier. Il est conçu pour comprendre votre vocabulaire, vos documents internes, vos process. On le connecte à vos outils existants (CRM, Drive, Notion, etc.), et il apprend à répondre de manière pertinente dans votre contexte.",
+        "Oui, c'est justement l'intérêt d'un agent IA métier. Il est conçu pour comprendre votre vocabulaire, vos documents internes, vos processus. On le connecte à vos outils existants (CRM, Drive, Notion, etc.), et il apprend à répondre de manière pertinente dans votre contexte.",
     },
     {
       id: "q5",
       question:
         "Faut-il changer mon organisation pour mettre en place une solution IA ?",
       answer:
-        "Pas du tout. On vient se greffer à votre fonctionnement actuel. L'agent IA s'adapte à vos outils et vos méthodes, sans tout bouleverser. Et s'il peut vous faire gagner du temps sur certains process, on vous conseille sur les évolutions possibles, à votre rythme.",
+        "Pas du tout. On vient se greffer à votre fonctionnement actuel. L'agent IA s'adapte à vos outils et vos méthodes, sans tout bouleverser. Et s'il peut vous faire gagner du temps sur certains processus, on vous conseille sur les évolutions possibles, à votre rythme.",
     },
   ];
 
@@ -120,27 +126,32 @@ export default function AutomatisationsIA() {
     <>
       <main className="relative">
         <VerticalFlowLine waypoints={SERVICE_WAYPOINTS} dotFractions={SERVICE_DOT_FRACTIONS} />
+        {/* 1. Hero */}
         <section className="w-full overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="container-md pt-[95px]">
             <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
-              <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl">
-                <RevealText>
-                  Vos équipes perdent 10h par semaine sur des tâches que l&apos;IA peut faire.
-                </RevealText>
-              </h1>
+              <div className="flex items-center gap-4 flex-wrap">
+                <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  À partir de <span style={{ color: "#c9fe6e" }}>390 €</span>
+                </span>
+              </div>
+              <PixelReveal
+                text="Vos équipes perdent 10h par semaine sur des tâches que l'IA peut faire."
+                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
+              />
 
               <p className="max-w-xl text-muted-foreground">
-                On conçoit des agents IA et des workflows automatisés qui
+                Agence IA pour PME en France, on conçoit des agents IA et des automatisations qui
                 éliminent le travail répétitif. Résultat : vos équipes se
                 concentrent sur ce qui compte.
               </p>
 
               <div className="flex gap-8 items-center flex-wrap">
                 <Button size="lg" asChild className="w-max">
-                  <TrackedLink href="/prendre-rendez-vous" trackingLabel="contacter_expert_ia" trackingPage="automatisations-ia" isBooking>
-                    Contacter un expert IA <RiCornerDownRightLine />
+                  <TrackedLink href="/contact?besoin=automatisation-ia" trackingLabel="analyser_besoin" trackingPage="automatisations-ia">
+                    Analyser mon besoin — gratuit <RiCornerDownRightLine />
                   </TrackedLink>
                 </Button>
               </div>
@@ -155,64 +166,172 @@ export default function AutomatisationsIA() {
                 </div>
                 <div className="hidden sm:block w-max border-l pl-4 lg:pl-8">
                   <p className="text-2xl">+15</p>
-                  <p className="text-sm ">Workflows déployés</p>
+                  <p className="text-sm ">Automatisations livrées</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* 3. C'est pour vous si */}
+        <section className="py-8" style={{ background: "rgba(255,255,255,0.03)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="container-md global-padding-x">
+            <p className="font-mono text-xs uppercase tracking-[0.15em] mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>
+              C&apos;est pour vous si...
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
+              {[
+                {
+                  icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9fe6e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  ),
+                  text: "PME de 10 à 200 salariés",
+                },
+                {
+                  icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9fe6e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  ),
+                  text: "Au moins 5h/semaine sur des tâches répétitives",
+                },
+                {
+                  icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9fe6e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                  ),
+                  text: "Vous voulez que vos équipes se concentrent sur ce qui compte vraiment.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="flex-shrink-0 mt-0.5">{item.icon}</div>
+                  <p className="text-sm text-white">{item.text}</p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* 2. Logos confiance */}
         <LogosConfiance />
+
+        {/* 4. Contenu spécifique */}
         <LeaderSecteur
-          heading="L'IA adaptée à votre secteur."
-          subheading="Des agents IA conçus pour votre métier, déployés en quelques jours."
+          heading="Ce qu'on automatise pour vous"
+          subheading="Choisissez le type de tâche que vous voulez ne plus jamais faire manuellement."
           sections={[
             {
-              image:
-                "/services/ia-automatisations/secteur-service-client-support.jpg",
-              heading: "Service client & Support",
+              icon: "Target",
+              heading: "Prospection & Acquisition",
               description:
-                "Chatbots qui répondent à 80% des demandes. Ticketing trié automatiquement. Réponses en 30 secondes au lieu de 24h.",
+                "Vous cherchez de nouveaux clients manuellement. Vos commerciaux perdent du temps à qualifier des contacts qui ne convertiront jamais. → Détection automatique des prospects chauds. Qualification IA avant le premier appel. Vos commerciaux ne parlent qu'aux bons interlocuteurs.",
             },
             {
-              image: "/services/ia-automatisations/secteur-ecommerce.jpg",
-              heading: "E-commerce & Retail",
+              icon: "MessageCircle",
+              heading: "Relation client & Support",
               description:
-                "Relances panier automatiques, recommandations produits IA, gestion de stock prédictive. +25% de CA moyen.",
+                "Les mêmes questions reviennent chaque jour. Vos équipes répondent au lieu de vendre. → Réponses automatiques 24h/24. Escalade humaine uniquement si nécessaire. Satisfaction client améliorée sans embauche.",
             },
             {
-              image: "/services/ia-automatisations/secteur-immobilier.jpg",
-              heading: "Immobilier",
+              icon: "BarChart2",
+              heading: "Reporting & Pilotage",
               description:
-                "Qualification de leads automatique, matching acheteur-bien intelligent, suivi de dossier sans intervention.",
+                "Vos tableaux de bord se construisent à la main chaque semaine. Vous pilotez avec des données qui ont 3 jours de retard. → Reporting généré automatiquement chaque matin. Alertes en temps réel sur les écarts. Vous décidez sur des données fraîches.",
             },
             {
-              image:
-                "/services/ia-automatisations/secteur-banques-assurances.jpg",
-              heading: "Banque / Assurance",
+              icon: "Search",
+              heading: "Veille & Benchmark",
               description:
-                "Détection de fraude en temps réel, automatisation KYC, assistants virtuels pour la gestion de compte.",
+                "Vous ne savez pas ce que font vos concurrents en temps réel. La veille se fait quand quelqu'un a le temps. → Surveillance automatique de vos concurrents, de votre marché, de vos mots-clés. Synthèse IA livrée chaque semaine.",
             },
             {
-              image: "/services/ia-automatisations/secteur-communication.jpg",
-              heading: "Communication",
+              icon: "FileText",
+              heading: "Traitement de documents",
               description:
-                "Calendriers éditoriaux IA, génération de contenu multi-canal, segmentation audience automatique.",
+                "Vos équipes saisissent les mêmes données dans plusieurs outils. Devis, factures, contrats — tout se fait à la main. → Extraction automatique, saisie zéro, synchronisation entre vos logiciels. Vos équipes font autre chose.",
             },
             {
-              image:
-                "/services/ia-automatisations/secteur-ressources-humaines.jpg",
-              heading: "Ressources Humaines",
+              icon: "Megaphone",
+              heading: "Marketing & Contenu",
               description:
-                "Tri de CV en 10 secondes, onboarding digitalisé, assistants RH pour les questions courantes.",
+                "Vos campagnes se lancent trop rarement parce que ça prend trop de temps à préparer. → Calendrier éditorial automatisé. Emails personnalisés envoyés au bon moment. Campagnes qui tournent sans intervention.",
             },
           ]}
         />
+
+        {/* 5. Solutions */}
         <Solutions />
 
+        {/* 6. Méthode */}
         <Steps1 title="Notre méthodologie" steps={processSteps} />
 
-        <FAQCenter title={"On répond à vos questions"} questions={questions} />
+        {/* 7. NOS OFFRES + PROCHAINES ÉTAPES */}
+        <section
+          className="py-10 lg:py-14"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div className="container-md global-padding-x">
+            <p className="section-label mb-8">● Nos offres IA</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              {[
+                { title: "Automatisation Unitaire", price: "390 – 990 €", description: "1 automatisation ciblée sur un process précis.", href: "/tarifs?category=ia&offre=auto-unitaire" },
+                { title: "Pack Automatisation", price: "1 990 – 3 500 €", description: "Ensemble de workflows automatisés pour un département.", href: "/tarifs?category=ia&offre=pack-auto" },
+                { title: "Assistant IA", price: "1 990 – 4 990 €", description: "Agent IA sur mesure connecté à vos outils métiers.", href: "/tarifs?category=ia&offre=assistant-ia-standard" },
+              ].map((offer, i) => (
+                <a
+                  key={i}
+                  href={offer.href}
+                  className="flex flex-col gap-3 p-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5 border border-white/[0.08] hover:border-[#c9fe6e]"
+                  style={{ background: "rgba(255,255,255,0.05)" }}
+                >
+                  <h3 className="font-bold text-white">{offer.title}</h3>
+                  <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>{offer.price}</p>
+                  <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>{offer.description}</p>
+                  <div className="flex justify-end mt-auto pt-2">
+                    <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.45)" }}>Voir le détail →</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <a href="/tarifs?category=ia" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:border-[#c9fe6e] hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.7)" }}>
+                Voir tous nos tarifs IA →
+              </a>
+              <a href="/diagnostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:border-[#c9fe6e] hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.7)" }}>
+                Faire un diagnostic →
+              </a>
+            </div>
+          </div>
+        </section>
 
+        {/* 8. Témoignages */}
+        <PageTestimonial
+          testimonials={[
+            {
+              quote: "On a gagné 12h par semaine sur le reporting. L'équipe peut enfin se concentrer sur le terrain.",
+              author: "Directeur des opérations",
+              company: "LCT Investissements",
+              detail: "Réseau de 20 magasins SFR",
+            },
+            {
+              quote: "On avait 3 personnes à temps plein sur la saisie de données. Aujourd'hui c'est automatisé, et elles font du commercial.",
+              author: "Sophie M., Directrice administrative",
+              company: "PME transport (60 salariés)",
+            },
+          ]}
+        />
+
+        {/* 9. MidPageCTA */}
+        <MidPageCTA
+          title="Vous reconnaissez votre métier dans ces cas ?"
+          subtitle="Décrivez-nous votre situation."
+          buttonText="Analyser mon besoin — gratuit"
+        />
+
+        {/* 11. FAQ */}
+        <div id="faq">
+          <FAQCenter title={"On répond à vos questions"} questions={questions} />
+        </div>
+
+        {/* 12. Formulaire contact */}
         <SectionCTAForm
           title={
             <>
@@ -223,6 +342,7 @@ export default function AutomatisationsIA() {
         />
       </main>
       <Footer />
+      <FAQFloatingButton />
     </>
   );
 }

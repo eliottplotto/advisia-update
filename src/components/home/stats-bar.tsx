@@ -18,10 +18,10 @@ export default function StatsBar() {
       label: "Clients qui renouvellent",
     },
     {
-      value: 4,
-      prefix: "",
-      suffix: " ans",
-      label: "D'expertise IA appliquée",
+      value: 50,
+      prefix: "+",
+      suffix: "",
+      label: "Automatisations déployées",
     },
   ];
 
@@ -29,9 +29,7 @@ export default function StatsBar() {
     <section
       className="relative z-[2] py-10 md:py-14 px-4 md:px-8 lg:px-12"
       style={{
-        background: "rgba(10,10,15,0.85)",
-        borderTop: "1px solid var(--border)",
-        borderBottom: "1px solid var(--border)",
+        background: "transparent",
       }}
     >
       <div className="max-w-[1400px] mx-auto">
@@ -44,7 +42,7 @@ export default function StatsBar() {
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {stat.prefix && (
-                    <span className="gradient-text mr-1">{stat.prefix}</span>
+                    <span className="gradient-text mr-1" aria-hidden="true">{stat.prefix}</span>
                   )}
                   <CountUp
                     from={0}
@@ -53,10 +51,12 @@ export default function StatsBar() {
                     direction="up"
                     duration={2.5}
                     className="text-white"
+                    aria-hidden="true"
                   />
                   {stat.suffix && (
-                    <span className="gradient-text ml-1">{stat.suffix}</span>
+                    <span className="gradient-text ml-1" aria-hidden="true">{stat.suffix}</span>
                   )}
+                  <span className="sr-only">{stat.prefix}{stat.value}{stat.suffix}</span>
                 </div>
                 <div
                   className="inline-block font-mono text-[0.7rem] uppercase tracking-[0.15em] px-3 py-1 rounded-full"

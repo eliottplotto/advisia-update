@@ -18,9 +18,8 @@ export default function Steps1({ title, subtitle, steps }: ProcessProps) {
     <section
       className="py-12 lg:py-20 px-4 md:px-8 lg:px-12"
       style={{
-        background: "rgba(10,10,15,0.85)",
+        background: "transparent",
         color: "var(--text-primary)",
-        borderTop: "1px solid var(--border)",
       }}
     >
       <div className="max-w-[1400px] mx-auto">
@@ -47,8 +46,8 @@ export default function Steps1({ title, subtitle, steps }: ProcessProps) {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex flex-col gap-5 pt-6"
-              style={{ borderTop: "1px solid var(--border)" }}
+              className="flex flex-col gap-5 p-5 rounded-xl"
+              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.06)" }}
             >
               <div className="flex items-center justify-between">
                 <p

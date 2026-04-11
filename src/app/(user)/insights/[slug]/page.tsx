@@ -114,6 +114,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: article.seo?.metaTitle || `${article.title} · Advisia Insights`,
     description:
       article.seo?.metaDescription || article.excerpt || undefined,
+    alternates: {
+      canonical: `https://advisia.agency/insights/${slug}`,
+    },
     openGraph: {
       title: article.seo?.metaTitle || article.title || undefined,
       description: article.seo?.metaDescription || article.excerpt || undefined,
@@ -226,7 +229,6 @@ export default async function ArticlePage({ params }: Props) {
           className="relative z-[2] py-8 md:py-12 px-4 md:px-8 lg:px-12"
           style={{
             background: "var(--bg-primary)",
-            borderBottom: "1px solid var(--border)",
           }}
         >
           <div className="max-w-3xl mx-auto">
@@ -245,8 +247,7 @@ export default async function ArticlePage({ params }: Props) {
         <section
           className="relative z-[2] py-12 md:py-16 px-4 md:px-8 lg:px-12"
           style={{
-            background: "rgba(10,10,15,0.85)",
-            borderBottom: "1px solid var(--border)",
+            background: "transparent",
           }}
         >
           <div className="max-w-[1400px] mx-auto">
