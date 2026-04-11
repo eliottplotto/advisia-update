@@ -55,8 +55,22 @@ const BESOIN_LABELS: Record<string, string> = {
   // Pages service
   "automatisation-ia": "IA et Automatisation — à partir de 390 €",
   "site-web": "Création de site web — à partir de 690 €",
-  "product-design": "Product Design — à partir de 1 990 €",
+  "product-design": "Design d'Interface — à partir de 1 990 €",
   "marketing-digital": "Marketing Digital — à partir de 490 €",
+  // Slugs tarifs accordéon
+  "auto-unitaire": "Automatisation Unitaire — 390 – 990 €",
+  "pack-auto": "Pack Automatisation — 1 990 – 3 500 €",
+  "assistant-ia-standard": "Assistant IA Standard — 1 990 – 4 990 €",
+  "assistant-ia-avance": "Assistant IA Avancé — 5 000 – 15 000 €",
+  "projet-ia": "Projet IA Structurant — sur devis",
+  "landing-page": "Landing Page — 690 – 1 490 €",
+  "site-vitrine": "Site Vitrine — 1 990 – 4 990 €",
+  "site-ecommerce": "Site E-commerce — 4 990 – 12 000 €",
+  "app-sur-mesure": "Application Sur Mesure — sur devis",
+  "audit-cession": "Audit Maturité Cession & Reprise — 990 €",
+  "pack-modernisation": "Pack Modernisation Express — 3 500 – 6 000 €",
+  "pack-transformation": "Pack Transformation Post-Reprise — 8 000 – 15 000 €",
+  "pack-ia-metier": "Pack Transformation + IA Métier — 18 000 – 35 000 €",
   // Packs cession
   "cession-pack-essentiel": "Modernisation Express — 3 500 à 6 000 €",
   "cession-pack-transformation": "Transformation Post-Reprise — 8 000 à 15 000 €",
