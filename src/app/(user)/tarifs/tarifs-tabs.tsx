@@ -463,31 +463,31 @@ const categoryCards = [
     id: "diagnostics" as Category,
     label: "Diagnostics",
     icon: Search,
-    desc: "Analysez votre situation",
+    desc: "Identifiez vos priorités et passez à l'action en 48-72h",
     from: "490 €",
     count: 7,
   },
   {
     id: "ia" as Category,
-    label: "IA & Auto",
+    label: "IA & Automatisation",
     icon: Zap,
-    desc: "Automatisez vos tâches",
+    desc: "Supprimez les tâches répétitives de vos équipes",
     from: "390 €",
     count: 5,
   },
   {
     id: "web" as Category,
-    label: "Web",
+    label: "Web & Apps",
     icon: Globe,
-    desc: "Sites, e-commerce, applications",
+    desc: "Sites vitrines, e-commerce et applications sur mesure",
     from: "690 €",
     count: 4,
   },
   {
     id: "formation" as Category,
-    label: "Formation",
+    label: "Formation IA",
     icon: GraduationCap,
-    desc: "Formez vos équipes",
+    desc: "Rendez vos dirigeants et équipes autonomes sur l'IA",
     from: "490 €",
     count: 2,
   },
@@ -495,15 +495,15 @@ const categoryCards = [
     id: "partenariat" as Category,
     label: "Partenariat",
     icon: HeartHandshake,
-    desc: "Suivi mensuel",
+    desc: "Vos outils évoluent chaque mois sans que vous gériez",
     from: "490 €/mois",
     count: 3,
   },
   {
     id: "cession" as Category,
-    label: "Cession",
+    label: "Cession & Reprise",
     icon: ArrowLeftRight,
-    desc: "Valorisez ou évaluez",
+    desc: "Évaluez et valorisez la maturité digitale avant la transaction",
     from: "990 €",
     count: 5,
   },
@@ -606,7 +606,7 @@ export default function TarifsTabs() {
                   <p className="font-semibold text-sm mb-0.5" style={{ color: isActive ? "#fff" : "rgba(255,255,255,0.85)" }}>
                     {cat.label}
                   </p>
-                  <p className="text-xs mb-2" style={{ color: "var(--text-secondary)" }}>
+                  <p className="text-sm mb-2" style={{ color: "rgba(255,255,255,0.6)" }}>
                     {cat.desc}
                   </p>
                   <div className="flex items-center gap-3">
@@ -670,7 +670,7 @@ export default function TarifsTabs() {
                           </span>
                         </div>
                         {!isOpen && (
-                          <span className="text-[13px] mt-0.5 leading-snug" style={{ color: "rgba(255,255,255,0.38)" }}>
+                          <span className="text-sm mt-0.5 leading-snug" style={{ color: "rgba(255,255,255,0.55)" }}>
                             {offre.tagline}
                           </span>
                         )}

@@ -204,6 +204,7 @@ export default function OfferDrawer({ isOpen, offerId, onClose }: OfferDrawerPro
                     {offerId && (
                       <Link
                         href={`/offres/${offerId}`}
+                        onClick={onClose}
                         className="flex items-center justify-between mt-4 p-3 rounded-lg transition-all duration-200 border border-white/10 hover:border-[#c9fe6e]"
                         style={{ background: "rgba(255,255,255,0.05)" }}
                       >

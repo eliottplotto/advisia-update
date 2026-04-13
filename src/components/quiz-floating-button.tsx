@@ -25,7 +25,7 @@ export default function QuizFloatingButton({ onOpen }: QuizFloatingButtonProps) 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (HIDDEN_PATHS.includes(pathname)) return null;
+  if (HIDDEN_PATHS.includes(pathname) || pathname.startsWith("/offres")) return null;
 
   const isShown = visible && !nearBottom;
 
