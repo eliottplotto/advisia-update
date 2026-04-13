@@ -9,6 +9,8 @@ import Link from "next/link";
 import { RiArrowRightUpLine } from "@remixicon/react";
 import PageTestimonial from "@/components/page-testimonial";
 import DiagnosticsGrid from "./diagnostics-grid";
+import DiagnosticsPacks from "./diagnostics-packs";
+import { Calendar } from "lucide-react";
 
 export const metadata = {
   title: "Diagnostics et Audits pour PME | Advisia",
@@ -85,34 +87,6 @@ const diagnostics = [
   },
 ];
 
-const packs = [
-  {
-    name: "Audit Général",
-    price: "1990 €",
-    priceBarred: "2500 €",
-    delay: "2-3 semaines",
-    items: [
-      "4 diagnostics combinés",
-      "Rapport consolidé",
-      "Roadmap 6-12 mois",
-      "Restitution direction",
-    ],
-    featured: false,
-  },
-  {
-    name: "Audit + Correction",
-    price: "3490 €",
-    priceBarred: "4500 €",
-    delay: "3-4 semaines",
-    items: [
-      "Tout le pack Audit",
-      "Patches sécurité appliqués",
-      "Corrections SEO",
-      "1 automatisation déployée",
-    ],
-    featured: true,
-  },
-];
 
 export default function DiagnosticsPage() {
   const breadcrumbSchema = {
@@ -216,6 +190,40 @@ export default function DiagnosticsPage() {
           </div>
         </section>
 
+        {/* AUDIT FLASH BANNER */}
+        <section className="py-8 lg:py-10" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="container-md global-padding-x">
+            <ScrollReveal>
+              <div
+                className="rounded-xl p-8 flex flex-col sm:flex-row sm:items-center gap-6"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(201,254,110,0.2)",
+                }}
+              >
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Calendar size={20} style={{ color: "#c9fe6e", flexShrink: 0 }} />
+                    <h2 className="text-xl lg:text-2xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+                      Commencez par un Audit Flash — toujours gratuit.
+                    </h2>
+                  </div>
+                  <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                    30 minutes pour comprendre votre situation, identifier vos priorités et voir comment on peut vous aider. Sans engagement. Sans livrable à payer.
+                  </p>
+                </div>
+                <Link
+                  href="/prendre-rendez-vous"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 hover:shadow-[0_0_20px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
+                  style={{ background: "#c9fe6e", color: "#0a0a0f" }}
+                >
+                  Réserver mon Audit Flash gratuit <RiArrowRightUpLine size={14} />
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
         {/* DIAGNOSTICS CARDS — compact + expand on click */}
         <section className="py-10 lg:py-16" style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
           <div className="container-md global-padding-x">
@@ -251,42 +259,7 @@ export default function DiagnosticsPage() {
               </p>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {packs.map((pack, i) => (
-                <ScrollReveal key={i} delay={i * 0.1} className="h-full">
-                  <div
-                    className="group flex flex-col h-full rounded-xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#c9fe6e]"
-                    style={{
-                      background: "rgba(255,255,255,0.03)",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                    }}
-                  >
-                    {pack.featured && (
-                      <div className="mb-4">
-                        <span className="font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#c9fe6e", color: "#000" }}>
-                          Le plus demandé
-                        </span>
-                      </div>
-                    )}
-                    <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>{pack.name}</h3>
-                    <div className="flex items-baseline gap-3 mb-1">
-                      <span className="text-3xl font-bold" style={{ color: "#c9fe6e" }}>{pack.price}</span>
-                      <span className="text-sm line-through" style={{ color: "var(--text-secondary)" }}>{pack.priceBarred}</span>
-                    </div>
-                    <p className="text-xs mb-6" style={{ color: "var(--text-secondary)" }}>Délai : {pack.delay}</p>
-                    <div className="flex-1 mb-8">
-                      <p className="font-mono text-[0.65rem] uppercase tracking-wider mb-3" style={{ color: "rgba(255,255,255,0.6)" }}>Inclus</p>
-                      <p className="text-sm leading-loose" style={{ color: "var(--text-secondary)" }}>
-                        {pack.items.join(" · ")}
-                      </p>
-                    </div>
-                    <Link href="/contact" className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300 hover:-translate-y-[1px]" style={{ background: pack.featured ? "#c9fe6e" : "transparent", color: pack.featured ? "#000" : "var(--text-primary)", border: pack.featured ? "none" : "1px solid rgba(124,58,237,0.4)" }}>
-                      Demander le pack <RiArrowRightUpLine size={14} />
-                    </Link>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+            <DiagnosticsPacks />
           </div>
         </section>
 

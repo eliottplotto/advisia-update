@@ -4,16 +4,12 @@ import HandshakeReveal from "@/components/hero-animations/HandshakeReveal";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
 import FAQCenter from "@/components/ui/sections/faq-center";
-import HoverExpandColumns from "@/components/hover-expand-columns";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import Link from "next/link";
-import {
-  RiArrowRightUpLine,
-  RiCheckLine,
-  RiUserStarFill,
-  RiGroupFill,
-} from "@remixicon/react";
+import { RiArrowRightUpLine } from "@remixicon/react";
 import PageTestimonial from "@/components/page-testimonial";
+import AccompagnementFormations from "./accompagnement-formations";
+import AccompagnementPartenariats from "./accompagnement-partenariats";
 
 export const metadata = {
   title: "Formation IA et Partenariat Mensuel | Advisia",
@@ -44,46 +40,6 @@ const PAGE_WAYPOINTS = [
 ];
 const PAGE_DOT_FRACTIONS = [0, 0.12, 0.25, 0.38, 0.52, 0.65, 0.78, 0.92, 1.0];
 
-const partenariats = [
-  {
-    name: "Essentiel",
-    price: "490 €/mois",
-    featured: false,
-    href: "/contact?besoin=partenariat-essentiel",
-    items: [
-      "On surveille que tout tourne — si ça casse, on répare",
-      "1h par mois pour faire le point et prioriser",
-      "Une question ? Réponse sous 48h",
-      "Rapport mensuel sur l'usage de vos outils",
-    ],
-  },
-  {
-    name: "Business",
-    price: "990 €/mois",
-    featured: true,
-    href: "/contact?besoin=partenariat-business",
-    items: [
-      "Chaque mois, un process de plus qui tourne sans vous",
-      "Vos outils évoluent en continu sans effort de votre part",
-      "Une question ? Réponse sous 24h",
-      "2h de suivi bimensuel pour piloter les priorités",
-      "Rapport de performance mensuel",
-    ],
-  },
-  {
-    name: "Stratégique",
-    price: "1990 €/mois",
-    featured: false,
-    href: "/contact?besoin=partenariat-strategique",
-    items: [
-      "Évolutions illimitées — on avance tant qu'il y a des choses à améliorer",
-      "Un directeur technique dédié, sans le recruter",
-      "Accès à toutes les expertises Advisia (IA, web, data, marketing)",
-      "Support dédié, réponse en 4h",
-      "Comité direction mensuel pour arbitrer les priorités",
-    ],
-  },
-];
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -109,96 +65,6 @@ const faqSchema = {
 };
 
 export default function AccompagnementPage() {
-  const workshopSlot = (
-    <div className="flex flex-col h-full rounded-xl p-10 transition-all duration-300" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "rgba(124,58,237,0.15)" }}>
-          <RiUserStarFill size={20} style={{ color: "var(--violet)" }} />
-        </div>
-        <span
-          className="font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full"
-          style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.25)", color: "var(--violet)" }}
-        >
-          Dirigeants
-        </span>
-      </div>
-      <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: "var(--font-display)" }}>
-        Workshop IA Dirigeants
-      </h3>
-      <p className="text-sm leading-relaxed mb-8 flex-1" style={{ color: "var(--text-secondary)" }}>
-        Une demi-journée pour comprendre les enjeux, les opportunités et les risques de l&apos;IA pour votre secteur. Format interactif, cas concrets de votre métier.
-      </p>
-      <div className="flex items-baseline gap-4 mb-6 pb-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <div>
-          <p className="text-3xl font-bold" style={{ color: "#c9fe6e" }}>490 &euro;</p>
-          <p className="text-xs" style={{ color: "var(--text-secondary)" }}>Prix fixe</p>
-        </div>
-        <div className="border-l pl-4" style={{ borderColor: "var(--border)" }}>
-          <p className="text-sm font-semibold">Demi-journée</p>
-          <p className="text-xs" style={{ color: "var(--text-secondary)" }}>Durée</p>
-        </div>
-      </div>
-      <ul className="space-y-2">
-        {[
-          "Panorama IA appliqué à votre secteur",
-          "Identification des cas d'usage prioritaires",
-          "Feuille de route personnalisée",
-          "Format groupe ou individuel",
-        ].map((item, j) => (
-          <li key={j} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-            <RiCheckLine size={14} className="mt-0.5 flex-shrink-0" style={{ color: "var(--violet)" }} />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-
-  const formationEquipesSlot = (
-    <div className="flex flex-col h-full rounded-xl p-8 transition-all duration-300" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "rgba(124,58,237,0.15)" }}>
-          <RiGroupFill size={20} style={{ color: "var(--violet)" }} />
-        </div>
-        <span
-          className="font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full"
-          style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.25)", color: "var(--violet)" }}
-        >
-          Équipes
-        </span>
-      </div>
-      <h3 className="text-xl font-bold mb-3" style={{ fontFamily: "var(--font-display)" }}>
-        Formation Équipes
-      </h3>
-      <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "var(--text-secondary)" }}>
-        Formation opérationnelle de vos équipes sur les outils IA déployés ou sur les bonnes pratiques IA au quotidien. De 1 à 3 jours selon le périmètre.
-      </p>
-      <div className="flex items-baseline gap-4 mb-6 pb-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <div>
-          <p className="text-2xl font-bold" style={{ color: "#c9fe6e" }}>990 &euro; &ndash; 2 500 &euro;</p>
-          <p className="text-xs" style={{ color: "var(--text-secondary)" }}>Prix fixe</p>
-        </div>
-        <div className="border-l pl-4" style={{ borderColor: "var(--border)" }}>
-          <p className="text-sm font-semibold">1 à 3 jours</p>
-          <p className="text-xs" style={{ color: "var(--text-secondary)" }}>Durée</p>
-        </div>
-      </div>
-      <ul className="space-y-2">
-        {[
-          "Formation sur vos outils IA déployés",
-          "Bonnes pratiques prompting & usage",
-          "Exercices pratiques sur vos cas métier",
-          "Support & documentation inclus",
-        ].map((item, j) => (
-          <li key={j} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-            <RiCheckLine size={14} className="mt-0.5 flex-shrink-0" style={{ color: "var(--violet)" }} />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
@@ -260,15 +126,7 @@ export default function AccompagnementPage() {
               </p>
             </ScrollReveal>
 
-            <HoverExpandColumns
-              leftSlot={workshopSlot}
-              rightSlot={formationEquipesSlot}
-              leftBg="transparent"
-              rightBg="transparent"
-              leftHoveredBg="rgba(255,255,255,0.02)"
-              rightHoveredBg="rgba(255,255,255,0.02)"
-              minHeight="360px"
-            />
+            <AccompagnementFormations />
           </div>
         </section>
 
@@ -298,90 +156,7 @@ export default function AccompagnementPage() {
               </p>
             </ScrollReveal>
 
-            {/* Desktop */}
-            <div className="hidden md:flex items-stretch divide-x" style={{ borderColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", overflow: "hidden" }}>
-              {partenariats.map((p, i) => (
-                <div
-                  key={i}
-                  className="flex-1 p-8 flex flex-col transition-all duration-300 hover:bg-white/[0.02]"
-                  style={{
-                    background: p.featured ? "rgba(255,255,255,0.04)" : "transparent",
-                    borderRight: i < partenariats.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
-                  }}
-                >
-                  <div className="font-mono font-bold text-5xl leading-none mb-6" style={{ color: "rgba(201,254,110,0.3)" }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  {p.featured && (
-                    <div className="mb-3">
-                      <span className="font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "var(--violet)", color: "#fff" }}>
-                        Recommandé
-                      </span>
-                    </div>
-                  )}
-                  <h3 className="text-xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>{p.name}</h3>
-                  <p className="text-xl font-bold mb-6" style={{ color: "#c9fe6e" }}>{p.price}</p>
-                  <ul className="space-y-2 mb-8 flex-1">
-                    {p.items.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-                        <RiCheckLine size={13} className="mt-0.5 flex-shrink-0" style={{ color: p.featured ? "#c9fe6e" : "var(--violet)" }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={p.href}
-                    className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300 hover:-translate-y-[1px]"
-                    style={p.featured ? { background: "var(--ad-1)", color: "#000" } : { border: "1px solid rgba(124,58,237,0.4)", color: "var(--text-primary)" }}
-                  >
-                    Choisir {p.name} <RiArrowRightUpLine size={13} />
-                  </Link>
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile */}
-            <div className="flex md:hidden flex-col gap-4">
-              {partenariats.map((p, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col p-6"
-                  style={{
-                    borderLeft: "3px solid rgba(201,254,110,0.4)",
-                    background: p.featured ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.02)",
-                    borderRadius: "0 8px 8px 0",
-                  }}
-                >
-                  <div className="font-mono font-bold text-3xl leading-none mb-4" style={{ color: "rgba(201,254,110,0.3)" }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  {p.featured && (
-                    <div className="mb-2">
-                      <span className="font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "var(--violet)", color: "#fff" }}>
-                        Recommandé
-                      </span>
-                    </div>
-                  )}
-                  <h3 className="text-lg font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>{p.name}</h3>
-                  <p className="text-xl font-bold mb-4" style={{ color: "#c9fe6e" }}>{p.price}</p>
-                  <ul className="space-y-2 mb-6">
-                    {p.items.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-                        <RiCheckLine size={13} className="mt-0.5 flex-shrink-0" style={{ color: p.featured ? "#c9fe6e" : "var(--violet)" }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={p.href}
-                    className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300"
-                    style={p.featured ? { background: "var(--ad-1)", color: "#000" } : { border: "1px solid rgba(124,58,237,0.4)", color: "var(--text-primary)" }}
-                  >
-                    Choisir {p.name} <RiArrowRightUpLine size={13} />
-                  </Link>
-                </div>
-              ))}
-            </div>
+            <AccompagnementPartenariats />
           </div>
         </section>
 

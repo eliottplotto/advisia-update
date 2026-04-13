@@ -6,9 +6,9 @@ import ScrollReveal from "@/components/ui/scroll-reveal";
 const steps = [
   {
     number: "01",
-    title: "Diagnostic",
+    title: "Audit Flash",
     description:
-      "On analyse votre activité, vos outils, vos points de friction. Gratuit, 30 min.",
+      "On analyse votre activité, vos outils, vos points de friction. Audit Flash Gratuit, 30 min.",
   },
   {
     number: "02",

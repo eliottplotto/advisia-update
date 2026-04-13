@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Check, Search, Zap, Globe, GraduationCap, HeartHandshake, ArrowLeftRight } from "lucide-react";
 import { RiArrowRightUpLine } from "@remixicon/react";
+import { useDrawer } from "@/lib/drawer-store";
 
 type Category = "diagnostics" | "ia" | "web" | "formation" | "partenariat" | "cession";
 
@@ -513,6 +513,7 @@ const VALID_CATEGORIES: Category[] = ["diagnostics", "ia", "web", "formation", "
 
 export default function TarifsTabs() {
   const searchParams = useSearchParams();
+  const { openDrawer } = useDrawer();
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [pendingScroll, setPendingScroll] = useState(false);
@@ -675,16 +676,6 @@ export default function TarifsTabs() {
                         )}
                       </div>
                       <div className="flex items-center gap-3 flex-shrink-0 ml-4">
-                        <div className="text-right">
-                          <span className="font-bold text-sm sm:text-base" style={{ color: "#c9fe6e" }}>
-                            {offre.prix}
-                          </span>
-                          {offre.prixBarre && (
-                            <span className="ml-2 text-xs line-through hidden sm:inline" style={{ color: "var(--text-secondary)" }}>
-                              {offre.prixBarre}
-                            </span>
-                          )}
-                        </div>
                         <ChevronDown
                           size={16}
                           className="transition-transform duration-200 flex-shrink-0"
@@ -745,6 +736,17 @@ export default function TarifsTabs() {
 
                             <div className="flex items-center justify-between flex-wrap gap-4">
                               <div className="flex items-center gap-6">
+                                <div>
+                                  <p className="font-mono text-[0.65rem] uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>
+                                    Prix
+                                  </p>
+                                  <div className="flex items-baseline gap-2">
+                                    <span className="text-lg font-bold" style={{ color: "#c9fe6e" }}>{offre.prix}</span>
+                                    {offre.prixBarre && (
+                                      <span className="text-xs line-through" style={{ color: "var(--text-secondary)" }}>{offre.prixBarre}</span>
+                                    )}
+                                  </div>
+                                </div>
                                 {offre.delai && (
                                   <div>
                                     <p className="font-mono text-[0.65rem] uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>
@@ -753,19 +755,9 @@ export default function TarifsTabs() {
                                     <p className="text-sm font-semibold">{offre.delai}</p>
                                   </div>
                                 )}
-                                {offre.prixBarre && (
-                                  <div>
-                                    <p className="font-mono text-[0.65rem] uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>
-                                      Prix barré
-                                    </p>
-                                    <p className="text-sm line-through" style={{ color: "var(--text-secondary)" }}>
-                                      {offre.prixBarre}
-                                    </p>
-                                  </div>
-                                )}
                               </div>
-                              <Link
-                                href={`/contact?besoin=${offre.slug}`}
+                              <button
+                                onClick={() => openDrawer(offre.slug)}
                                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200 hover:-translate-y-[1px]"
                                 style={
                                   offre.featured
@@ -774,7 +766,7 @@ export default function TarifsTabs() {
                                 }
                               >
                                 Demander cette offre <RiArrowRightUpLine size={13} />
-                              </Link>
+                              </button>
                             </div>
                           </div>
                         </motion.div>

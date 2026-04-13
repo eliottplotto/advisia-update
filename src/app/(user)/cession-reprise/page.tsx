@@ -13,6 +13,7 @@ import {
   RiCheckLine,
 } from "@remixicon/react";
 import PageTestimonial from "@/components/page-testimonial";
+import PacksToggle from "./packs-toggle";
 
 export const metadata = {
   title: "Valorisation Digitale — Cession et Reprise d'Entreprise | Advisia",
@@ -42,49 +43,6 @@ const PAGE_WAYPOINTS = [
   { x: 50, y: 1.0 },
 ];
 const PAGE_DOT_FRACTIONS = [0, 0.12, 0.25, 0.38, 0.52, 0.65, 0.78, 0.92, 1.0];
-
-const packs = [
-  {
-    name: "Modernisation Express",
-    price: "3 500 - 6 000 €",
-    delay: "3-4 semaines",
-    featured: false,
-    href: "/contact?besoin=cession-pack-essentiel",
-    items: [
-      "Audit maturité digitale",
-      "Refonte site ou outils clés",
-      "2-3 automatisations ciblées",
-      "Documentation processus",
-    ],
-  },
-  {
-    name: "Transformation Post-Reprise",
-    price: "8 000 - 15 000 €",
-    delay: "6-8 semaines",
-    featured: true,
-    href: "/contact?besoin=cession-pack-transformation",
-    items: [
-      "Tout Modernisation Express",
-      "Refonte complète des outils digitaux",
-      "Assistant IA métier",
-      "Formation équipes",
-      "Accompagnement 3 mois",
-    ],
-  },
-  {
-    name: "Transformation + IA Métier",
-    price: "18 000 - 35 000 €",
-    delay: "8-12 semaines",
-    featured: false,
-    href: "/contact?besoin=cession-pack-complet",
-    items: [
-      "Tout Transformation Post-Reprise",
-      "Agent IA avancé sur mesure",
-      "Intégrations ERP/CRM complètes",
-      "Roadmap IA 12 mois",
-    ],
-  },
-];
 
 const cedantAvantages = [
   "Rapport chiffré maturité digitale — argument négociation",
@@ -392,61 +350,7 @@ export default function CessionReprisePage() {
               </p>
             </ScrollReveal>
 
-            <div className="flex flex-col md:flex-row gap-4 items-stretch">
-              {packs.map((pack, i) => (
-                <div key={i} className={`flex-none ${pack.featured ? "md:w-[40%]" : "md:w-[30%]"}`}>
-                  <ScrollReveal delay={i * 0.07} className="h-full">
-                    <div
-                      className={`flex flex-col h-full rounded-xl p-8 transition-all duration-300 ${pack.featured ? "hover:-translate-y-2 shadow-[0_8px_40px_rgba(201,254,110,0.08)]" : "hover:-translate-y-1"}`}
-                      style={{
-                        background: pack.featured ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.02)",
-                        border: pack.featured ? "2px solid #c9fe6e" : "1px solid rgba(255,255,255,0.08)",
-                      }}
-                    >
-                      {pack.featured && (
-                        <div className="mb-4">
-                          <span
-                            className="font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full"
-                            style={{ background: "#c9fe6e", color: "#000" }}
-                          >
-                            Le plus choisi
-                          </span>
-                        </div>
-                      )}
-                      <h3
-                        className="text-xl font-bold mb-2"
-                        style={{ fontFamily: "var(--font-display)" }}
-                      >
-                        {pack.name}
-                      </h3>
-                      <p className="text-2xl font-bold mb-1" style={{ color: "#c9fe6e" }}>{pack.price}</p>
-                      <p className="text-xs mb-6" style={{ color: "var(--text-secondary)" }}>Délai : {pack.delay}</p>
-
-                      <ul className="space-y-2.5 mb-8 flex-1">
-                        {pack.items.map((item, j) => (
-                          <li key={j} className="flex items-start gap-2 text-sm">
-                            <RiCheckLine size={14} className="mt-0.5 flex-shrink-0" style={{ color: pack.featured ? "#c9fe6e" : "var(--violet)" }} />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <Link
-                        href={pack.href}
-                        className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300 hover:-translate-y-[1px]"
-                        style={
-                          pack.featured
-                            ? { background: "#c9fe6e", color: "#000" }
-                            : { border: "1px solid rgba(124,58,237,0.4)", color: "var(--text-primary)" }
-                        }
-                      >
-                        Demander ce pack <RiArrowRightUpLine size={14} />
-                      </Link>
-                    </div>
-                  </ScrollReveal>
-                </div>
-              ))}
-            </div>
+            <PacksToggle />
           </div>
         </section>
 

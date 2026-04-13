@@ -9,6 +9,7 @@ import {
   RiHandHeartFill,
 } from "@remixicon/react";
 import Solutions from "@/components/services/automatisations-ia/solutions";
+import OffresIAGrid from "./offres-ia-grid";
 import { Button } from "@/components/ui/button";
 import TrackedLink from "@/components/ui/tracked-link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
@@ -276,27 +277,7 @@ export default function AutomatisationsIA() {
         >
           <div className="container-md global-padding-x">
             <p className="section-label mb-8">● Nos offres IA</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              {[
-                { title: "Automatisation Unitaire", price: "390 – 990 €", description: "1 automatisation ciblée sur un process précis.", href: "/tarifs?category=ia&offre=auto-unitaire" },
-                { title: "Pack Automatisation", price: "1 990 – 3 500 €", description: "Ensemble de workflows automatisés pour un département.", href: "/tarifs?category=ia&offre=pack-auto" },
-                { title: "Assistant IA", price: "1 990 – 4 990 €", description: "Agent IA sur mesure connecté à vos outils métiers.", href: "/tarifs?category=ia&offre=assistant-ia-standard" },
-              ].map((offer, i) => (
-                <a
-                  key={i}
-                  href={offer.href}
-                  className="flex flex-col gap-3 p-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5 border border-white/[0.08] hover:border-[#c9fe6e]"
-                  style={{ background: "rgba(255,255,255,0.05)" }}
-                >
-                  <h3 className="font-bold text-white">{offer.title}</h3>
-                  <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>{offer.price}</p>
-                  <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>{offer.description}</p>
-                  <div className="flex justify-end mt-auto pt-2">
-                    <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.45)" }}>Voir le détail →</span>
-                  </div>
-                </a>
-              ))}
-            </div>
+            <OffresIAGrid />
             <div className="flex flex-wrap gap-3 mt-6">
               <a href="/tarifs?category=ia" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:border-[#c9fe6e] hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.7)" }}>
                 Voir tous nos tarifs IA →

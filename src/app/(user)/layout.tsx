@@ -5,6 +5,7 @@ import ParticlesCanvas from "@/components/ui/particles-canvas";
 import GoogleAnalytics from "@/components/google-analytics";
 import SchemaOrg from "@/components/schema-org";
 import { QuizShell } from "@/components/quiz-shell";
+import DrawerShell from "@/components/drawer-shell";
 
 export const metadata: Metadata = {
   title: "Advisia · Agence de croissance digitale",
@@ -25,10 +26,12 @@ export default function UserLayout({
       <SchemaOrg />
       <GoogleAnalytics />
       <ParticlesCanvas />
-      <header>
-        <Navbar />
-      </header>
-      {children}
+      <DrawerShell>
+        <header>
+          <Navbar />
+        </header>
+        {children}
+      </DrawerShell>
     </QuizShell>
   );
 }

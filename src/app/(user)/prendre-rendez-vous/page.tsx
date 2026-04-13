@@ -122,6 +122,18 @@ export default function PrendreRendezVous() {
                   Nous sommes à votre écoute
                 </p>
               </div>
+              <div
+                className="py-1.5 px-4 flex items-center gap-2 w-fit rounded-full mx-auto"
+                style={{
+                  background: "rgba(201,254,110,0.08)",
+                  border: "1px solid rgba(201,254,110,0.2)",
+                }}
+              >
+                <div className="w-2 h-2 rounded-full" style={{ background: "#c9fe6e" }} />
+                <p className="text-xs font-mono uppercase tracking-[0.15em]" style={{ color: "#c9fe6e" }}>
+                  Audit Flash Gratuit · 30 min
+                </p>
+              </div>
               <h1
                 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-center font-bold"
                 style={{ fontFamily: "var(--font-display)" }}

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import {
   RiArrowRightUpLine,
@@ -11,6 +10,7 @@ import {
   RiStarSmileFill,
   RiBuildingFill,
 } from "@remixicon/react";
+import { useDrawer } from "@/lib/drawer-store";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const iconMap: Record<string, any> = {
@@ -34,6 +34,7 @@ interface Diagnostic {
 
 export default function DiagnosticsGrid({ diagnostics }: { diagnostics: Diagnostic[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { openDrawer } = useDrawer();
 
   return (
     <div>
@@ -120,13 +121,13 @@ export default function DiagnosticsGrid({ diagnostics }: { diagnostics: Diagnost
                             <p className="text-xs font-mono uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>Délai</p>
                             <p className="text-sm font-semibold">{d.delay}</p>
                           </div>
-                          <Link
-                            href={`/contact?besoin=${d.slug}`}
+                          <button
+                            onClick={() => openDrawer(d.slug)}
                             className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300 hover:-translate-y-[1px]"
                             style={{ background: "#c9fe6e", color: "#000" }}
                           >
                             Demander ce diagnostic <RiArrowRightUpLine size={14} />
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>

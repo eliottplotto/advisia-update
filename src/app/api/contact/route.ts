@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const body = await req.json();
 
-  const { firstName, lastName, company, email, message, besoin, taille } = body;
+  const { firstName, lastName, company, email, message, besoin, taille, secteur } = body;
 
-  if (!firstName || !lastName || !company || !email || !message) {
+  if (!firstName || !email || !message) {
     return NextResponse.json({ error: "Champs manquants" }, { status: 400 });
   }
 
@@ -27,15 +27,16 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         sender: { name: "Mon site", email: "hello@advisia.agency" },
         to: [
-          { email: "hello@advisia.agency", name: `${firstName} ${lastName}` },
+          { email: "hello@advisia.agency", name: `${firstName}${lastName ? ` ${lastName}` : ""}` },
         ],
         replyTo: { email },
         subject,
         htmlContent: `
-          <p><strong>Nom :</strong> ${firstName} ${lastName}</p>
-          <p><strong>Entreprise :</strong> ${company}</p>
+          <p><strong>Nom :</strong> ${firstName}${lastName ? ` ${lastName}` : ""}</p>
+          ${company ? `<p><strong>Entreprise :</strong> ${company}</p>` : ""}
           <p><strong>Email :</strong> ${email}</p>
           ${taille ? `<p><strong>Taille :</strong> ${taille}</p>` : ""}
+          ${secteur ? `<p><strong>Secteur :</strong> ${secteur}</p>` : ""}
           ${besoin ? `<p><strong>Besoin :</strong> ${besoin}</p>` : ""}
           <p><strong>Message :</strong><br/>${message}</p>
         `,
