@@ -1,18 +1,13 @@
 import Footer from "@/components/footer";
 import Hero from "@/components/home/hero";
 import StatsBar from "@/components/home/stats-bar";
-import InsightsPreview from "@/components/home/insights-preview";
-import ProjectsSection from "@/components/home/projects";
 import Services from "@/components/home/services";
-import Process from "@/components/home/process";
 import DecisionMatrix from "@/components/home/decision-matrix";
 import LogosConfiance from "@/components/logos-confiance";
-import NosOutils from "@/components/nos-outils";
-import PourquoiAdvisia from "@/components/pourquoi-advisia";
 import SectionCTAForm from "@/components/section-cta-form";
-import Testimonials from "@/components/home/testimonials";
-import PricingOverview from "@/components/home/pricing-overview";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
+import Process from "@/components/home/process";
+import TestimonialsCarousel from "@/components/home/testimonials-carousel";
 
 export const metadata = {
   title: "Agence IA & Automatisation pour PME | Advisia",
@@ -39,20 +34,13 @@ export default function Home() {
     <main className="relative">
       <VerticalFlowLine />
       <Hero />
-      <LogosConfiance />
       <DecisionMatrix />
-
       <Services />
+      <LogosConfiance />
       <Process />
+      <TestimonialsCarousel />
       <StatsBar />
-      <ProjectsSection />
-      {/* PLACEHOLDER : remplacer par de vrais témoignages clients */}
-      <Testimonials />
-      <PourquoiAdvisia />
-      <PricingOverview />
-      <InsightsPreview />
       <SectionCTAForm />
-      <NosOutils />
       <Footer />
     </main>
   );
