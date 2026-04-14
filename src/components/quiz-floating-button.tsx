@@ -7,7 +7,20 @@ interface QuizFloatingButtonProps {
   onOpen: () => void;
 }
 
-const HIDDEN_PATHS = ["/diagnostics", "/tarifs", "/prendre-rendez-vous", "/contact", "/resultat"];
+const HIDDEN_EXACT = [
+  "/diagnostics",
+  "/tarifs",
+  "/prendre-rendez-vous",
+  "/contact",
+  "/resultat",
+  "/cession-reprise",
+  "/accompagnement",
+  "/agence",
+  "/projets",
+  "/automatisations",
+];
+
+const HIDDEN_PREFIXES = ["/offres/", "/automatisations/", "/projets/", "/insights/"];
 
 export default function QuizFloatingButton({ onOpen }: QuizFloatingButtonProps) {
   const [visible, setVisible] = useState(false);
@@ -25,7 +38,11 @@ export default function QuizFloatingButton({ onOpen }: QuizFloatingButtonProps) 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (HIDDEN_PATHS.includes(pathname) || pathname.startsWith("/offres")) return null;
+  if (
+    HIDDEN_EXACT.includes(pathname) ||
+    HIDDEN_PREFIXES.some((p) => pathname.startsWith(p))
+  )
+    return null;
 
   const isShown = visible && !nearBottom;
 

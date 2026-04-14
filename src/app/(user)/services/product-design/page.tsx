@@ -8,11 +8,6 @@ import {
   RiDraftFill,
   RiPaletteFill,
   RiTestTubeFill,
-  RiCursorFill,
-  RiUserSearchFill,
-  RiFlowChart,
-  RiFlagFill,
-  RiSettings3Fill,
 } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
 import TrackedLink from "@/components/ui/tracked-link";
@@ -21,11 +16,11 @@ import SectionCTAForm from "@/components/section-cta-form";
 import LogosConfiance from "@/components/logos-confiance";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import SketchReveal from "@/components/hero-animations/SketchReveal";
-import ServiceCards from "@/components/ui/sections/service-cards";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import MidPageCTA from "@/components/ui/sections/mid-page-cta";
 import PageTestimonial from "@/components/page-testimonial";
-import DesignExpertiseGrid from "@/components/ui/sections/design-expertise-grid";
+import ExpertiseCarousel from "@/components/services/product-design/expertise-carousel";
+import SeoFooterText from "@/components/seo-footer-text";
 
 export const metadata = {
   title: "Design d'Interface et UX · Agence Advisia",
@@ -61,6 +56,37 @@ const SERVICE_WAYPOINTS = [
 ];
 
 const SERVICE_DOT_FRACTIONS = [0, 0.14, 0.28, 0.44, 0.60, 0.78, 0.92, 1.0];
+
+const methodSteps = [
+  {
+    number: "01",
+    title: "Analyse & Audit",
+    description:
+      "Analyse de l'existant, interviews utilisateurs, benchmark concurrentiel. On comprend avant de dessiner.",
+    icon: <RiSearchEyeFill size={20} />,
+  },
+  {
+    number: "02",
+    title: "Maquettes fonctionnelles & Prototypage",
+    description:
+      "Architecture de l'information, wireframes basse fidélité, prototypes interactifs Figma.",
+    icon: <RiDraftFill size={20} />,
+  },
+  {
+    number: "03",
+    title: "UI Design",
+    description:
+      "Design system cohérent, composants réutilisables, responsive. Chaque pixel a une raison d'être.",
+    icon: <RiPaletteFill size={20} />,
+  },
+  {
+    number: "04",
+    title: "Tests & Ajustements",
+    description:
+      "Tests utilisateurs, A/B testing, analytics. On mesure et on améliore en continu.",
+    icon: <RiTestTubeFill size={20} />,
+  },
+];
 
 export default function ProductDesign() {
   const questions = [
@@ -121,43 +147,47 @@ export default function ProductDesign() {
     <>
       <main className="relative">
         <VerticalFlowLine waypoints={SERVICE_WAYPOINTS} dotFractions={SERVICE_DOT_FRACTIONS} />
-        {/* 1. Hero */}
+        {/* 1. Hero — layout 60/40 */}
         <section className="overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
-          <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
-              <BulletHeadline as="p">Design d&apos;Interface</BulletHeadline>
-              <SketchReveal
-                text="Des interfaces que vos utilisateurs comprennent. Du premier clic."
-                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
-              />
-
-                <p className="max-w-xl text-muted-foreground">
-                  UI/UX Design centré sur la conversion. On ne fait pas du joli
-                  pour faire du joli — on conçoit des parcours qui transforment
-                  vos visiteurs en clients.
-                </p>
-                <div className="flex gap-8 items-center flex-wrap">
+          <div className="relative container-md pt-[95px]">
+            <div className="global-padding-x py-8 lg:py-16 w-full">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                {/* Left 60% */}
+                <div className="flex flex-col gap-6 lg:w-[60%]">
+                  <BulletHeadline as="p">Design d&apos;Interface</BulletHeadline>
+                  <SketchReveal
+                    text="Des interfaces que vos utilisateurs comprennent. Du premier clic."
+                    className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
+                  />
+                  <p className="max-w-xl text-muted-foreground">
+                    UI/UX Design centré sur la conversion. On ne fait pas du joli
+                    pour faire du joli — on conçoit des parcours qui transforment
+                    vos visiteurs en clients.
+                  </p>
                   <Button size="lg" asChild className="w-max">
                     <TrackedLink href="/contact?besoin=product-design" trackingLabel="analyser_besoin" trackingPage="product-design">
                       Analyser mon besoin — gratuit <RiCornerDownRightLine />
                     </TrackedLink>
                   </Button>
-                  <div className="flex gap-4 lg:gap-8 wrap">
-                    <div className="w-max">
-                      <p className="text-2xl">+10</p>
-                      <p className="text-sm ">Interfaces designées</p>
-                    </div>
-                    <div className="w-max border-l pl-4 lg:pl-8">
-                      <p className="text-2xl">&times;2</p>
-                      <p className="text-sm ">Taux de conversion moyen</p>
-                    </div>
-                    <div className="hidden sm:block w-max border-l pl-4 lg:pl-8">
-                      <p className="text-2xl">100%</p>
-                      <p className="text-sm ">Adoption utilisateur</p>
-                    </div>
+                </div>
+
+                {/* Right 40% — small KPI cards */}
+                <div className="flex flex-row lg:flex-col gap-3 lg:w-[40%] lg:pt-4 flex-wrap items-start lg:items-end">
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>+10</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Interfaces designées</p>
+                  </div>
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>&times;2</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Taux de conversion moyen</p>
+                  </div>
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>100%</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Adoption utilisateur</p>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
         </section>
@@ -165,102 +195,76 @@ export default function ProductDesign() {
         {/* 2. Logos confiance */}
         <LogosConfiance />
 
-        {/* 4. Contenu spécifique — Expertise Grid */}
-        <DesignExpertiseGrid
-          label="● Nos expertises"
-          heading="Ce qu'on maîtrise en Product Design."
-          cards={[
-            {
-              icon: <RiCursorFill size={22} />,
-              title: "UX/UI Design",
-              description:
-                "Des interfaces pensées pour être simples à comprendre et rapides à utiliser.",
-              illustration: "/services/product-design/ux-ui-design.svg",
-              illustrationAlt: "UX/UI Design",
-            },
-            {
-              icon: <RiUserSearchFill size={22} />,
-              title: "Recherche utilisateur",
-              description:
-                "Comprendre vos utilisateurs pour concevoir ce dont ils ont vraiment besoin.",
-              illustration: "/services/product-design/ux-research.svg",
-              illustrationAlt: "Recherche utilisateur",
-            },
-            {
-              icon: <RiFlowChart size={22} />,
-              title: "Parcours d'utilisation & Maquettes fonctionnelles",
-              description:
-                "Visualisation claire des parcours et priorisation des interactions clés.",
-              illustration:
-                "/services/product-design/ux-ui-user-flow-wireframe.svg",
-              illustrationAlt: "Parcours d'utilisation & Maquettes fonctionnelles",
-            },
-            {
-              icon: <RiFlagFill size={22} />,
-              title: "Prototypage",
-              description:
-                "Tester vos idées avant d'engager du temps et du budget dans le développement.",
-              illustration: "/services/product-design/ux-ui-prototypage.svg",
-              illustrationAlt: "Prototypage",
-            },
-            {
-              icon: <RiTestTubeFill size={22} />,
-              title: "Tests utilisateurs",
-              description:
-                "Validez les hypothèses et identifier les vrais irritants pour faire évoluer le produit dans le bon sens.",
-              illustration:
-                "/services/product-design/ux-ui-test-utilisateur.svg",
-              illustrationAlt: "Tests utilisateurs",
-            },
-            {
-              icon: <RiSettings3Fill size={22} />,
-              title: "Design System",
-              description:
-                "Assurer la cohérence, accélérer la production et préparer la croissance de votre produit.",
-              illustration:
-                "/services/product-design/ux-ui-design-system.svg",
-              illustrationAlt: "Design System",
-            },
-          ]}
-        />
+        {/* 3. Expertise carousel (3A) */}
+        <ExpertiseCarousel />
 
-        {/* 6. Méthode */}
-        <ServiceCards
-          label="● Notre approche"
-          heading="Du problème utilisateur à l'interface finale."
-          cards={[
-            {
-              icon: <RiSearchEyeFill size={24} />,
-              title: "Analyse & Audit",
-              description:
-                "Analyse de l'existant, interviews utilisateurs, benchmark concurrentiel. On comprend avant de dessiner.",
-              number: "01",
-            },
-            {
-              icon: <RiDraftFill size={24} />,
-              title: "Maquettes fonctionnelles & Prototypage",
-              description:
-                "Architecture de l'information, wireframes basse fidélité, prototypes interactifs Figma.",
-              number: "02",
-            },
-            {
-              icon: <RiPaletteFill size={24} />,
-              title: "UI Design",
-              description:
-                "Design system cohérent, composants réutilisables, responsive. Chaque pixel a une raison d'être.",
-              number: "03",
-            },
-            {
-              icon: <RiTestTubeFill size={24} />,
-              title: "Tests & Ajustements",
-              description:
-                "Tests utilisateurs, A/B testing, analytics. On mesure et on améliore en continu.",
-              number: "04",
-            },
-          ]}
-        />
+        {/* 4. Méthode — 2 colonnes alternées (3B) */}
+        <section
+          className="relative z-[2] py-12 md:py-16 px-4 md:px-8 lg:px-12"
+          style={{ background: "transparent" }}
+        >
+          <div className="max-w-[1400px] mx-auto">
+            <div className="section-label mb-6">&#9679; Notre approche</div>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-12 max-w-[700px]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Du problème utilisateur à l&apos;interface finale.
+            </h2>
 
-        {/* 7. NOS OFFRES + PROCHAINES ÉTAPES */}
+            <div className="flex flex-col">
+              {methodSteps.map((step, i) => {
+                const isEven = i % 2 === 0;
+                return (
+                  <div key={i}>
+                    <div
+                      className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12"
+                      style={{ padding: "48px 0" }}
+                    >
+                      {/* Number + title */}
+                      <div
+                        className={`flex flex-col gap-3 ${isEven ? "md:order-1" : "md:order-2"}`}
+                      >
+                        <span
+                          className="font-mono text-xs font-medium"
+                          style={{ color: "#c9fe6e" }}
+                        >
+                          {step.number}
+                        </span>
+                        <h3
+                          className="text-2xl md:text-3xl font-bold text-white"
+                          style={{ fontFamily: "var(--font-display)" }}
+                        >
+                          {step.title}
+                        </h3>
+                      </div>
+
+                      {/* Description */}
+                      <div
+                        className={`flex items-center ${isEven ? "md:order-2" : "md:order-1"}`}
+                      >
+                        <p
+                          className="text-base leading-relaxed"
+                          style={{ color: "rgba(255,255,255,0.65)" }}
+                        >
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {i < methodSteps.length - 1 && (
+                      <div
+                        style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* 5. NOS OFFRES */}
         <section
           className="py-10 lg:py-14"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
@@ -297,7 +301,7 @@ export default function ProductDesign() {
           </div>
         </section>
 
-        {/* 8. Témoignages */}
+        {/* 6. Témoignages */}
         <PageTestimonial
           testimonials={[
             {
@@ -314,19 +318,19 @@ export default function ProductDesign() {
           ]}
         />
 
-        {/* 9. MidPageCTA */}
+        {/* 7. MidPageCTA */}
         <MidPageCTA
           title="Votre interface est peu utilisée ou mal comprise ?"
           subtitle="C'est un problème de design, pas de technologie."
           buttonText="En parler avec un expert"
         />
 
-        {/* 11. FAQ */}
+        {/* 8. FAQ */}
         <div id="faq">
           <FAQCenter title={"On répond à vos questions"} questions={questions} />
         </div>
 
-        {/* 12. Formulaire contact */}
+        {/* 9. Formulaire contact */}
         <SectionCTAForm
           title={
             <>
@@ -335,6 +339,10 @@ export default function ProductDesign() {
               concevoir, améliorer ou repenser ?
             </>
           }
+        />
+
+        <SeoFooterText
+          text="Advisia conçoit des interfaces et expériences utilisateur pour les PME et startups françaises. Recherche utilisateur, maquettes Figma, design system, tests A/B. On design des produits que vos utilisateurs comprennent et adoptent."
         />
       </main>
       <Footer />

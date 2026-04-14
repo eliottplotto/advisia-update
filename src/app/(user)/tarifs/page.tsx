@@ -7,6 +7,7 @@ import { RiArrowRightUpLine } from "@remixicon/react";
 import TarifsTabs from "./tarifs-tabs";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import { Suspense } from "react";
+import SeoFooterText from "@/components/seo-footer-text";
 
 export const metadata = {
   title: "Tarifs et Offres Advisia",
@@ -278,6 +279,10 @@ export default function TarifsPage() {
             </ScrollReveal>
           </div>
         </section>
+
+        <SeoFooterText
+          text="Advisia affiche des prix fixes et transparents pour toutes ses offres : diagnostics, automatisation, développement web, formation, partenariat. Pas de devis opaque. Pas d'engagement caché. Des tarifs clairs pour des PME qui veulent investir en connaissance de cause."
+        />
       </main>
       <Footer />
     </>

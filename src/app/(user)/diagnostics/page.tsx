@@ -11,6 +11,7 @@ import PageTestimonial from "@/components/page-testimonial";
 import DiagnosticsGrid from "./diagnostics-grid";
 import DiagnosticsPacks from "./diagnostics-packs";
 import { Calendar } from "lucide-react";
+import SeoFooterText from "@/components/seo-footer-text";
 
 export const metadata = {
   title: "Diagnostics et Audits pour PME | Advisia",
@@ -40,6 +41,8 @@ const diagnostics = [
     delay: "48-72h",
     livrables: ["Rapport 3-5 pages", "Top 5 actions", "Chiffrage inclus"],
     slug: "diagnostic-digital-ia",
+    pourQui:
+      "Pour les dirigeants qui veulent identifier leurs priorités IA avant d'investir.",
   },
   {
     badge: "Sécurité",
@@ -51,6 +54,8 @@ const diagnostics = [
     delay: "24-48h",
     livrables: ["Rapport vulnérabilités", "Scoring risque", "Correctifs recommandés"],
     slug: "audit-securite",
+    pourQui:
+      "Pour les PME qui ont un site ou une app et n'ont jamais vérifié leur exposition aux failles.",
   },
   {
     badge: "Visibilité",
@@ -62,6 +67,8 @@ const diagnostics = [
     delay: "48-72h",
     livrables: ["Scoring SEO/SEM/GEO", "Quick wins", "Benchmark concurrents"],
     slug: "audit-visibilite",
+    pourQui:
+      "Pour ceux qui ne comprennent pas pourquoi leurs concurrents apparaissent avant eux sur Google.",
   },
   {
     badge: "E-réputation",
@@ -73,6 +80,8 @@ const diagnostics = [
     delay: "1-2 semaines",
     livrables: ["Graphe sémantique", "Mots-clés classés", "CSV structurés"],
     slug: "audit-e-reputation",
+    pourQui:
+      "Pour les dirigeants qui veulent savoir ce que le marché dit d'eux.",
   },
   {
     badge: "Cession & Reprise",
@@ -84,6 +93,8 @@ const diagnostics = [
     delay: "48-72h",
     livrables: ["Scoring 5 axes", "Top 10 actions", "Estimation gain valorisation"],
     slug: "audit-maturite-cession",
+    pourQui:
+      "Pour ceux qui préparent une cession ou évaluent une acquisition.",
   },
 ];
 
@@ -366,6 +377,10 @@ export default function DiagnosticsPage() {
         </section>
 
         <SectionCTAForm />
+
+        <SeoFooterText
+          text="Advisia réalise des diagnostics digitaux pour les PME françaises. Audit SEO, audit sécurité, diagnostic IA, audit e-réputation : des rapports actionnables livrés en 48-72h à prix fixe. Avant d'investir, sachez où vous en êtes."
+        />
       </main>
       <Footer />
     </>

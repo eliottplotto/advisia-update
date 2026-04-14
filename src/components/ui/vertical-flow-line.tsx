@@ -224,13 +224,13 @@ export default function VerticalFlowLine({
       >
         <defs>
           <linearGradient id="curveGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(124,58,237,0.5)" />
-            <stop offset="50%" stopColor="rgba(167,139,250,0.35)" />
-            <stop offset="100%" stopColor="rgba(201,254,110,0.5)" />
+            <stop offset="0%" stopColor="rgba(124,58,237,0.8)" />
+            <stop offset="50%" stopColor="rgba(167,139,250,0.6)" />
+            <stop offset="100%" stopColor="rgba(201,254,110,0.8)" />
           </linearGradient>
           <linearGradient id="glowGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(124,58,237,0.12)" />
-            <stop offset="100%" stopColor="rgba(201,254,110,0.12)" />
+            <stop offset="0%" stopColor="rgba(124,58,237,0.2)" />
+            <stop offset="100%" stopColor="rgba(201,254,110,0.2)" />
           </linearGradient>
           <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
@@ -245,7 +245,7 @@ export default function VerticalFlowLine({
           </filter>
         </defs>
 
-        <g style={{ mixBlendMode: "screen", opacity: 0.45 }}>
+        <g style={{ mixBlendMode: "screen", opacity: 0.75 }}>
           <path
             ref={glowPathRef}
             stroke="url(#glowGradient)"

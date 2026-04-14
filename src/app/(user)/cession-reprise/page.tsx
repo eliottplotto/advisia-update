@@ -14,6 +14,7 @@ import {
 } from "@remixicon/react";
 import PageTestimonial from "@/components/page-testimonial";
 import PacksToggle from "./packs-toggle";
+import SeoFooterText from "@/components/seo-footer-text";
 
 export const metadata = {
   title: "Valorisation Digitale — Cession et Reprise d'Entreprise | Advisia",
@@ -178,11 +179,20 @@ export default function CessionReprisePage() {
         >
           <div className="container-md pt-[95px]">
             <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
-              <div className="flex items-center justify-between flex-wrap">
+              <div className="flex items-center justify-between flex-wrap gap-4">
                 <BulletHeadline as="p">Cession & Reprise</BulletHeadline>
-                <div className="hidden lg:block flex-shrink-0 rounded-xl p-4 text-center" style={{ background: "rgba(201,254,110,0.06)", border: "1px solid rgba(201,254,110,0.15)" }}>
-                  <p className="text-2xl font-bold" style={{ color: "#c9fe6e" }}>+5 à +20%</p>
-                  <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>de valorisation estimée</p>
+                <div
+                  className="hidden lg:block flex-shrink-0 rounded-lg p-3 text-center"
+                  style={{
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.10)",
+                    width: 160,
+                  }}
+                >
+                  <p className="text-lg font-semibold" style={{ color: "#c9fe6e" }}>+5 à +20%</p>
+                  <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>
+                    de valorisation estimée
+                  </p>
                 </div>
               </div>
 
@@ -429,6 +439,10 @@ export default function CessionReprisePage() {
         </section>
 
         <SectionCTAForm />
+
+        <SeoFooterText
+          text="Advisia accompagne les dirigeants de PME dans les opérations de cession et reprise d'entreprise sous l'angle numérique. Audit de maturité digitale, valorisation, modernisation post-reprise. On transforme la maturité digitale en argument de négociation."
+        />
       </main>
       <Footer />
     </>

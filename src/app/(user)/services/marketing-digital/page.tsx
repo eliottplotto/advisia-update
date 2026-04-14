@@ -3,10 +3,6 @@ import Footer from "@/components/footer";
 import FAQFloatingButton from "@/components/faq-floating-button";
 import {
   RiCornerDownRightLine,
-  RiSearchLine,
-  RiGoogleFill,
-  RiMegaphoneFill,
-  RiFileTextFill,
   RiCompass3Fill,
   RiRocketFill,
   RiLineChartFill,
@@ -18,13 +14,14 @@ import { BulletHeadline } from "@/components/ui/bullet-headline";
 import SectionCTAForm from "@/components/section-cta-form";
 import LogosConfiance from "@/components/logos-confiance";
 import GraphReveal from "@/components/hero-animations/GraphReveal";
-import ServiceCards from "@/components/ui/sections/service-cards";
 import Steps1 from "@/components/ui/sections/steps-1";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import MidPageCTA from "@/components/ui/sections/mid-page-cta";
 import PageTestimonial from "@/components/page-testimonial";
 import OffresMarketingGrid from "./offres-marketing-grid";
+import LeviersAccordion from "@/components/services/marketing-digital/leviers-accordion";
+import SeoFooterText from "@/components/seo-footer-text";
 
 export const metadata = {
   title: "Marketing Digital & SEO pour PME | Agence Advisia",
@@ -125,43 +122,47 @@ export default function MarketingDigital() {
     <>
       <main className="relative">
         <VerticalFlowLine waypoints={SERVICE_WAYPOINTS} dotFractions={SERVICE_DOT_FRACTIONS} />
-        {/* 1. Hero */}
+        {/* 1. Hero — layout 60/40 */}
         <section className="overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
-          <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
-              <BulletHeadline as="p">Marketing Digital</BulletHeadline>
-              <GraphReveal
-                text="Plus de trafic. Plus de demandes clients. Moins de budget gaspillé."
-                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
-              />
-
-                <p className="max-w-xl text-muted-foreground">
-                  SEO, Google Ads, Meta Ads, LinkedIn Ads : on met en place
-                  votre acquisition digitale et on l&apos;optimise chaque
-                  semaine, data à l&apos;appui.
-                </p>
-                <div className="flex gap-8 items-center flex-wrap">
+          <div className="relative container-md pt-[95px]">
+            <div className="global-padding-x py-8 lg:py-16 w-full">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                {/* Left 60% */}
+                <div className="flex flex-col gap-6 lg:w-[60%]">
+                  <BulletHeadline as="p">Marketing Digital</BulletHeadline>
+                  <GraphReveal
+                    text="Plus de trafic. Plus de demandes clients. Moins de budget gaspillé."
+                    className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
+                  />
+                  <p className="max-w-xl text-muted-foreground">
+                    SEO, Google Ads, Meta Ads, LinkedIn Ads : on met en place
+                    votre acquisition digitale et on l&apos;optimise chaque
+                    semaine, data à l&apos;appui.
+                  </p>
                   <Button size="lg" asChild className="w-max">
                     <TrackedLink href="/contact?besoin=marketing-digital" trackingLabel="analyser_besoin" trackingPage="marketing-digital">
                       Analyser mon besoin — gratuit <RiCornerDownRightLine />
                     </TrackedLink>
                   </Button>
-                  <div className="flex gap-4 lg:gap-8 wrap">
-                    <div className="w-max">
-                      <p className="text-2xl">&times;3</p>
-                      <p className="text-sm ">ROI moyen sur les campagnes</p>
-                    </div>
-                    <div className="w-max border-l pl-4 lg:pl-8">
-                      <p className="text-2xl">+150%</p>
-                      <p className="text-sm ">Trafic organique en 6 mois</p>
-                    </div>
-                    <div className="hidden sm:block w-max border-l pl-4 lg:pl-8">
-                      <p className="text-2xl">-40%</p>
-                      <p className="text-sm ">Coût par lead</p>
-                    </div>
+                </div>
+
+                {/* Right 40% — small KPI cards */}
+                <div className="flex flex-row lg:flex-col gap-3 lg:w-[40%] lg:pt-4 flex-wrap items-start lg:items-end">
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>&times;3</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>ROI moyen sur les campagnes</p>
+                  </div>
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>+150%</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Trafic organique en 6 mois</p>
+                  </div>
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>-40%</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Coût par lead</p>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
         </section>
@@ -169,49 +170,16 @@ export default function MarketingDigital() {
         {/* 2. Logos confiance */}
         <LogosConfiance />
 
-        {/* 4. Contenu spécifique */}
-        <ServiceCards
-          label="● Nos leviers"
-          heading="4 leviers pour votre acquisition."
-          cards={[
-            {
-              icon: <RiSearchLine size={24} />,
-              title: "SEO",
-              description:
-                "Audit technique, stratégie de contenu, netlinking. On vous fait monter dans Google durablement, pas avec des hacks.",
-              number: "01",
-            },
-            {
-              icon: <RiGoogleFill size={24} />,
-              title: "Google Ads (SEA)",
-              description:
-                "Campagnes sur Google : recherche, produits, visibilité maximale. Budget optimisé, reporting transparent.",
-              number: "02",
-            },
-            {
-              icon: <RiMegaphoneFill size={24} />,
-              title: "Social Ads",
-              description:
-                "Meta, LinkedIn, TikTok Ads. Ciblage précis, visuels qui convertissent, montée en puissance progressive.",
-              number: "03",
-            },
-            {
-              icon: <RiFileTextFill size={24} />,
-              title: "Stratégie de contenu",
-              description:
-                "Calendriers éditoriaux, articles SEO, posts LinkedIn, newsletters. Du contenu qui attire et qui convertit.",
-              number: "04",
-            },
-          ]}
-        />
+        {/* 3. Leviers accordion (4A) */}
+        <LeviersAccordion />
 
-        {/* 6. Méthode */}
+        {/* 4. Méthode */}
         <Steps1
           title="Notre méthode"
           steps={processSteps}
         />
 
-        {/* 7. NOS OFFRES + PROCHAINES ÉTAPES */}
+        {/* 5. NOS OFFRES */}
         <section
           className="py-10 lg:py-14"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
@@ -230,7 +198,7 @@ export default function MarketingDigital() {
           </div>
         </section>
 
-        {/* 8. Témoignages */}
+        {/* 6. Témoignages */}
         <PageTestimonial
           testimonials={[
             {
@@ -246,19 +214,19 @@ export default function MarketingDigital() {
           ]}
         />
 
-        {/* 9. MidPageCTA */}
+        {/* 7. MidPageCTA */}
         <MidPageCTA
           title="Vous investissez en pub sans savoir ce que ça rapporte vraiment ?"
           subtitle="On audite ça."
           buttonText="Demander un audit gratuit"
         />
 
-        {/* 11. FAQ */}
+        {/* 8. FAQ */}
         <div id="faq">
           <FAQCenter title={"On répond à vos questions"} questions={questions} />
         </div>
 
-        {/* 12. Formulaire contact */}
+        {/* 9. Formulaire contact */}
         <SectionCTAForm
           title={
             <>
@@ -266,6 +234,10 @@ export default function MarketingDigital() {
               <span className="text-nowrap text-highlight">clients ?</span>
             </>
           }
+        />
+
+        <SeoFooterText
+          text="Advisia gère les campagnes digitales des PME françaises : SEO, Google Ads, Meta Ads, LinkedIn Ads, stratégie de contenu et GEO. On pilote vos leviers d'acquisition avec reporting transparent chaque semaine. L'objectif : des leads qualifiés au bon coût, pas des impressions."
         />
       </main>
       <Footer />

@@ -8,7 +8,6 @@ import {
   RiPlugFill,
   RiHandHeartFill,
 } from "@remixicon/react";
-import Solutions from "@/components/services/automatisations-ia/solutions";
 import OffresIAGrid from "./offres-ia-grid";
 import { Button } from "@/components/ui/button";
 import TrackedLink from "@/components/ui/tracked-link";
@@ -22,6 +21,8 @@ import { LeaderSecteur } from "@/components/services/automatisations-ia/leader-s
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import MidPageCTA from "@/components/ui/sections/mid-page-cta";
 import PageTestimonial from "@/components/page-testimonial";
+import ApprochBlocs from "@/components/services/automatisations-ia/approche-blocs";
+import SeoFooterText from "@/components/seo-footer-text";
 
 export const metadata = {
   title: "Agents IA & Automatisation pour PME | Agence Advisia",
@@ -127,60 +128,53 @@ export default function AutomatisationsIA() {
     <>
       <main className="relative">
         <VerticalFlowLine waypoints={SERVICE_WAYPOINTS} dotFractions={SERVICE_DOT_FRACTIONS} />
-        {/* 1. Hero */}
+        {/* 1. Hero — layout 60/40 */}
         <section className="w-full overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
-          <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
-              <div className="flex items-center justify-between flex-wrap">
-                <div className="flex items-center gap-4 flex-wrap">
-                  <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    À partir de <span style={{ color: "#c9fe6e" }}>390 €</span>
-                  </span>
+          <div className="relative container-md pt-[95px]">
+            <div className="global-padding-x py-8 lg:py-16 w-full">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                {/* Left 60% */}
+                <div className="flex flex-col gap-6 lg:w-[60%]">
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <BulletHeadline as="p">Automatisations & IA</BulletHeadline>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      À partir de <span style={{ color: "#c9fe6e" }}>390 €</span>
+                    </span>
+                  </div>
+                  <PixelReveal
+                    text="Vos équipes perdent 10h par semaine sur des tâches que l'IA peut faire."
+                    className="text-3xl lg:text-4xl xl:text-5xl lg:max-w-4xl"
+                  />
+                  <p className="max-w-xl text-muted-foreground">
+                    Agence IA pour PME en France, on conçoit des agents IA et des automatisations qui
+                    éliminent le travail répétitif. Résultat : vos équipes se
+                    concentrent sur ce qui compte.
+                  </p>
+                  <Button size="lg" asChild className="w-max">
+                    <TrackedLink href="/contact?besoin=automatisation-ia" trackingLabel="analyser_besoin" trackingPage="automatisations-ia">
+                      Analyser mon besoin — gratuit <RiCornerDownRightLine />
+                    </TrackedLink>
+                  </Button>
                 </div>
-                <div className="hidden lg:block flex-shrink-0 rounded-xl p-4 text-center" style={{ background: "rgba(201,254,110,0.06)", border: "1px solid rgba(201,254,110,0.15)" }}>
-                  <p className="text-2xl font-bold" style={{ color: "#c9fe6e" }}>2-3 jours</p>
-                  <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>pour la 1ère automatisation</p>
-                </div>
-              </div>
-              <PixelReveal
-                text="Vos équipes perdent 10h par semaine sur des tâches que l'IA peut faire."
-                className="text-3xl lg:text-4xl xl:text-5xl lg:max-w-4xl"
-              />
 
-              <p className="max-w-xl text-muted-foreground">
-                Agence IA pour PME en France, on conçoit des agents IA et des automatisations qui
-                éliminent le travail répétitif. Résultat : vos équipes se
-                concentrent sur ce qui compte.
-              </p>
-
-              <div className="flex gap-8 items-center flex-wrap">
-                <Button size="lg" asChild className="w-max">
-                  <TrackedLink href="/contact?besoin=automatisation-ia" trackingLabel="analyser_besoin" trackingPage="automatisations-ia">
-                    Analyser mon besoin — gratuit <RiCornerDownRightLine />
-                  </TrackedLink>
-                </Button>
-              </div>
-              <div className="flex gap-4 lg:gap-8 flex-wrap">
-                <div className="w-max">
-                  <p className="text-2xl">40%</p>
-                  <p className="text-sm ">Gain de productivité moyen</p>
-                </div>
-                <div className="w-max border-l pl-4 lg:pl-8">
-                  <p className="text-2xl">+10h</p>
-                  <p className="text-sm ">Gagnées par semaine</p>
-                </div>
-                <div className="hidden sm:block w-max border-l pl-4 lg:pl-8">
-                  <p className="text-2xl">+15</p>
-                  <p className="text-sm ">Automatisations livrées</p>
+                {/* Right 40% — small KPI cards */}
+                <div className="flex flex-row lg:flex-col gap-3 lg:w-[40%] lg:pt-4 flex-wrap items-start lg:items-end">
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>+10h</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Gagnées par semaine</p>
+                  </div>
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>+50</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Automatisations livrées</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3. C'est pour vous si */}
+        {/* 2. C'est pour vous si */}
         <section className="py-8" style={{ background: "rgba(255,255,255,0.03)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="container-md global-padding-x">
             <p className="font-mono text-xs uppercase tracking-[0.15em] mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>
@@ -213,14 +207,10 @@ export default function AutomatisationsIA() {
                 </div>
               ))}
             </div>
-
           </div>
         </section>
 
-        {/* 2. Logos confiance */}
-        <LogosConfiance />
-
-        {/* 4. Contenu spécifique */}
+        {/* 3. Ce qu'on automatise — with "En savoir plus" links */}
         <LeaderSecteur
           heading="Ce qu'on automatise pour vous"
           subheading="Choisissez le type de tâche que vous voulez ne plus jamais faire manuellement."
@@ -229,43 +219,52 @@ export default function AutomatisationsIA() {
               icon: "Target",
               heading: "Prospection & Acquisition",
               description:
-                "Vous cherchez de nouveaux clients manuellement. Vos commerciaux perdent du temps à qualifier des contacts qui ne convertiront jamais. → Détection automatique des prospects chauds. Qualification IA avant le premier appel. Vos commerciaux ne parlent qu'aux bons interlocuteurs.",
+                "Automatisez la collecte, qualification et relance de vos prospects.",
+              link: "/automatisations/prospection",
             },
             {
               icon: "MessageCircle",
               heading: "Relation client & Support",
               description:
-                "Les mêmes questions reviennent chaque jour. Vos équipes répondent au lieu de vendre. → Réponses automatiques 24h/24. Escalade humaine uniquement si nécessaire. Satisfaction client améliorée sans embauche.",
+                "Répondez automatiquement à 80% des demandes, 24h/24.",
+              link: "/automatisations/relation-client",
             },
             {
               icon: "BarChart2",
               heading: "Reporting & Pilotage",
               description:
-                "Vos tableaux de bord se construisent à la main chaque semaine. Vous pilotez avec des données qui ont 3 jours de retard. → Reporting généré automatiquement chaque matin. Alertes en temps réel sur les écarts. Vous décidez sur des données fraîches.",
+                "Votre dashboard se génère seul chaque matin.",
+              link: "/automatisations/reporting",
             },
             {
               icon: "Search",
               heading: "Veille & Benchmark",
               description:
-                "Vous ne savez pas ce que font vos concurrents en temps réel. La veille se fait quand quelqu'un a le temps. → Surveillance automatique de vos concurrents, de votre marché, de vos mots-clés. Synthèse IA livrée chaque semaine.",
+                "Surveillance automatique de vos concurrents. Synthèse hebdomadaire.",
+              link: "/automatisations/veille",
             },
             {
               icon: "FileText",
               heading: "Traitement de documents",
               description:
-                "Vos équipes saisissent les mêmes données dans plusieurs outils. Devis, factures, contrats — tout se fait à la main. → Extraction automatique, saisie zéro, synchronisation entre vos logiciels. Vos équipes font autre chose.",
+                "Extraction automatique, saisie zéro, synchro entre logiciels.",
+              link: "/automatisations/documents",
             },
             {
               icon: "Megaphone",
               heading: "Marketing & Contenu",
               description:
-                "Vos campagnes se lancent trop rarement parce que ça prend trop de temps à préparer. → Calendrier éditorial automatisé. Emails personnalisés envoyés au bon moment. Campagnes qui tournent sans intervention.",
+                "Calendrier éditorial automatisé. Campagnes qui tournent sans intervention.",
+              link: "/automatisations/marketing",
             },
           ]}
         />
 
-        {/* 5. Solutions */}
-        <Solutions />
+        {/* 4. Logos confiance */}
+        <LogosConfiance />
+
+        {/* 5. Approche — 3 blocs horizontaux */}
+        <ApprochBlocs />
 
         {/* 6. Méthode */}
         <Steps1 title="Notre méthodologie" steps={processSteps} />
@@ -313,12 +312,12 @@ export default function AutomatisationsIA() {
           buttonText="Analyser mon besoin — gratuit"
         />
 
-        {/* 11. FAQ */}
+        {/* 10. FAQ */}
         <div id="faq">
           <FAQCenter title={"On répond à vos questions"} questions={questions} />
         </div>
 
-        {/* 12. Formulaire contact */}
+        {/* 11. Formulaire contact */}
         <SectionCTAForm
           title={
             <>
@@ -326,6 +325,10 @@ export default function AutomatisationsIA() {
               <span className="text-nowrap text-highlight">projet IA ?</span>
             </>
           }
+        />
+
+        <SeoFooterText
+          text="Advisia est une agence IA et automatisation pour PME en France. On conçoit et déploie des automatisations sur n8n, Make et Zapier pour éliminer les tâches répétitives et libérer vos équipes. Basés en France, on accompagne des PME de 5 à 200 salariés dans tous les secteurs : commerce, industrie, services, santé, logistique."
         />
       </main>
       <Footer />

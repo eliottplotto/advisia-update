@@ -26,6 +26,7 @@ import OffresWebGrid from "./offres-web-grid";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import MidPageCTA from "@/components/ui/sections/mid-page-cta";
 import PageTestimonial from "@/components/page-testimonial";
+import SeoFooterText from "@/components/seo-footer-text";
 
 export const metadata = {
   title: "Création de Site Web Professionnel · Agence Advisia",
@@ -147,47 +148,51 @@ export default function SiteWeb() {
     <>
       <main className="relative">
         <VerticalFlowLine waypoints={SERVICE_WAYPOINTS} dotFractions={SERVICE_DOT_FRACTIONS} />
-        {/* 1. Hero */}
+        {/* 1. Hero — layout 60/40 */}
         <section className="overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)", color: "var(--text-primary)" }}>
           <div className="relative container-md pt-[95px]">
-            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
-              <div className="flex items-center gap-4 flex-wrap">
-                <BulletHeadline as="p">Développement Web</BulletHeadline>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                  À partir de <span style={{ color: "#c9fe6e" }}>690 €</span>
-                </span>
-              </div>
-              <CodeCompile
-                text="Des sites qui chargent en moins d'une seconde. Et qui convertissent."
-                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
-              />
-
-                <p className="max-w-xl text-muted-foreground">
-                  Sites vitrines, boutiques en ligne, apps métier : on construit
-                  des outils web qui vont vite, qui durent, et que vous pouvez
-                  gérer vous-même.
-                </p>
-                <div className="flex gap-8 items-center flex-wrap">
+            <div className="global-padding-x py-8 lg:py-16 w-full">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                {/* Left 60% */}
+                <div className="flex flex-col gap-6 lg:w-[60%]">
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <BulletHeadline as="p">Développement Web</BulletHeadline>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      À partir de <span style={{ color: "#c9fe6e" }}>690 €</span>
+                    </span>
+                  </div>
+                  <CodeCompile
+                    text="Des sites qui chargent en moins d'une seconde. Et qui convertissent."
+                    className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
+                  />
+                  <p className="max-w-xl text-muted-foreground">
+                    Sites vitrines, boutiques en ligne, apps métier : on construit
+                    des outils web qui vont vite, qui durent, et que vous pouvez
+                    gérer vous-même.
+                  </p>
                   <Button size="lg" asChild className="w-max">
                     <TrackedLink href="/contact?besoin=site-web" trackingLabel="analyser_besoin" trackingPage="agence-web">
                       Analyser mon besoin — gratuit <RiCornerDownRightLine />
                     </TrackedLink>
                   </Button>
-                  <div className="flex gap-4 lg:gap-8 wrap">
-                    <div className="w-max">
-                      <p className="text-2xl">+10</p>
-                      <p className="text-sm ">Projets réalisés</p>
-                    </div>
-                    <div className="w-max border-l pl-4 lg:pl-8">
-                      <p className="text-2xl">98/100</p>
-                      <p className="text-sm ">Score Lighthouse</p>
-                    </div>
-                    <div className="hidden sm:block w-max border-l pl-4 lg:pl-8">
-                      <p className="text-2xl">&lt;1s</p>
-                      <p className="text-sm ">Temps de chargement</p>
-                    </div>
+                </div>
+
+                {/* Right 40% — small KPI cards */}
+                <div className="flex flex-row lg:flex-col gap-3 lg:w-[40%] lg:pt-4 flex-wrap items-start lg:items-end">
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>+10</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Projets réalisés</p>
                   </div>
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>98/100</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Score Lighthouse</p>
+                  </div>
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>&lt;1s</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Temps de chargement</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -196,7 +201,7 @@ export default function SiteWeb() {
         {/* 2. Logos confiance */}
         <LogosConfiance />
 
-        {/* 4. Contenu spécifique */}
+        {/* 3. Ce qu'on construit */}
         <ServiceCards
           label="● Ce qu'on construit"
           heading="Du site vitrine au SaaS complet."
@@ -204,43 +209,37 @@ export default function SiteWeb() {
             {
               icon: <RiWindow2Fill size={24} />,
               title: "Sites vitrines",
-              description:
-                "Votre vitrine en ligne, optimisée SEO, rapide, responsive. De la landing page au site corporate multi-pages.",
+              description: "Votre présence en ligne rapide et référencée.",
               number: "01",
             },
             {
               icon: <RiShoppingCart2Fill size={24} />,
               title: "E-commerce",
-              description:
-                "Shopify, WooCommerce ou sur-mesure. Catalogues produits, paiement, gestion de stock, analytics intégrés.",
+              description: "Vendez en ligne 24h/24 sans friction technique.",
               number: "02",
             },
             {
               icon: <RiDashboardFill size={24} />,
               title: "Applications SaaS",
-              description:
-                "Dashboards, portails clients, outils métier. Architecture évolutive, accès sécurisé, données synchronisées en temps réel.",
+              description: "Un outil sur mesure pour votre métier.",
               number: "03",
             },
             {
               icon: <RiBuilding2Fill size={24} />,
               title: "Intranets & outils internes",
-              description:
-                "Centraliser vos données, piloter vos équipes, automatiser vos reportings. Comme celui qu'on a construit pour LCT.",
+              description: "Centralisez vos données, pilotez vos équipes.",
               number: "04",
             },
           ]}
         />
 
-        <TechStack />
-
-        {/* 6. Méthode */}
+        {/* 4. Méthode */}
         <Steps1
           title="Notre méthode de développement"
           steps={processSteps}
         />
 
-        {/* 7. NOS OFFRES + PROCHAINES ÉTAPES */}
+        {/* 5. NOS OFFRES + PROCHAINES ÉTAPES */}
         <section
           className="py-10 lg:py-14"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
@@ -259,7 +258,7 @@ export default function SiteWeb() {
           </div>
         </section>
 
-        {/* 8. Témoignages */}
+        {/* 6. Témoignages */}
         <PageTestimonial
           testimonials={[
             {
@@ -276,19 +275,27 @@ export default function SiteWeb() {
           ]}
         />
 
-        {/* 9. MidPageCTA */}
+        {/* 7. MidPageCTA */}
         <MidPageCTA
           title="Vous avez un projet web en tête ?"
           subtitle="On vous chiffre en 48h."
           buttonText="Demander une estimation"
         />
 
-        {/* 11. FAQ */}
+        {/* 8. Stack technique — déplacé en bas */}
+        <div>
+          <p className="text-xs text-center pt-8 pb-0 uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.35)" }}>
+            Pour ceux qui veulent les détails techniques
+          </p>
+          <TechStack />
+        </div>
+
+        {/* 9. FAQ */}
         <div id="faq">
           <FAQCenter title={"On répond à vos questions"} questions={questions} />
         </div>
 
-        {/* 12. Formulaire contact */}
+        {/* 10. Formulaire contact */}
         <SectionCTAForm
           title={
             <>
@@ -296,6 +303,10 @@ export default function SiteWeb() {
               <span className="text-nowrap text-highlight">projet web ?</span>
             </>
           }
+        />
+
+        <SeoFooterText
+          text="Advisia conçoit et développe des sites web et applications pour les PME françaises. Stack Next.js, performances optimisées, SEO natif, CMS Sanity pour une autonomie totale. On livre des sites qui chargent en moins d'une seconde et génèrent des contacts qualifiés — pas des vitrines statiques."
         />
       </main>
       <Footer />

@@ -30,6 +30,7 @@ interface Diagnostic {
   delay: string;
   livrables: string[];
   slug: string;
+  pourQui?: string;
 }
 
 export default function DiagnosticsGrid({ diagnostics }: { diagnostics: Diagnostic[] }) {
@@ -57,29 +58,37 @@ export default function DiagnosticsGrid({ diagnostics }: { diagnostics: Diagnost
               {/* Ligne cliquable */}
               <button
                 onClick={() => setOpenIndex(isOpen ? null : i)}
-                className="w-full text-left px-6 py-5 flex items-center gap-4 transition-colors duration-200 hover:bg-white/[0.02]"
+                className="w-full text-left px-6 py-5 flex items-center gap-5 transition-colors duration-200 hover:bg-white/[0.02]"
               >
-                <span
-                  className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[10px] uppercase tracking-widest flex-shrink-0"
-                  style={{
-                    background: "rgba(124,58,237,0.15)",
-                    border: "1px solid rgba(124,58,237,0.3)",
-                    color: "var(--violet)",
-                  }}
+                <Icon
+                  size={18}
+                  className="flex-shrink-0"
+                  style={{ color: isOpen ? "#c9fe6e" : "rgba(255,255,255,0.55)" }}
+                />
+                <h3
+                  className="text-base font-bold flex-shrink-0 lg:w-[38%] min-w-0"
+                  style={{ fontFamily: "var(--font-display)" }}
                 >
-                  <Icon size={10} />
-                  {d.badge}
-                </span>
-                <h3 className="text-base font-bold flex-1" style={{ fontFamily: "var(--font-display)" }}>
                   {d.title}
                 </h3>
-                <span className="text-lg font-bold flex-shrink-0" style={{ color: "#c9fe6e" }}>
-                  {d.price}
+                {d.pourQui && (
+                  <p
+                    className="hidden lg:block text-sm italic flex-1 leading-snug"
+                    style={{ color: "rgba(255,255,255,0.55)" }}
+                  >
+                    {d.pourQui}
+                  </p>
+                )}
+                <span
+                  className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider flex-shrink-0 whitespace-nowrap transition-colors duration-200"
+                  style={{ color: isOpen ? "#c9fe6e" : "rgba(255,255,255,0.55)" }}
+                >
+                  {isOpen ? "Réduire" : "En savoir plus →"}
                 </span>
                 <motion.span
                   animate={{ rotate: isOpen ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
-                  className="text-xs flex-shrink-0 ml-2"
+                  className="text-xs flex-shrink-0 ml-1"
                   style={{ color: "rgba(255,255,255,0.5)" }}
                 >
                   ▼
@@ -115,11 +124,17 @@ export default function DiagnosticsGrid({ diagnostics }: { diagnostics: Diagnost
                             ))}
                           </ul>
                         </div>
-                        {/* Droite — délai + CTA */}
+                        {/* Droite — prix + délai + CTA */}
                         <div className="flex flex-col justify-between md:min-w-[220px] md:border-l md:pl-6" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-                          <div className="mb-4">
-                            <p className="text-xs font-mono uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>Délai</p>
-                            <p className="text-sm font-semibold">{d.delay}</p>
+                          <div className="mb-4 space-y-3">
+                            <div>
+                              <p className="text-xs font-mono uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>Prix</p>
+                              <p className="text-xl font-bold" style={{ color: "#c9fe6e" }}>{d.price}</p>
+                            </div>
+                            <div>
+                              <p className="text-xs font-mono uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>Délai</p>
+                              <p className="text-sm font-semibold">{d.delay}</p>
+                            </div>
                           </div>
                           <button
                             onClick={() => openDrawer(d.slug)}

@@ -8,8 +8,8 @@ import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import Link from "next/link";
 import { RiArrowRightUpLine } from "@remixicon/react";
 import PageTestimonial from "@/components/page-testimonial";
-import AccompagnementFormations from "./accompagnement-formations";
-import AccompagnementPartenariats from "./accompagnement-partenariats";
+import FormationPartenariatToggle from "./formation-partenariat-toggle";
+import SeoFooterText from "@/components/seo-footer-text";
 
 export const metadata = {
   title: "Formation IA et Partenariat Mensuel | Advisia",
@@ -72,91 +72,60 @@ export default function AccompagnementPage() {
       <main className="relative" style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}>
         <VerticalFlowLine waypoints={PAGE_WAYPOINTS} dotFractions={PAGE_DOT_FRACTIONS} />
 
-        {/* HERO */}
+        {/* HERO — layout 60/40 */}
         <section
           className="w-full overflow-hidden"
           style={{ background: "rgba(10,10,15,0.85)" }}
         >
-          <div className="container-md pt-[95px]">
-            <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
-              <BulletHeadline as="p">Formation & Accompagnement</BulletHeadline>
-              <HandshakeReveal
-                text="Votre investissement porte ses fruits après la livraison."
-                className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
-              />
-              <p className="text-lg max-w-xl" style={{ color: "var(--text-secondary)" }}>
-                Formation de vos équipes, suivi mensuel, évolutions continues. On reste dans la durée pour que votre investissement continue de porter ses fruits.
-              </p>
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  href="/tarifs?category=partenariat"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
-                  style={{ background: "#c9fe6e", color: "#0a0a0f" }}
-                >
-                  Choisir ma formule <RiArrowRightUpLine size={16} />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm transition-all duration-300 hover:bg-[rgba(124,58,237,0.1)]"
-                  style={{ border: "1px solid rgba(124,58,237,0.3)", color: "var(--text-primary)" }}
-                >
-                  Parler à un expert <RiArrowRightUpLine size={16} />
-                </Link>
+          <div className="relative container-md pt-[95px]">
+            <div className="global-padding-x py-8 lg:py-16 w-full">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                {/* Left 60% */}
+                <div className="flex flex-col gap-6 lg:w-[60%]">
+                  <BulletHeadline as="p">Formation & Accompagnement</BulletHeadline>
+                  <HandshakeReveal
+                    text="Votre investissement porte ses fruits après la livraison."
+                    className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
+                  />
+                  <p className="text-lg max-w-xl" style={{ color: "var(--text-secondary)" }}>
+                    Formation de vos équipes, suivi mensuel, évolutions continues. On reste dans la durée pour que votre investissement continue de porter ses fruits.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm w-max transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
+                    style={{ background: "#c9fe6e", color: "#0a0a0f" }}
+                  >
+                    Parler à un expert <RiArrowRightUpLine size={16} />
+                  </Link>
+                </div>
+
+                {/* Right 40% — small KPI cards */}
+                <div className="flex flex-row lg:flex-col gap-3 lg:w-[40%] lg:pt-4 flex-wrap items-start lg:items-end">
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>+50</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Équipes formées</p>
+                  </div>
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>1 mois</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Sans engagement</p>
+                  </div>
+                  <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", width: 160 }}>
+                    <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>&lt;24h</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Réponse support</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* FORMATIONS — hover expand 50/50 */}
+        {/* CHOIX FORMATION / PARTENARIAT */}
         <section
-          className="py-10 lg:py-16"
+          className="py-10 md:py-14 lg:py-16"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
           <div className="container-md global-padding-x">
-            <ScrollReveal>
-              <div className="section-label mb-4">&#9679; Formations</div>
-              <h2
-                className="text-3xl lg:text-4xl font-bold mb-4"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Vos équipes maîtrisent-elles déjà l&apos;IA ?
-              </h2>
-              <p className="mb-8 max-w-xl" style={{ color: "var(--text-secondary)" }}>
-                Des formats courts et opérationnels pour que vos dirigeants et équipes comprennent et utilisent l&apos;IA au quotidien.
-              </p>
-            </ScrollReveal>
-
-            <AccompagnementFormations />
-          </div>
-        </section>
-
-        {/* PARTENARIAT MENSUEL */}
-        <section
-          className="py-10 lg:py-16"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "#0D0D14" }}
-        >
-          <div className="container-md global-padding-x">
-            <ScrollReveal>
-              <div className="section-label mb-4">&#9679; Partenariat mensuel</div>
-              <h2
-                className="text-3xl lg:text-4xl font-bold mb-4"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Vos outils sont en place. Et après ?
-              </h2>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9fe6e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="11" x="5" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
-                <span className="text-sm" style={{ color: "#c9fe6e" }}>Mensuel, résiliable à tout moment.</span>
-              </div>
-              <p className="mb-4 max-w-2xl" style={{ color: "var(--text-secondary)" }}>
-                Vous avez un site, des automatisations ou des outils IA — que ce soit nous qui les ayons construits ou non. Le partenariat, c&apos;est quelqu&apos;un qui les surveille, les fait évoluer et vous conseille. Sans que vous ayez à gérer la technique.
-              </p>
-              <p className="mb-12 max-w-2xl text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
-                Contrats mensuels, sans engagement de durée. Vous arrêtez quand vous voulez.
-              </p>
-            </ScrollReveal>
-
-            <AccompagnementPartenariats />
+            <FormationPartenariatToggle />
           </div>
         </section>
 
@@ -244,6 +213,10 @@ export default function AccompagnementPage() {
         </section>
 
         <SectionCTAForm />
+
+        <SeoFooterText
+          text="Advisia propose des formations IA et des partenariats mensuels pour les PME françaises. Workshop dirigeants, formation équipes, suivi technique mensuel. On ne disparaît pas après la livraison."
+        />
       </main>
       <Footer />
     </>
