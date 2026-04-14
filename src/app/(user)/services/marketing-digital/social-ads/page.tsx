@@ -1,6 +1,7 @@
 import MarketingLandingTemplate, {
   type MarketingLandingContent,
 } from "@/components/marketing-landing/template";
+import { seoSiloSocialAds } from "@/lib/seo-silo-content";
 
 export const metadata = {
   title:
@@ -97,6 +98,7 @@ const content: MarketingLandingContent = {
   ),
   seoFooter:
     "Advisia conçoit et gère les campagnes Meta Ads (Facebook, Instagram) et LinkedIn Ads pour les PME françaises. Production des créatives, ciblage précis (poste, secteur, comportement, lookalike), optimisation hebdomadaire et reporting transparent. On accompagne PME B2B, e-commerce, formation, services. Pas d'engagement minimum, vous arrêtez à la fin de n'importe quel mois.",
+  seoSilo: seoSiloSocialAds,
 };
 
 export default function MarketingDigitalSocialAdsPage() {

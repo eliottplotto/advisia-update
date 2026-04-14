@@ -1,6 +1,7 @@
 import MarketingLandingTemplate, {
   type MarketingLandingContent,
 } from "@/components/marketing-landing/template";
+import { seoSiloSeo } from "@/lib/seo-silo-content";
 
 export const metadata = {
   title:
@@ -96,6 +97,7 @@ const content: MarketingLandingContent = {
   ),
   seoFooter:
     "Advisia conçoit et pilote des stratégies SEO pour les PME françaises : audit technique, mots-clés longue traîne, production de contenu optimisé, netlinking et suivi mensuel des positions. Notre approche est durable — pas de raccourcis qui se retournent au prochain update Google. Basés en France, on accompagne des PME de tous secteurs : commerce, services aux entreprises, santé, industrie, tourisme.",
+  seoSilo: seoSiloSeo,
 };
 
 export default function MarketingDigitalSeoPage() {

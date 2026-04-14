@@ -12,6 +12,8 @@ import DiagnosticsGrid from "./diagnostics-grid";
 import DiagnosticsPacks from "./diagnostics-packs";
 import { Calendar } from "lucide-react";
 import SeoFooterText from "@/components/seo-footer-text";
+import SeoSiloSection from "@/components/seo-silo-section";
+import { seoSiloDiagnostics } from "@/lib/seo-silo-content";
 
 export const metadata = {
   title: "Diagnostics et Audits pour PME | Advisia",
@@ -377,6 +379,8 @@ export default function DiagnosticsPage() {
         </section>
 
         <SectionCTAForm />
+
+        <SeoSiloSection content={seoSiloDiagnostics} />
 
         <SeoFooterText
           text="Advisia réalise des diagnostics digitaux pour les PME françaises. Audit SEO, audit sécurité, diagnostic IA, audit e-réputation : des rapports actionnables livrés en 48-72h à prix fixe. Avant d'investir, sachez où vous en êtes."

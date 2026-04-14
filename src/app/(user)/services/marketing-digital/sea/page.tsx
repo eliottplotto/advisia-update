@@ -1,6 +1,7 @@
 import MarketingLandingTemplate, {
   type MarketingLandingContent,
 } from "@/components/marketing-landing/template";
+import { seoSiloSea } from "@/lib/seo-silo-content";
 
 export const metadata = {
   title:
@@ -98,6 +99,7 @@ const content: MarketingLandingContent = {
   ),
   seoFooter:
     "Advisia gère les campagnes Google Ads des PME françaises : audit, structuration, optimisation hebdomadaire et reporting transparent. Notre forfait de gestion est fixe, sans commission sur le budget média. Le compte Google Ads et le budget restent toujours chez vous. On travaille avec des PME locales, B2B, e-commerce et services dans toute la France.",
+  seoSilo: seoSiloSea,
 };
 
 export default function MarketingDigitalSeaPage() {

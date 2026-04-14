@@ -1,6 +1,7 @@
 import MarketingLandingTemplate, {
   type MarketingLandingContent,
 } from "@/components/marketing-landing/template";
+import { seoSiloGeo } from "@/lib/seo-silo-content";
 
 export const metadata = {
   title:
@@ -98,6 +99,7 @@ const content: MarketingLandingContent = {
   ),
   seoFooter:
     "Advisia accompagne les PME françaises sur le GEO (Generative Engine Optimization) et la stratégie de contenu : audit de présence sur ChatGPT, Perplexity et Google AI Overviews, production de contenu structuré pour les moteurs IA, distribution multi-canaux et mesure mensuelle. Le GEO est un levier émergent — agir maintenant donne une avance considérable sur des concurrents qui n'ont pas encore commencé.",
+  seoSilo: seoSiloGeo,
 };
 
 export default function MarketingDigitalGeoPage() {

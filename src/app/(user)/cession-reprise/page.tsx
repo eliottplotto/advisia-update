@@ -15,6 +15,8 @@ import {
 import PageTestimonial from "@/components/page-testimonial";
 import PacksToggle from "./packs-toggle";
 import SeoFooterText from "@/components/seo-footer-text";
+import SeoSiloSection from "@/components/seo-silo-section";
+import { seoSiloCessionReprise } from "@/lib/seo-silo-content";
 
 export const metadata = {
   title: "Valorisation Digitale — Cession et Reprise d'Entreprise | Advisia",
@@ -439,6 +441,8 @@ export default function CessionReprisePage() {
         </section>
 
         <SectionCTAForm />
+
+        <SeoSiloSection content={seoSiloCessionReprise} />
 
         <SeoFooterText
           text="Advisia accompagne les dirigeants de PME dans les opérations de cession et reprise d'entreprise sous l'angle numérique. Audit de maturité digitale, valorisation, modernisation post-reprise. On transforme la maturité digitale en argument de négociation."

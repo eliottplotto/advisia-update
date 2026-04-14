@@ -4,6 +4,8 @@ import ScrollReveal from "@/components/ui/scroll-reveal";
 import SectionCTAForm from "@/components/section-cta-form";
 import OfferFaq from "@/app/(user)/offres/[slug]/offer-faq";
 import SeoFooterText from "@/components/seo-footer-text";
+import SeoSiloSection from "@/components/seo-silo-section";
+import type { SeoSiloContent } from "@/lib/seo-silo-content";
 
 export interface MarketingLandingContent {
   heroTag: string;
@@ -17,6 +19,7 @@ export interface MarketingLandingContent {
   faqItems: { question: string; answer: string }[];
   ctaTitle: React.ReactNode;
   seoFooter?: string;
+  seoSilo?: SeoSiloContent;
 }
 
 export default function MarketingLandingTemplate({
@@ -224,7 +227,10 @@ export default function MarketingLandingTemplate({
           <SectionCTAForm title={content.ctaTitle} />
         </div>
 
-        {/* 8. SEO FOOTER TEXT */}
+        {/* 8. SEO SILO — long-form content */}
+        {content.seoSilo && <SeoSiloSection content={content.seoSilo} />}
+
+        {/* 9. SEO FOOTER TEXT — signature courte */}
         {content.seoFooter && <SeoFooterText text={content.seoFooter} />}
       </main>
       <Footer />
