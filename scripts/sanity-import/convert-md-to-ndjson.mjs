@@ -135,6 +135,50 @@ function mdToPortableText(md) {
     if (line.trim() === "---") continue;
     if (line.trim() === "") continue;
 
+    // Tableau markdown : collecte toutes les lignes consécutives commençant par |
+    // puis on rend chaque row en h4 + liste à puces pour un rendu lisible
+    // (on évite les pipes aplatis qui se retrouvent dans un paragraphe normal)
+    if (/^\s*\|/.test(line) && line.includes("|")) {
+      const tableLines = [];
+      let j = i;
+      while (j < lines.length && /^\s*\|/.test(lines[j])) {
+        tableLines.push(lines[j]);
+        j++;
+      }
+      const rows = tableLines
+        .map((l) =>
+          l
+            .replace(/^\s*\|/, "")
+            .replace(/\|\s*$/, "")
+            .split("|")
+            .map((c) => c.trim())
+        )
+        .filter((cells) => !cells.every((c) => /^[-:\s]*$/.test(c)));
+
+      if (rows.length >= 2) {
+        const [headers, ...body] = rows;
+        // Render each data row as a paragraph with bold first-cell + dashed list of other cells
+        for (const row of body) {
+          const [firstCell, ...restCells] = row;
+          const label = firstCell.trim();
+          const values = restCells
+            .map((c, idx) => `${headers[idx + 1]} : ${c}`)
+            .join(" · ");
+          const paragraphText = `**${label}** — ${values}`;
+          const { children, markDefs } = parseInline(paragraphText);
+          blocks.push({
+            _type: "block",
+            _key: nextKey(),
+            style: "normal",
+            markDefs,
+            children,
+          });
+        }
+      }
+      i = j - 1;
+      continue;
+    }
+
     // Headings
     const h2 = line.match(/^## (.+)$/);
     const h3 = line.match(/^### (.+)$/);

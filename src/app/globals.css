@@ -260,6 +260,16 @@ html {
   to { transform: rotate(360deg); }
 }
 
+@keyframes float-up {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-40px) translateX(15px); }
+}
+
+@keyframes float-down {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(30px) translateX(-20px); }
+}
+
 /* ====== V2 DESIGN SYSTEM ====== */
 
 /* Gradient text utility */

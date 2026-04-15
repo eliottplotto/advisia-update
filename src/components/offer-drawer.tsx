@@ -205,16 +205,23 @@ export default function OfferDrawer({ isOpen, offerId, onClose }: OfferDrawerPro
                       <Link
                         href={`/offres/${offerId}`}
                         onClick={onClose}
-                        className="flex items-center justify-between mt-4 p-3 rounded-lg transition-all duration-200 border border-white/10 hover:border-[#c9fe6e]"
-                        style={{ background: "rgba(255,255,255,0.05)" }}
+                        className="group flex items-center justify-between mt-4 p-4 rounded-lg transition-all duration-200 border hover:-translate-y-[1px]"
+                        style={{
+                          background: "rgba(201,254,110,0.06)",
+                          borderColor: "rgba(201,254,110,0.25)",
+                        }}
                       >
-                        <div>
-                          <p className="font-medium text-sm text-white">Pas encore décidé ?</p>
-                          <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>
-                            Découvrez le détail complet de cette offre
-                          </p>
-                        </div>
-                        <ArrowRight size={16} style={{ color: "rgba(255,255,255,0.4)" }} />
+                        <p
+                          className="font-semibold text-sm"
+                          style={{ color: "#c9fe6e" }}
+                        >
+                          Retrouver le détail de cette offre
+                        </p>
+                        <ArrowRight
+                          size={16}
+                          className="transition-transform duration-200 group-hover:translate-x-0.5"
+                          style={{ color: "#c9fe6e" }}
+                        />
                       </Link>
                     )}
                   </>
