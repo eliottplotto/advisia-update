@@ -411,9 +411,9 @@ export default async function ArticlePage({ params }: Props) {
       <ArticleEnhancements />
 
       <article>
-        {/* ─── HERO ARTICLE — MAGAZINE STYLE ───────────────────── */}
+        {/* ─── HERO ARTICLE — 2-COL LAYOUT (text gauche / cover droite) ── */}
         <section
-          className="relative overflow-hidden pt-28 md:pt-36 pb-12 md:pb-16 px-4 md:px-8 lg:px-12"
+          className="relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-20 px-4 md:px-8 lg:px-12"
           style={{ background: "var(--bg-primary)" }}
         >
           {/* Ambient gradient */}
@@ -426,115 +426,140 @@ export default async function ArticlePage({ params }: Props) {
             }}
           />
 
-          <div className="relative max-w-4xl mx-auto">
-            {/* Breadcrumb + category pill */}
-            <div className="flex items-center gap-4 flex-wrap mb-8">
-              <nav
-                className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.15em]"
-                style={{ color: "rgba(255,255,255,0.45)" }}
+          <div className="relative max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              {/* Left : text block */}
+              <div
+                className={`${
+                  article.coverImage ? "lg:col-span-7" : "lg:col-span-12"
+                } order-2 lg:order-1`}
               >
-                <Link
-                  href="/insights"
-                  className="hover:text-white transition-colors"
-                >
-                  Insights
-                </Link>
-                <span>—</span>
-                <span
-                  className="inline-block px-3 py-1 rounded-full font-mono text-[0.65rem] font-semibold uppercase tracking-[0.15em]"
-                  style={{ color: cat.color, background: cat.bg }}
-                >
-                  {cat.label}
-                </span>
-              </nav>
-            </div>
-
-            {/* Title */}
-            <h1
-              className="text-[2.2rem] sm:text-4xl md:text-5xl lg:text-[3.6rem] font-black leading-[1.05] tracking-[-0.025em] mb-8 max-w-4xl"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              {article.title}
-            </h1>
-
-            {/* Excerpt */}
-            {article.excerpt && (
-              <p
-                className="text-lg md:text-xl lg:text-[1.35rem] font-light italic leading-[1.4] mb-10 max-w-3xl"
-                style={{
-                  color: "rgba(255,255,255,0.65)",
-                  fontFamily: "var(--font-display)",
-                }}
-              >
-                {article.excerpt}
-              </p>
-            )}
-
-            {/* Meta row */}
-            <div
-              className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-6"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
-            >
-              {article.author && (
-                <div className="flex items-center gap-2">
-                  <span
-                    className="font-mono text-xs uppercase tracking-[0.12em]"
-                    style={{ color: "rgba(255,255,255,0.4)" }}
+                {/* Breadcrumb + category pill */}
+                <div className="flex items-center gap-4 flex-wrap mb-7">
+                  <nav
+                    className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.15em]"
+                    style={{ color: "rgba(255,255,255,0.45)" }}
                   >
-                    Par
-                  </span>
-                  <span
-                    className="font-semibold text-sm"
-                    style={{ color: "rgba(255,255,255,0.9)" }}
-                  >
-                    {article.author}
-                  </span>
+                    <Link
+                      href="/insights"
+                      className="hover:text-white transition-colors"
+                    >
+                      Insights
+                    </Link>
+                    <span>—</span>
+                    <span
+                      className="inline-block px-3 py-1 rounded-full font-mono text-[0.65rem] font-semibold uppercase tracking-[0.15em]"
+                      style={{ color: cat.color, background: cat.bg }}
+                    >
+                      {cat.label}
+                    </span>
+                  </nav>
                 </div>
-              )}
-              {date && (
-                <span
-                  className="text-sm font-mono"
-                  style={{ color: "rgba(255,255,255,0.55)" }}
+
+                {/* Title */}
+                <h1
+                  className="text-[2rem] sm:text-[2.4rem] md:text-[3rem] lg:text-[3rem] xl:text-[3.4rem] font-black leading-[1.05] tracking-[-0.025em] mb-6"
+                  style={{ fontFamily: "var(--font-display)" }}
                 >
-                  {date}
-                </span>
-              )}
-              {article.readTime && (
-                <span
-                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.12em] px-3 py-1 rounded-full"
-                  style={{
-                    background: "rgba(201,254,110,0.08)",
-                    border: "1px solid rgba(201,254,110,0.2)",
-                    color: "#c9fe6e",
-                  }}
+                  {article.title}
+                </h1>
+
+                {/* Excerpt */}
+                {article.excerpt && (
+                  <p
+                    className="text-base md:text-lg lg:text-[1.2rem] font-light italic leading-[1.45] mb-8"
+                    style={{
+                      color: "rgba(255,255,255,0.65)",
+                      fontFamily: "var(--font-display)",
+                    }}
+                  >
+                    {article.excerpt}
+                  </p>
+                )}
+
+                {/* Meta row */}
+                <div
+                  className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-5"
+                  style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
                 >
-                  ● {article.readTime} min de lecture
-                </span>
+                  {article.author && (
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="font-mono text-xs uppercase tracking-[0.12em]"
+                        style={{ color: "rgba(255,255,255,0.4)" }}
+                      >
+                        Par
+                      </span>
+                      <span
+                        className="font-semibold text-sm"
+                        style={{ color: "rgba(255,255,255,0.9)" }}
+                      >
+                        {article.author}
+                      </span>
+                    </div>
+                  )}
+                  {date && (
+                    <span
+                      className="text-sm font-mono"
+                      style={{ color: "rgba(255,255,255,0.55)" }}
+                    >
+                      {date}
+                    </span>
+                  )}
+                  {article.readTime && (
+                    <span
+                      className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.12em] px-3 py-1 rounded-full"
+                      style={{
+                        background: "rgba(201,254,110,0.08)",
+                        border: "1px solid rgba(201,254,110,0.2)",
+                        color: "#c9fe6e",
+                      }}
+                    >
+                      ● {article.readTime} min
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Right : cover image (if any) */}
+              {article.coverImage && (
+                <div className="lg:col-span-5 order-1 lg:order-2">
+                  <div
+                    className="relative w-full overflow-hidden rounded-2xl mx-auto"
+                    style={{
+                      aspectRatio: "4 / 5",
+                      maxWidth: 440,
+                      boxShadow:
+                        "0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(201,254,110,0.05)",
+                      border: "1px solid rgba(255,255,255,0.06)",
+                    }}
+                  >
+                    <Image
+                      src={urlFor(article.coverImage)
+                        .width(900)
+                        .height(1125)
+                        .url()}
+                      alt={article.coverImage.alt || article.title || ""}
+                      fill
+                      sizes="(max-width: 1024px) 90vw, 440px"
+                      className="object-cover"
+                      priority
+                    />
+                    {/* subtle top gradient for visual depth */}
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "linear-gradient(to bottom, rgba(10,10,15,0.15), transparent 40%, transparent 80%, rgba(10,10,15,0.3))",
+                      }}
+                    />
+                  </div>
+                </div>
               )}
             </div>
           </div>
         </section>
-
-        {/* ─── COVER IMAGE ─────────────────────────────────────── */}
-        {article.coverImage && (
-          <section
-            className="relative z-[2] px-4 md:px-8 lg:px-12 pb-12 md:pb-16"
-            style={{ background: "var(--bg-primary)" }}
-          >
-            <div className="max-w-5xl mx-auto">
-              <div className="relative w-full overflow-hidden rounded-2xl">
-                <Image
-                  src={urlFor(article.coverImage).width(1600).height(900).url()}
-                  alt={article.coverImage.alt || article.title || ""}
-                  width={1600}
-                  height={900}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
-              </div>
-            </div>
-          </section>
-        )}
 
         {/* ─── BODY ─────────────────────────────────────────────── */}
         <section

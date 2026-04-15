@@ -143,7 +143,7 @@ function TableOfContents({
   return (
     <nav
       aria-label="Table des matières"
-      className="hidden xl:block fixed top-32 left-8 z-[5] max-w-[200px] pointer-events-auto"
+      className="hidden 2xl:block fixed top-32 left-6 z-[5] max-w-[180px] pointer-events-auto"
     >
       <p
         className="font-mono text-[10px] uppercase tracking-[0.2em] mb-4 flex items-center gap-2"
