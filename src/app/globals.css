@@ -255,6 +255,11 @@ html {
   animation: shine 8s linear infinite;
 }
 
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* ====== V2 DESIGN SYSTEM ====== */
 
 /* Gradient text utility */
