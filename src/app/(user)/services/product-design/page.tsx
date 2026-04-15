@@ -21,6 +21,7 @@ import MidPageCTA from "@/components/ui/sections/mid-page-cta";
 import PageTestimonial from "@/components/page-testimonial";
 import ExpertiseCarousel from "@/components/services/product-design/expertise-carousel";
 import SeoFooterText from "@/components/seo-footer-text";
+import OffresDesignGrid from "./offres-design-grid";
 
 export const metadata = {
   title: "Design d'Interface et UX · Agence Advisia",
@@ -271,25 +272,7 @@ export default function ProductDesign() {
         >
           <div className="container-md global-padding-x">
             <p className="section-label mb-8">● Nos offres design</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-              {[
-                { title: "Audit UX", price: "À partir de 990 €", href: "/contact?besoin=product-design" },
-                { title: "Refonte interface complète", price: "Sur devis", href: "/contact?besoin=product-design" },
-              ].map((offer, i) => (
-                <a
-                  key={i}
-                  href={offer.href}
-                  className="flex flex-col gap-3 p-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5 border border-white/[0.08] hover:border-[#c9fe6e]"
-                  style={{ background: "rgba(255,255,255,0.05)" }}
-                >
-                  <h3 className="font-bold text-white">{offer.title}</h3>
-                  <p className="text-lg font-bold" style={{ color: "#c9fe6e" }}>{offer.price}</p>
-                  <div className="flex justify-end mt-auto pt-2">
-                    <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.45)" }}>Voir le détail →</span>
-                  </div>
-                </a>
-              ))}
-            </div>
+            <OffresDesignGrid />
             <div className="flex flex-wrap gap-3 mt-6">
               <a href="/tarifs" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:border-[#c9fe6e] hover:-translate-y-0.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.7)" }}>
                 Voir tous nos tarifs →

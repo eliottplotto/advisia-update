@@ -1584,6 +1584,233 @@ const content: Record<string, OfferDrawerContent> = {
   },
 };
 
+// ─── Product Design & Marketing complémentaires ────────────────────
+content["audit-ux"] = {
+  offerName: "Audit UX",
+  offerPrice: "À partir de 990 €",
+  offerDelay: "1-2 semaines",
+  offerContext:
+    "Votre site ou votre application existe, mais les utilisateurs n'en font pas ce que vous espériez : taux de conversion bas, parcours abandonnés, fonctionnalités ignorées. L'Audit UX identifie précisément où ça coince et pourquoi.",
+  offerBenefits: [
+    "Vous comprenez les points de friction exacts qui plombent vos conversions",
+    "Vous repartez avec une liste d'améliorations priorisées par impact business",
+    "Vous évitez de redévelopper ce qui marche déjà et de casser ce qui fonctionne",
+  ],
+  offerIncludes: [
+    "Analyse heuristique complète du produit (Nielsen, WCAG 2.2)",
+    "Revue des parcours critiques avec heatmaps si analytics disponibles",
+    "10 à 15 recommandations UX priorisées par impact",
+    "Rapport de 15-25 pages + maquettes des correctifs clés",
+    "Session de restitution 1h avec l'équipe produit",
+  ],
+  metaTitle: "Audit UX pour PME et produits SaaS | Advisia",
+  metaDescription:
+    "Audit UX complet pour identifier les points de friction de votre produit. Rapport priorisé, maquettes des correctifs. À partir de 990 €.",
+  heroTag: "DESIGN D'INTERFACE",
+  heroH1: "Votre produit est bien conçu. Vos utilisateurs ne le voient pas.",
+  heroSubtitle:
+    "En 1-2 semaines, on identifie les frictions qui tuent vos conversions et on vous donne un plan de correction priorisé par impact.",
+  stats: [
+    { value: "88%", label: "des utilisateurs ne reviennent pas après une mauvaise expérience (Amazon Web Services 2024)" },
+    { value: "+400%", label: "de conversion possible avec une UX bien conçue (Forrester)" },
+    { value: "1€", label: "investi en UX = 100€ économisés en développement (IBM)" },
+  ],
+  editorialTitle:
+    "L'UX n'est pas un luxe. C'est ce qui fait la différence entre un produit utilisé et un produit abandonné.",
+  editorialText:
+    "Trop de PME investissent dans le développement sans challenger l'expérience utilisateur. Résultat : des produits techniquement corrects, visuellement acceptables, mais que personne n'utilise vraiment. L'Audit UX confronte votre interface à la réalité des usages. On identifie les irritants, on les priorise par impact business, et on vous livre des maquettes concrètes des corrections à faire.",
+  bigNumber: "68%",
+  bigNumberLabel:
+    "des parcours d'achat sont abandonnés à cause de frictions UX évitables (Baymard Institute 2024)",
+  process: [
+    {
+      title: "Brief & accès au produit",
+      text: "Call de 45 min pour comprendre vos enjeux business, vos personas et les parcours critiques à auditer.",
+    },
+    {
+      title: "Audit heuristique + analyse comportementale",
+      text: "Revue complète du produit selon les heuristiques de Nielsen et WCAG 2.2. Croisement avec vos données analytics si disponibles.",
+    },
+    {
+      title: "Rapport + maquettes + restitution",
+      text: "Livraison d'un rapport structuré avec recommandations priorisées et maquettes Figma des correctifs clés. Session de restitution 1h.",
+    },
+  ],
+  pourVousSi:
+    "Cet audit est fait pour vous si vous avez un produit digital (site, app, SaaS, intranet) qui ne convertit pas comme vous l'espériez. Si vos utilisateurs abandonnent en cours de route. Si vous voulez prioriser intelligemment votre prochaine refonte au lieu de tout refaire.",
+  faqItems: [
+    {
+      question: "Faut-il un accès aux analytics pour l'audit ?",
+      answer:
+        "Pas obligatoire, mais fortement recommandé. Avec Google Analytics, Hotjar ou Mixpanel, on croise les données quantitatives avec l'analyse qualitative pour des recommandations plus précises.",
+    },
+    {
+      question: "Auditez-vous les sites, les apps, les deux ?",
+      answer:
+        "Les trois : sites vitrines, e-commerce, applications web, applications mobiles, SaaS B2B, intranets. On adapte la méthode au contexte.",
+    },
+    {
+      question: "Livrez-vous les maquettes de la refonte complète ?",
+      answer:
+        "L'audit inclut les maquettes des correctifs prioritaires. Pour une refonte complète, c'est l'offre 'Refonte interface complète' qui prend le relais.",
+    },
+  ],
+};
+
+content["refonte-interface"] = {
+  offerName: "Refonte interface complète",
+  offerPrice: "Sur devis",
+  offerDelay: "4-8 semaines",
+  offerContext:
+    "Votre interface a vieilli, elle n'est plus alignée avec votre positionnement ou elle n'est plus adaptée aux usages actuels. Une refonte complète replace le produit au niveau qu'il devrait avoir.",
+  offerBenefits: [
+    "Une interface alignée avec votre positionnement actuel et vos ambitions",
+    "Des parcours retravaillés pour convertir mieux et plus vite",
+    "Un design system cohérent et maintenable pour vos équipes tech",
+  ],
+  offerIncludes: [
+    "Phase discovery : interviews utilisateurs, audit de l'existant, benchmark",
+    "Architecture de l'information et wireframes basse fidélité",
+    "Maquettes UI haute fidélité Figma (toutes les pages clés)",
+    "Design system complet : composants, tokens, guidelines",
+    "Prototype interactif testable + handoff développeurs",
+    "Support pendant la phase de développement",
+  ],
+  metaTitle: "Refonte interface complète pour PME | Advisia",
+  metaDescription:
+    "Refonte UI/UX complète de votre produit digital : recherche, maquettes Figma, design system, prototype. 4 à 8 semaines. Sur devis.",
+  heroTag: "DESIGN D'INTERFACE",
+  heroH1: "Quand un correctif ne suffit plus. Refonte complète, pensée pour la décennie.",
+  heroSubtitle:
+    "Recherche utilisateur, maquettes haute fidélité, design system cohérent, prototype testable. On reconstruit votre interface en 4 à 8 semaines.",
+  stats: [
+    { value: "2,5x", label: "d'engagement utilisateur moyen après une refonte UX structurée (Nielsen Norman 2024)" },
+    { value: "50%", label: "de réduction des tickets support grâce à une interface plus claire" },
+    { value: "70%", label: "des projets tech qui échouent à cause d'une UX défaillante (Standish Group)" },
+  ],
+  editorialTitle:
+    "Une refonte n'est pas un lifting. C'est une remise à plat de ce que votre produit doit accomplir.",
+  editorialText:
+    "On commence par la recherche utilisateur — pas par les maquettes. Qu'est-ce que vos utilisateurs essaient vraiment de faire ? Où échouent-ils aujourd'hui ? Qu'est-ce qui les fait revenir ? Ensuite vient l'architecture de l'information : quelle hiérarchie, quels parcours, quels raccourcis. Puis les wireframes, puis les maquettes UI, puis le design system. Chaque étape est validée avec vous avant d'aller plus loin.",
+  bigNumber: "4-8",
+  bigNumberLabel:
+    "semaines pour une refonte complète incluant recherche, maquettes, design system et prototype",
+  process: [
+    {
+      title: "Discovery & recherche (1-2 semaines)",
+      text: "Interviews utilisateurs, audit de l'existant, benchmark concurrentiel, définition des personas et parcours clés.",
+    },
+    {
+      title: "Architecture & wireframes (1 semaine)",
+      text: "Arborescence, flux utilisateurs, wireframes basse fidélité validés avant de passer au design.",
+    },
+    {
+      title: "Design UI & design system (2-4 semaines)",
+      text: "Maquettes haute fidélité de toutes les pages clés, composants réutilisables, tokens de design.",
+    },
+    {
+      title: "Prototype & handoff (1 semaine)",
+      text: "Prototype interactif Figma testable, documentation développeurs, handoff avec spécifications.",
+    },
+  ],
+  pourVousSi:
+    "Cette refonte est pour vous si votre produit a plus de 3 ans, si votre positionnement a évolué, si les retours utilisateurs convergent vers des frustrations récurrentes. Ou si vous lancez une v2 majeure et voulez repartir sur des bases solides. Ce n'est pas pour vous si un simple audit UX suffit — commencez par l'Audit UX.",
+  faqItems: [
+    {
+      question: "Faut-il avoir une équipe de développement prête ?",
+      answer:
+        "Pas nécessairement. La refonte livre des maquettes et un design system exploitables ensuite par vos devs ou les nôtres. Si vous n'avez pas d'équipe, on vous chiffre le développement en complément.",
+    },
+    {
+      question: "Travaillez-vous sur Figma exclusivement ?",
+      answer:
+        "Oui. Figma est notre outil principal : partage temps réel, prototype interactif, handoff développeurs. Vous gardez l'accès au fichier après la mission.",
+    },
+    {
+      question: "Faites-vous les tests utilisateurs ?",
+      answer:
+        "Oui. Inclus dans la phase discovery et à nouveau sur le prototype avant handoff. 5 à 8 tests modérés à distance selon les parcours à valider.",
+    },
+  ],
+};
+
+content["accompagnement-marketing"] = {
+  offerName: "Accompagnement Marketing",
+  offerPrice: "Sur devis",
+  offerDelay: "Contrat mensuel, sans engagement",
+  offerContext:
+    "Vous avez besoin d'un pilotage complet de votre acquisition digitale : SEO, Google Ads, Social Ads, contenu. L'accompagnement marketing mensuel est le bon format quand vos besoins dépassent une offre unique et que vous cherchez un partenaire sur la durée.",
+  offerBenefits: [
+    "Un pilotage cross-canal cohérent — pas des silos SEO, SEA et Social séparés",
+    "Un reporting hebdomadaire transparent avec KPI business, pas vanity metrics",
+    "Une stratégie ajustée chaque mois selon les performances réelles",
+  ],
+  offerIncludes: [
+    "Audit de vos canaux actuels et de vos campagnes en cours",
+    "Stratégie d'acquisition cross-canal 12 mois avec objectifs chiffrés",
+    "Gestion opérationnelle SEO / SEA / Social Ads selon votre mix",
+    "Production de contenu (articles, landing pages, créatives ads)",
+    "Reporting hebdomadaire + call de pilotage mensuel",
+    "Support Slack / email en jours ouvrés",
+  ],
+  metaTitle: "Accompagnement Marketing Digital PME | Advisia",
+  metaDescription:
+    "Pilotage marketing digital mensuel pour PME : SEO, Google Ads, Social Ads, contenu. Reporting hebdomadaire, sans engagement. Sur devis.",
+  heroTag: "MARKETING DIGITAL",
+  heroH1: "Un partenaire marketing à l'année. Pas une mission one-shot.",
+  heroSubtitle:
+    "Pilotage complet de votre acquisition digitale : SEO, Google Ads, Social Ads, contenu. Reporting hebdomadaire, ajustements continus, contrat mensuel.",
+  stats: [
+    { value: "3x", label: "de ROI moyen sur les campagnes pilotées en continu vs one-shot (HubSpot 2024)" },
+    { value: "61%", label: "de CPL inférieur via un canal SEO mature vs une acquisition purement payante" },
+    { value: "x2", label: "de trafic qualifié en 6-9 mois quand SEO et SEA sont pilotés ensemble" },
+  ],
+  editorialTitle:
+    "Le marketing digital n'est pas un projet. C'est une pratique qui s'améliore avec les données.",
+  editorialText:
+    "Une campagne SEO lancée et abandonnée 3 mois plus tard ne donne rien. Un compte Google Ads figé sans optimisation hebdomadaire brûle du budget. Une stratégie de contenu sans cadence ne construit aucune autorité. L'accompagnement mensuel existe parce que le marketing digital demande du temps et de la constance. On s'engage sur la durée pour que chaque levier monte progressivement en puissance et que les canaux se nourrissent mutuellement.",
+  bigNumber: "12 mois",
+  bigNumberLabel:
+    "l'horizon minimum pour qu'une stratégie SEO + SEA + Social produise un ROI stable et cumulatif",
+  process: [
+    {
+      title: "Audit initial & stratégie (semaines 1-2)",
+      text: "On audite vos canaux actuels, on identifie les gains rapides et on bâtit une stratégie 12 mois avec KPI business.",
+    },
+    {
+      title: "Déploiement (mois 1-3)",
+      text: "Mise en place des campagnes, optimisation technique SEO, production des premiers contenus, config du tracking cross-canal.",
+    },
+    {
+      title: "Pilotage continu (à partir du mois 2)",
+      text: "Optimisation hebdomadaire des campagnes, production de contenu mensuel, reporting hebdo + call de pilotage mensuel.",
+    },
+    {
+      title: "Évolution (mois 6+)",
+      text: "Selon les données, on renforce les canaux qui performent, on teste de nouveaux leviers, on ajuste le mix.",
+    },
+  ],
+  pourVousSi:
+    "Cet accompagnement est pour vous si vous voulez un partenaire marketing sur la durée, pas une prestation one-shot. Si vous avez besoin d'un pilotage cross-canal cohérent. Si vous êtes prêts à investir dans le marketing digital comme dans une pratique business stratégique, pas comme une dépense ponctuelle.",
+  faqItems: [
+    {
+      question: "Quel budget minimum pour démarrer ?",
+      answer:
+        "À partir de 1 500 € / mois de forfait Advisia, auquel s'ajoute votre budget média (Google Ads, Meta Ads, etc.) qui reste directement sur vos comptes. On calibre le forfait selon les canaux pilotés.",
+    },
+    {
+      question: "Suis-je engagé sur une durée minimum ?",
+      answer:
+        "Non. Contrat mensuel, préavis d'un mois. On reste parce que les résultats sont là, pas parce qu'un contrat vous bloque. Mais on s'engage mutuellement à donner 6 mois minimum pour que les leviers produisent leur plein effet.",
+    },
+    {
+      question: "Qui produit les contenus et les créatives ads ?",
+      answer:
+        "Nous. Articles SEO, landing pages, créatives statiques et vidéos courtes. Rédaction et design inclus dans le forfait. Vous validez avant publication.",
+    },
+  ],
+};
+
 // Aliases
 content["audit-ereputation"] = content["audit-e-reputation"];
 content["audit-maturite-cession"] = content["audit-cession-reprise"];

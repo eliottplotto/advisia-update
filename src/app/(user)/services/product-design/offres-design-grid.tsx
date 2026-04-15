@@ -4,20 +4,20 @@ import { useDrawer } from "@/lib/drawer-store";
 
 const offers = [
   {
-    title: "Audit Visibilité",
-    price: "490 €",
-    delay: "48–72h",
-    slug: "audit-visibilite",
+    title: "Audit UX",
+    price: "À partir de 990 €",
+    delay: "1-2 semaines",
+    slug: "audit-ux",
   },
   {
-    title: "Accompagnement Marketing",
+    title: "Refonte interface complète",
     price: "Sur devis",
-    delay: "Contrat mensuel",
-    slug: "accompagnement-marketing",
+    delay: "4-8 semaines",
+    slug: "refonte-interface",
   },
 ];
 
-export default function OffresMarketingGrid() {
+export default function OffresDesignGrid() {
   const { openDrawer } = useDrawer();
 
   return (

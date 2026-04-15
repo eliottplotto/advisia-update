@@ -31,6 +31,9 @@ const CANONICAL_SLUGS = [
   "pack-valorisation-cession",
   "pack-transformation-post-reprise",
   "pack-transformation-ia-metier",
+  "audit-ux",
+  "refonte-interface",
+  "accompagnement-marketing",
 ];
 
 const ALIAS_TO_CANONICAL: Record<string, string> = {
