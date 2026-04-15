@@ -26,39 +26,30 @@ export default async function InsightsPage() {
 
   return (
     <main className="relative">
-      {/* Hero */}
-      <section
-        className="relative z-[2] pt-32 pb-12 md:pt-40 md:pb-16 px-4 md:px-8 lg:px-12"
-        style={{
-          background: "var(--bg-primary)",
-        }}
-      >
+      {/* Hero + Articles en une seule section continue */}
+      <section className="relative z-[2] pt-32 md:pt-40 pb-16 md:pb-24 px-4 md:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <div className="section-label mb-6">● Insights</div>
-          <h1
-            className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-3xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            <RevealText>
-              L&apos;IA décryptée. Guides, veille et retours terrain.
-            </RevealText>
-          </h1>
-          <p
-            className="mt-4 text-base md:text-lg max-w-2xl"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            On partage ce qu&apos;on apprend, ce qu&apos;on teste et ce qui
-            marche vraiment pour les PME.
-          </p>
-        </div>
-      </section>
+          {/* Hero header */}
+          <div className="mb-12 md:mb-16">
+            <div className="section-label mb-6">● Insights</div>
+            <h1
+              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-3xl"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              <RevealText>
+                L&apos;IA décryptée. Guides, veille et retours terrain.
+              </RevealText>
+            </h1>
+            <p
+              className="mt-4 text-base md:text-lg max-w-2xl"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              On partage ce qu&apos;on apprend, ce qu&apos;on teste et ce qui
+              marche vraiment pour les PME.
+            </p>
+          </div>
 
-      {/* Articles Grid */}
-      <section
-        className="relative z-[2] py-12 md:py-16 px-4 md:px-8 lg:px-12"
-        style={{ background: "transparent" }}
-      >
-        <div className="max-w-[1400px] mx-auto">
+          {/* Articles Grid */}
           {articles && articles.length > 0 ? (
             <InsightsGrid articles={articles} />
           ) : (
