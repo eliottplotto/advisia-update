@@ -71,15 +71,23 @@ export default function SectionContactForm({
               </p>
             </div>
             <div className="mt-8">
-              {profils.map((profil, index) => (
-                <img
-                  key={index}
-                  src={profil.src}
-                  alt={profil.alt}
-                  className="inline-block not-first:-ml-2 w-12 h-12 rounded-full"
-                  style={{ border: "2px solid var(--violet-dim)" }}
-                />
-              ))}
+              <div className="flex items-center">
+                {profils.map((profil, index) => (
+                  <img
+                    key={index}
+                    src={profil.src}
+                    alt={profil.alt}
+                    className="inline-block not-first:-ml-2 w-12 h-12 rounded-full"
+                    style={{ border: "2px solid var(--violet-dim)" }}
+                  />
+                ))}
+              </div>
+              <p
+                className="mt-3 text-xs font-mono uppercase tracking-[0.15em]"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                Eliott · Julien · Enzo — fondateurs Advisia
+              </p>
             </div>
 
             <Tag

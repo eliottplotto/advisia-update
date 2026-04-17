@@ -19,14 +19,14 @@ import SeoSiloSection from "@/components/seo-silo-section";
 import { seoSiloCessionReprise } from "@/lib/seo-silo-content";
 
 export const metadata = {
-  title: "Valorisation Digitale — Cession et Reprise d'Entreprise | Advisia",
+  title: "Cession & reprise d'entreprise PME | Advisia",
   description:
     "Vous cédez ou reprenez une entreprise ? On évalue et améliore la maturité digitale pour valoriser la cession et accélérer la reprise.",
   alternates: {
     canonical: "https://advisia.agency/cession-reprise",
   },
   openGraph: {
-    title: "Valorisation Digitale — Cession et Reprise d'Entreprise | Advisia",
+    title: "Cession & reprise d'entreprise PME | Advisia",
     description:
       "Vous cédez ou reprenez une entreprise ? On évalue et améliore la maturité digitale pour valoriser la cession et accélérer la reprise.",
     url: "https://advisia.agency/cession-reprise",

@@ -2,15 +2,18 @@ import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 
 export const metadata = {
-  title: "Politique de confidentialité · Agence Advisia",
+  title: "Politique de confidentialité | Advisia",
   description:
-    "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "Comment Advisia collecte, utilise et protège vos données personnelles. Politique RGPD : cookies, finalités, droits des utilisateurs, durée de conservation.",
+  alternates: {
+    canonical: "https://advisia.agency/politique-de-confidentialite",
+  },
+  robots: { index: true, follow: false },
   openGraph: {
-    title: "Politique de confidentialité · Agence Advisia",
+    title: "Politique de confidentialité | Advisia",
     description:
-      "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
-    url: "https://advisia.agency",
+      "Politique RGPD d'Advisia : collecte de données, cookies, droits des utilisateurs.",
+    url: "https://advisia.agency/politique-de-confidentialite",
     siteName: "Advisia",
     type: "website",
   },

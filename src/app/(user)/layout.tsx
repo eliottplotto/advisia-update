@@ -6,6 +6,7 @@ import GoogleAnalytics from "@/components/google-analytics";
 import SchemaOrg from "@/components/schema-org";
 import { QuizShell } from "@/components/quiz-shell";
 import DrawerShell from "@/components/drawer-shell";
+import CookieBanner from "@/components/cookie-banner";
 
 export const metadata: Metadata = {
   title: "Advisia · Agence de croissance digitale",
@@ -32,6 +33,7 @@ export default function UserLayout({
         </header>
         {children}
       </DrawerShell>
+      <CookieBanner />
     </QuizShell>
   );
 }

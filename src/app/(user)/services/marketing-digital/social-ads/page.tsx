@@ -4,8 +4,7 @@ import MarketingLandingTemplate, {
 import { seoSiloSocialAds } from "@/lib/seo-silo-content";
 
 export const metadata = {
-  title:
-    "Social Ads PME | Advisia — Meta Ads et LinkedIn Ads qui convertissent",
+  title: "Agence Social Ads pour PME (Meta, LinkedIn) | Advisia",
   description:
     "Gestion Meta Ads et LinkedIn Ads pour PME. Ciblage précis, créatives qui convertissent, reporting hebdomadaire. Agence Social Ads en France.",
   alternates: {

@@ -2,15 +2,18 @@ import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 
 export const metadata = {
-  title: "Mentions Légales · Agence Advisia",
+  title: "Mentions légales | Advisia",
   description:
-    "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
-  keywords: ["advisia", "agence ia", "agence web", "creation site web"],
+    "Mentions légales d'Advisia : raison sociale, adresse, hébergeur, direction de la publication. Informations légales obligatoires de notre agence IA et digitale.",
+  alternates: {
+    canonical: "https://advisia.agency/mentions-legales",
+  },
+  robots: { index: true, follow: false },
   openGraph: {
-    title: "Mentions Légales · Agence Advisia",
+    title: "Mentions légales | Advisia",
     description:
-      "Nous sommes une agence de croissance spécialisée en intelligence artificielle, création de sites web, product design, marketing digital et identité de marque.",
-    url: "https://advisia.agency",
+      "Informations légales d'Advisia : raison sociale, hébergeur, direction de la publication.",
+    url: "https://advisia.agency/mentions-legales",
     siteName: "Advisia",
     type: "website",
   },

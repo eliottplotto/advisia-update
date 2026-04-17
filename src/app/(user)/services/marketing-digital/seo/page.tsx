@@ -4,8 +4,7 @@ import MarketingLandingTemplate, {
 import { seoSiloSeo } from "@/lib/seo-silo-content";
 
 export const metadata = {
-  title:
-    "SEO pour PME | Advisia — Référencement naturel qui génère des leads",
+  title: "Agence SEO pour PME | Advisia",
   description:
     "Audit SEO, stratégie de contenu, netlinking. On vous fait monter sur Google durablement. Agence SEO pour PME en France.",
   alternates: {

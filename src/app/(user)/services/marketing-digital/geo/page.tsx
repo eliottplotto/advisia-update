@@ -4,8 +4,7 @@ import MarketingLandingTemplate, {
 import { seoSiloGeo } from "@/lib/seo-silo-content";
 
 export const metadata = {
-  title:
-    "GEO & Stratégie de contenu PME | Advisia — Apparaître sur les moteurs IA",
+  title: "GEO — Référencement IA pour PME | Advisia",
   description:
     "Référencement IA (GEO), stratégie de contenu SEO pour PME. Apparaissez sur ChatGPT, Perplexity et Google AI. Agence GEO en France.",
   alternates: {

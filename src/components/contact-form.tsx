@@ -77,11 +77,23 @@ const BESOIN_LABELS: Record<string, string> = {
   "cession-pack-complet": "Transformation + IA Métier — 18 000 à 35 000 €",
 };
 
+const TYPES_BESOIN = [
+  { value: "", label: "Sélectionnez…" },
+  { value: "automatisation-ia", label: "Automatisation & IA" },
+  { value: "site-web", label: "Site web / application" },
+  { value: "marketing-digital", label: "Marketing digital (SEO, Ads)" },
+  { value: "product-design", label: "Design d'interface (UX/UI)" },
+  { value: "cession-reprise", label: "Cession / reprise d'entreprise" },
+  { value: "diagnostic", label: "Diagnostic / audit" },
+  { value: "autre", label: "Autre / pas sûr" },
+];
+
 interface FormData {
   firstName: string;
   lastName: string;
   company: string;
   email: string;
+  typeBesoin: string;
   message: string;
 }
 
@@ -90,6 +102,7 @@ interface FormErrors {
   lastName?: string;
   company?: string;
   email?: string;
+  typeBesoin?: string;
   message?: string;
 }
 
@@ -101,6 +114,7 @@ export default function ContactForm() {
     lastName: "",
     company: "",
     email: "",
+    typeBesoin: "",
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -130,9 +144,7 @@ export default function ContactForm() {
       newErrors.lastName = "Le nom doit contenir au moins 2 caractères";
     }
 
-    if (!formData.company.trim()) {
-      newErrors.company = "Le nom de l'entreprise est requis";
-    }
+    // Entreprise : optionnelle (les indépendants et repreneurs n'en ont pas)
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
@@ -185,10 +197,20 @@ export default function ContactForm() {
     setSubmitError(null);
 
     try {
+      // Besoin : soit via URL param (?besoin=...), soit via le select du form
+      const besoinValue = besoinParam || formData.typeBesoin || undefined;
+      const payload = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        company: formData.company,
+        email: formData.email,
+        message: formData.message,
+        ...(besoinValue ? { besoin: besoinValue } : {}),
+      };
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, ...(besoinParam ? { besoin: besoinParam } : {}) }),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) {
@@ -202,6 +224,7 @@ export default function ContactForm() {
         lastName: "",
         company: "",
         email: "",
+        typeBesoin: "",
         message: "",
       });
     } catch (error) {
@@ -296,7 +319,9 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       <p id="submit-help" className="text-sm" style={{ color: "var(--text-muted)" }}>
-        {besoinLabel ? "Complétez vos coordonnées — on revient vers vous sous 48h." : "Tous les champs sont obligatoires."}
+        {besoinLabel
+          ? "Complétez vos coordonnées — on revient vers vous sous 48h."
+          : "Prénom, nom, email et message sont obligatoires. Le reste est optionnel."}
       </p>
 
       {/* Sujet pré-rempli */}
@@ -372,31 +397,61 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Entreprise */}
+      {/* Entreprise (optionnelle) */}
       <div className="space-y-2">
         <Label
           htmlFor="company"
           className="text-sm font-medium"
           style={{ color: "var(--text-secondary)" }}
         >
-          Entreprise
+          Entreprise{" "}
+          <span className="lowercase" style={{ color: "var(--text-muted)" }}>
+            (optionnel)
+          </span>
         </Label>
         <Input
           id="company"
           type="text"
           value={formData.company}
           onChange={(e) => handleInputChange("company", e.target.value)}
-          aria-invalid={!!errors.company}
-          aria-describedby={errors.company ? "company-error" : undefined}
-          className={`${inputStyles} ${errors.company ? "!border-red-500 focus:!border-red-500" : ""}`}
+          className={inputStyles}
           autoComplete="organization"
         />
-        {errors.company && (
-          <p id="company-error" className="text-sm text-red-400" role="alert">
-            {errors.company}
-          </p>
-        )}
       </div>
+
+      {/* Type de besoin (si pas pré-rempli par ?besoin=...) */}
+      {!besoinLabel && (
+        <div className="space-y-2">
+          <Label
+            htmlFor="typeBesoin"
+            className="text-sm font-medium"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Type de projet{" "}
+            <span className="lowercase" style={{ color: "var(--text-muted)" }}>
+              (optionnel)
+            </span>
+          </Label>
+          <select
+            id="typeBesoin"
+            value={formData.typeBesoin}
+            onChange={(e) => handleInputChange("typeBesoin", e.target.value)}
+            className={`w-full rounded-md px-3 py-2 text-sm ${inputStyles}`}
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              borderWidth: 1,
+              borderColor: "var(--border)",
+              color: "var(--text-primary)",
+            }}
+          >
+            {TYPES_BESOIN.map((t) => (
+              <option key={t.value} value={t.value} style={{ background: "#0a0a0f" }}>
+                {t.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
       {/* Email */}
       <div className="space-y-2">

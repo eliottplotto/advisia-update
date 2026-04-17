@@ -4,8 +4,7 @@ import MarketingLandingTemplate, {
 import { seoSiloSea } from "@/lib/seo-silo-content";
 
 export const metadata = {
-  title:
-    "Google Ads PME | Advisia — Campagnes qui génèrent des leads rentables",
+  title: "Agence Google Ads pour PME | Advisia",
   description:
     "Gestion Google Ads pour PME. Setup, optimisation hebdomadaire, reporting transparent. Agence SEA pour PME en France.",
   alternates: {

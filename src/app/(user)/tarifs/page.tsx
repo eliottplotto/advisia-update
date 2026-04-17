@@ -10,14 +10,14 @@ import { Suspense } from "react";
 import SeoFooterText from "@/components/seo-footer-text";
 
 export const metadata = {
-  title: "Tarifs et Offres Advisia",
+  title: "Tarifs agence IA & digitale pour PME | Advisia",
   description:
     "Tous nos prix en transparence : diagnostics, IA & automatisation, web, formation et partenariat mensuel. Prix fixes, sans surprise.",
   alternates: {
     canonical: "https://advisia.agency/tarifs",
   },
   openGraph: {
-    title: "Tarifs et Offres Advisia",
+    title: "Tarifs agence IA & digitale pour PME | Advisia",
     description:
       "Tous nos prix en transparence : diagnostics, IA & automatisation, web, formation et partenariat mensuel.",
     url: "https://advisia.agency/tarifs",
