@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import CountUp from "@/components/ui/count-up";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
-import { RiArrowRightUpLine } from "@remixicon/react";
 import {
+  ArrowUpRight,
   Compass,
   Calculator,
   Rocket,
@@ -850,7 +850,7 @@ export function CtaFinal() {
             style={{ background: "#c9fe6e", color: "#0a0a0f" }}
           >
             Réserver mon Audit Flash
-            <RiArrowRightUpLine
+            <ArrowUpRight
               size={16}
               className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />

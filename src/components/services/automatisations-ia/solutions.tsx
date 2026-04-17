@@ -1,4 +1,4 @@
-import { RiCheckFill, RiGitCommitFill, RiRobot3Fill } from "@remixicon/react";
+import { Check, GitCommit, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
 import { RevealText } from "@/components/reveal-text";
@@ -37,7 +37,7 @@ export default function Solutions() {
               <div className="grid lg:grid-cols-2 lg:gap-x-2">
                 <div className="bg-background flex flex-col justify-between rounded-md border">
                   <div className="border-b h-48 flex justify-center items-center">
-                    <RiRobot3Fill size={64} className="text-ad-1" />
+                    <Bot size={64} className="text-ad-1" />
                   </div>
                   <div className="global-padding grow">
                     <h5 className="text-2xl lg:text-3xl mb-4">Agent IA</h5>
@@ -47,15 +47,15 @@ export default function Solutions() {
                     </p>
                     <ul className="ad_list-icon mt-6">
                       <li>
-                        <RiCheckFill className="text-ad-1" />
+                        <Check className="text-ad-1" />
                         Mise en service rapide, sans refonte lourde
                       </li>
                       <li>
-                        <RiCheckFill className="text-ad-1" /> Automatisation des
+                        <Check className="text-ad-1" /> Automatisation des
                         tâches répétitives, réduction des erreurs
                       </li>
                       <li>
-                        <RiCheckFill className="text-ad-1" /> Libère vos équipes
+                        <Check className="text-ad-1" /> Libère vos équipes
                         pour des missions qui nécessitent vraiment leur expertise
                       </li>
                     </ul>
@@ -64,7 +64,7 @@ export default function Solutions() {
                 <div className="lg:hidden h-12 w-0 mx-auto border border-dashed border-muted-foreground"></div>
                 <div className="bg-background flex flex-col justify-between rounded-md border">
                   <div className="border-b h-48 flex justify-center items-center">
-                    <RiGitCommitFill size={64} className="text-ad-1" />
+                    <GitCommit size={64} className="text-ad-1" />
                   </div>
                   <div className="global-padding grow">
                     <h5 className="text-2xl lg:text-3xl mb-4">Système IA</h5>
@@ -74,14 +74,14 @@ export default function Solutions() {
                     </p>
                     <ul className="ad_list-icon mt-6">
                       <li>
-                        <RiCheckFill className="text-ad-1" />
+                        <Check className="text-ad-1" />
                         Synchronisation de vos logiciels métier
                       </li>
                       <li>
-                        <RiCheckFill className="text-ad-1" /> Le système s&apos;améliore avec le temps sans intervention
+                        <Check className="text-ad-1" /> Le système s&apos;améliore avec le temps sans intervention
                       </li>
                       <li>
-                        <RiCheckFill className="text-ad-1" /> Chaque tâche automatisée est visible et auditable en temps réel
+                        <Check className="text-ad-1" /> Chaque tâche automatisée est visible et auditable en temps réel
                       </li>
                     </ul>
                   </div>

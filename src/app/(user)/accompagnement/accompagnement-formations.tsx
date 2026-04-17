@@ -1,7 +1,8 @@
 "use client";
 
 import HoverExpandColumns from "@/components/hover-expand-columns";
-import { RiCheckLine, RiUserStarFill, RiGroupFill, RiArrowRightUpLine } from "@remixicon/react";
+import { Check, UserRoundCheck, Users, ArrowUpRight } from "lucide-react";
+import OfferDetailLink from "@/components/offer-detail-link";
 import { useDrawer } from "@/lib/drawer-store";
 
 export default function AccompagnementFormations() {
@@ -11,7 +12,7 @@ export default function AccompagnementFormations() {
     <div className="flex flex-col h-full rounded-xl p-10 transition-all duration-300" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
       <div className="flex items-center gap-3 mb-8">
         <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "rgba(124,58,237,0.15)" }}>
-          <RiUserStarFill size={20} style={{ color: "var(--violet)" }} />
+          <UserRoundCheck size={20} style={{ color: "var(--violet)" }} />
         </div>
         <span
           className="font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full"
@@ -44,7 +45,7 @@ export default function AccompagnementFormations() {
           "Format groupe ou individuel",
         ].map((item, j) => (
           <li key={j} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-            <RiCheckLine size={14} className="mt-0.5 flex-shrink-0" style={{ color: "var(--violet)" }} />
+            <Check size={14} className="mt-0.5 flex-shrink-0" style={{ color: "var(--violet)" }} />
             {item}
           </li>
         ))}
@@ -54,8 +55,9 @@ export default function AccompagnementFormations() {
         className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300 hover:-translate-y-[1px]"
         style={{ background: "#c9fe6e", color: "#000" }}
       >
-        Réserver ce workshop <RiArrowRightUpLine size={13} />
+        Réserver ce workshop <ArrowUpRight size={13} />
       </button>
+      <OfferDetailLink slug="workshop-ia-dirigeants" />
     </div>
   );
 
@@ -63,7 +65,7 @@ export default function AccompagnementFormations() {
     <div className="flex flex-col h-full rounded-xl p-8 transition-all duration-300" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "rgba(124,58,237,0.15)" }}>
-          <RiGroupFill size={20} style={{ color: "var(--violet)" }} />
+          <Users size={20} style={{ color: "var(--violet)" }} />
         </div>
         <span
           className="font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full"
@@ -96,7 +98,7 @@ export default function AccompagnementFormations() {
           "Support & documentation inclus",
         ].map((item, j) => (
           <li key={j} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-            <RiCheckLine size={14} className="mt-0.5 flex-shrink-0" style={{ color: "var(--violet)" }} />
+            <Check size={14} className="mt-0.5 flex-shrink-0" style={{ color: "var(--violet)" }} />
             {item}
           </li>
         ))}
@@ -106,8 +108,9 @@ export default function AccompagnementFormations() {
         className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300 hover:-translate-y-[1px]"
         style={{ border: "1px solid rgba(124,58,237,0.4)", color: "var(--text-primary)" }}
       >
-        Demander un devis formation <RiArrowRightUpLine size={13} />
+        Demander un devis formation <ArrowUpRight size={13} />
       </button>
+      <OfferDetailLink slug="formation-equipes" />
     </div>
   );
 

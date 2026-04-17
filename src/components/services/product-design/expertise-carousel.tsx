@@ -4,53 +4,53 @@ import { useState, useEffect, useCallback } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import {
-  RiCursorFill,
-  RiUserSearchFill,
-  RiFlowChart,
-  RiFlagFill,
-  RiTestTubeFill,
-  RiSettings3Fill,
-} from "@remixicon/react";
+  MousePointer2,
+  UserSearch,
+  Workflow,
+  Flag,
+  FlaskConical,
+  Settings,
+} from "lucide-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const cards = [
   {
-    icon: RiCursorFill,
+    icon: MousePointer2,
     title: "UX/UI Design",
     desc: "Des interfaces pensées pour être simples à comprendre et rapides à utiliser.",
     illustration: "/services/product-design/ux-ui-design.svg",
     illustrationAlt: "UX/UI Design",
   },
   {
-    icon: RiUserSearchFill,
+    icon: UserSearch,
     title: "Recherche utilisateur",
     desc: "Comprendre vos utilisateurs pour concevoir ce dont ils ont vraiment besoin.",
     illustration: "/services/product-design/ux-research.svg",
     illustrationAlt: "Recherche utilisateur",
   },
   {
-    icon: RiFlowChart,
+    icon: Workflow,
     title: "User flows & Wireframes",
     desc: "Visualisation claire des parcours et priorisation des interactions clés.",
     illustration: "/services/product-design/ux-ui-user-flow-wireframe.svg",
     illustrationAlt: "User flows & Wireframes",
   },
   {
-    icon: RiFlagFill,
+    icon: Flag,
     title: "Prototypage",
     desc: "Tester vos idées avant d'engager du temps et du budget dans le développement.",
     illustration: "/services/product-design/ux-ui-prototypage.svg",
     illustrationAlt: "Prototypage",
   },
   {
-    icon: RiTestTubeFill,
+    icon: FlaskConical,
     title: "Tests utilisateurs",
     desc: "Validez les hypothèses et identifiez les vrais irritants pour faire évoluer le produit.",
     illustration: "/services/product-design/ux-ui-test-utilisateur.svg",
     illustrationAlt: "Tests utilisateurs",
   },
   {
-    icon: RiSettings3Fill,
+    icon: Settings,
     title: "Design System",
     desc: "Assurer la cohérence, accélérer la production et préparer la croissance.",
     illustration: "/services/product-design/ux-ui-design-system.svg",

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { RiCloseFill, RiMenuFill } from "@remixicon/react";
+import { X, Menu } from "lucide-react";
 import { trackCTAClick, trackBookingClick } from "@/lib/analytics";
 import { useRef, useState } from "react";
 import { useQuiz } from "@/components/quiz-provider";
@@ -381,7 +381,7 @@ export default function Navbar() {
                 className="lg:hidden w-12 h-12 flex items-center justify-center"
                 style={{ color: "var(--text-primary)", background: "none", border: "none" }}
               >
-                {isMobileMenuOpen ? <RiCloseFill size={24} /> : <RiMenuFill size={24} />}
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           )}

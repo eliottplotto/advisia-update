@@ -1,5 +1,6 @@
+import Image from "next/image";
 import ContactForm from "./contact-form";
-import { RiCheckFill, RiPhoneFill } from "@remixicon/react";
+import { Check, Phone } from "lucide-react";
 import TrackedLink from "./ui/tracked-link";
 import type { ElementType, ReactNode } from "react";
 import { Suspense } from "react";
@@ -73,11 +74,13 @@ export default function SectionContactForm({
             <div className="mt-8">
               <div className="flex items-center">
                 {profils.map((profil, index) => (
-                  <img
+                  <Image
                     key={index}
                     src={profil.src}
                     alt={profil.alt}
-                    className="inline-block not-first:-ml-2 w-12 h-12 rounded-full"
+                    width={48}
+                    height={48}
+                    className="inline-block not-first:-ml-2 w-12 h-12 rounded-full object-cover"
                     style={{ border: "2px solid var(--violet-dim)" }}
                   />
                 ))}
@@ -114,7 +117,7 @@ export default function SectionContactForm({
                     border: "1px solid rgba(124,58,237,0.15)",
                   }}
                 >
-                  <RiCheckFill style={{ color: "var(--ad-1)" }} size={18} />
+                  <Check style={{ color: "var(--ad-1)" }} size={18} />
                 </div>
                 <span style={{ color: "var(--text-secondary)" }}>
                   Réponse sous 48h
@@ -128,7 +131,7 @@ export default function SectionContactForm({
                     border: "1px solid rgba(124,58,237,0.15)",
                   }}
                 >
-                  <RiCheckFill style={{ color: "var(--ad-1)" }} size={18} />
+                  <Check style={{ color: "var(--ad-1)" }} size={18} />
                 </div>
                 <span style={{ color: "var(--text-secondary)" }}>
                   Estimation chiffrée offerte
@@ -142,7 +145,7 @@ export default function SectionContactForm({
                     border: "1px solid rgba(124,58,237,0.15)",
                   }}
                 >
-                  <RiCheckFill style={{ color: "var(--ad-1)" }} size={18} />
+                  <Check style={{ color: "var(--ad-1)" }} size={18} />
                 </div>
                 <span style={{ color: "var(--text-secondary)" }}>
                   Zéro engagement, zéro jargon
@@ -163,7 +166,7 @@ export default function SectionContactForm({
                 }}
               >
                 R&eacute;server un appel{" "}
-                <RiPhoneFill className="inline ml-1" size={14} />
+                <Phone className="inline ml-1" size={14} />
               </TrackedLink>
               <p
                 className="font-mono text-xs uppercase text-center tracking-wider"
@@ -188,7 +191,7 @@ export default function SectionContactForm({
                   color: "var(--text-primary)",
                 }}
               >
-                R&eacute;server un appel <RiPhoneFill size={14} />
+                R&eacute;server un appel <Phone size={14} />
               </TrackedLink>
             </div>
           </div>

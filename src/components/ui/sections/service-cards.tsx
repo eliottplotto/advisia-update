@@ -1,6 +1,8 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { RevealText } from "@/components/reveal-text";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 
@@ -9,6 +11,8 @@ interface ServiceCard {
   title: string;
   description: string;
   number?: string;
+  href?: string;
+  linkLabel?: string;
 }
 
 interface ServiceCardsProps {
@@ -49,51 +53,74 @@ export default function ServiceCards({
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {cards.map((card, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
-              <div className="group">
+          {cards.map((card, index) => {
+            const cardInner = (
+              <div
+                className="relative h-full rounded-[20px] p-5 lg:p-6 transition-all duration-500 overflow-hidden expertise-card-glow hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3),0_0_40px_var(--violet-dim)] hover:border-[rgba(124,58,237,0.25)] hover:bg-[rgba(124,58,237,0.05)]"
+                style={{
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                {card.number && (
+                  <div
+                    className="font-mono text-[0.7rem] mb-4 transition-colors duration-300 group-hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {card.number}
+                  </div>
+                )}
+
                 <div
-                  className="relative h-full rounded-[20px] p-5 lg:p-6 transition-all duration-500 overflow-hidden expertise-card-glow hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3),0_0_40px_var(--violet-dim)] hover:border-[rgba(124,58,237,0.25)] hover:bg-[rgba(124,58,237,0.05)]"
+                  className="w-12 h-12 rounded-[12px] flex items-center justify-center mb-4 transition-all duration-300 group-hover:text-[#c9fe6e] group-hover:border-[rgba(124,58,237,0.3)] group-hover:shadow-[0_0_30px_var(--accent-dim)] group-hover:scale-105"
                   style={{
-                    background: "var(--bg-card)",
-                    border: "1px solid var(--border)",
+                    background: "var(--violet-dim)",
+                    border: "1px solid rgba(124,58,237,0.15)",
                   }}
                 >
-                  {card.number && (
-                    <div
-                      className="font-mono text-[0.7rem] mb-4 transition-colors duration-300 group-hover:text-[var(--violet-light)]"
-                      style={{ color: "var(--text-muted)" }}
-                    >
-                      {card.number}
-                    </div>
-                  )}
-
-                  <div
-                    className="w-12 h-12 rounded-[12px] flex items-center justify-center mb-4 transition-all duration-300 group-hover:text-[#c9fe6e] group-hover:border-[rgba(124,58,237,0.3)] group-hover:shadow-[0_0_30px_var(--accent-dim)] group-hover:scale-105"
-                    style={{
-                      background: "var(--violet-dim)",
-                      border: "1px solid rgba(124,58,237,0.15)",
-                    }}
-                  >
-                    {card.icon}
-                  </div>
-
-                  <h3
-                    className="text-xl lg:text-2xl font-bold mb-3 transition-colors duration-300 group-hover:text-[var(--ad-1)]"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {card.title}
-                  </h3>
-                  <p
-                    className="text-sm lg:text-base leading-relaxed transition-colors duration-300 group-hover:text-white/80"
-                    style={{ color: "var(--text-secondary)" }}
-                  >
-                    {card.description}
-                  </p>
+                  {card.icon}
                 </div>
+
+                <h3
+                  className="text-xl lg:text-2xl font-bold mb-3 transition-colors duration-300 group-hover:text-[var(--ad-1)]"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  className="text-sm lg:text-base leading-relaxed transition-colors duration-300 group-hover:text-white/80"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {card.description}
+                </p>
+
+                {card.href && (
+                  <div
+                    className="mt-5 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.12em] transition-all duration-300 group-hover:gap-2.5"
+                    style={{ color: "rgba(201,254,110,0.85)" }}
+                  >
+                    {card.linkLabel || "Découvrir"}
+                    <ArrowUpRight
+                      size={13}
+                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    />
+                  </div>
+                )}
               </div>
-            </ScrollReveal>
-          ))}
+            );
+
+            return (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                {card.href ? (
+                  <Link href={card.href} className="group block h-full">
+                    {cardInner}
+                  </Link>
+                ) : (
+                  <div className="group h-full">{cardInner}</div>
+                )}
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>

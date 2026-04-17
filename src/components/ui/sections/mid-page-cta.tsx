@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { RiArrowRightUpLine } from "@remixicon/react";
+import { ArrowUpRight } from "lucide-react";
 
 interface MidPageCTAProps {
   title: string;
@@ -45,7 +45,7 @@ export default function MidPageCTA({
             style={{ background: "#c9fe6e", color: "#0a0a0f" }}
           >
             {buttonText}
-            <RiArrowRightUpLine size={16} />
+            <ArrowUpRight size={16} />
           </Link>
           {showFaqLink && (
             <a

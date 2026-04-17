@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { RiArrowRightLine } from "@remixicon/react";
+import { ArrowRight } from "lucide-react";
 import { urlFor } from "@/sanity/lib/image";
 import type { AllProjectsQueryResult } from "@/types/sanity";
 
@@ -80,7 +80,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
 
               {/* Arrow button */}
               <div className="absolute top-4 right-4 w-10 h-10 rounded-full backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-[var(--ad-1)] group-hover:text-black" style={{ background: "rgba(255,255,255,0.1)" }}>
-                <RiArrowRightLine size={20} />
+                <ArrowRight size={20} />
               </div>
             </div>
           </Link>

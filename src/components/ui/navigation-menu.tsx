@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
-import { RiArrowDownSFill } from "@remixicon/react";
+import { ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -74,7 +74,7 @@ function NavigationMenuTrigger({
       {...props}
     >
       {children}{" "}
-      <RiArrowDownSFill
+      <ChevronDown
         className="relative top-[1px] ml-1 size-4 transition ease-in duration-100 group-data-[state=open]:-rotate-180"
         aria-hidden="true"
       />

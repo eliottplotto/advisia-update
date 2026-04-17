@@ -25,6 +25,7 @@ const HIDDEN_PREFIXES = ["/offres/", "/automatisations/", "/projets/", "/insight
 export default function QuizFloatingButton({ onOpen }: QuizFloatingButtonProps) {
   const [visible, setVisible] = useState(false);
   const [nearBottom, setNearBottom] = useState(false);
+  const [cookieChosen, setCookieChosen] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -38,13 +39,26 @@ export default function QuizFloatingButton({ onOpen }: QuizFloatingButtonProps) 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Évite le chevauchement avec le cookie banner tant que l'utilisateur n'a pas choisi
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("advisia-cookie-consent-v1");
+      setCookieChosen(!!stored);
+    } catch {
+      setCookieChosen(true);
+    }
+    const onConsent = () => setCookieChosen(true);
+    window.addEventListener("advisia:consent-updated", onConsent);
+    return () => window.removeEventListener("advisia:consent-updated", onConsent);
+  }, []);
+
   if (
     HIDDEN_EXACT.includes(pathname) ||
     HIDDEN_PREFIXES.some((p) => pathname.startsWith(p))
   )
     return null;
 
-  const isShown = visible && !nearBottom;
+  const isShown = visible && !nearBottom && cookieChosen;
 
   return (
     <button

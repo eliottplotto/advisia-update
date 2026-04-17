@@ -3,7 +3,7 @@ import { RevealText } from "@/components/reveal-text";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import Link from "next/link";
-import { RiArrowRightUpLine } from "@remixicon/react";
+import { ArrowUpRight } from "lucide-react";
 import TarifsTabs from "./tarifs-tabs";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import { Suspense } from "react";
@@ -124,7 +124,7 @@ export default function TarifsPage() {
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
                   style={{ background: "#c9fe6e", color: "#0a0a0f" }}
                 >
-                  Demander un devis sur mesure <RiArrowRightUpLine size={16} />
+                  Demander un devis sur mesure <ArrowUpRight size={16} />
                 </Link>
               </div>
             </div>
@@ -274,7 +274,7 @@ export default function TarifsPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
                 style={{ background: "#c9fe6e", color: "#0a0a0f" }}
               >
-                Demander un devis <RiArrowRightUpLine size={16} />
+                Demander un devis <ArrowUpRight size={16} />
               </Link>
             </ScrollReveal>
           </div>

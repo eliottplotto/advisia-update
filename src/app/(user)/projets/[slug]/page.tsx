@@ -16,7 +16,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 // Components
 import Footer from "@/components/footer";
 import Testimonial1 from "@/components/ui/sections/testimonial-1";
-import { RiArrowLeftLine } from "@remixicon/react";
+import { ArrowLeft } from "lucide-react";
 import SectionCTASmall from "@/components/section-cta-small";
 import { Header1 } from "@/components/ui/sections/header-1";
 import { RevealText } from "@/components/reveal-text";
@@ -107,7 +107,7 @@ export default async function projectPage(props: Props) {
                 color: "var(--text-primary)",
               }}
             >
-              <RiArrowLeftLine size={16} />
+              <ArrowLeft size={16} />
               Tous les projets
             </Link>
             <div>

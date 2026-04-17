@@ -1,7 +1,7 @@
 import Link from "next/link";
 import OfferFaq from "@/app/(user)/offres/[slug]/offer-faq";
 import type { SeoSiloContent } from "@/lib/seo-silo-content";
-import { RiArrowRightUpLine } from "@remixicon/react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function SeoSiloSection({ content }: { content: SeoSiloContent }) {
   const faqJsonLd = {
@@ -139,7 +139,7 @@ export default function SeoSiloSection({ content }: { content: SeoSiloContent })
                     >
                       {link.label}
                     </span>
-                    <RiArrowRightUpLine
+                    <ArrowUpRight
                       size={14}
                       className="flex-shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 mt-1"
                       style={{ color: "#c9fe6e" }}

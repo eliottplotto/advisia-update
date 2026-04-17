@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { RevealText } from "@/components/reveal-text";
 import {
-  RiCodeSSlashLine,
-  RiRobot2Line,
-  RiPaletteLine,
-  RiMegaphoneLine,
-  RiArrowRightUpLine,
-  RiSearchEyeFill,
-  RiBuildingFill,
-} from "@remixicon/react";
+  Code2,
+  Bot,
+  Palette,
+  Megaphone,
+  ArrowUpRight,
+  SearchCheck,
+  Building2,
+} from "lucide-react";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 
 export default function Services() {
@@ -19,7 +19,7 @@ export default function Services() {
       title: "IA & Automatisation",
       description:
         "Outils intelligents, automatisations, chatbots : on supprime les tâches qui vous coûtent 10h par semaine. Souvent couplé avec un site ou un dashboard sur mesure.",
-      icon: RiRobot2Line,
+      icon: Bot,
       link: "/services/automatisations-ia",
       number: "01",
     },
@@ -27,7 +27,7 @@ export default function Services() {
       title: "Développement Web",
       description:
         "Sites vitrines, boutiques en ligne, apps métier : rapides à charger, simples à maintenir, conçus pour durer.",
-      icon: RiCodeSSlashLine,
+      icon: Code2,
       link: "/services/agence-web",
       number: "02",
     },
@@ -35,7 +35,7 @@ export default function Services() {
       title: "Design d'Interface",
       description:
         "Interfaces pensées pour convertir. Parcours utilisateurs optimisés, maquettes validées avant de développer, interfaces cohérentes, faciles à faire évoluer.",
-      icon: RiPaletteLine,
+      icon: Palette,
       link: "/services/product-design",
       number: "03",
     },
@@ -43,7 +43,7 @@ export default function Services() {
       title: "Marketing Digital",
       description:
         "SEO, Google Ads, Social Ads : on met en place votre acquisition et on l'optimise chaque semaine, data à l'appui.",
-      icon: RiMegaphoneLine,
+      icon: Megaphone,
       link: "/services/marketing-digital",
       number: "04",
     },
@@ -51,7 +51,7 @@ export default function Services() {
       title: "Diagnostics & Audits",
       description:
         "Sécurité, visibilité, e-réputation, maturité IA : on analyse votre situation en 48-72h. Rapport actionnable, prix fixe, zéro engagement.",
-      icon: RiSearchEyeFill,
+      icon: SearchCheck,
       link: "/diagnostics",
       number: "05",
     },
@@ -59,7 +59,7 @@ export default function Services() {
       title: "Cession & Reprise",
       description:
         "Votre entreprise vaut plus si elle est numériquement mature. On évalue, améliore et prouve la valeur numérique aux acquéreurs.",
-      icon: RiBuildingFill,
+      icon: Building2,
       link: "/cession-reprise",
       number: "06",
     },
@@ -123,7 +123,7 @@ export default function Services() {
                     {item.description}
                   </p>
                   <div className="absolute bottom-6 right-6 opacity-100 transition-colors duration-300 text-white/40 group-hover:text-[#c9fe6e]">
-                    <RiArrowRightUpLine size={26} />
+                    <ArrowUpRight size={26} />
                   </div>
                 </div>
               </Link>
@@ -171,7 +171,7 @@ export default function Services() {
                     {item.description}
                   </p>
                   <div className="absolute bottom-4 right-4 opacity-100 transition-colors duration-300 text-white/40 group-hover:text-[#c9fe6e]">
-                    <RiArrowRightUpLine size={20} />
+                    <ArrowUpRight size={20} />
                   </div>
                 </div>
               </Link>

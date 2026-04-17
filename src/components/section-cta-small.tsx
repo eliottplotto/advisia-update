@@ -1,5 +1,5 @@
 import TrackedLink from "./ui/tracked-link";
-import { RiArrowRightFill } from "@remixicon/react";
+import { ArrowRight } from "lucide-react";
 import { RevealText } from "./reveal-text";
 
 export default function SectionCTASmall() {
@@ -42,7 +42,7 @@ export default function SectionCTASmall() {
               boxShadow: "0 0 20px var(--accent-dim)",
             }}
           >
-            J&apos;estime mon projet <RiArrowRightFill size={16} />
+            J&apos;estime mon projet <ArrowRight size={16} />
           </TrackedLink>
           <TrackedLink
             href="/prendre-rendez-vous"

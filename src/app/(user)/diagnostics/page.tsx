@@ -6,11 +6,10 @@ import SectionCTAForm from "@/components/section-cta-form";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import Link from "next/link";
-import { RiArrowRightUpLine } from "@remixicon/react";
+import { ArrowUpRight, Calendar } from "lucide-react";
 import PageTestimonial from "@/components/page-testimonial";
 import DiagnosticsGrid from "./diagnostics-grid";
 import DiagnosticsPacks from "./diagnostics-packs";
-import { Calendar } from "lucide-react";
 import SeoFooterText from "@/components/seo-footer-text";
 import SeoSiloSection from "@/components/seo-silo-section";
 import { seoSiloDiagnostics } from "@/lib/seo-silo-content";
@@ -35,7 +34,7 @@ export const metadata = {
 const diagnostics = [
   {
     badge: "Digital & IA",
-    icon: "RiSearchEyeFill",
+    icon: "SearchCheck",
     title: "Diagnostic Digital & IA",
     description:
       "On analyse vos outils, vos tâches et votre potentiel d'automatisation. Vous repartez avec vos 5 actions ROI prioritaires, chiffrées.",
@@ -48,7 +47,7 @@ const diagnostics = [
   },
   {
     badge: "Sécurité",
-    icon: "RiShieldCheckLine",
+    icon: "ShieldCheck",
     title: "Audit Sécurité",
     description:
       "Scan de votre code et infrastructure. Chaque vulnérabilité est classée par niveau de risque avec le correctif recommandé.",
@@ -61,7 +60,7 @@ const diagnostics = [
   },
   {
     badge: "Visibilité",
-    icon: "RiBarChartBoxFill",
+    icon: "BarChart3",
     title: "Audit Visibilité : êtes-vous visible sur Google ?",
     description:
       "Votre présence sur Google, les moteurs IA et les Ads. Scoring par canal, benchmark concurrents, plan d'action priorisé.",
@@ -74,7 +73,7 @@ const diagnostics = [
   },
   {
     badge: "E-réputation",
-    icon: "RiStarSmileFill",
+    icon: "Sparkles",
     title: "Audit E-réputation : que dit-on de vous en ligne ?",
     description:
       "Cartographie de ce qui se dit sur vous et votre marché. Clusters sémantiques, poches de croissance, analyse concurrentielle approfondie.",
@@ -87,7 +86,7 @@ const diagnostics = [
   },
   {
     badge: "Cession & Reprise",
-    icon: "RiBuildingFill",
+    icon: "Building2",
     title: "Audit Cession et Reprise : votre entreprise est-elle prête ?",
     description:
       "Scoring digital sur 5 axes, quick wins de valorisation, estimation chiffrée de l'impact sur le prix de cession. Pour les cédants et les repreneurs.",
@@ -230,7 +229,7 @@ export default function DiagnosticsPage() {
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 hover:shadow-[0_0_20px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
                   style={{ background: "#c9fe6e", color: "#0a0a0f" }}
                 >
-                  Réserver mon Audit Flash gratuit <RiArrowRightUpLine size={14} />
+                  Réserver mon Audit Flash gratuit <ArrowUpRight size={14} />
                 </Link>
               </div>
             </ScrollReveal>
@@ -372,7 +371,7 @@ export default function DiagnosticsPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
                 style={{ background: "#c9fe6e", color: "#0a0a0f" }}
               >
-                Réserver mon appel gratuit <RiArrowRightUpLine size={16} />
+                Réserver mon appel gratuit <ArrowUpRight size={16} />
               </Link>
             </ScrollReveal>
           </div>

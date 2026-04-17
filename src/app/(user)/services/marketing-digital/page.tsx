@@ -2,12 +2,12 @@ import React from "react";
 import Footer from "@/components/footer";
 import FAQFloatingButton from "@/components/faq-floating-button";
 import {
-  RiCornerDownRightLine,
-  RiCompass3Fill,
-  RiRocketFill,
-  RiLineChartFill,
-  RiBarChartBoxFill,
-} from "@remixicon/react";
+  CornerDownRight,
+  Compass,
+  Rocket,
+  LineChart,
+  BarChart3,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TrackedLink from "@/components/ui/tracked-link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
@@ -96,25 +96,25 @@ export default function MarketingDigital() {
       title: "Audit & Stratégie",
       subtitle:
         "Analyse de votre marché, vos concurrents, votre positionnement actuel.",
-      icon: <RiCompass3Fill size={40} />,
+      icon: <Compass size={40} />,
     },
     {
       title: "Lancement",
       subtitle:
         "Mise en place des campagnes, tracking, attribution.",
-      icon: <RiRocketFill size={40} />,
+      icon: <Rocket size={40} />,
     },
     {
       title: "Optimisation",
       subtitle:
         "A/B tests, ajustement budgets, amélioration continue chaque semaine.",
-      icon: <RiLineChartFill size={40} />,
+      icon: <LineChart size={40} />,
     },
     {
       title: "Reporting",
       subtitle:
         "Dashboard en temps réel, call mensuel, recommandations actionnables.",
-      icon: <RiBarChartBoxFill size={40} />,
+      icon: <BarChart3 size={40} />,
     },
   ];
 
@@ -142,7 +142,7 @@ export default function MarketingDigital() {
                   </p>
                   <Button size="lg" asChild className="w-max">
                     <TrackedLink href="/contact?besoin=marketing-digital" trackingLabel="analyser_besoin" trackingPage="marketing-digital">
-                      Analyser mon besoin — gratuit <RiCornerDownRightLine />
+                      Analyser mon besoin — gratuit <CornerDownRight />
                     </TrackedLink>
                   </Button>
                 </div>

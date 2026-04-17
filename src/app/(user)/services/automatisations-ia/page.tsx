@@ -2,12 +2,12 @@ import React from "react";
 import Footer from "@/components/footer";
 import FAQFloatingButton from "@/components/faq-floating-button";
 import {
-  RiCornerDownRightLine,
-  RiSearchEyeFill,
-  RiRobot3Fill,
-  RiPlugFill,
-  RiHandHeartFill,
-} from "@remixicon/react";
+  CornerDownRight,
+  SearchCheck,
+  Bot,
+  Plug,
+  HandHeart,
+} from "lucide-react";
 import OffresIAGrid from "./offres-ia-grid";
 import { Button } from "@/components/ui/button";
 import TrackedLink from "@/components/ui/tracked-link";
@@ -66,25 +66,25 @@ export default function AutomatisationsIA() {
       title: "Analyse et audit",
       subtitle:
         "On analyse vos flux existants pour repérer les tâches chronophages, sources d'erreurs ou à faible valeur.",
-      icon: <RiSearchEyeFill size={40} />,
+      icon: <SearchCheck size={40} />,
     },
     {
       title: "Développement de l'agent ou des automatisations",
       subtitle:
         "On conçoit une solution sur mesure (agent IA ou automatisation) alignée avec vos objectifs métiers.",
-      icon: <RiRobot3Fill size={40} />,
+      icon: <Bot size={40} />,
     },
     {
       title: "Intégration aux outils métiers (CRM, agenda, mail...)",
       subtitle:
         "Votre nouveau système s'interface directement avec vos outils existants sans perturber votre organisation.",
-      icon: <RiPlugFill size={40} />,
+      icon: <Plug size={40} />,
     },
     {
       title: "Formation pour garantir l'autonomie",
       subtitle:
         "On forme vos équipes à l'utilisation, la gestion et l'évolution des outils pour rester autonome dans le temps.",
-      icon: <RiHandHeartFill size={40} />,
+      icon: <HandHeart size={40} />,
     },
   ];
 
@@ -153,7 +153,7 @@ export default function AutomatisationsIA() {
                   </p>
                   <Button size="lg" asChild className="w-max">
                     <TrackedLink href="/contact?besoin=automatisation-ia" trackingLabel="analyser_besoin" trackingPage="automatisations-ia">
-                      Analyser mon besoin — gratuit <RiCornerDownRightLine />
+                      Analyser mon besoin — gratuit <CornerDownRight />
                     </TrackedLink>
                   </Button>
                 </div>

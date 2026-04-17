@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { RevealText } from "@/components/reveal-text";
 import ScrollReveal from "@/components/ui/scroll-reveal";
-import { RiArrowRightUpLine, RiTimeLine, RiShieldCheckLine, RiHandHeartLine } from "@remixicon/react";
+import { ArrowUpRight, Clock, ShieldCheck, HandHeart } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
 
 const pillars = [
-  { icon: RiTimeLine, label: "Devis en 48h" },
-  { icon: RiShieldCheckLine, label: "Zéro surprise" },
-  { icon: RiHandHeartLine, label: "Sans engagement" },
+  { icon: Clock, label: "Devis en 48h" },
+  { icon: ShieldCheck, label: "Zéro surprise" },
+  { icon: HandHeart, label: "Sans engagement" },
 ];
 
 export default function PricingOverview() {
@@ -95,7 +95,7 @@ export default function PricingOverview() {
               }}
             >
               Analyser mon besoin — gratuit
-              <RiArrowRightUpLine
+              <ArrowUpRight
                 size={16}
                 className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />

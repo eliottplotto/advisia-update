@@ -1,7 +1,8 @@
 "use client";
 
-import { RiCheckLine, RiArrowRightUpLine } from "@remixicon/react";
+import { Check, ArrowUpRight } from "lucide-react";
 import { useDrawer } from "@/lib/drawer-store";
+import OfferDetailLink from "@/components/offer-detail-link";
 
 const partenariats = [
   {
@@ -97,7 +98,7 @@ export default function AccompagnementPartenariats() {
                   className="flex items-start gap-2 text-sm"
                   style={{ color: "var(--text-secondary)" }}
                 >
-                  <RiCheckLine
+                  <Check
                     size={13}
                     className="mt-0.5 flex-shrink-0"
                     style={{ color: p.featured ? "#c9fe6e" : "var(--violet)" }}
@@ -115,8 +116,9 @@ export default function AccompagnementPartenariats() {
                   : { border: "1px solid rgba(124,58,237,0.4)", color: "var(--text-primary)" }
               }
             >
-              Choisir {p.name} <RiArrowRightUpLine size={13} />
+              Choisir {p.name} <ArrowUpRight size={13} />
             </button>
+            <OfferDetailLink slug={p.slug} />
           </div>
         ))}
       </div>
@@ -162,7 +164,7 @@ export default function AccompagnementPartenariats() {
                   className="flex items-start gap-2 text-sm"
                   style={{ color: "var(--text-secondary)" }}
                 >
-                  <RiCheckLine
+                  <Check
                     size={13}
                     className="mt-0.5 flex-shrink-0"
                     style={{ color: p.featured ? "#c9fe6e" : "var(--violet)" }}
@@ -180,8 +182,9 @@ export default function AccompagnementPartenariats() {
                   : { border: "1px solid rgba(124,58,237,0.4)", color: "var(--text-primary)" }
               }
             >
-              Choisir {p.name} <RiArrowRightUpLine size={13} />
+              Choisir {p.name} <ArrowUpRight size={13} />
             </button>
+            <OfferDetailLink slug={p.slug} />
           </div>
         ))}
       </div>

@@ -1,10 +1,10 @@
 "use client";
 
 import {
-  RiSparklingLine,
-  RiBarChartBoxLine,
-  RiEyeLine,
-} from "@remixicon/react";
+  Sparkles,
+  BarChart3,
+  Eye,
+} from "lucide-react";
 import { HeartHandshake } from "lucide-react";
 import { RevealText } from "@/components/reveal-text";
 import ScrollReveal from "@/components/ui/scroll-reveal";
@@ -15,21 +15,21 @@ export default function PourquoiAdvisia() {
       title: "L'IA dans notre ADN",
       description:
         "On utilise l'IA dans notre propre fonctionnement avant de la déployer chez vous.",
-      icon: RiSparklingLine,
+      icon: Sparkles,
       index: "01",
     },
     {
       title: "Des KPIs, pas des promesses",
       description:
         "Objectifs chiffrés dès le premier jour. On mesure tout : temps gagné, coût réduit, conversions générées.",
-      icon: RiBarChartBoxLine,
+      icon: BarChart3,
       index: "02",
     },
     {
       title: "Votre projet, en temps réel",
       description:
         "Point hebdomadaire, accès à l'avancement en temps réel, démonstrations à chaque étape. Zéro effet tunnel.",
-      icon: RiEyeLine,
+      icon: Eye,
       index: "03",
     },
     {

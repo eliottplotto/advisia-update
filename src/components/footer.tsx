@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { RiLinkedinFill, RiSparklingFill } from "@remixicon/react";
+import { Linkedin, Sparkles } from "lucide-react";
 import { NewsletterForm } from "./newsletter-form";
 import { Logo } from "./Logo";
 import TrackedLink from "./ui/tracked-link";
@@ -102,7 +102,7 @@ export default function Footer() {
                     style={{ color: "var(--text-secondary)" }}
                   >
                     IA et Automatisation
-                    <RiSparklingFill size={14} style={{ color: "var(--ad-1)" }} />
+                    <Sparkles size={14} style={{ color: "var(--ad-1)" }} />
                   </Link>
                 </li>
                 <li>
@@ -214,7 +214,7 @@ export default function Footer() {
                 color: "var(--text-secondary)",
               }}
             >
-              <RiLinkedinFill size={18} />
+              <Linkedin size={18} />
             </Link>
           </div>
         </div>

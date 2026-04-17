@@ -1,8 +1,9 @@
 "use client";
 
 import ScrollReveal from "@/components/ui/scroll-reveal";
-import { RiArrowRightUpLine, RiCheckLine } from "@remixicon/react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { useDrawer } from "@/lib/drawer-store";
+import OfferDetailLink from "@/components/offer-detail-link";
 
 const packs = [
   {
@@ -93,7 +94,7 @@ export default function DiagnosticsPacks() {
                     className="flex items-start gap-2 text-sm"
                     style={{ color: "var(--text-secondary)" }}
                   >
-                    <RiCheckLine
+                    <Check
                       size={14}
                       className="mt-0.5 flex-shrink-0"
                       style={{ color: "#c9fe6e" }}
@@ -116,8 +117,9 @@ export default function DiagnosticsPacks() {
                     }
               }
             >
-              Demander le pack <RiArrowRightUpLine size={14} />
+              Demander le pack <ArrowUpRight size={14} />
             </button>
+            <OfferDetailLink slug={pack.slug} />
           </div>
         </ScrollReveal>
       ))}

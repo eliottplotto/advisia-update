@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { RevealText } from "@/components/reveal-text";
-import { RiDoubleQuotesL, RiArrowRightLine } from "@remixicon/react";
+import { Quote, ArrowRight } from "lucide-react";
 import CountUp from "@/components/ui/count-up";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ui/scroll-reveal";
@@ -119,7 +119,7 @@ export default function Team() {
               className="flex items-center gap-2 font-bold"
             >
               CONTACTER UN EXPERT IA
-              <RiArrowRightLine size={20} />
+              <ArrowRight size={20} />
             </Link>
           </Button>
         </div>
@@ -127,7 +127,7 @@ export default function Team() {
         {/* Quote */}
         <ScrollReveal>
           <div className="max-w-[750px] mx-auto text-center">
-            <RiDoubleQuotesL
+            <Quote
               className="mx-auto mb-4 opacity-60"
               size={48}
               style={{ color: "var(--violet)" }}

@@ -3,12 +3,12 @@ import Link from "next/link";
 import Footer from "@/components/footer";
 import FAQFloatingButton from "@/components/faq-floating-button";
 import {
-  RiCornerDownRightLine,
-  RiSearchEyeFill,
-  RiDraftFill,
-  RiPaletteFill,
-  RiTestTubeFill,
-} from "@remixicon/react";
+  CornerDownRight,
+  SearchCheck,
+  PenLine,
+  Palette,
+  FlaskConical,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TrackedLink from "@/components/ui/tracked-link";
 import { BulletHeadline } from "@/components/ui/bullet-headline";
@@ -64,28 +64,28 @@ const methodSteps = [
     title: "Analyse & Audit",
     description:
       "Analyse de l'existant, interviews utilisateurs, benchmark concurrentiel. On comprend avant de dessiner.",
-    icon: <RiSearchEyeFill size={20} />,
+    icon: <SearchCheck size={20} />,
   },
   {
     number: "02",
     title: "Maquettes fonctionnelles & Prototypage",
     description:
       "Architecture de l'information, wireframes basse fidélité, prototypes interactifs Figma.",
-    icon: <RiDraftFill size={20} />,
+    icon: <PenLine size={20} />,
   },
   {
     number: "03",
     title: "UI Design",
     description:
       "Design system cohérent, composants réutilisables, responsive. Chaque pixel a une raison d'être.",
-    icon: <RiPaletteFill size={20} />,
+    icon: <Palette size={20} />,
   },
   {
     number: "04",
     title: "Tests & Ajustements",
     description:
       "Tests utilisateurs, A/B testing, analytics. On mesure et on améliore en continu.",
-    icon: <RiTestTubeFill size={20} />,
+    icon: <FlaskConical size={20} />,
   },
 ];
 
@@ -168,7 +168,7 @@ export default function ProductDesign() {
                   </p>
                   <Button size="lg" asChild className="w-max">
                     <TrackedLink href="/contact?besoin=product-design" trackingLabel="analyser_besoin" trackingPage="product-design">
-                      Analyser mon besoin — gratuit <RiCornerDownRightLine />
+                      Analyser mon besoin — gratuit <CornerDownRight />
                     </TrackedLink>
                   </Button>
                 </div>

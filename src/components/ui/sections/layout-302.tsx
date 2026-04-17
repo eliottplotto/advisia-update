@@ -14,7 +14,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { RiBox2Fill } from "@remixicon/react";
+import { Box } from "lucide-react";
 import { RevealText } from "@/components/reveal-text";
 
 type ButtonItem = React.ComponentProps<"button"> &
@@ -183,25 +183,25 @@ export const Layout302Defaults: Props = {
   heading: "Long heading is what you see here in this feature section",
   sections: [
     {
-      icon: <RiBox2Fill size={32} />,
+      icon: <Box size={32} />,
       heading: "Long heading is what you see here in this feature section",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
     },
     {
-      icon: <RiBox2Fill size={32} />,
+      icon: <Box size={32} />,
       heading: "Long heading is what you see here in this feature section",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
     },
     {
-      icon: <RiBox2Fill size={32} />,
+      icon: <Box size={32} />,
       heading: "Long heading is what you see here in this feature section",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
     },
     {
-      icon: <RiBox2Fill size={32} />,
+      icon: <Box size={32} />,
       heading: "Long heading is what you see here in this feature section",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",

@@ -2,7 +2,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { allProjectsQuery } from "@/sanity/lib/queries";
 import Link from "next/link";
 import { RevealText } from "../reveal-text";
-import { RiArrowRightLine } from "@remixicon/react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ProjectsGrid from "./projects-grid";
 
@@ -48,7 +48,7 @@ export default async function ProjectsSection() {
           >
             <Link href="/projets" className="flex items-center gap-3">
               <span className="mt-[1px]">Voir toutes nos réalisations</span>
-              <RiArrowRightLine
+              <ArrowRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"
               />

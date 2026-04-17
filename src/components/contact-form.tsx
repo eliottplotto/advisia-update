@@ -7,11 +7,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  RiCheckFill,
-  RiCornerDownRightLine,
-  RiErrorWarningFill,
-  RiLoader4Fill,
-} from "@remixicon/react";
+  Check,
+  CornerDownRight,
+  AlertTriangle,
+  Loader2,
+} from "lucide-react";
 import { trackFormSubmission } from "@/lib/analytics";
 
 
@@ -290,7 +290,7 @@ export default function ContactForm() {
           }}
         >
           <div className="flex items-center gap-3 mb-2">
-            <RiCheckFill style={{ color: "var(--ad-1)" }} size={20} />
+            <Check style={{ color: "var(--ad-1)" }} size={20} />
             <p className="font-bold" style={{ fontFamily: "var(--font-display)" }}>
               Message envoyé avec succès !
             </p>
@@ -514,7 +514,7 @@ export default function ContactForm() {
             border: "1px solid rgba(239,68,68,0.3)",
           }}
         >
-          <RiErrorWarningFill className="h-4 w-4 text-red-400" />
+          <AlertTriangle className="h-4 w-4 text-red-400" />
           <p className="text-sm text-red-400">{submitError}</p>
         </div>
       )}
@@ -533,12 +533,12 @@ export default function ContactForm() {
       >
         {isSubmitting ? (
           <>
-            <RiLoader4Fill className="mr-2 h-4 w-4 animate-spin" />
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Envoi en cours...
           </>
         ) : (
           <>
-            Envoyer le message <RiCornerDownRightLine size={16} />
+            Envoyer le message <CornerDownRight size={16} />
           </>
         )}
       </button>

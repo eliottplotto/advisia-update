@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { RiArrowRightUpLine, RiCheckLine } from "@remixicon/react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { useDrawer } from "@/lib/drawer-store";
+import OfferDetailLink from "@/components/offer-detail-link";
 
 type Profile = "cedant" | "repreneur";
 
@@ -184,7 +185,7 @@ export default function PacksToggle() {
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {pack.items.map((item, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm">
-                      <RiCheckLine
+                      <Check
                         size={14}
                         className="mt-0.5 flex-shrink-0"
                         style={{ color: pack.featured ? "#c9fe6e" : "var(--violet)" }}
@@ -203,8 +204,9 @@ export default function PacksToggle() {
                       : { border: "1px solid rgba(124,58,237,0.4)", color: "var(--text-primary)" }
                   }
                 >
-                  Demander ce pack <RiArrowRightUpLine size={14} />
+                  Demander ce pack <ArrowUpRight size={14} />
                 </button>
+                <OfferDetailLink slug={pack.slug} />
               </div>
             </div>
           ))}

@@ -8,10 +8,10 @@ import HoverExpandColumns from "@/components/hover-expand-columns";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import Link from "next/link";
 import {
-  RiArrowRightUpLine,
-  RiArrowDownLine,
-  RiCheckLine,
-} from "@remixicon/react";
+  ArrowUpRight,
+  ArrowDown,
+  Check,
+} from "lucide-react";
 import PageTestimonial from "@/components/page-testimonial";
 import PacksToggle from "./packs-toggle";
 import SeoFooterText from "@/components/seo-footer-text";
@@ -97,7 +97,7 @@ export default function CessionReprisePage() {
         <ul className="space-y-3 mb-8">
           {cedantAvantages.map((item, i) => (
             <li key={i} className="flex items-start gap-3 text-sm" style={{ color: "var(--text-secondary)" }}>
-              <RiCheckLine size={15} className="mt-0.5 flex-shrink-0" style={{ color: "#c9fe6e" }} />
+              <Check size={15} className="mt-0.5 flex-shrink-0" style={{ color: "#c9fe6e" }} />
               {item}
             </li>
           ))}
@@ -126,7 +126,7 @@ export default function CessionReprisePage() {
         <ul className="space-y-3 mb-8">
           {repreneurAvantages.map((item, i) => (
             <li key={i} className="flex items-start gap-3 text-sm" style={{ color: "var(--text-secondary)" }}>
-              <RiCheckLine size={15} className="mt-0.5 flex-shrink-0" style={{ color: "#c9fe6e" }} />
+              <Check size={15} className="mt-0.5 flex-shrink-0" style={{ color: "#c9fe6e" }} />
               {item}
             </li>
           ))}
@@ -213,14 +213,14 @@ export default function CessionReprisePage() {
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
                   style={{ background: "#c9fe6e", color: "#0a0a0f" }}
                 >
-                  Audit Flash gratuit &mdash; 30 min <RiArrowRightUpLine size={16} />
+                  Audit Flash gratuit &mdash; 30 min <ArrowUpRight size={16} />
                 </Link>
                 <Link
                   href="#packs"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm transition-all duration-300 hover:bg-[rgba(124,58,237,0.1)]"
                   style={{ border: "1px solid rgba(124,58,237,0.3)", color: "var(--text-primary)" }}
                 >
-                  Voir nos packs <RiArrowDownLine size={16} />
+                  Voir nos packs <ArrowDown size={16} />
                 </Link>
               </div>
             </div>
@@ -434,7 +434,7 @@ export default function CessionReprisePage() {
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
                 style={{ background: "#c9fe6e", color: "#0a0a0f" }}
               >
-                Réserver l&apos;Audit Flash gratuit <RiArrowRightUpLine size={16} />
+                Réserver l&apos;Audit Flash gratuit <ArrowUpRight size={16} />
               </Link>
             </ScrollReveal>
           </div>

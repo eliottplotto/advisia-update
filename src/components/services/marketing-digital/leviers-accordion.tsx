@@ -2,16 +2,11 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import {
-  RiSearchLine,
-  RiGoogleFill,
-  RiMegaphoneFill,
-  RiFileTextFill,
-} from "@remixicon/react";
-import type { RemixiconComponentType } from "@remixicon/react";
+import { Search, Chrome, Megaphone, FileText } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 interface Levier {
-  icon: RemixiconComponentType;
+  icon: LucideIcon;
   title: string;
   shortDesc: string;
   fullDesc: string;
@@ -22,7 +17,7 @@ interface Levier {
 
 const leviers: Levier[] = [
   {
-    icon: RiSearchLine,
+    icon: Search,
     title: "SEO",
     number: "01",
     shortDesc: "Référencement naturel durable sur Google.",
@@ -32,7 +27,7 @@ const leviers: Levier[] = [
     blogLabel: "En savoir plus sur le SEO →",
   },
   {
-    icon: RiGoogleFill,
+    icon: Chrome,
     title: "Google Ads (SEA)",
     number: "02",
     shortDesc: "Campagnes Ads optimisées, reporting transparent.",
@@ -42,7 +37,7 @@ const leviers: Levier[] = [
     blogLabel: "En savoir plus sur le SEA →",
   },
   {
-    icon: RiMegaphoneFill,
+    icon: Megaphone,
     title: "Social Ads",
     number: "03",
     shortDesc: "Meta, LinkedIn, TikTok — ciblage précis.",
@@ -52,7 +47,7 @@ const leviers: Levier[] = [
     blogLabel: "En savoir plus sur les Social Ads →",
   },
   {
-    icon: RiFileTextFill,
+    icon: FileText,
     title: "Stratégie de contenu / GEO",
     number: "04",
     shortDesc: "Calendriers éditoriaux, articles SEO, newsletters.",

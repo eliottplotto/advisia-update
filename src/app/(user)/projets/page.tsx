@@ -1,4 +1,5 @@
 // Components
+import Image from "next/image";
 import Footer from "@/components/footer";
 import SectionCTASmall from "@/components/section-cta-small";
 import { RevealText } from "@/components/reveal-text";
@@ -53,11 +54,13 @@ export default function Projets() {
               >
                 <div className="flex items-center">
                   {profils.map((profil, index) => (
-                    <img
+                    <Image
                       key={index}
                       src={profil.src}
                       alt={profil.alt}
-                      className="inline-block not-first:-ml-2 w-6 h-6 rounded-full"
+                      width={24}
+                      height={24}
+                      className="inline-block not-first:-ml-2 w-6 h-6 rounded-full object-cover"
                       style={{ border: "1px solid var(--border)" }}
                     />
                   ))}

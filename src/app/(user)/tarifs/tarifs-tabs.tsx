@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Check, Search, Zap, Globe, GraduationCap, HeartHandshake, ArrowLeftRight } from "lucide-react";
-import { RiArrowRightUpLine } from "@remixicon/react";
+import { ArrowUpRight } from "lucide-react";
+import OfferDetailLink from "@/components/offer-detail-link";
 import { useDrawer } from "@/lib/drawer-store";
 
 type Category = "diagnostics" | "ia" | "web" | "formation" | "partenariat" | "cession";
@@ -756,17 +757,23 @@ export default function TarifsTabs() {
                                   </div>
                                 )}
                               </div>
-                              <button
-                                onClick={() => openDrawer(offre.slug)}
-                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200 hover:-translate-y-[1px]"
-                                style={
-                                  offre.featured
-                                    ? { background: "var(--ad-1)", color: "#000" }
-                                    : { border: "1px solid rgba(124,58,237,0.4)", color: "var(--text-primary)" }
-                                }
-                              >
-                                Demander cette offre <RiArrowRightUpLine size={13} />
-                              </button>
+                              <div className="flex flex-col items-start gap-2">
+                                <button
+                                  onClick={() => openDrawer(offre.slug)}
+                                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200 hover:-translate-y-[1px]"
+                                  style={
+                                    offre.featured
+                                      ? { background: "var(--ad-1)", color: "#000" }
+                                      : { border: "1px solid rgba(124,58,237,0.4)", color: "var(--text-primary)" }
+                                  }
+                                >
+                                  Demander cette offre <ArrowUpRight size={13} />
+                                </button>
+                                <OfferDetailLink
+                                  slug={offre.slug}
+                                  align="left"
+                                />
+                              </div>
                             </div>
                           </div>
                         </motion.div>

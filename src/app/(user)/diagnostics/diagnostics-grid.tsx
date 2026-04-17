@@ -3,22 +3,23 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  RiArrowRightUpLine,
-  RiSearchEyeFill,
-  RiShieldCheckLine,
-  RiBarChartBoxFill,
-  RiStarSmileFill,
-  RiBuildingFill,
-} from "@remixicon/react";
+  ArrowUpRight,
+  SearchCheck,
+  ShieldCheck,
+  BarChart3,
+  Sparkles,
+  Building2,
+} from "lucide-react";
 import { useDrawer } from "@/lib/drawer-store";
+import OfferDetailLink from "@/components/offer-detail-link";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const iconMap: Record<string, any> = {
-  RiSearchEyeFill,
-  RiShieldCheckLine,
-  RiBarChartBoxFill,
-  RiStarSmileFill,
-  RiBuildingFill,
+  SearchCheck,
+  ShieldCheck,
+  BarChart3,
+  Sparkles,
+  Building2,
 };
 
 interface Diagnostic {
@@ -45,7 +46,7 @@ export default function DiagnosticsGrid({ diagnostics }: { diagnostics: Diagnost
       <div className="flex flex-col gap-2">
         {diagnostics.map((d, i) => {
           const isOpen = openIndex === i;
-          const Icon = iconMap[d.icon] || RiSearchEyeFill;
+          const Icon = iconMap[d.icon] || SearchCheck;
           return (
             <div
               key={i}
@@ -141,8 +142,9 @@ export default function DiagnosticsGrid({ diagnostics }: { diagnostics: Diagnost
                             className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-300 hover:-translate-y-[1px]"
                             style={{ background: "#c9fe6e", color: "#000" }}
                           >
-                            Demander ce diagnostic <RiArrowRightUpLine size={14} />
+                            Demander ce diagnostic <ArrowUpRight size={14} />
                           </button>
+                          <OfferDetailLink slug={d.slug} />
                         </div>
                       </div>
                     </div>

@@ -6,7 +6,7 @@ import SectionCTAForm from "@/components/section-cta-form";
 import FAQCenter from "@/components/ui/sections/faq-center";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import Link from "next/link";
-import { RiArrowRightUpLine } from "@remixicon/react";
+import { ArrowUpRight } from "lucide-react";
 import PageTestimonial from "@/components/page-testimonial";
 import FormationPartenariatToggle from "./formation-partenariat-toggle";
 import SeoFooterText from "@/components/seo-footer-text";
@@ -95,7 +95,7 @@ export default function AccompagnementPage() {
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm w-max transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
                     style={{ background: "#c9fe6e", color: "#0a0a0f" }}
                   >
-                    Parler à un expert <RiArrowRightUpLine size={16} />
+                    Parler à un expert <ArrowUpRight size={16} />
                   </Link>
                 </div>
 
@@ -198,14 +198,14 @@ export default function AccompagnementPage() {
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,254,110,0.2)] hover:scale-[1.02]"
                   style={{ background: "#c9fe6e", color: "#0a0a0f" }}
                 >
-                  Choisir ma formule d&apos;accompagnement <RiArrowRightUpLine size={16} />
+                  Choisir ma formule d&apos;accompagnement <ArrowUpRight size={16} />
                 </Link>
                 <Link
                   href="/tarifs"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm transition-all duration-300 hover:bg-[rgba(124,58,237,0.1)]"
                   style={{ border: "1px solid rgba(124,58,237,0.3)", color: "var(--text-primary)" }}
                 >
-                  Voir tous nos tarifs <RiArrowRightUpLine size={16} />
+                  Voir tous nos tarifs <ArrowUpRight size={16} />
                 </Link>
               </div>
             </ScrollReveal>

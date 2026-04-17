@@ -1,3 +1,4 @@
+import Image from "next/image";
 import TrackedLink from "./ui/tracked-link";
 import { RevealText } from "./RevealText";
 import { Button } from "./ui/button";
@@ -53,11 +54,13 @@ export default function SectionCTA() {
         <div className="flex flex-col items-center gap-4">
           <div>
             {profils.map((profil, index) => (
-              <img
+              <Image
                 key={index}
                 src={profil.src}
                 alt={profil.alt}
-                className="inline-block not-first:-ml-2 w-12 h-12 rounded-full"
+                width={48}
+                height={48}
+                className="inline-block not-first:-ml-2 w-12 h-12 rounded-full object-cover"
                 style={{ border: "2px solid var(--violet)" }}
               />
             ))}
