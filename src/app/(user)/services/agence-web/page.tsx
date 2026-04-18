@@ -27,6 +27,7 @@ import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import MidPageCTA from "@/components/ui/sections/mid-page-cta";
 import PageTestimonial from "@/components/page-testimonial";
 import SeoFooterText from "@/components/seo-footer-text";
+import SeoH2 from "@/components/seo-h2";
 
 export const metadata = {
   title: "Création de Site Web Professionnel · Agence Advisia",
@@ -166,6 +167,11 @@ export default function SiteWeb() {
                     text="Des sites qui chargent en moins d'une seconde. Et qui convertissent."
                     className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
                   />
+                  <SeoH2>
+                    Agence de création de site web professionnel pour PME :
+                    sites vitrines, e-commerce, applications SaaS et intranets
+                    sur mesure, construits en Next.js et CMS Sanity.
+                  </SeoH2>
                   <p className="max-w-xl text-muted-foreground">
                     Sites vitrines, boutiques en ligne, apps métier : on construit
                     des outils web qui vont vite, qui durent, et que vous pouvez

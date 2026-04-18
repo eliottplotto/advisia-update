@@ -103,6 +103,10 @@ export function AgenceHero() {
             L&apos;IA crée de la valeur pour les{" "}
             <span style={{ color: "#c9fe6e" }}>PME françaises.</span>
           </h1>
+          <h2 className="sr-only">
+            Advisia, agence IA, web et digitale basée en France : notre
+            méthode, nos convictions et nos clients.
+          </h2>
         </HeroReveal>
 
         <HeroReveal delay={340}>

@@ -22,6 +22,7 @@ import PageTestimonial from "@/components/page-testimonial";
 import OffresMarketingGrid from "./offres-marketing-grid";
 import LeviersAccordion from "@/components/services/marketing-digital/leviers-accordion";
 import SeoFooterText from "@/components/seo-footer-text";
+import SeoH2 from "@/components/seo-h2";
 
 export const metadata = {
   title: "Marketing Digital & SEO pour PME | Agence Advisia",
@@ -135,6 +136,11 @@ export default function MarketingDigital() {
                     text="Plus de trafic. Plus de demandes clients. Moins de budget gaspillé."
                     className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
                   />
+                  <SeoH2>
+                    Agence marketing digital pour PME en France : référencement
+                    SEO, Google Ads, Meta Ads, LinkedIn Ads, TikTok Ads et
+                    stratégie de contenu (GEO).
+                  </SeoH2>
                   <p className="max-w-xl text-muted-foreground">
                     SEO, Google Ads, Meta Ads, LinkedIn Ads : on met en place
                     votre acquisition digitale et on l&apos;optimise chaque

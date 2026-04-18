@@ -17,6 +17,7 @@ import PacksToggle from "./packs-toggle";
 import SeoFooterText from "@/components/seo-footer-text";
 import SeoSiloSection from "@/components/seo-silo-section";
 import { seoSiloCessionReprise } from "@/lib/seo-silo-content";
+import SeoH2 from "@/components/seo-h2";
 
 export const metadata = {
   title: "Cession & reprise d'entreprise PME | Advisia",
@@ -202,6 +203,11 @@ export default function CessionReprisePage() {
                 text="Votre entreprise vaut plus si elle est numériquement mature."
                 className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
               />
+              <SeoH2>
+                Accompagnement cession et reprise d&apos;entreprise pour PME
+                françaises : audit de maturité digitale, valorisation avant
+                cession, transformation post-reprise.
+              </SeoH2>
 
               <p className="text-lg max-w-xl" style={{ color: "var(--text-secondary)" }}>
                 Vous cédez ou reprenez une entreprise ? La maturité numérique est devenue un critère de valorisation clé. On vous aide à l&apos;évaluer, l&apos;améliorer et le prouver aux acquéreurs.

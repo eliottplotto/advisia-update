@@ -13,6 +13,7 @@ import DiagnosticsPacks from "./diagnostics-packs";
 import SeoFooterText from "@/components/seo-footer-text";
 import SeoSiloSection from "@/components/seo-silo-section";
 import { seoSiloDiagnostics } from "@/lib/seo-silo-content";
+import SeoH2 from "@/components/seo-h2";
 
 export const metadata = {
   title: "Diagnostics et Audits pour PME | Advisia",
@@ -179,6 +180,11 @@ export default function DiagnosticsPage() {
                 text="Avant de construire, on analyse."
                 className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
               />
+              <SeoH2>
+                Diagnostics et audits digitaux pour PME en France : audit SEO,
+                audit sécurité, diagnostic maturité IA, audit e-réputation,
+                audit de cession-reprise.
+              </SeoH2>
               <p className="text-lg max-w-xl" style={{ color: "var(--text-secondary)" }}>
                 Advisia, agence IA pour PME en France, vous livre en 48-72h un état précis de votre situation et les actions prioritaires à mener. Pas de PowerPoint. Un rapport actionnable.
               </p>

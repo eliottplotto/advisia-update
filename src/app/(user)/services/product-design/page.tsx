@@ -22,6 +22,7 @@ import PageTestimonial from "@/components/page-testimonial";
 import ExpertiseCarousel from "@/components/services/product-design/expertise-carousel";
 import SeoFooterText from "@/components/seo-footer-text";
 import OffresDesignGrid from "./offres-design-grid";
+import SeoH2 from "@/components/seo-h2";
 
 export const metadata = {
   title: "Design d'Interface et UX · Agence Advisia",
@@ -161,6 +162,11 @@ export default function ProductDesign() {
                     text="Des interfaces que vos utilisateurs comprennent. Du premier clic."
                     className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
                   />
+                  <SeoH2>
+                    Agence UX/UI design pour PME et startups françaises : audit
+                    UX, maquettes Figma, design system, prototypage et tests
+                    utilisateurs.
+                  </SeoH2>
                   <p className="max-w-xl text-muted-foreground">
                     UI/UX Design centré sur la conversion. On ne fait pas du joli
                     pour faire du joli — on conçoit des parcours qui transforment

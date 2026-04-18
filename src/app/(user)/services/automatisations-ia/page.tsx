@@ -23,6 +23,7 @@ import MidPageCTA from "@/components/ui/sections/mid-page-cta";
 import PageTestimonial from "@/components/page-testimonial";
 import ApprochBlocs from "@/components/services/automatisations-ia/approche-blocs";
 import SeoFooterText from "@/components/seo-footer-text";
+import SeoH2 from "@/components/seo-h2";
 
 export const metadata = {
   title: "Agents IA & Automatisation pour PME | Agence Advisia",
@@ -146,6 +147,11 @@ export default function AutomatisationsIA() {
                     text="Vos équipes perdent 10h par semaine sur des tâches que l'IA peut faire."
                     className="text-3xl lg:text-4xl xl:text-5xl lg:max-w-4xl"
                   />
+                  <SeoH2>
+                    Agence IA et automatisation pour PME en France : agents IA
+                    sur mesure, workflows N8N, automatisation de tâches
+                    répétitives, intégration CRM et reporting.
+                  </SeoH2>
                   <p className="max-w-xl text-muted-foreground">
                     Agence IA pour PME en France, on conçoit des agents IA et des automatisations qui
                     éliminent le travail répétitif. Résultat : vos équipes se

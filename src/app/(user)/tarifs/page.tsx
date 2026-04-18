@@ -102,6 +102,11 @@ export default function TarifsPage() {
               <h1 className="text-4xl lg:text-5xl xl:text-6xl">
                 <RevealText>Des prix clairs. Sans surprise.</RevealText>
               </h1>
+              <h2 className="sr-only">
+                Tarifs d&apos;une agence IA et digitale pour PME en France :
+                diagnostics dès 490€, automatisations dès 390€, sites web dès
+                690€, formation et partenariat mensuel.
+              </h2>
               <p className="text-lg max-w-xl" style={{ color: "var(--text-secondary)" }}>
                 Toutes nos offres en un seul endroit. Prix fixes affichés, délais indiqués. Pas de devis opaque, pas d&apos;engagement caché.
               </p>

@@ -10,6 +10,7 @@ import { ArrowUpRight } from "lucide-react";
 import PageTestimonial from "@/components/page-testimonial";
 import FormationPartenariatToggle from "./formation-partenariat-toggle";
 import SeoFooterText from "@/components/seo-footer-text";
+import SeoH2 from "@/components/seo-h2";
 
 export const metadata = {
   title: "Formation IA et Partenariat Mensuel | Advisia",
@@ -87,6 +88,11 @@ export default function AccompagnementPage() {
                     text="Votre investissement porte ses fruits après la livraison."
                     className="text-4xl lg:text-5xl xl:text-6xl lg:max-w-4xl"
                   />
+                  <SeoH2>
+                    Formation IA et partenariat mensuel pour PME françaises :
+                    workshop IA dirigeants, formation équipes, accompagnement
+                    technique continu.
+                  </SeoH2>
                   <p className="text-lg max-w-xl" style={{ color: "var(--text-secondary)" }}>
                     Formation de vos équipes, suivi mensuel, évolutions continues. On reste dans la durée pour que votre investissement continue de porter ses fruits.
                   </p>

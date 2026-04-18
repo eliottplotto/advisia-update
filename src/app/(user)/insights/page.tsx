@@ -40,6 +40,10 @@ export default async function InsightsPage() {
                 L&apos;IA décryptée. Guides, veille et retours terrain.
               </RevealText>
             </h1>
+            <h2 className="sr-only">
+              Blog Advisia : guides pratiques IA, veille sectorielle, études de
+              cas et retours terrain pour dirigeants de PME françaises.
+            </h2>
             <p
               className="mt-4 text-base md:text-lg max-w-2xl"
               style={{ color: "var(--text-secondary)" }}

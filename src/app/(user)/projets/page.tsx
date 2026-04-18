@@ -82,6 +82,11 @@ export default function Projets() {
                   <span className="gradient-text">rapporté.</span>
                 </RevealText>
               </h1>
+              <h2 className="sr-only">
+                Études de cas et réalisations Advisia : intranets, e-commerce,
+                agents IA, dashboards et automatisations livrés à des PME et
+                ETI françaises.
+              </h2>
             </div>
 
             <Projects />

@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { RevealText } from "../reveal-text";
+import SeoH2 from "@/components/seo-h2";
 import { trackCTAClick, trackBookingClick } from "@/lib/analytics";
 export default function Hero() {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -88,6 +89,11 @@ export default function Hero() {
             </span>
           </RevealText>
         </h1>
+        <SeoH2>
+          Agence IA, site web, marketing digital et diagnostics pour PME
+          françaises : automatisation de processus, création de sites,
+          référencement, formation et accompagnement mensuel.
+        </SeoH2>
 
         {/* Subtitle */}
         <p
