@@ -82,8 +82,20 @@ export default function Services() {
           </RevealText>
         </h2>
 
+        {/* Group label 1 */}
+        <div
+          className="font-mono text-xs md:text-sm uppercase tracking-[0.15em] mb-4 flex items-center gap-2.5"
+          style={{ color: "rgba(255,255,255,0.85)" }}
+        >
+          <span
+            className="inline-block w-2 h-2 rounded-full"
+            style={{ background: "var(--violet-light)", boxShadow: "0 0 10px var(--violet-glow)" }}
+          />
+          On construit pour vous
+        </div>
+
         {/* Row 1 — 2 large cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           {expertises.slice(0, 2).map((item, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
               <Link href={item.link} className="group block h-full">
@@ -129,6 +141,18 @@ export default function Services() {
               </Link>
             </ScrollReveal>
           ))}
+        </div>
+
+        {/* Group label 2 */}
+        <div
+          className="font-mono text-xs md:text-sm uppercase tracking-[0.15em] mb-4 flex items-center gap-2.5"
+          style={{ color: "rgba(255,255,255,0.85)" }}
+        >
+          <span
+            className="inline-block w-2 h-2 rounded-full"
+            style={{ background: "#c9fe6e", boxShadow: "0 0 10px rgba(201,254,110,0.5)" }}
+          />
+          On analyse, on accompagne, on transmet
         </div>
 
         {/* Row 2 — 4 compact cards */}

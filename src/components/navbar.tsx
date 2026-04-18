@@ -347,12 +347,19 @@ export default function Navbar() {
                     key={link.path}
                     href={link.path}
                     className="font-mono text-[0.7rem] uppercase tracking-[0.1em] relative transition-colors duration-300 hover:text-white group whitespace-nowrap"
-                    style={{ color: pathname === link.path ? "var(--text-primary)" : "var(--text-secondary)" }}
+                    style={{
+                      color: pathname === link.path
+                        ? "var(--text-primary)"
+                        : "var(--text-secondary)",
+                    }}
                   >
                     {link.label}
                     <span
                       className="absolute -bottom-1 left-0 h-[2px] transition-all duration-400 group-hover:w-full"
-                      style={{ background: "var(--violet)", width: pathname === link.path ? "100%" : "0%" }}
+                      style={{
+                        background: "var(--violet)",
+                        width: pathname === link.path ? "100%" : "0%",
+                      }}
                     />
                   </Link>
                 ))}

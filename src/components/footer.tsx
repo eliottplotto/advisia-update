@@ -192,6 +192,54 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Stack technique — crédibilité */}
+        <div
+          className="px-4 md:px-8 lg:px-12 py-6"
+          style={{ borderTop: "1px solid var(--border)" }}
+        >
+          <p
+            className="font-mono text-[0.65rem] uppercase tracking-[0.15em] mb-4 text-center md:text-left"
+            style={{ color: "var(--text-muted)" }}
+          >
+            ● Technologies sur lesquelles on construit
+          </p>
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-3">
+            {[
+              { name: "Next.js", slug: "nextdotjs" },
+              { name: "Vercel", slug: "vercel" },
+              { name: "Supabase", slug: "supabase" },
+              { name: "Sanity", slug: "sanity" },
+              { name: "n8n", slug: "n8n" },
+              { name: "OpenAI", slug: "openai" },
+              { name: "Anthropic", slug: "anthropic" },
+              { name: "TypeScript", slug: "typescript" },
+              { name: "TailwindCSS", slug: "tailwindcss" },
+            ].map((t) => (
+              <div
+                key={t.slug}
+                className="flex items-center gap-1.5 transition-opacity duration-200 opacity-50 hover:opacity-90"
+                title={t.name}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`https://cdn.simpleicons.org/${t.slug}/ffffff`}
+                  alt={t.name}
+                  className="w-4 h-4"
+                  width={16}
+                  height={16}
+                  loading="lazy"
+                />
+                <span
+                  className="font-mono text-xs"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {t.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Bottom bar */}
         <div
           className="px-4 md:px-8 lg:px-12 py-6 flex flex-col sm:flex-row justify-between items-center gap-4"

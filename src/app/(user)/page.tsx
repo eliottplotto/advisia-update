@@ -2,7 +2,6 @@ import Footer from "@/components/footer";
 import Hero from "@/components/home/hero";
 import StatsBar from "@/components/home/stats-bar";
 import Services from "@/components/home/services";
-import DecisionMatrix from "@/components/home/decision-matrix";
 import LogosConfiance from "@/components/logos-confiance";
 import SectionCTAForm from "@/components/section-cta-form";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
@@ -34,7 +33,6 @@ export default function Home() {
     <main className="relative">
       <VerticalFlowLine />
       <Hero />
-      <DecisionMatrix />
       <Services />
       <LogosConfiance />
       <Process />

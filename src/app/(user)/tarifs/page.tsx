@@ -139,6 +139,34 @@ export default function TarifsPage() {
         {/* EXEMPLES BUDGETS */}
         <section className="py-10 lg:py-14" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="container-md global-padding-x">
+            {/* Bannière "Différenciant marché" — preuve de transparence avant budgets */}
+            <div
+              className="flex items-start md:items-center gap-3 md:gap-4 px-5 py-4 rounded-xl max-w-3xl mb-8"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(201,254,110,0.08), rgba(124,58,237,0.05))",
+                border: "1px solid rgba(201,254,110,0.25)",
+              }}
+            >
+              <span
+                className="inline-block flex-shrink-0 w-2 h-2 rounded-full mt-[0.55rem] md:mt-0"
+                style={{ background: "#c9fe6e" }}
+              />
+              <div>
+                <p
+                  className="font-semibold text-sm md:text-base"
+                  style={{ color: "rgba(255,255,255,0.95)" }}
+                >
+                  On affiche tout. Ça n&apos;existe nulle part ailleurs sur le marché français de l&apos;IA.
+                </p>
+                <p
+                  className="text-xs md:text-sm mt-1"
+                  style={{ color: "rgba(255,255,255,0.6)" }}
+                >
+                  Après analyse de 5 agences IA concurrentes (NoCode Factory, Optimia, IA Agency, MayaIA, Sia Partners) : <strong style={{ color: "#c9fe6e" }}>aucune n&apos;affiche ses prix publiquement</strong>.
+                </p>
+              </div>
+            </div>
             <div className="section-label mb-6">● Exemples de budgets types</div>
             <div
               className="rounded-xl overflow-hidden"

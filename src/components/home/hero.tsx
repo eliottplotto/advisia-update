@@ -5,9 +5,11 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { RevealText } from "../reveal-text";
 import SeoH2 from "@/components/seo-h2";
+import { useQuiz } from "@/components/quiz-provider";
 import { trackCTAClick, trackBookingClick } from "@/lib/analytics";
 export default function Hero() {
   const glowRef = useRef<HTMLDivElement>(null);
+  const { setIsQuizOpen } = useQuiz();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -94,6 +96,42 @@ export default function Hero() {
           françaises : automatisation de processus, création de sites,
           référencement, formation et accompagnement mensuel.
         </SeoH2>
+
+        {/* Diagnostic express — quiz orientation */}
+        <button
+          onClick={() => {
+            trackCTAClick("quiz_30s", "hero");
+            setIsQuizOpen(true);
+          }}
+          className="group flex items-start gap-3 px-4 py-3 rounded-xl mb-8 opacity-0 transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(201,254,110,0.5)] text-left max-w-[520px]"
+          style={{
+            background: "rgba(201,254,110,0.05)",
+            border: "1px solid rgba(201,254,110,0.25)",
+            animation: "fadeUp 0.8s var(--ease) 0.8s forwards",
+          }}
+        >
+          <span
+            className="inline-flex items-center justify-center w-8 h-8 rounded-lg flex-shrink-0 mt-0.5"
+            style={{
+              background: "rgba(201,254,110,0.12)",
+              border: "1px solid rgba(201,254,110,0.3)",
+            }}
+          >
+            <span className="text-base" style={{ color: "#c9fe6e" }}>⚡</span>
+          </span>
+          <span className="flex flex-col">
+            <span
+              className="font-mono text-[0.65rem] uppercase tracking-[0.15em] mb-0.5"
+              style={{ color: "#c9fe6e" }}
+            >
+              Diagnostic express — 30 secondes
+            </span>
+            <span className="text-sm" style={{ color: "rgba(255,255,255,0.85)" }}>
+              Pas sûr de ce dont vous avez besoin&nbsp;? On évalue votre situation et on vous oriente vers la bonne solution
+              <span className="inline-block ml-1 transition-transform duration-300 group-hover:translate-x-0.5" style={{ color: "#c9fe6e" }}>→</span>
+            </span>
+          </span>
+        </button>
 
         {/* Subtitle */}
         <p

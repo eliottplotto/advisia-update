@@ -183,7 +183,24 @@ export default function CessionReprisePage() {
           <div className="container-md pt-[95px]">
             <div className="global-padding-x py-8 lg:py-16 flex flex-col justify-center gap-6 w-full">
               <div className="flex items-center justify-between flex-wrap gap-4">
-                <BulletHeadline as="p">Cession & Reprise</BulletHeadline>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <BulletHeadline as="p">Cession & Reprise</BulletHeadline>
+                  <span
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono text-[0.65rem] uppercase tracking-[0.15em]"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(201,254,110,0.12), rgba(124,58,237,0.08))",
+                      border: "1px solid rgba(201,254,110,0.3)",
+                      color: "#c9fe6e",
+                    }}
+                  >
+                    <span
+                      className="inline-block w-1.5 h-1.5 rounded-full"
+                      style={{ background: "#c9fe6e" }}
+                    />
+                    700 000 PME à transmettre d&apos;ici 2034
+                  </span>
+                </div>
                 <div
                   className="hidden lg:block flex-shrink-0 rounded-lg p-3 text-center"
                   style={{
