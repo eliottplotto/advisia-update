@@ -85,6 +85,15 @@ export default function Footer() {
                     Contact
                   </TrackedLink>
                 </li>
+                <li>
+                  <Link
+                    href="/ressources"
+                    className="text-sm transition-colors duration-300 hover:text-[var(--violet-light)]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Ressources gratuites
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
