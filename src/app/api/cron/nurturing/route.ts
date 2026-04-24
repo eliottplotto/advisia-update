@@ -6,9 +6,16 @@ const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const CRON_SECRET = process.env.CRON_SECRET;
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://advisia.agency";
 
-// Templates déjà créés (cf. route.ts de /api/ressources/request)
+// Templates Brevo utilisés par le cron
 const TEMPLATE_J7 = 9;
 const TEMPLATE_J14 = 10;
+
+// J+4 : un template distinct par lead magnet (contenu adapté au sujet)
+const TEMPLATE_J4_BY_SLUG: Record<string, number> = {
+  "checklist-cession-reprise": 11,
+  "10-automatisations-ia-pme": 12,
+  "checklist-seo-local": 13,
+};
 
 const SHORT_TITLES: Record<string, string> = {
   "checklist-cession-reprise": "Checklist Cession-Reprise",
@@ -16,11 +23,29 @@ const SHORT_TITLES: Record<string, string> = {
   "checklist-seo-local": "Checklist SEO Local",
 };
 
-// Tolérance : on capte les contacts dont la date tombe entre X-0.5 et X+0.5 jours
-// pour absorber les variations d'heure d'exécution du cron (daily mais pas forcément
-// à la même minute pile).
-const J7_WINDOW = { minDays: 6.5, maxDays: 7.5 };
-const J14_WINDOW = { minDays: 13.5, maxDays: 14.5 };
+// Fenêtres de déclenchement pour chaque étape.
+// On utilise une tolérance de +/- 0.5 jour pour absorber le fait que le cron
+// tourne une fois par jour (pas exactement à la seconde du téléchargement).
+const STEPS = [
+  {
+    name: "J+4",
+    window: { min: 3.5, max: 4.5 },
+    flagKey: "NURTURING_J4_SENT" as const,
+    getTemplateId: (slug: string) => TEMPLATE_J4_BY_SLUG[slug],
+  },
+  {
+    name: "J+7",
+    window: { min: 6.5, max: 7.5 },
+    flagKey: "NURTURING_J7_SENT" as const,
+    getTemplateId: () => TEMPLATE_J7,
+  },
+  {
+    name: "J+14",
+    window: { min: 13.5, max: 14.5 },
+    flagKey: "NURTURING_J14_SENT" as const,
+    getTemplateId: () => TEMPLATE_J14,
+  },
+];
 
 type BrevoContact = {
   id: number;
@@ -31,6 +56,7 @@ type BrevoContact = {
     PRENOM?: string;
     LEAD_MAGNET?: string;
     DOWNLOADED_AT?: string;
+    NURTURING_J4_SENT?: boolean;
     NURTURING_J7_SENT?: boolean;
     NURTURING_J14_SENT?: boolean;
   };
@@ -43,7 +69,7 @@ function daysSince(isoDate: string): number {
 async function fetchListContacts(apiKey: string, listId: number): Promise<BrevoContact[]> {
   const all: BrevoContact[] = [];
   let offset = 0;
-  const limit = 500; // Brevo max par page
+  const limit = 500;
   while (true) {
     const res = await fetch(
       `https://api.brevo.com/v3/contacts/lists/${listId}/contacts?limit=${limit}&offset=${offset}`,
@@ -53,7 +79,7 @@ async function fetchListContacts(apiKey: string, listId: number): Promise<BrevoC
       console.error(`[cron-nurturing] Failed to fetch list ${listId}:`, res.status);
       break;
     }
-    const data = (await res.json()) as { contacts?: BrevoContact[]; count?: number };
+    const data = (await res.json()) as { contacts?: BrevoContact[] };
     const batch = data.contacts || [];
     all.push(...batch);
     if (batch.length < limit) break;
@@ -71,10 +97,7 @@ async function updateContactAttribute(
     `https://api.brevo.com/v3/contacts/${encodeURIComponent(email)}`,
     {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": apiKey,
-      },
+      headers: { "Content-Type": "application/json", "api-key": apiKey },
       body: JSON.stringify({ attributes }),
     }
   );
@@ -124,8 +147,8 @@ async function sendNurturingEmail(
 }
 
 export async function GET(request: NextRequest) {
-  // Auth : Vercel Cron envoie le secret dans le header Authorization, mais on accepte
-  // aussi un query ?secret=... pour les tests manuels.
+  // Auth : Vercel Cron envoie le secret en header Authorization.
+  // On accepte aussi ?secret= pour les tests manuels.
   const authHeader = request.headers.get("authorization");
   const secretParam = new URL(request.url).searchParams.get("secret");
   const providedSecret = authHeader?.replace(/^Bearer\s+/i, "") || secretParam;
@@ -139,65 +162,43 @@ export async function GET(request: NextRequest) {
   }
 
   const apiKey = BREVO_API_KEY.trim();
-  const results = {
-    checked: 0,
-    j7Sent: 0,
-    j14Sent: 0,
-    errors: 0,
-    byList: {} as Record<string, { checked: number; j7: number; j14: number }>,
-  };
+  const stepResults: Record<string, number> = { "J+4": 0, "J+7": 0, "J+14": 0 };
+  let checked = 0;
+  let errors = 0;
 
   for (const magnet of LEAD_MAGNETS) {
-    const listId = magnet.brevoListId;
-    const contacts = await fetchListContacts(apiKey, listId);
-    const stats = { checked: contacts.length, j7: 0, j14: 0 };
+    const contacts = await fetchListContacts(apiKey, magnet.brevoListId);
 
     for (const c of contacts) {
+      checked += 1;
       const downloadedAt = c.attributes.DOWNLOADED_AT || c.createdAt;
       if (!downloadedAt) continue;
-
       const age = daysSince(downloadedAt);
 
-      // J+7 ?
-      if (
-        age >= J7_WINDOW.minDays &&
-        age < J7_WINDOW.maxDays &&
-        c.attributes.NURTURING_J7_SENT !== true
-      ) {
-        const sent = await sendNurturingEmail(apiKey, c, TEMPLATE_J7);
-        if (sent) {
-          await updateContactAttribute(apiKey, c.email, { NURTURING_J7_SENT: true });
-          stats.j7 += 1;
-          results.j7Sent += 1;
-        } else {
-          results.errors += 1;
-        }
-      }
+      for (const step of STEPS) {
+        const alreadySent = c.attributes[step.flagKey] === true;
+        if (alreadySent) continue;
+        if (age < step.window.min || age >= step.window.max) continue;
 
-      // J+14 ?
-      if (
-        age >= J14_WINDOW.minDays &&
-        age < J14_WINDOW.maxDays &&
-        c.attributes.NURTURING_J14_SENT !== true
-      ) {
-        const sent = await sendNurturingEmail(apiKey, c, TEMPLATE_J14);
-        if (sent) {
-          await updateContactAttribute(apiKey, c.email, { NURTURING_J14_SENT: true });
-          stats.j14 += 1;
-          results.j14Sent += 1;
+        const templateId = step.getTemplateId(magnet.slug);
+        if (!templateId) continue;
+
+        const ok = await sendNurturingEmail(apiKey, c, templateId);
+        if (ok) {
+          await updateContactAttribute(apiKey, c.email, { [step.flagKey]: true });
+          stepResults[step.name] += 1;
         } else {
-          results.errors += 1;
+          errors += 1;
         }
       }
     }
-
-    results.checked += stats.checked;
-    results.byList[magnet.slug] = stats;
   }
 
   return NextResponse.json({
     success: true,
     ranAt: new Date().toISOString(),
-    ...results,
+    checked,
+    sent: stepResults,
+    errors,
   });
 }

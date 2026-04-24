@@ -1,27 +1,12 @@
 import { type NextRequest, NextResponse } from "next/server";
-import crypto from "crypto";
 import { getLeadMagnetBySlug } from "@/lib/lead-magnets/data";
 import { createToken } from "@/lib/lead-magnets/token";
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const FALLBACK_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://advisia.agency";
 
-// Template IDs créés dans Brevo (cf. /v3/smtp/templates)
-const TEMPLATES = {
-  immediate: 6, // J+0 : livraison du document
-  j1: 7, // J+1 : "comment tirer le max de votre guide"
-  j3: 8, // J+3 : "l'erreur n°1 qu'on voit chez les PME"
-  j7: 9, // J+7 : "et si on regardait votre cas précisément"
-  j14: 10, // J+14 : "dernier check-in"
-} as const;
-
-// Scheduling immédiat des 2 premières relances via Brevo scheduledAt.
-// Brevo limite scheduledAt à 72h max — donc J+7 et J+14 sont gérés par le cron Vercel
-// (voir /api/cron/nurturing) qui tourne quotidiennement.
-const NURTURING_SCHEDULE_IMMEDIATE = [
-  { templateId: TEMPLATES.j1, delayHours: 24 },
-  { templateId: TEMPLATES.j3, delayHours: 72 },
-];
+// Template ID pour l'email de livraison immédiate
+const TEMPLATE_IMMEDIATE = 6;
 
 // Titre court pour l'objet d'email
 const SHORT_TITLES: Record<string, string> = {
@@ -42,60 +27,6 @@ function resolveSiteUrl(request: NextRequest): string {
     return `${proto}://${host}`;
   }
   return FALLBACK_SITE_URL;
-}
-
-// batchId déterministe par (email × slug) — si le même lead retélécharge le même guide
-// dans les 14j, Brevo dédupera via cet identifiant et n'enverra pas de doublons.
-function buildBatchId(email: string, slug: string): string {
-  return crypto
-    .createHash("sha1")
-    .update(`${email.toLowerCase().trim()}:${slug}`)
-    .digest("hex")
-    .slice(0, 16);
-}
-
-type EmailParams = {
-  PRENOM: string;
-  TITRE: string;
-  TITRE_COURT: string;
-  SLUG: string;
-  URL: string;
-};
-
-async function sendBrevoEmail(
-  apiKey: string,
-  to: { email: string; name: string },
-  templateId: number,
-  params: EmailParams,
-  scheduledAt?: Date,
-  batchId?: string
-): Promise<{ ok: boolean; status: number; error?: string }> {
-  const body: Record<string, unknown> = {
-    to: [to],
-    templateId,
-    params,
-  };
-  if (scheduledAt) body.scheduledAt = scheduledAt.toISOString();
-  if (batchId) body.batchId = batchId;
-
-  const res = await fetch("https://api.brevo.com/v3/smtp/email", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      "api-key": apiKey,
-    },
-    body: JSON.stringify(body),
-  });
-
-  if (res.ok) return { ok: true, status: res.status };
-
-  let errData: { message?: string } = {};
-  try {
-    const text = await res.text();
-    if (text) errData = JSON.parse(text);
-  } catch {}
-  return { ok: false, status: res.status, error: errData.message };
 }
 
 export async function POST(request: NextRequest) {
@@ -127,10 +58,10 @@ export async function POST(request: NextRequest) {
     const siteUrl = resolveSiteUrl(request);
     const unlockUrl = `${siteUrl}/ressources/${slug}?t=${encodeURIComponent(token)}`;
 
-    // Fallback dev : pas de clé Brevo → on renvoie le lien direct
+    // Fallback dev : pas de clé Brevo, on renvoie le lien direct
     if (!BREVO_API_KEY) {
       console.warn(
-        "[lead-magnet] BREVO_API_KEY missing — dev fallback. Unlock URL:",
+        "[lead-magnet] BREVO_API_KEY missing (dev mode). Unlock URL:",
         unlockUrl
       );
       return NextResponse.json({
@@ -141,9 +72,10 @@ export async function POST(request: NextRequest) {
     }
 
     const cleanApiKey = BREVO_API_KEY.trim();
-    const batchId = buildBatchId(normalizedEmail, slug);
 
-    // 1) Ajout / mise à jour du contact dans la liste dédiée
+    // 1) Ajout ou mise à jour du contact dans la liste dédiée
+    // On stocke DOWNLOADED_AT et les flags de nurturing. Le cron quotidien
+    // lira DOWNLOADED_AT et les flags pour déclencher J+4, J+7 et J+14 au bon moment.
     const contactRes = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers: {
@@ -159,6 +91,7 @@ export async function POST(request: NextRequest) {
           LEAD_MAGNET: slug,
           LEAD_SOURCE: source || "direct",
           DOWNLOADED_AT: new Date().toISOString(),
+          NURTURING_J4_SENT: false,
           NURTURING_J7_SENT: false,
           NURTURING_J14_SENT: false,
         },
@@ -182,58 +115,43 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const emailParams: EmailParams = {
-      PRENOM: normalizedName,
-      TITRE: magnet.title,
-      TITRE_COURT: SHORT_TITLES[slug] || magnet.title,
-      SLUG: slug,
-      URL: unlockUrl,
-    };
-    const recipient = { email: normalizedEmail, name: normalizedName };
-
     // 2) Envoi immédiat du document (template J+0)
-    const immediate = await sendBrevoEmail(
-      cleanApiKey,
-      recipient,
-      TEMPLATES.immediate,
-      emailParams
-    );
-    if (!immediate.ok) {
-      console.error("[lead-magnet] Immediate email failed:", immediate.status, immediate.error);
+    const emailRes = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "api-key": cleanApiKey,
+      },
+      body: JSON.stringify({
+        to: [{ email: normalizedEmail, name: normalizedName }],
+        templateId: TEMPLATE_IMMEDIATE,
+        params: {
+          PRENOM: normalizedName,
+          TITRE: magnet.title,
+          TITRE_COURT: SHORT_TITLES[slug] || magnet.title,
+          SLUG: slug,
+          URL: unlockUrl,
+        },
+      }),
+    });
+
+    if (!emailRes.ok) {
+      let emailErr: { message?: string } = {};
+      try {
+        const text = await emailRes.text();
+        if (text) emailErr = JSON.parse(text);
+      } catch {}
+      console.error("[lead-magnet] Brevo email error:", emailRes.status, emailErr);
       return NextResponse.json(
         { error: "L'email n'a pas pu être envoyé. Vérifiez votre adresse ou réessayez." },
         { status: 500 }
       );
     }
 
-    // 3) Scheduling des relances J+1 et J+3 via Brevo scheduledAt
-    // (J+7 et J+14 sont gérés par le cron quotidien /api/cron/nurturing)
-    const now = Date.now();
-    const schedulingResults = await Promise.all(
-      NURTURING_SCHEDULE_IMMEDIATE.map(({ templateId, delayHours }) =>
-        sendBrevoEmail(
-          cleanApiKey,
-          recipient,
-          templateId,
-          emailParams,
-          new Date(now + delayHours * 3600 * 1000),
-          batchId
-        )
-      )
-    );
-
-    const scheduledCount = schedulingResults.filter((r) => r.ok).length;
-    const scheduledErrors = schedulingResults
-      .map((r, i) => (!r.ok ? { step: i, status: r.status, error: r.error } : null))
-      .filter(Boolean);
-    if (scheduledErrors.length) {
-      console.warn("[lead-magnet] Some nurturing emails failed to schedule:", scheduledErrors);
-    }
-
     return NextResponse.json({
       success: true,
       message: "Document envoyé par email",
-      scheduled: scheduledCount,
     });
   } catch (error) {
     console.error("[lead-magnet] Server error:", error);
