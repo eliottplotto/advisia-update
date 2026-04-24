@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { LEAD_MAGNETS, getLeadMagnetBySlug } from "@/lib/lead-magnets/data";
 import { createToken } from "@/lib/lead-magnets/token";
+import { buildUnlockUrl, type NurturingStep } from "@/lib/lead-magnets/tracking";
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const CRON_SECRET = process.env.CRON_SECRET;
@@ -26,23 +27,32 @@ const SHORT_TITLES: Record<string, string> = {
 // Fenêtres de déclenchement pour chaque étape.
 // On utilise une tolérance de +/- 0.5 jour pour absorber le fait que le cron
 // tourne une fois par jour (pas exactement à la seconde du téléchargement).
-const STEPS = [
+const STEPS: Array<{
+  name: string;
+  utmStep: NurturingStep;
+  window: { min: number; max: number };
+  flagKey: "NURTURING_J4_SENT" | "NURTURING_J7_SENT" | "NURTURING_J14_SENT";
+  getTemplateId: (slug: string) => number | undefined;
+}> = [
   {
     name: "J+4",
+    utmStep: "j4",
     window: { min: 3.5, max: 4.5 },
-    flagKey: "NURTURING_J4_SENT" as const,
-    getTemplateId: (slug: string) => TEMPLATE_J4_BY_SLUG[slug],
+    flagKey: "NURTURING_J4_SENT",
+    getTemplateId: (slug) => TEMPLATE_J4_BY_SLUG[slug],
   },
   {
     name: "J+7",
+    utmStep: "j7",
     window: { min: 6.5, max: 7.5 },
-    flagKey: "NURTURING_J7_SENT" as const,
+    flagKey: "NURTURING_J7_SENT",
     getTemplateId: () => TEMPLATE_J7,
   },
   {
     name: "J+14",
+    utmStep: "j14",
     window: { min: 13.5, max: 14.5 },
-    flagKey: "NURTURING_J14_SENT" as const,
+    flagKey: "NURTURING_J14_SENT",
     getTemplateId: () => TEMPLATE_J14,
   },
 ];
@@ -107,7 +117,8 @@ async function updateContactAttribute(
 async function sendNurturingEmail(
   apiKey: string,
   contact: BrevoContact,
-  templateId: number
+  templateId: number,
+  utmStep: NurturingStep
 ): Promise<boolean> {
   const slug = contact.attributes.LEAD_MAGNET;
   if (!slug) return false;
@@ -115,7 +126,7 @@ async function sendNurturingEmail(
   if (!magnet) return false;
 
   const token = createToken(contact.email, slug);
-  const url = `${SITE_URL}/ressources/${slug}?t=${encodeURIComponent(token)}`;
+  const url = buildUnlockUrl(SITE_URL, slug, token, utmStep);
 
   const res = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
@@ -183,7 +194,7 @@ export async function GET(request: NextRequest) {
         const templateId = step.getTemplateId(magnet.slug);
         if (!templateId) continue;
 
-        const ok = await sendNurturingEmail(apiKey, c, templateId);
+        const ok = await sendNurturingEmail(apiKey, c, templateId, step.utmStep);
         if (ok) {
           await updateContactAttribute(apiKey, c.email, { [step.flagKey]: true });
           stepResults[step.name] += 1;

@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getLeadMagnetBySlug } from "@/lib/lead-magnets/data";
 import { createToken } from "@/lib/lead-magnets/token";
+import { buildUnlockUrl } from "@/lib/lead-magnets/tracking";
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const FALLBACK_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://advisia.agency";
@@ -53,10 +54,10 @@ export async function POST(request: NextRequest) {
     const normalizedEmail = email.toLowerCase().trim();
     const normalizedName = firstName.trim();
 
-    // Token signé pour le lien dans l'email
+    // Token signé + UTMs pour traçabilité GA4 (step = j0 pour l'email de livraison)
     const token = createToken(normalizedEmail, slug);
     const siteUrl = resolveSiteUrl(request);
-    const unlockUrl = `${siteUrl}/ressources/${slug}?t=${encodeURIComponent(token)}`;
+    const unlockUrl = buildUnlockUrl(siteUrl, slug, token, "j0");
 
     // Fallback dev : pas de clé Brevo, on renvoie le lien direct
     if (!BREVO_API_KEY) {

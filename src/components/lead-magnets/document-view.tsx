@@ -1,18 +1,25 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Printer } from "lucide-react";
 import type { LeadMagnet } from "@/lib/lead-magnets/types";
-import { trackLeadMagnetDownload, trackLeadMagnetUnlock } from "@/lib/analytics";
+import {
+  trackLeadMagnetDownload,
+  trackLeadMagnetUnlock,
+  getNurturingStep,
+} from "@/lib/analytics";
 
 export default function DocumentView({ magnet }: { magnet: LeadMagnet }) {
-  // Fire unlock event on mount (le document est affiché = token validé)
+  // Capture le step à l'arrivée (utm_content) pour l'attacher à tous les events
+  const stepRef = useRef<string>("direct");
+
   useEffect(() => {
-    trackLeadMagnetUnlock(magnet.slug);
+    stepRef.current = getNurturingStep();
+    trackLeadMagnetUnlock(magnet.slug, stepRef.current);
   }, [magnet.slug]);
 
   const handlePrint = () => {
-    trackLeadMagnetDownload(magnet.slug);
+    trackLeadMagnetDownload(magnet.slug, stepRef.current);
     if (typeof window !== "undefined") window.print();
   };
 
