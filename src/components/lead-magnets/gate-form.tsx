@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { trackCTAClick } from "@/lib/analytics";
+import { trackCTAClick, trackLeadMagnetRequest } from "@/lib/analytics";
 
 type Props = {
   slug: string;
@@ -26,6 +26,28 @@ export default function GateForm({ slug, title, accent, onSuccess }: Props) {
 
   const colors = ACCENT_COLORS[accent];
 
+  // Récupère la source (utm_source) ou referrer pour tracker d'où vient le lead
+  const getSource = (): string => {
+    if (typeof window === "undefined") return "direct";
+    const params = new URLSearchParams(window.location.search);
+    const utmSource = params.get("utm_source");
+    if (utmSource) return utmSource;
+    const ref = document.referrer;
+    if (!ref) return "direct";
+    try {
+      const refHost = new URL(ref).hostname.replace(/^www\./, "");
+      const currentHost = window.location.hostname.replace(/^www\./, "");
+      if (refHost === currentHost) return "internal";
+      if (refHost.includes("linkedin")) return "linkedin";
+      if (refHost.includes("google")) return "google";
+      if (refHost.includes("facebook")) return "facebook";
+      if (refHost.includes("twitter") || refHost.includes("x.com")) return "twitter";
+      return refHost;
+    } catch {
+      return "direct";
+    }
+  };
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!consent) {
@@ -35,17 +57,19 @@ export default function GateForm({ slug, title, accent, onSuccess }: Props) {
     }
     setStatus("loading");
     setErrorMsg(null);
+    const source = getSource();
     try {
       const res = await fetch("/api/ressources/request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug, firstName, email, company }),
+        body: JSON.stringify({ slug, firstName, email, company, source }),
       });
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.error || "Erreur serveur");
       }
       trackCTAClick(`lead_magnet_${slug}`, "ressources");
+      trackLeadMagnetRequest(slug, source);
       onSuccess(email);
     } catch (err) {
       setStatus("error");

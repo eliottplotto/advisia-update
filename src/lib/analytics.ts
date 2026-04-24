@@ -40,3 +40,47 @@ export const trackBookingClick = () => {
     label: "prendre_rendez_vous",
   });
 };
+
+/**
+ * Tracke la soumission du formulaire lead magnet (l'utilisateur a laissé son email).
+ * event_name: lead_magnet_request | category: conversion
+ * custom params : slug, source (utm_source ou "direct")
+ */
+export const trackLeadMagnetRequest = (slug: string, source?: string) => {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "lead_magnet_request", {
+      event_category: "conversion",
+      event_label: slug,
+      lead_magnet_slug: slug,
+      lead_magnet_source: source || "direct",
+    });
+  }
+};
+
+/**
+ * Tracke l'ouverture effective du document après clic sur le lien email.
+ * event_name: lead_magnet_unlock | category: conversion
+ */
+export const trackLeadMagnetUnlock = (slug: string) => {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "lead_magnet_unlock", {
+      event_category: "conversion",
+      event_label: slug,
+      lead_magnet_slug: slug,
+    });
+  }
+};
+
+/**
+ * Tracke le téléchargement effectif (clic sur "Télécharger en PDF" une fois le document débloqué).
+ * event_name: lead_magnet_download | category: conversion
+ */
+export const trackLeadMagnetDownload = (slug: string) => {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "lead_magnet_download", {
+      event_category: "conversion",
+      event_label: slug,
+      lead_magnet_slug: slug,
+    });
+  }
+};

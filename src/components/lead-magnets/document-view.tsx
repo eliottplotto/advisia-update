@@ -1,10 +1,18 @@
 "use client";
 
+import { useEffect } from "react";
 import { Printer } from "lucide-react";
 import type { LeadMagnet } from "@/lib/lead-magnets/types";
+import { trackLeadMagnetDownload, trackLeadMagnetUnlock } from "@/lib/analytics";
 
 export default function DocumentView({ magnet }: { magnet: LeadMagnet }) {
+  // Fire unlock event on mount (le document est affiché = token validé)
+  useEffect(() => {
+    trackLeadMagnetUnlock(magnet.slug);
+  }, [magnet.slug]);
+
   const handlePrint = () => {
+    trackLeadMagnetDownload(magnet.slug);
     if (typeof window !== "undefined") window.print();
   };
 
