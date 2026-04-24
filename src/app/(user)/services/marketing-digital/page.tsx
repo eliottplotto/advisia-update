@@ -23,6 +23,7 @@ import OffresMarketingGrid from "./offres-marketing-grid";
 import LeviersAccordion from "@/components/services/marketing-digital/leviers-accordion";
 import SeoFooterText from "@/components/seo-footer-text";
 import SeoH2 from "@/components/seo-h2";
+import ResourceCTA from "@/components/lead-magnets/resource-cta";
 
 export const metadata = {
   title: "Marketing Digital & SEO pour PME | Agence Advisia",
@@ -226,6 +227,13 @@ export default function MarketingDigital() {
           subtitle="On audite ça."
           buttonText="Demander un audit gratuit"
         />
+
+        {/* Ressource gratuite — Lead magnet SEO local */}
+        <section className="py-10 lg:py-16 global-padding-x">
+          <div className="max-w-[1400px] mx-auto">
+            <ResourceCTA slug="checklist-seo-local" variant="banner" />
+          </div>
+        </section>
 
         {/* 8. FAQ */}
         <div id="faq">

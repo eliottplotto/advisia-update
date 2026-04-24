@@ -14,6 +14,7 @@ import SeoFooterText from "@/components/seo-footer-text";
 import SeoSiloSection from "@/components/seo-silo-section";
 import { seoSiloDiagnostics } from "@/lib/seo-silo-content";
 import SeoH2 from "@/components/seo-h2";
+import ResourceCTA from "@/components/lead-magnets/resource-cta";
 
 export const metadata = {
   title: "Diagnostics et Audits pour PME | Advisia",
@@ -332,6 +333,24 @@ export default function DiagnosticsPage() {
                 ))}
               </div>
             </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Ressources gratuites — 3 lead magnets */}
+        <section className="py-12 lg:py-16 global-padding-x" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="max-w-[1400px] mx-auto">
+            <div className="section-label mb-4">● Avant de lancer un diagnostic</div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 max-w-[700px]" style={{ fontFamily: "var(--font-display)" }}>
+              Téléchargez nos checklists gratuites.
+            </h2>
+            <p className="text-base mb-10 max-w-[600px]" style={{ color: "var(--text-secondary)" }}>
+              Les mêmes points qu&apos;on vérifie dans nos diagnostics, en auto-évaluation. Commencez par vous situer.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <ResourceCTA slug="checklist-cession-reprise" variant="inline" />
+              <ResourceCTA slug="10-automatisations-ia-pme" variant="inline" />
+              <ResourceCTA slug="checklist-seo-local" variant="inline" />
+            </div>
           </div>
         </section>
 

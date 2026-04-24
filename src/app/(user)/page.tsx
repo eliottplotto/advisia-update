@@ -7,6 +7,7 @@ import SectionCTAForm from "@/components/section-cta-form";
 import VerticalFlowLine from "@/components/ui/vertical-flow-line";
 import Process from "@/components/home/process";
 import TestimonialsCarousel from "@/components/home/testimonials-carousel";
+import RessourcesSection from "@/components/home/ressources-section";
 
 export const metadata = {
   title: "Agence IA & Automatisation pour PME | Advisia",
@@ -38,6 +39,7 @@ export default function Home() {
       <Process />
       <TestimonialsCarousel />
       <StatsBar />
+      <RessourcesSection />
       <SectionCTAForm />
       <Footer />
     </main>

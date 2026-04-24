@@ -18,6 +18,7 @@ import SeoFooterText from "@/components/seo-footer-text";
 import SeoSiloSection from "@/components/seo-silo-section";
 import { seoSiloCessionReprise } from "@/lib/seo-silo-content";
 import SeoH2 from "@/components/seo-h2";
+import ResourceCTA from "@/components/lead-magnets/resource-cta";
 
 export const metadata = {
   title: "Cession & reprise d'entreprise PME | Advisia",
@@ -403,6 +404,13 @@ export default function CessionReprisePage() {
             },
           ]}
         />
+
+        {/* Ressource gratuite — Lead magnet Cession */}
+        <section className="py-10 lg:py-16 global-padding-x">
+          <div className="max-w-[1400px] mx-auto">
+            <ResourceCTA slug="checklist-cession-reprise" variant="banner" />
+          </div>
+        </section>
 
         {/* FAQ */}
         <FAQCenter

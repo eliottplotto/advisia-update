@@ -35,12 +35,30 @@ const ACCENT_TEXT = {
   blue: "#60a5fa",
 };
 
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Ressources gratuites Advisia",
+  description:
+    "Checklists et guides PDF pour dirigeants de PME françaises : cession, automatisations IA, SEO local.",
+  itemListElement: LEAD_MAGNETS.map((m, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: `https://advisia.agency/ressources/${m.slug}`,
+    name: m.title,
+  })),
+};
+
 export default function RessourcesHub() {
   return (
     <main
       className="relative"
       style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       <VerticalFlowLine />
 
       <section className="w-full overflow-hidden" style={{ background: "rgba(10,10,15,0.85)" }}>

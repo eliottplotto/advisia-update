@@ -24,6 +24,7 @@ import PageTestimonial from "@/components/page-testimonial";
 import ApprochBlocs from "@/components/services/automatisations-ia/approche-blocs";
 import SeoFooterText from "@/components/seo-footer-text";
 import SeoH2 from "@/components/seo-h2";
+import ResourceCTA from "@/components/lead-magnets/resource-cta";
 
 export const metadata = {
   title: "Agents IA & Automatisation pour PME | Agence Advisia",
@@ -317,6 +318,13 @@ export default function AutomatisationsIA() {
           subtitle="Décrivez-nous votre situation."
           buttonText="Analyser mon besoin — gratuit"
         />
+
+        {/* Ressource gratuite — Lead magnet Automatisations IA */}
+        <section className="py-10 lg:py-16 global-padding-x">
+          <div className="max-w-[1400px] mx-auto">
+            <ResourceCTA slug="10-automatisations-ia-pme" variant="banner" />
+          </div>
+        </section>
 
         {/* 10. FAQ */}
         <div id="faq">

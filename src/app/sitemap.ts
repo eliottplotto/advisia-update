@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllProjectSlugs, getAllArticleSlugs } from "@/sanity/lib/queries";
+import { LEAD_MAGNETS } from "@/lib/lead-magnets/data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://advisia.agency";
@@ -80,6 +81,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     },
     {
+      url: `${baseUrl}/cession-reprise`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/diagnostics`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/tarifs`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/accompagnement`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/ressources`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/mentions-legales`,
       lastModified: now,
       changeFrequency: "yearly",
@@ -109,5 +140,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...projectPages, ...articlePages];
+  // Lead magnet resource pages
+  const resourcePages: MetadataRoute.Sitemap = LEAD_MAGNETS.map((m) => ({
+    url: `${baseUrl}/ressources/${m.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...projectPages, ...articlePages, ...resourcePages];
 }
